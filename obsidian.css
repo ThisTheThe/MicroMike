@@ -1297,7 +1297,7 @@ input.prompt-input {
 }
 
 
-?* Resize Bars */
+/* Resize Bars */
 
 .workspace-leaf-resize-handle {
 	width:var(--handleSize) !important;
