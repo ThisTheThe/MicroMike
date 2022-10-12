@@ -412,7 +412,7 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
 
 /* @settings
 
-name: Your Section Name Here
+name: Micro Mike
 id: a-unique-id
 settings:
 	- 
@@ -420,32 +420,10 @@ settings:
 		title: My Settings
 		type: heading
 		level: 3
-	- 
-		id: accent
-		title: Accent Color
-		type: variable-color
-		format: hsl-split
-		default: '#007AFF'
-	- 
-		id: the-font
-		title: UI font
-		description: Font used for the user interface
-		type: variable-text
-		default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif
-	- 
-		id: the-font-size
-		title: Font Size
-		description: Font scale. Does not apply to intentionally smaller components.
-		type: variable-number-slider
-		default: 14
-		min: 6
-		max: 30
-		step: 1
-		format: px
 	-
 		id: heightRibbon
 		title: Ribbon Button Height
-		description: Font scale. Does not apply to intentionally smaller components.
+		description: Height of buttons on side ribbon.
 		type: variable-number-slider
 		default: 30
 		min: 30
@@ -454,8 +432,8 @@ settings:
 		format: px
 	-
 		id: handleSize
-		title: Ribbon Button Height
-		description: Font scale. Does not apply to intentionally smaller components.
+		title: Side Handle Thickness
+		description: Resize handle thickness. 
 		type: variable-number-slider
 		default: 8
 		min: 4
@@ -464,8 +442,8 @@ settings:
 		format: px
 	-
 		id: windowSize
-		title: Ribbon Button Height
-		description: Font scale. Does not apply to intentionally smaller components.
+		title: Text Window Length
+		description: Size of text window in text editor. 
 		type: variable-number-slider
 		default: 700
 		min: 300
@@ -475,19 +453,13 @@ settings:
 	-	
 		id: gutterSize
 		title: Gutter Size
-		description: Font scale. Does not apply to intentionally smaller components.
+		description: Gutter Size. Affects header collapse arrow size.
 		type: variable-number-slider
 		default: 30
 		min: 10
 		max: 50
 		step: 1
 		format: px
-	-
-		id: my-css-class
-		title: My Toggle
-		description: Left-align write box. Is the thing gonna blow up? 
-		default: True
-		type: class-toggle
 */
 :root {
   --background: #3D3935;
@@ -1767,7 +1739,14 @@ color:var(--background2);
 {
 	box-shadow: -1px 1px white,-1px -1px white;
 	background-color:var(--fontCol) !important;
-	color:black !important;
+	color:var(--background2) !important;
+}
+.nav-file-title.is-active .nav-file-tag,
+.nav-file-title:hover .nav-file-tag,
+.nav-folder-title.is-active .nav-file-tag,
+.nav-folder-title:hover .nav-file-tag
+{
+	color:var(--fontCol) !important;
 }
 .nav-folder-title.is-being-dragged,
 .nav-file-title.is-being-dragged  {
