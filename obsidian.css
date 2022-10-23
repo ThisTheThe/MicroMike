@@ -34,382 +34,14 @@ copies or substantial portions of the Software.
 
 https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme
 
-Mozilla Public License Version 2.0
-==================================
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-1. Definitions
---------------
+https://github.com/Dmytro-Shulha/obsidian-css-snippets
 
-1.1. "Contributor"
-    means each individual or legal entity that creates, contributes to
-    the creation of, or owns Covered Software.
-
-1.2. "Contributor Version"
-    means the combination of the Contributions of others (if any) used
-    by a Contributor and that particular Contributor's Contribution.
-
-1.3. "Contribution"
-    means Covered Software of a particular Contributor.
-
-1.4. "Covered Software"
-    means Source Code Form to which the initial Contributor has attached
-    the notice in Exhibit A, the Executable Form of such Source Code
-    Form, and Modifications of such Source Code Form, in each case
-    including portions thereof.
-
-1.5. "Incompatible With Secondary Licenses"
-    means
-
-    (a) that the initial Contributor has attached the notice described
-        in Exhibit B to the Covered Software; or
-
-    (b) that the Covered Software was made available under the terms of
-        version 1.1 or earlier of the License, but not also under the
-        terms of a Secondary License.
-
-1.6. "Executable Form"
-    means any form of the work other than Source Code Form.
-
-1.7. "Larger Work"
-    means a work that combines Covered Software with other material, in
-    a separate file or files, that is not Covered Software.
-
-1.8. "License"
-    means this document.
-
-1.9. "Licensable"
-    means having the right to grant, to the maximum extent possible,
-    whether at the time of the initial grant or subsequently, any and
-    all of the rights conveyed by this License.
-
-1.10. "Modifications"
-    means any of the following:
-
-    (a) any file in Source Code Form that results from an addition to,
-        deletion from, or modification of the contents of Covered
-        Software; or
-
-    (b) any new file in Source Code Form that contains any Covered
-        Software.
-
-1.11. "Patent Claims" of a Contributor
-    means any patent claim(s), including without limitation, method,
-    process, and apparatus claims, in any patent Licensable by such
-    Contributor that would be infringed, but for the grant of the
-    License, by the making, using, selling, offering for sale, having
-    made, import, or transfer of either its Contributions or its
-    Contributor Version.
-
-1.12. "Secondary License"
-    means either the GNU General Public License, Version 2.0, the GNU
-    Lesser General Public License, Version 2.1, the GNU Affero General
-    Public License, Version 3.0, or any later versions of those
-    licenses.
-
-1.13. "Source Code Form"
-    means the form of the work preferred for making modifications.
-
-1.14. "You" (or "Your")
-    means an individual or a legal entity exercising rights under this
-    License. For legal entities, "You" includes any entity that
-    controls, is controlled by, or is under common control with You. For
-    purposes of this definition, "control" means (a) the power, direct
-    or indirect, to cause the direction or management of such entity,
-    whether by contract or otherwise, or (b) ownership of more than
-    fifty percent (50%) of the outstanding shares or beneficial
-    ownership of such entity.
-
-2. License Grants and Conditions
---------------------------------
-
-2.1. Grants
-
-Each Contributor hereby grants You a world-wide, royalty-free,
-non-exclusive license:
-
-(a) under intellectual property rights (other than patent or trademark)
-    Licensable by such Contributor to use, reproduce, make available,
-    modify, display, perform, distribute, and otherwise exploit its
-    Contributions, either on an unmodified basis, with Modifications, or
-    as part of a Larger Work; and
-
-(b) under Patent Claims of such Contributor to make, use, sell, offer
-    for sale, have made, import, and otherwise transfer either its
-    Contributions or its Contributor Version.
-
-2.2. Effective Date
-
-The licenses granted in Section 2.1 with respect to any Contribution
-become effective for each Contribution on the date the Contributor first
-distributes such Contribution.
-
-2.3. Limitations on Grant Scope
-
-The licenses granted in this Section 2 are the only rights granted under
-this License. No additional rights or licenses will be implied from the
-distribution or licensing of Covered Software under this License.
-Notwithstanding Section 2.1(b) above, no patent license is granted by a
-Contributor:
-
-(a) for any code that a Contributor has removed from Covered Software;
-    or
-
-(b) for infringements caused by: (i) Your and any other third party's
-    modifications of Covered Software, or (ii) the combination of its
-    Contributions with other software (except as part of its Contributor
-    Version); or
-
-(c) under Patent Claims infringed by Covered Software in the absence of
-    its Contributions.
-
-This License does not grant any rights in the trademarks, service marks,
-or logos of any Contributor (except as may be necessary to comply with
-the notice requirements in Section 3.4).
-
-2.4. Subsequent Licenses
-
-No Contributor makes additional grants as a result of Your choice to
-distribute the Covered Software under a subsequent version of this
-License (see Section 10.2) or under the terms of a Secondary License (if
-permitted under the terms of Section 3.3).
-
-2.5. Representation
-
-Each Contributor represents that the Contributor believes its
-Contributions are its original creation(s) or it has sufficient rights
-to grant the rights to its Contributions conveyed by this License.
-
-2.6. Fair Use
-
-This License is not intended to limit any rights You have under
-applicable copyright doctrines of fair use, fair dealing, or other
-equivalents.
-
-2.7. Conditions
-
-Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted
-in Section 2.1.
-
-3. Responsibilities
--------------------
-
-3.1. Distribution of Source Form
-
-All distribution of Covered Software in Source Code Form, including any
-Modifications that You create or to which You contribute, must be under
-the terms of this License. You must inform recipients that the Source
-Code Form of the Covered Software is governed by the terms of this
-License, and how they can obtain a copy of this License. You may not
-attempt to alter or restrict the recipients' rights in the Source Code
-Form.
-
-3.2. Distribution of Executable Form
-
-If You distribute Covered Software in Executable Form then:
-
-(a) such Covered Software must also be made available in Source Code
-    Form, as described in Section 3.1, and You must inform recipients of
-    the Executable Form how they can obtain a copy of such Source Code
-    Form by reasonable means in a timely manner, at a charge no more
-    than the cost of distribution to the recipient; and
-
-(b) You may distribute such Executable Form under the terms of this
-    License, or sublicense it under different terms, provided that the
-    license for the Executable Form does not attempt to limit or alter
-    the recipients' rights in the Source Code Form under this License.
-
-3.3. Distribution of a Larger Work
-
-You may create and distribute a Larger Work under terms of Your choice,
-provided that You also comply with the requirements of this License for
-the Covered Software. If the Larger Work is a combination of Covered
-Software with a work governed by one or more Secondary Licenses, and the
-Covered Software is not Incompatible With Secondary Licenses, this
-License permits You to additionally distribute such Covered Software
-under the terms of such Secondary License(s), so that the recipient of
-the Larger Work may, at their option, further distribute the Covered
-Software under the terms of either this License or such Secondary
-License(s).
-
-3.4. Notices
-
-You may not remove or alter the substance of any license notices
-(including copyright notices, patent notices, disclaimers of warranty,
-or limitations of liability) contained within the Source Code Form of
-the Covered Software, except that You may alter any license notices to
-the extent required to remedy known factual inaccuracies.
-
-3.5. Application of Additional Terms
-
-You may choose to offer, and to charge a fee for, warranty, support,
-indemnity or liability obligations to one or more recipients of Covered
-Software. However, You may do so only on Your own behalf, and not on
-behalf of any Contributor. You must make it absolutely clear that any
-such warranty, support, indemnity, or liability obligation is offered by
-You alone, and You hereby agree to indemnify every Contributor for any
-liability incurred by such Contributor as a result of warranty, support,
-indemnity or liability terms You offer. You may include additional
-disclaimers of warranty and limitations of liability specific to any
-jurisdiction.
-
-4. Inability to Comply Due to Statute or Regulation
----------------------------------------------------
-
-If it is impossible for You to comply with any of the terms of this
-License with respect to some or all of the Covered Software due to
-statute, judicial order, or regulation then You must: (a) comply with
-the terms of this License to the maximum extent possible; and (b)
-describe the limitations and the code they affect. Such description must
-be placed in a text file included with all distributions of the Covered
-Software under this License. Except to the extent prohibited by statute
-or regulation, such description must be sufficiently detailed for a
-recipient of ordinary skill to be able to understand it.
-
-5. Termination
---------------
-
-5.1. The rights granted under this License will terminate automatically
-if You fail to comply with any of its terms. However, if You become
-compliant, then the rights granted under this License from a particular
-Contributor are reinstated (a) provisionally, unless and until such
-Contributor explicitly and finally terminates Your grants, and (b) on an
-ongoing basis, if such Contributor fails to notify You of the
-non-compliance by some reasonable means prior to 60 days after You have
-come back into compliance. Moreover, Your grants from a particular
-Contributor are reinstated on an ongoing basis if such Contributor
-notifies You of the non-compliance by some reasonable means, this is the
-first time You have received notice of non-compliance with this License
-from such Contributor, and You become compliant prior to 30 days after
-Your receipt of the notice.
-
-5.2. If You initiate litigation against any entity by asserting a patent
-infringement claim (excluding declaratory judgment actions,
-counter-claims, and cross-claims) alleging that a Contributor Version
-directly or indirectly infringes any patent, then the rights granted to
-You by any and all Contributors for the Covered Software under Section
-2.1 of this License shall terminate.
-
-5.3. In the event of termination under Sections 5.1 or 5.2 above, all
-end user license agreements (excluding distributors and resellers) which
-have been validly granted by You or Your distributors under this License
-prior to termination shall survive termination.
-
-************************************************************************
-*                                                                      *
-*  6. Disclaimer of Warranty                                           *
-*  -------------------------                                           *
-*                                                                      *
-*  Covered Software is provided under this License on an "as is"       *
-*  basis, without warranty of any kind, either expressed, implied, or  *
-*  statutory, including, without limitation, warranties that the       *
-*  Covered Software is free of defects, merchantable, fit for a        *
-*  particular purpose or non-infringing. The entire risk as to the     *
-*  quality and performance of the Covered Software is with You.        *
-*  Should any Covered Software prove defective in any respect, You     *
-*  (not any Contributor) assume the cost of any necessary servicing,   *
-*  repair, or correction. This disclaimer of warranty constitutes an   *
-*  essential part of this License. No use of any Covered Software is   *
-*  authorized under this License except under this disclaimer.         *
-*                                                                      *
-************************************************************************
-
-************************************************************************
-*                                                                      *
-*  7. Limitation of Liability                                          *
-*  --------------------------                                          *
-*                                                                      *
-*  Under no circumstances and under no legal theory, whether tort      *
-*  (including negligence), contract, or otherwise, shall any           *
-*  Contributor, or anyone who distributes Covered Software as          *
-*  permitted above, be liable to You for any direct, indirect,         *
-*  special, incidental, or consequential damages of any character      *
-*  including, without limitation, damages for lost profits, loss of    *
-*  goodwill, work stoppage, computer failure or malfunction, or any    *
-*  and all other commercial damages or losses, even if such party      *
-*  shall have been informed of the possibility of such damages. This   *
-*  limitation of liability shall not apply to liability for death or   *
-*  personal injury resulting from such party's negligence to the       *
-*  extent applicable law prohibits such limitation. Some               *
-*  jurisdictions do not allow the exclusion or limitation of           *
-*  incidental or consequential damages, so this exclusion and          *
-*  limitation may not apply to You.                                    *
-*                                                                      *
-************************************************************************
-
-8. Litigation
--------------
-
-Any litigation relating to this License may be brought only in the
-courts of a jurisdiction where the defendant maintains its principal
-place of business and such litigation shall be governed by laws of that
-jurisdiction, without reference to its conflict-of-law provisions.
-Nothing in this Section shall prevent a party's ability to bring
-cross-claims or counter-claims.
-
-9. Miscellaneous
-----------------
-
-This License represents the complete agreement concerning the subject
-matter hereof. If any provision of this License is held to be
-unenforceable, such provision shall be reformed only to the extent
-necessary to make it enforceable. Any law or regulation which provides
-that the language of a contract shall be construed against the drafter
-shall not be used to construe this License against a Contributor.
-
-10. Versions of the License
----------------------------
-
-10.1. New Versions
-
-Mozilla Foundation is the license steward. Except as provided in Section
-10.3, no one other than the license steward has the right to modify or
-publish new versions of this License. Each version will be given a
-distinguishing version number.
-
-10.2. Effect of New Versions
-
-You may distribute the Covered Software under the terms of the version
-of the License under which You originally received the Covered Software,
-or under the terms of any subsequent version published by the license
-steward.
-
-10.3. Modified Versions
-
-If you create software not governed by this License, and you want to
-create a new license for such software, you may create and use a
-modified version of this License if you rename the license and remove
-any references to the name of the license steward (except to note that
-such modified license differs from this License).
-
-10.4. Distributing Source Code Form that is Incompatible With Secondary
-Licenses
-
-If You choose to distribute Source Code Form that is Incompatible With
-Secondary Licenses under the terms of this version of the License, the
-notice described in Exhibit B of this License must be attached.
-
-Exhibit A - Source Code Form License Notice
--------------------------------------------
-
-  This Source Code Form is subject to the terms of the Mozilla Public
-  License, v. 2.0. If a copy of the MPL was not distributed with this
-  file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-If it is not possible or desirable to put the notice in a particular
-file, then You may include the notice in a location (such as a LICENSE
-file in a relevant directory) where a recipient would be likely to look
-for such a notice.
-
-You may add additional accurate notices of copyright ownership.
-
-Exhibit B - "Incompatible With Secondary Licenses" Notice
----------------------------------------------------------
-
-  This Source Code Form is "Incompatible With Secondary Licenses", as
-  defined by the Mozilla Public License, v. 2.0.
-
-*/
-
+(this has no license, but I did use it)
+ */
 /* @settings
 
 name: Micro Mike
@@ -420,6 +52,12 @@ settings:
 		title: My Settings
 		type: heading
 		level: 3
+	-	
+		title: UI font
+        description: Font used for the user interface
+        type: variable-text
+        default: Ubuntu, "Segoe UI", Roboto, Cantarell, "Helvetica Neue", sans-serif
+ 
 	-
 		id: heightRibbon
 		title: Ribbon Button Height
@@ -460,12 +98,39 @@ settings:
 		max: 50
 		step: 1
 		format: px
+    - 
+        id: enable-ed-left-align
+        title: My Toggle
+        description: Toggle left-aligned readable lines in editor. 
+        type: class-toggle
+	-
+	    id: enable-ed-left-align
+        title: My Toggle
+        description: Toggle larger buttons in editor.
+        type: class-toggle
+	-
+	    id: qe-supp1
+        title: Enable QE Support
+        description: QE Support is normally disabled. This will readd it. 
+        type: class-toggle
 */
 :root {
+	
+	  --surface: #c0c0c0;
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --window-frame: #0a0a0a;
+  --dialog-blue: #000080;
+  --dialog-blue-light: #1084d0;
+  --dialog-gray: #808080;
+  --dialog-gray-light: #b5b5b5;
+  --link-blue: #0000ff;
+  
   --background: #3D3935;
   --background2: #000;
-  --selectionAccentHover: #333333;
-  --selectionAccentActive: #606060;
+  --selectionAccentHover: #4B4844;
+  --selectionAccentActive: #4B4844;
   --intermediary: #7A7672;
   
   --fontCol: #ddd;
@@ -475,18 +140,23 @@ settings:
   --bevelBright2: #85898d;
   --bevelDark1: #000; 
   --bevelDark2: #7A7672; 
-  --border-raised: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
-  --border-sunken: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
+  --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
+  --bevelStyleButtonMin: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright1);
+  --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
   --bevelStyleTabActive: inset -1px 0 var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px 0 var(--bevelDark2), inset 2px 2px var(--bevelBright1);
   
-  
+  /*
+  --bevelStyleVert:inset -1px 0 var(--bevelBright1), inset 1px 0 var(--bevelDark1);
+  --bevelStyleHoriz:inset 0 -1px var(--bevelBright1), inset 0 1px var(--bevelDark1);
+  */
   --heightRibbon: 60px;
   --the-font: "Ubuntu";
   --the-font-size: 14px;
   --handleSize: 16px;
   --windowSize: 700px;
   --gutterSize:30px;
-  } 
+} 
+  
 :root {
   --the-color: #15d00d;
   --the-color-rgb: 35, 255, 24;
@@ -502,7 +172,6 @@ settings:
 
   /* Prompts */
 }
-
 .theme-dark
 {
     --text-selection: #0561D1;
@@ -530,6 +199,14 @@ settings:
   animation: none !important;
 }
 
+.workspace-ribbon, .workspace-tabs, .workspace-tab-header-container, .workspace-leaf-resize-handle {
+  background-color: var(--background);
+  
+}
+.workspace-tabs .workspace-leaf {
+  background-color: var(--background);
+}
+
 /* The edge shold be clickable */
 
 .mod-windows {
@@ -545,27 +222,82 @@ settings:
 .mod-community-theme {
 	border: 0;
 }
+
+/* Fix boxshadow bug */
+
+
+.clickable-icon:hover {
+	box-shadow: var(--bevelStyleButton);
+}
+
+.workspace
+{
+	background-color:var(--background2);
+}
+body .workspace-tabs
+{
+	background-color:var(--background2);
+}
+.workspace-tab-header-container
+{
+	top:0px;
+}
+.workspace-split.mod-left-split .workspace-tabs
+{
+	
+	padding-right:3px;
+}
+.workspace-split.mod-right-split .workspace-tabs
+{
+	padding-left:3px;
+}
+
+.mod-left-split .workspace-tab-header-container
+{
+	margin-right:-1px;
+}
+.mod-left-split .workspace-tabs
+{
+	padding-bottom:3px;
+}
+
+.mod-right-split .workspace-tabs
+{
+	padding-left:3px;
+	padding-bottom:3px;
+}
+.mod-right-split .workspace-tabs:last-of-type,
+.mod-left-split .workspace-tabs:last-of-type
+{
+	padding-bottom:0;
+}
 /* Backlinks */
 
-.backlink-pane, .outgoing-link-pane {
+.backlink-pane, 
+.outgoing-link-pane 
+{
   background: var(--background2);
   font-family: var(--the-font);
   font-size: var(--the-font-size);
   color: var(--fontCol);
   -webkit-font-smoothing: none;
   letter-spacing: 0;
-  box-shadow: var(--border-raised);
+  box-shadow: var(--bevelStyleContainer);
+  padding:2px;
 }
 .backlink-pane .tree-item-inner,
-.outgoing-link-pane .tree-item-inner,
+.outgoing-link-pane .tree-item-inner
 {
 	line-height:1em;
-	background-color:red;
-	box-shadow: var(--border-raised);
-	border: 5px solid red;
+}
+
+.search-results-children
+{
+	margin-left:3px;
+	margin-right:3px;
 }
 /* Dropdown */
-
+/* Universal Dropdown mods */
 .menu{
   word-wrap: none;
   white-space: nowrap;
@@ -594,16 +326,13 @@ settings:
   font-family: var(--the-font);
   line-height: 1em;
   font-size:12px;
-  line-height:0;
 }
-
 .menu-separator {
   position: relative;
   width: 200%;
   left:-1px;
   margin: 2px auto;
 }
-
 .menu-item.selected:not(.is-disabled):not(.is-label) {
   background: linear-gradient(180deg, #7AA3E5 0%, #5680C1 100%);
   background-color: var(--background);
@@ -612,47 +341,90 @@ settings:
 .menu-item-icon svg {
   color: #ffffff;
   padding-left:5px; 
-  width:unset;
-  top: 0%;
-  left: 0%;
-}
-.menu-item.selected:not(.is-disabled):not(.is-label) svg {
-  color:#000;
+  width:20px;
+  height:20px;
 }
 .menu-item-icon {
   color: #000;
   height:14px;
 }
-
-/* Editor */
-
-/* Button styling for editor buttons */
-
-.view-actions {
-	padding:0;
-	margin-bottom:2px;
-}
-
-.view-action {
-	box-shadow:var(--border-raised);
-	padding: 4px 8px;
-	margin:0px;
+.menu:not(.qe-popup-menu) .menu-item-title
+{
+	padding-left:24px;
 	align-items:center;
-	display:flex;
+}
+.menu-item.selected:not(.is-disabled):not(.is-label) svg {
+  color:#000;
 }
 
+/* Tab List */
+.menu.mod-tab-list .menu-item-title
+{
+	margin-top:-10px;
+	line-height:12px;
+	align-items:flex-start;
+	vertical-align: text-top;
+}
+.menu.mod-no-icon .menu-item-title
+{
+	margin:0px;
+}
+
+/* Button Dropdowns */
+.menu.mod-no-icon .menu-item
+{
+	margin:auto;
+	row-gap:0px;
+	column-gap:0px;
+}
+.menu.mod-no-icon .menu-item-title
+{
+	vertical-align:middle;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-top:5px;
+}
+.menu.mod-no-icon .menu-item-icon.mod-checked
+{
+	margin-top:-17px;
+}
+.markdown-source-view.mod-cm6 .cm-scroller
+{
+	padding:16px;
+}
+
+.markdown-source-view.mod-cm6 .cm-gutters
+{
+	border-right:1px solid var(--intermediary) !important;
+	padding:0px;
+	margin: 0px;
+	margin-left:-5px;
+	position:relative;
+	margin-right:20px;
+}
+.HyperMD-header .markdown-source-view.mod-cm6 .cm-fold-indicator .collapse-indicator.collapse-icon
+{
+	padding-right:0px;
+	padding:0px;
+	margin:0px;
+	color:red;
+	margin:auto;
+	border:1px red solid !important;
+}
+.cm-contentContainer
 /* New approach to crushing textboxes */
-.markdown-source-view.mod-cm5
+.markdown-source-view.mod-cm6
 {
 	padding:0px;
 }
+
 .cm-s-obsidian
 {
 	max-width: var(--windowSize);
 }
-.CodeMirror-sizer 
+.cm-sizer 
 {
-	padding-right:10px !important;
+	padding-right:px !important;
 }
 .CodeMirror-lines
 {
@@ -702,7 +474,7 @@ settings:
 }
 .CodeMirror-guttermarker-subtle::after
 {
-	font-size:var(--gutterSize);
+	font-size:30px;
 	padding-left:5px;
 	text-align:center;
 }
@@ -722,342 +494,212 @@ settings:
 	background-color:var(--background2) !important;
 	
 }
-.mod-right-split .workspace-tabs .workspace-leaf {
+.mod-right-split .workspace-tabs .workspace-leaf,
+.mod-left-split .workspace-tabs .workspace-leaf {
     background-color: var(--background2);
-	box-shadow:var(--border-raised);
-}/*
-    clean-embeds-all.css snippet
-
-    Removes title, link, padding, margins from embeds,
-    so they really look like the same note.
-
-    This will not require a `cssclass` to be set but work for _all_ notes.
-    Derived from the `clean-embeds.css` snippet.
-
-    2021-05-28 Matthias C. Hormann (Moonbase59)
-
-    TODO: Find out how to correct PDF export. L/R margins & vspace too large on embeds.
-*/
-
-
-/* remove title */
-.markdown-preview-view .markdown-embed-title {
-  display: none;
+	box-shadow:var(--bevelStyleContainer);
 }
-
-/*
-  For links to embeds NOT to be shown, uncomment the following
-  and comment out the other section below.
-*/
-
-/*
-.markdown-preview-view .markdown-embed-link,
-.markdown-preview-view .file-embed-link {
-  display: none;
-}
-*/
-
-/*
-  For links to embeds to BE shown, uncomment the following
-  until the "End link show/hide stuff" comment
-  and comment out the section above.
-*/
-
-/* Link icon */
-.markdown-preview-view .markdown-embed-link,
-.markdown-preview-view .file-embed-link {
-  top: 0;
-  right: 0;
-  left: unset;
-  text-align: right;
-  border-left: none;
-  margin: 0;
-  width: 24px;
-  height: 24px;
-  color: var(--text-faint);
-  cursor: pointer;
-}
-
-/* for Ars Magna theme and others that change ::before */
-.markdown-preview-view .markdown-embed-link::before,
-.markdown-preview-view .file-embed-link::before {
-  display: none;
-}
-
-/* Link icon size & hide */
-.markdown-preview-view .file-embed-link svg,
-.markdown-preview-view .markdown-embed-link svg {
-  height: 24px;
-  width: 24px;
-  opacity: 0;
-  display: unset;
-}
-
-/* show on hover */
-.markdown-preview-view .markdown-embed:hover .file-embed-link svg,
-.markdown-preview-view .markdown-embed:hover .markdown-embed-link svg {
-  opacity: 1;
-}
-
-/* change background on hover, to exactly see what’s embedded */
-.markdown-preview-view .markdown-embed:hover,
-.markdown-preview-view .file-embed:hover {
-  background-color: var(--background-secondary) !important;
-}
-
-/* End link show/hide stuff */
-
-
-
-/* remove border and scroll */
-/* unfortunately needs !important for some themes */
-
-.markdown-preview-view .markdown-embed,
-.markdown-preview-view .file-embed {
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.markdown-preview-view .markdown-embed-content,
-.markdown-preview-view .markdown-embed-content > .markdown-preview-view { 
-  max-height: unset;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* remove <br> between internal embeds */
- .markdown-preview-section div > p br,
- .markdown-preview-section div > br {
-  display: none;
-}
-
-
-/* remove vertical space added by markdown-preview-sizer */
- div.markdown-preview-sizer.markdown-preview-section {
-  min-height: unset !important;
-  padding-bottom: 0 !important;
-}
-
-/* special considerations for printing (PDF export) */
-@media print {
-
-  /* remove frontmatter box if "Show frontmatter" was enabled */
-  pre.frontmatter {
-    display: none;
-  }
-}
-
-/* Modifications for personal pref */
-:root {
-    --border-sunken: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
-
-}
-.markdown-preview-view .markdown-embed,
-.markdown-preview-view .file-embed {
-
-  box-shadow: var(--border-sunken);
-  padding-left:10px;
-  padding-right:5px;
-}
-
-/* Configurable hierarchical bg colors */
-/*
-.markdown-embed
+.mod-vertical .workspace-tab-header-container-inner
 {
-	background-image: linear-gradient(to right, #005c99 0%, rgba(121,9,9,0) 4%)
-
+	margin:0px;
+	padding:0px;
 }
-.markdown-embed .markdown-embed
+.mod-vertical .workspace-tab-header
 {
-			background-image: linear-gradient(to right, #808000 0%, rgba(121,9,9,0) 4%)
-
+	
+	border-radius:0;
+}
+.mod-vertical .workspace-tab-header:not(.is-active)
+{
+	
+	margin:0px;
+	padding:0px;
+}
+.mod-vertical .workspace-tab-header:not(.is-active):hover
+{
+	
+}
+.mod-vertical .workspace-tab-header.is-active
+{
+	margin:0px;
+	padding:0px;
+	text-decoration: underline;
 }
 
-.markdown-embed .markdown-embed .markdown-embed
+.mod-vertical .workspace-tab-header-inner:not(.is-active),
+.mod-vertical .workspace-tab-header-inner:not(.is-active):hover,
+.mod-vertical .workspace-tab-header-inner.is-active
 {
-		background: linear-gradient(90deg, #995c00 0%, rgba(121,9,9,0) 4%);
-
+	padding-left: 10px;
 }
-.markdown-embed .markdown-embed .markdown-embed .markdown-embed
+.mod-vertical .workspace-tab-header:not(.is-active) .workspace-tab-header-inner
 {
-		background: linear-gradient(90deg, #660000 0%, rgba(121,9,9,0) 4%);
-
+	box-shadow: var(--bevelStyleButton);
 }
-.markdown-embed .markdown-embed .markdown-embed .markdown-embed .markdown-embed
+.mod-vertical .workspace-tab-header:not(.is-active) .workspace-tab-header-inner:hover
 {
-		background-image: linear-gradient(to right, #6600cc 0%, rgba(121,9,9,0) 4%)
-
+	background-color: var(--background);
 }
-.markdown-embed .markdown-embed .markdown-embed .markdown-embed .markdown-embed .markdown-embed
+.mod-vertical .workspace-tab-header.is-active .workspace-tab-header-inner
 {
-	background-image: linear-gradient(to right, #005c99 0%, rgba(121,9,9,0) 4%)
+	background-color: var(--selectionAccentHover);
+	box-shadow: var(--bevelStyleButton);
+	
+}
+.mod-vertical .workspace-tab-header.is-active::before,
+.mod-vertical .workspace-tab-header.is-active::after
+{
+	height:0px;
+}
+.mod-vertical .workspace-tab-header-inner
+{
+	
+	margin:0px;
+	padding:0px;	
+}
+.mod-root .workspace-tab-header-container .workspace-tab-header-inner-close-button
+{
+	background-color: var(--background);
+	box-shadow: var(--bevelStyleButton);
+	color: var(--fontCol);
+	position:relative;
+	height:100%;
+	width:50px;
+	margin:0px;
+	padding:0px;
+}
+.mod-root .workspace-tab-header-container .workspace-tab-header-inner-close-button:hover
+{
+	background-color: var(--fontCol);
+	color: var(--background);
+}
+.workspace-tab-header-inner-close-button svg
+{
+	margin:auto;
+}
+.workspace-tab-header-new-tab 
+{
+	margin:0px;
+	padding:0px;
+	box-shadow: var(--bevelStyleButton);
+}
+.workspace-tab-header-new-tab .clickable-icon
+{
+	box-shadow: none;
+}
+.workspace-tab-header-tab-list
+{
+	margin:0px;
+	padding:0px;
+	box-shadow: var(--bevelStyleButton);
+}
+.workspace-tab-header-tab-list .clickable-icon
+{
+	box-shadow: none;
+}
+/* NT sizing */
 
-}*/
+.workspace-tab-header-container
+{
+	height:30px;
+}
+.mod-root .workspace-tab-header-container .workspace-tab-header
+{
+	width: 9000px;
+	max-width:unset;
+	flex-grow:1;
+}
+.mod-root .sidebar-toggle-button.mod-right
+{
+	height:29px;
+}
+.titlebar .titlebar-button-container.mod-right
+{
+	height:29px;
+}
+
+
+/* Editor buttons */
+.view-header-nav-buttons
+{
+	flex-grow:1;
+}
+.view-header-nav-buttons button
+{
+	flex-grow:1;
+	box-shadow:var(--bevelStyleButton);
+	height:32px;
+	padding:0px;
+	background-color:var(--background);
+}
+.view-header-title-container
+{
+	flex-grow:1;
+}
+.view-actions
+{
+	flex-grow:1;
+}
+.view-actions a
+{
+	flex-grow:1;
+	box-shadow:var(--bevelStyleButton);
+	height:32px;
+	padding:0px;
+	background-color:var(--background);
+}
+.mod-root .view-header
+{
+	margin:0px;
+	padding:0px 3px;
+	border-bottom: 1px var(--intermediary) solid !important;
+}
+.sidebar-toggle-button.mod-right
+{
+	margin-top:0px;
+	left:0px;
+	position:relative;
+	width:40px;
+	height:40px;
+	padding:0px;
+	box-shadow: var(--bevelStyleButton);
+	background-color: var(--background);
+}
+.sidebar-toggle-button.mod-right .clickable-icon
+{
+	width:40px;
+}
 /* Graph View */
 
 body body canvas
 {
 	background-color:var(--background2) !important;
-}
-/* Misc GUI adjustments */
+}/* NEW COMPONENT: OUTLINER */
 
-svg {
-  color:var(--fontCol);
-}
-/* COMPONENT: LEFT SIDEBAR MISC */ 
+.workspace-leaf-content[data-type=outline]
+{
+	  background: var(--background2) !important;
+  box-shadow: var(--bevelStyleContainer);
 
-.workspace-tab-container-before.is-before-active .workspace-tab-header-inner,
-.workspace-tab-header.is-before-active .workspace-tab-header-inner {
-    border-bottom-right-radius: 0px;
 }
-.workspace-tab-container-after.is-after-active .workspace-tab-header-inner,
-.workspace-tab-header.is-after-active .workspace-tab-header-inner {
-    border-bottom-left-radius: 0px;
-}
-.workspace-ribbon, .workspace-tabs, .workspace-tab-header-container, .workspace-leaf-resize-handle {
-  background-color: var(--background);
-  
-}
-.workspace-tabs .workspace-leaf {
-  background-color: var(--background);
-}
-
-.workspace-tab-container-inner {
-  position: relative;
-  margin: 0 0 -2px;
-  text-indent: 0;
-  list-style-type: none;
-  display: flex;
-  padding-left: 3px;
-}
-.workspace-tab-header {
-  color: black;
-  text-align: center;
-  stroke-width: 2px;
-
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  box-shadow: var(--bevelStyleTabActive);
-  z-index: 0;
-}
-.workspace-tab-container-before, .workspace-tab-container-after {
-  width: 0px;
-}
-.workspace-tab-header.is-active {
-  color: black;
-  padding-bottom: 2px;
-  margin-top: -2px;
-  background-color: var(--background);
-  position: relative;
-  z-index: 8;
-  margin-left: -3px;
-}
-.workspace-tab-header.is-after-active  .workspace-tab-header-inner, .workspace-tab-header.is-before-active  .workspace-tab-header-inner {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-  box-shadow: inherit;
-  z-index: 1;
-  background-color: var(--background);
-}
-.workspace-tab-header-inner {
-  transition: none;
-}
-.nav-header {
-  box-shadow: var(--border-raised);
-  background: var(--background);
-  padding: 3px;
-}
-.nav-action-button {
-	margin:0;
-	box-shadow: var(--border-raised);
-}
-/* Mod: Make the buttons take up all the space */
-
-.workspace-tab-container-inner {
-	display: flex;
-	flex-grow:1;
-}
-.workspace-tab-header {
-	flex-grow:1;
-	padding:0;
-	
-}
-.workspace-tab-header-inner {
-	justify-content:center;
-	align-items: center;
-}
-.workspace-tab-header-inner-icon {
-	justify-content:center;
-	align-items: center;
-	line-height:inherit;
-	padding:6px 0 0 0;
-}
-.nav-buttons-container
-{
-	display: flex;
-	flex-grow:1;
-}
-.nav-action-button
-{
-	display: flex;
-	flex-grow:1;
-	height:30px;
-	justify-content:center;
-	align-items: center;
-	padding:0 0 0 0;
-}
-.search-result-container, .mod-right-split .nav-header, .mod-right-split .workspace-tab-header-container
-{
-	margin-left:4px;
-}
-.workspace-ribbon.is-collapsed {
-  background-color: var(--background);
-}
-.workspace-tab-header-container {
-}
-.workspace-leaf
-{
-	border-style: none !important;
-}
-.workspace-leaf-content .view-content {
-	padding-top:0px;
-	padding-bottom:0px;
-	padding-left:0px;
-	padding-right:0px;
-}
-.mod-right-split .workspace-tab-header-container,
-.mod-right-split .nav-header {
-	margin-left:0px;
-}
-/* No I don't wish to update */ 
-.popover {
-	display:none;
-}
-.mod-new-editor
-{
-	display:none;
-}
-.notice-container
-{
-	display:none;
-}
-/* NEW COMPONENT: OUTLINER */
-
-.outline {
+.outline {	
   display: block;
-  background: var(--background2) !important;
-  box-shadow: var(--border-sunken);
-  padding: 6px;
+  padding: 0px;
   margin: 0;
-  margin-top:2px;
 
 }
-
+.is-clickable .tree-item-icon.collapse-icon {
+	
+	width:40px;
+	box-shadow: var(--bevelStyleButton);
+	padding:0px;
+	margin-left:1px;
+	height:16px;
+	margin-bottom:-4px;
+	}
 .tree-item-icon.collapse-icon svg{
   color: var(--fontCol);
-  line-height:11px;
+     margin: auto;
   /*display: none;*/
 }
 
@@ -1065,29 +707,23 @@ svg {
   font-size: 11px;
   margin-top: 3px;
   line-height: 1em;
-  font-family: "Ubuntu";
-  
 }
 
 .tree-item-inner {
-  border-radius: 0px;
-  border: 0px solid transparent;
-  display: inline-block;
-  padding: 0px 0px;
   color: var(--fontCol);
-  position: relative;
+  margin-left:3px;
 }
-
-.tree-item-children .tree-item-children {
-  margin-left: 16px;
-  padding-left: 16px;
+.tree-item-self.is-clickable
+{
+	padding:0px;
+	margin:auto;
 }
-
 .tree-item-self.is-clickable:hover
 {
 	background-color: var(--selectionAccentHover) !important;
 	text-decoration: underline;
 	text-decoration-color: var(--fontCol);
+	padding:0px;
 }
 .tree-item {
 	line-height:1.2em;
@@ -1095,11 +731,15 @@ svg {
 .tree-item-self {
   display: flex;
   align-items: flex-start;
-  padding: 0px 6px 0px 20px;
+  padding: 0px;
   border-radius: 3px;
   color: black;
 }
-
+.tree-item-children
+{
+	margin-left:40px;
+	padding:0px;
+}
 /* > TERMINAL: BETTER PROMPT WINDOW */
 
 /* PROMPT WINDOW */
@@ -1107,11 +747,11 @@ svg {
 
 .prompt {
 	background-color:var(--background);
-	box-shadow:var(--border-raised);
+	box-shadow:var(--bevelStyleButton);
   font-size: var(--the-font-size);
   display: unset;
   /* position: absolute; */
-  bottom: var(--status-bar-height);
+  bottom: -2px;
   top: 59%;
   right:20%;
   width: 50%;
@@ -1122,7 +762,7 @@ svg {
   border-width: 0px 0 0px 0;
   border-radius: unset;
   /* padding-top: 9px; */
-  padding: 0px 20px;
+  padding: 0px 5px;
   align-content: center;
 }
 input {
@@ -1150,10 +790,11 @@ input.prompt-input {
   position: absolute;
   top: calc(40px + 1em);
   bottom: 0;
-  right: 20px;
-  left: 10px;
+  right: 5px;
+  left: 5px;
   /* max-height: 90%; */
   padding-top: 0;
+  padding:0px;
 }
 
 .prompt .is-selected:before {
@@ -1162,6 +803,12 @@ input.prompt-input {
   left: calc(-0.5em + 10px); 
   bottom: 4px;
 }
+
+/* Hide instructions */
+.prompt-instructions {
+  display:none;
+}
+
 .suggestion-container:not(.mod-search-suggestion) {
   max-width: unset;
   left: 0 !important;
@@ -1179,7 +826,7 @@ input.prompt-input {
 }
 .suggestion-item {
   font-size: var(--the-font-size);
-  padding: 0 0 0 0;
+  padding: 0 0 0 3px;
   border-width: 0;
   height: calc(var(--editor-line-height) * 1em);
   line-height:1.2em;
@@ -1192,11 +839,8 @@ input.prompt-input {
   right: 0;
   font-size: var(--the-font-size);
 }
-/* Hide instructions */
-.prompt-instructions {
-  display:none;
-}
 /* Quick Explorer mods */
+
 .titlebar {
 	height:30px !important;
 }
@@ -1255,7 +899,7 @@ input.prompt-input {
 .titlebar-inner #quick-explorer .explorable
 {
 	font-family:"DejaVu Sans";
-	font-size:16px;
+	font-size:12px;
 	font-weight: 500;
 	color: #000000;
 	background: linear-gradient(0deg, rgba(176,176,176,1) 0%, rgba(153,153,153,1) 100%);
@@ -1276,89 +920,38 @@ input.prompt-input {
 	color:#000000;
 	background: linear-gradient(0deg, #BFBFBF 0%, #A8A8A8 100%);
 }
-
-/* Quickadd accommodations */
-
-.alignIconInDivInMiddle[style^=color] svg
-{
-	color:yellow;
+/* 1.0 support */
+.qe-supp1 #quick-explorer {
+	top:10px !important;
+}
+.qe-supp1 .workspace-ribbon {
+	margin-top:70px !important;
+}
+.qe-supp1 .mod-left-split {
+	padding-top:30px !important;
+}
+.qe-supp1 .sidebar-toggle-button.mod-left {
+	margin-top:30px !important;
+}
+.qe-supp1 .workspace-ribbon.side-dock-ribbon.mod-left::before {
+	height:0px;
 }
 /* NEW MODULE: Recent Files (community) */
 
 .workspace-leaf-content[data-type=recent-files]
 {
-	margin-top:3px;
-	box-shadow:var(--border-sunken);
+	box-shadow:var(--bevelStyleContainer);
 	
-	margin-right:6px;
-	padding:5px;	
+	padding:3px;	
 	
 	background-color:var(--background2);
 }
 
 
-/* Resize Bars */
-
-.workspace-leaf-resize-handle {
-	width:var(--handleSize) !important;
-	position:absolute;
-	box-shadow: var(--border-raised);
-	box-sizing: border-box;
-	border-right:0px !important;
-}
-.workspace-leaf-resize-handle:hover {
-	background-color: var(--selectionAccentHover);
-}
-.workspace-tabs .workspace-leaf-resize-handle
+.nav-folder.mod-root > .nav-folder-children .nav-file-title:not(.nav-folder .nav-folder .nav-file-title)
 {
-	position:absolute;
-	bottom:-40px;
-	width:100% !important;
-	height:var(--handleSize) !important;
-	flex-direction:column-reverse;
-	border-bottom:0px !important;
+	padding-left:3px;
 }
-.workspace-tabs .workspace-leaf-resize-handle:hover {
-	background-color: var(--selectionAccentHover);
-}
-.mod-left-split .workspace-tabs
-{
-	padding-right:var(--handleSize);
-	padding-bottom:var(--handleSize);
-}
-
-.mod-right-split .workspace-tabs
-{
-	padding-left:var(--handleSize);
-	padding-bottom:var(--handleSize);
-
-}
-.mod-right-split .workspace-tabs:last-of-type,
-.mod-left-split .workspace-tabs:last-of-type
-{
-	padding-bottom:0;
-}
-.workspace-leaf:not(:last-of-type)
-{
-	padding-right:var(--handleSize) !important;
-}
-.nav-files-container {
-	overflow-x: hidden;
-}
-/* Fixup note-in-sidebars */
-.mod-right-split .mod-cm5,
-.mod-left-split .mod-cm5 {
-	box-sizing: border-box;
-
-	padding:0;
-	
-	background-color:var(--background2);
-}
-.mod-right-split .CodeMirror-foldgutter,
-.mod-left-split .CodeMirror-foldgutter {
-	background-color:var(--background2) !important;
-}
-
 /* Ribbon buttons */
 
 /* Yin & Yang */
@@ -1369,7 +962,7 @@ input.prompt-input {
     justify-content: center;
     padding: 6px 6px;
     margin-bottom: 5px;
-    box-shadow: var(--border-raised);
+    box-shadow: var(--bevelStyleButton);
 	height: var(--heightRibbon);
 }
 .vertical-tab-nav-item {
@@ -1380,24 +973,76 @@ input.prompt-input {
     border: none;
     border-radius: 4px;
     background: transparent;
-    cursor: pointer;
+}
+
+/* 1.0 compat */
+
+.side-dock-ribbon {
+	margin:0px;
+	padding:0px;
+	width:10px;
+}
+.side-dock-actions
+{
+	margin-top:3px;
+}
+.side-dock-actions .clickable-icon.side-dock-ribbon-action
+{
+	padding:0px;
+}
+.side-dock-actions .clickable-icon.side-dock-ribbon-action,
+.side-dock-settings .clickable-icon.side-dock-ribbon-action
+
+{
+	margin:0px;
+}
+.side-dock-actions, .side-dock-settings
+{
+	
+	row-gap:0px;
+}
+.sidebar-toggle-button.mod-left
+{
+	padding:0px;
+	height:44px;
+	width:43px;
+	box-shadow: var(--bevelStyleButton);
+	background-color: var(--background);
+}
+..sidebar-toggle-button.mod-left
+
+.sidebar-toggle-button.mod-left .clickable-icon
+{
+	background-color: var(--background);
+	box-shadow:0;
 }
 /* Search */
 
+/* A1 */
 .search-input {
   display: block;
   margin: 0 auto 10px auto;
   width: calc(100% - 20px);
 }
 
-.search-result-container {
-  box-shadow: var(--border-sunken);
+/* B1 */
+.search-result-container.mod-global-search {
+  box-shadow: var(--bevelStyleContainer);
   background-color: var(--background2);
+  padding:2px;
 }
 .search-result-file-title {
   font-size: var(--the-font-size);
   font-weight: 700;
   color: var(--fontCol);
+}
+.search-result-container .search-result-file-match
+{
+	margin-right:40px;
+}
+.search-result-container .search-result
+{
+	margin-top:3px;
 }
 .search-result-file-matches {
   font-size: var(--the-font-size);
@@ -1459,34 +1104,51 @@ input.prompt-input {
 
 .search-result-file-matched-text {
   color: var(--background); 
+  
 }
 
 .search-result-hover-button
 {
-	height:50%;
+	height:calc(50% + 4px);
+	padding:0px 6px;
+	margin-top:-3px;
+	margin-bottom:-6px;
+	
 	background-color: var(--background);
-	box-shadow:var(--border-raised);
+	box-shadow:var(--bevelStyleButton);
+}
+.search-result-hover-button:hover
+{
+	background-color: var(--selectionAccentHover);
 }
 .search-result-hover-button svg
 {
 	vertical-align:center;
 	margin: auto;
-
-
+	padding:0px;
 }
-
 /* SETTINGS */
 /* some borrowings from Terminal */
-
+/* Modal Config */
 .modal-container {
 	justify-content:left;
-	left:28px;
+	margin-left:45px;
+	height: 100%;
 }
-
+.modal-bg
+{
+	left:-45px;
+}
+.modal-container.mod-dim .modal
+{
+	top:0px;
+	bottom:0px;
+}
 .modal.mod-settings,
 .modal.mod-community-plugin,
 .modal.mod-community-theme {
-  height:100%;
+	height: 100%;
+	min-height:100%;
   width: 50%;
   max-width: unset;
   border-radius: 0;
@@ -1499,13 +1161,28 @@ input.prompt-input {
 {
 	opacity:0.9;
 }
-.modal.mod-settings .vertical-tab-header,
-.modal.mod-settings .vertical-tab-content-container {
+.modal.mod-settings .modal-content
+{
+	background-color: var(--background);
+}
+.modal.mod-settings .vertical-tab-header
+{
+	box-shadow:var(--bevelStyleButton);
+  background-color: var(--selectionAccentHover);
+}
+.modal.mod-settings .vertical-tab-content
+{
+	margin-left:5px;
+	background-color: var(--background);
+}
+  .modal.mod-settings .vertical-tab-header,
+.modal.mod-settings .vertical-tab-content-container, .vertical-tab-content {
   /* height: 100%; */
   height: 100vh;
   overflow: auto;
   padding: 0;
 }
+/* Settings Config */
 .setting-item-name, .setting-item-description {
 	line-height:1.5em;
 }
@@ -1527,15 +1204,13 @@ input.prompt-input {
 }
 .horizontal-tab-nav-item, .vertical-tab-nav-item {
   /* background-color: var(--background-secondary-alt); */
-  padding: 0px;
+  padding:0px;
+  padding-left: 3px;
   cursor: default;
   font-size: var(--the-font-size);
   color: var(--fontCol);
 }
-.modal.mod-settings .vertical-tab-content-container {
-  padding: 2px 0px 4px 0;
-  margin-top:20px;
-}
+
 .setting-item {
   padding: 0;
   border-top: 1px groove #aaa;
@@ -1561,31 +1236,16 @@ input.prompt-input {
 .modal.mod-settings .vertical-tab-content-container {
 		display:block;
 }
-.vertical-tab-header
-{
-}
 .vertical-tab-content-container
 {
     flex-shrink:1;
 }
-/* Starred Panel */
-
-.workspace-leaf-content .item-list{
-	background-color: var(--background2);
-	
-}
-
-.item-list .nav-file-title-content{
-	margin:auto;
-	margin-left:0px;
-}
-
-.nav-file-title:hover svg {
-color:var(--background2);
-}
-
 /* Tag Pane */
-
+.workspace-leaf-content[data-type=tag]
+{
+	padding:0px;
+	margin:0px;
+}
 .tag-pane-tag-count
 {
 	background-color:var(--background);
@@ -1597,61 +1257,133 @@ color:var(--background2);
 		background-color: var(--background2);
 		margin-left:4px;
 		padding-top:3px;
+		padding:0px;
 }
 .tag-pane-tag
 {
 	padding:0;
 	border-style:none none solid none;
-	border-color: var(--bright);
-	border-width: 2px;
+	border-color: var(--intermediary);
+	border-width: 1px;
 }
 .tree-item-icon.collapse-icon
 {
 	left:10px;
 }
-/* Titlebar! */
-
-.titlebar
+.tag-container .tree-item-flair-outer
 {
-	background-color:#000;
+	flex-grow:1;
+	margin-left:10px;
+}
+.tag-container .tree-item-inner
+{
+	flex-shrink:0;
+	flex-grow:0;
+}.titlebar-button-container.mod-right
+{
+	height:39px;
+}.workspace-ribbon, .workspace-tabs, .workspace-tab-header-container, .workspace-leaf-resize-handle {
+  background-color: var(--background);
+  
+}
+.workspace-tabs .workspace-leaf {
+  background-color: var(--background);
 }
 
-.titlebar-button svg{
-	color:#fff;
+.workspace-tab-header-container
+{
+	display:flex;
+	bottom:-3px;
+	padding:0px;
+	background-color: var(--background2);
+	padding-top:1px;
 }
-.titlebar-button-container.mod-left{
-	/*left:15% !important;*/
-	margin-top:2px;
+
+.mod-left-split .workspace-tab-header-container-inner,
+.mod-right-split .workspace-tab-header-container-inner {
+	justify-content:center;
+	padding:0px;
+	margin:0px;
+	margin-bottom:-4px;
+	width:100%;
+	row-gap:0px;
+	column-gap:0px;
+	bottom:3px;
+}
+.mod-right-split .workspace-tab-header-container
+{
+	padding-left:0px;
+}
+.mod-left-split .workspace-tab-header,
+.mod-right-split .workspace-tab-header
+{
+	background-color:var(--background);
+	box-shadow:var(--bevelStyleTabActive);
+}
+/* Mod: Make the buttons take up all the space */
+
+.workspace-tab-container-inner {
+	display: flex;
+	flex-grow:1;
+}
+.workspace-tab-header {
+	flex-grow:1;
+	padding:0;
+}
+.workspace-tab-header:not(.is-active)
+{
+	margin-top:5px;
+	
+}
+.mod-left-split .workspace-tab-header.is-active,
+.mod-right-split .workspace-tab-header.is-active{
+	margin-top:0px;
+	background-color:var(--selectionAccentActive);
+}
+.mod-left-split .workspace-tab-header.is-active:hover,
+.mod-right-split .workspace-tab-header.is-active:hover{
+	margin-top:0px;
+	background-color:var(--selectionAccentActive);
+}
+/* Below Header */
+.nav-header {
+  box-shadow: var(--bevelStyleButton);
+  background: var(--background);
+  padding: 3px;
+  margin-right:-1px;
+}
+.nav-action-button {
+	margin:0;
+	box-shadow: var(--bevelStyleButton);
+}
+.nav-buttons-container
+{
+	display: flex;
+	flex-grow:1;
+}
+.nav-action-button
+{
+	display: flex;
+	flex-grow:1;
+	height:30px;
+	justify-content:center;
 	align-items: center;
-    justify-content: center;
+	padding:0 0 0 0;
 }
-.titlebar-text
+.workspace-ribbon.is-collapsed {
+  background-color: var(--background);
+}
+.workspace-leaf
 {
-	display:none;
+	border-style: none !important;
 }
-.mod-forward {
-	width:200px;
-	box-shadow: var(--border-raised); 
-	background-color: var(--background);
+.workspace-leaf-content .view-content {
+	padding-top:0px;
+	padding-bottom:0px;
+	padding-left:0px;
+	padding-right:0px;
 }
-.mod-back {
-	width:200px;
-	box-shadow: var(--border-raised);
-	background-color: var(--background);
-}
-.titlebar .mod-right
-{
-	height:28px !important;
-	top:2px;
-}
-.mod-right::after
-{
-	color:var(--fontCol);
-}
-.titlebar-button
-{
-	height:30px !important;
-}
+
 /* COMPONENT: FILE SELECTOR */
 
 /* T */ 
@@ -1669,7 +1401,7 @@ color:var(--background2);
 .nav-files-container
 {
 	background-color:black;
-	box-shadow: var(--border-sunken);
+	box-shadow: var(--bevelStyleContainer);
 }
 .nav-file
 {
@@ -1683,6 +1415,7 @@ color:var(--background2);
 	padding-top:0;
 	border:0px;
 	color:inherit;
+	border-radius:2px;
 }
 .nav-folder-title-content,
 .nav-file-title-content
@@ -1755,7 +1488,35 @@ color:var(--background2);
 .nav-folder-title-content {
 	padding: 1px;
 }
-.nav-file-title:not(.nav-folder .nav-folder .nav-file-title)
+
+/* 1.0 compat */
+
+.mod-root .node-insert-event.nav-files-container
 {
-	padding-left:5px;
+	margin:0px;
+	padding:0px;
+}
+.nav-folder-title,
+.nav-file-title
+{
+	margin:0px;
+	padding:0px;	
+}
+.mod-root>.nav-folder-children
+{[attribute=value]
+	
+}
+.nav-files-container
+{
+	padding:2px;
+}
+.nav-folder-collapse-indicator
+{
+	justify-content:center;
+}
+.nav-file-title-content
+{
+	text-overflow:unset;
+	white-space:normal;
+	word-wrap: break-word;
 }
