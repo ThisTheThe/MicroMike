@@ -151,6 +151,7 @@ settings:
   --bevelStyleHoriz:inset 0 -1px var(--bevelBright1), inset 0 1px var(--bevelDark1);
   */
   --heightRibbon: 60px;
+  --widthRibbon: 30px;
   --the-font: "Ubuntu";
   --the-font-size: 14px;
   --handleSize: 16px;
@@ -1208,7 +1209,7 @@ input.prompt-input {
 }
 .modal-container {
 	justify-content:left;
-	margin-left:45px;
+	margin-left:var(--widthRibbon);
 	height: 100%;
 }
 .modal-bg
