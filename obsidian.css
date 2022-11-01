@@ -41,9 +41,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 https://github.com/Dmytro-Shulha/obsidian-css-snippets
 
 (this has no license, but I did use it)
- */
-/* @settings
-
+ *//* @settings
 name: Micro Mike
 id: a-unique-id
 settings:
@@ -71,6 +69,16 @@ settings:
 	-
 		id: widthRibbon
 		title: Ribbon Button Width
+		description: Width of buttons on side ribbon.
+		type: variable-number-slider
+		default: 30
+		min: 10
+		max: 90
+		step: 1
+		format: px
+	-
+		id: dragSize
+		title: Drag Size
 		description: Width of buttons on side ribbon.
 		type: variable-number-slider
 		default: 30
@@ -157,6 +165,8 @@ settings:
   --handleSize: 16px;
   --windowSize: 700px;
   --gutterSize:30px;
+  
+  --frame-right-space:0px;
 } 
   
 :root {
@@ -456,7 +466,7 @@ body .workspace-tabs
 }
 /* New approach to crushing textboxes */
 
-.enable-ed-left-align .cm-s-obsidian
+.markdown-source-view.mod-cm6 .cm-sizer
 {
 	max-width: var(--windowSize);
 }
@@ -465,11 +475,29 @@ body .workspace-tabs
 {
 	word-wrap: break-word;
 }
+
+.markdown-source-view .cm-editor .cm-scroller
+{
+	border-top: 5px solid green;
+	padding:5px;
+	padding-left:20px;
+}
+
+.markdown-reading-view .markdown-preview-view
+{
+		border-top: 5px solid CornflowerBlue;
+	padding:5px;
+	padding-left:30px;
+}
+.markdown-reading-view .markdown-preview-view .markdown-preview-pusher
+{
+	height:0px !important;
+}
 /* New text formatting */
 .cm-hmd-codeblock,
 .cm-hmd-frontmatter
 {
-	font-size:15px;
+	font-size:var(--font-text-size);
 }
 .markdown-source-view ol > li, .markdown-source-view ul > li, .markdown-preview-view ol > li, .markdown-preview-view ul > li, .markdown-rendered ul > li, .mod-cm6 .HyperMD-list-line.cm-line
 {
@@ -482,13 +510,13 @@ body .workspace-tabs
 .CodeMirror-code pre, .CodeMirror-code div
 {
 	padding:0px !important;
-	font-size:var(--the-font) !important;
+	font-size:var(--font-text-size) !important;
 	line-height:1.4em !important;
 	min-height:auto !important;
 }
 .HyperMD-header
 {
-	font-size: 15px;
+	font-size: var(--font-text-size);
 	font-weight:600;
 }/*
     clean-embeds-all.css snippet
@@ -1578,11 +1606,7 @@ input.prompt-input {
 	
 	
 }
-.mod-top .workspace-tab-header-tab-list,
-.mod-top .workspace-tab-header-new-tab 
-{
-	margin-top:10px;
-}
+
 .workspace-tab-header-new-tab:hover
 {
 }
@@ -1596,33 +1620,22 @@ input.prompt-input {
 {
 	background-color: transparent;
 }
-/* NT sizing */
+/* Tab sizing */
 
-.workspace-tab-header-container:not(.mod-top .workspace-tab-header-container)
-{
-	height:40px;
-}
-.workspace-tab-header-container:not(.mod-root .workspace-tab-header-container)
-{
-	height:50px;
-}
-.workspace-tab-header-container:not(.mod-top .workspace-tab-header-container):not(.mod-root .workspace-tab-header-container)
-{
-	height:40px;
-}
 .mod-root .workspace-tab-header-container .workspace-tab-header
 {
 	width: 9000px;
 	max-width:unset;
 	flex-grow:1;
 }
-.mod-root .sidebar-toggle-button.mod-right
-{
-	height:48px;
-}
 .titlebar .titlebar-button-container.mod-right
 {
-	height:29px;
+	height:28px;
+}
+.sidebar-toggle-button.mod-right
+{
+	height:100%;
+	left:3px;
 }
 .workspace-tab-header-container
 {
@@ -1630,15 +1643,29 @@ input.prompt-input {
 }
 
 /* Bugfix window dragging */
-.mod-root .mod-top .workspace-tab-header-container
+.mod-top .workspace-tab-header-tab-list,
+.mod-top .workspace-tab-header-new-tab 
 {
-	
-	height:50px;
+	margin-top:var(--dragSize);
+}
+.workspace-tab-header-container
+{
+	height:calc(40px);
+}
+.mod-top .workspace-tab-header-container
+{
+	height:calc(40px + var(--dragSize));
 }
 .mod-top .workspace-tab-header-container-inner
 {
-	margin-top:10px;
-	height:calc(100%-10px);
+	margin-top:var(--dragSize);
+}
+
+/* Disable annoying positioning */
+
+.mod-right-split .workspace-tab-header-container
+{
+	padding-right: 0px !important;
 }
 /* Tag Pane */
 .workspace-leaf-content[data-type=tag]
