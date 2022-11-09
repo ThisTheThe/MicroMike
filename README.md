@@ -1,3 +1,5 @@
+![](microMike.png)
+
 Micro Mike is a high-density retro-style interface with a focus on mouse & eye ergonomics. Try it out and see if you like any of the changes I've made. Only dark mode is supported.
 
 ![](screenshotBig.png)
