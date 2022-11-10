@@ -34,3 +34,8 @@ This theme is derived from:
 * https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme
 * https://github.com/Dmytro-Shulha/obsidian-css-snippets
 
+Icon credits:
+* Windows XP
+* Windows Longhorn
+* Windows Vista
+* iconshock.com
