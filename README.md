@@ -9,14 +9,17 @@ Style Settings is recommended for further configurability.
 Features:
 * Zoomed out, high-density file browser & outline view
 * Blender-styled right-click dropdown menu.
+* Visually distinctive, colorful icons. 
 * Further modified Quick Explorer dropdowns
-* Left-aligned readable line length for eye movement convenience. Size can be configured in settings.
-* Consistent line size.
+* Left-aligned readable line length for eye movement convenience. Size can be configured.
+* Consistent line size in editor.
 * Sidebar button panel scales with sidebar width.
 * Larger sidebar resize bars (configurable).
 * Button boundaries are clearly defined.
 * You can click buttons on the edge of the window when fullscreen (with some exceptions).
 * Scroll-free options (unless you have > 25ish plugins).
+* Color indication of whether you are in preview / editor mode.
+* Generous window drag regions.
 
 It natively supports:
 * All internal plugins
