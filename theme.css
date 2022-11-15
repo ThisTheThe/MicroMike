@@ -153,6 +153,21 @@ settings:
 		title: Item Selection Inversion Highlight
 		description: This determines whether items on hover / selection invert the colors or simply "highlight" around the text.
 		type: class-toggle
+	-
+		id: altTabUI
+		title: Enable Experimental Editor Tabs
+		description: Enable vertical tab interface - potentially of interest but with limitations. 
+		type: class-toggle
+	-
+		id: newTabLength
+		title: Experimental Tab Length
+		description: Length of tabs in editor.
+		type: variable-number-slider
+		default: 200
+		min: 100
+		max: 300
+		step: 5
+		format: px
 */:root {
 	/*
 	--surface: #c0c0c0;
@@ -180,7 +195,7 @@ settings:
   --tabHeight:40px;
   --dragSize:30px;
   --outlineLevelSize:40px;
-  
+  --newTabLength: 200px;
   --frame-right-space:0px;
 } 
   
@@ -531,6 +546,10 @@ div[data-mode=preview] .view-header
 .sidebar-toggle-button.mod-right .clickable-icon
 {
 	width:40px;
+}
+.mod-top-right-space .view-header
+{
+	margin-right: 165px;
 }/* Editor */
 
 
@@ -863,11 +882,7 @@ body body canvas
 .outline {	
 	padding: 0px;
 	margin: 2px;
-	overflow-x:visible;
-	overflow-wrap: break-word;
-}
-.tree-item {
-	line-height:1.2em;
+	overflow: clip;
 }
 .tree-item-self {
   padding: 0px;
@@ -893,15 +908,13 @@ body body canvas
 .tree-item-inner {
 	font-size: 11px;
 	margin: 0px;
-	line-height:1.4em;
-	min-height:14px;
+	line-height:1.2em;
+	min-height:12px;
 	color: var(--listItemFontCol);
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	overflow: clip;
-	text-overflow:unset;
-	white-space:nowrap;
+	flex-shrink:1;
+	
 }
+
 .tree-item-inner:hover
 {
 	color: var(--listItemHoverFontCol);
@@ -927,10 +940,8 @@ body body canvas
 }
 .tree-item-children
 {
-
 	margin-left:calc(var(--outlineLevelSize));
 	padding:0px;
-	
 }
 
 /* New Layout */
@@ -1300,10 +1311,20 @@ input.prompt-input {
 {
 	background-color:var(--backgroundButtonHover);
 }
+
+/* Right sidebar button */
 .sidebar-toggle-button.mod-right
 {
 	margin:0px;
 	padding:0px;
+	position:fixed;
+	top:0px;
+	right:125px;
+	left:unset;
+	width:40px;
+	z-index:100;
+	min-height:30px;
+	height:var(--dragSize);
 }
 .sidebar-toggle-button.mod-right .clickable-icon
 {
@@ -1313,6 +1334,7 @@ input.prompt-input {
 	width:var(--widthRibbon);
 	height:100%;
 	margin-right:-3px;
+	width:100%;
 }
 .sidebar-toggle-button.mod-right .clickable-icon:hover
 {
@@ -1321,7 +1343,9 @@ input.prompt-input {
 	
 .sidebar-toggle-button.mod-right
 {
-	height:100%;
+	margin:0px;
+	padding:0px;
+	box-shadow:none;
 }
 /* Search */
 
@@ -1823,6 +1847,136 @@ input.prompt-input {
 	top:0px;
 }
 
+/* Editor */
+
+.altTabUI .mod-root .workspace-tabs 
+{
+	flex-direction: row;
+}
+.altTabUI .mod-root .workspace-tab-header-container
+{
+	height:100%;
+	min-width:40px;
+	flex-direction: column;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+.altTabUI .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container
+{	
+	padding-right:0px;
+}
+.altTabUI .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
+{
+	width:0px !important;
+}
+.altTabUI .mod-root .workspace-tab-header-container-inner
+{
+	overflow-x:hidden;
+	overflow-y:scroll;
+	flex-direction: column;
+	flex-grow:1;
+	margin:0px;
+	padding:0px;
+	height:100%;
+}
+.altTabUI .mod-root .workspace-tab-header
+{
+	max-height:40px;
+	max-width:var(--newTabLength) !important;
+}
+.altTabUI .mod-root .workspace-tab-header:not(.is-active)
+{
+	margin:0px;
+	padding:0px;
+}
+.altTabUI .mod-root .workspace-tab-header.is-active
+{
+	margin:0px;
+	padding:0px;
+	text-decoration: underline;
+}
+.altTabUI .mod-root .workspace-tab-header:not(.is-active) .workspace-tab-header-inner
+{
+	box-shadow: var(--bevelStyleButton);
+}
+/* Inactive tab BG */
+.altTabUI .mod-root .workspace-tab-header:not(.is-active) .workspace-tab-header-inner:hover
+{
+	background-color: var(--backgroundHover);
+}
+/* Active editor tab BG */
+.altTabUI .mod-root .workspace-tab-header.is-active .workspace-tab-header-inner
+{
+	background-color: var(--backgroundActive);
+	box-shadow: var(--bevelStyleButton);
+}
+.altTabUI .mod-root .workspace-tab-header.is-active::before,
+.altTabUI .mod-root .workspace-tab-header.is-active::after
+{
+	height:0px;
+}
+.altTabUI .mod-root .workspace-tab-header:before,
+.altTabUI .mod-root .workspace-tab-header:after
+{
+	width:0px;
+}
+.altTabUI .mod-root .workspace-tab-header-inner
+{
+	flex-grow:1;
+	margin:0px;
+	padding:0px;	
+}
+.altTabUI .mod-root .workspace-tab-header-container .workspace-tab-header-inner-title
+{
+	text-align: center;
+	margin-left:5%;
+	display:flex;
+	flex-grow:1;
+	flex-basis:40px;
+	flex-shrink:1;
+}	
+.altTabUI .mod-root .workspace-tab-header-container .workspace-tab-header-inner-close-button
+{
+	flex-basis:40px;
+	box-shadow: var(--bevelStyleButton);
+	color: var(--fontCol);
+	height:100%;
+	justify-content:center;
+	flex-shrink:1;
+}
+
+.altTabUI .mod-root .workspace-tab-header-container .workspace-tab-header-inner-close-button:hover
+{
+	background-color: var(--fontCol);
+	color: var(--background);
+}
+.altTabUI .mod-root .workspace-tab-header-tab-list,
+.altTabUI .mod-root .workspace-tab-header-new-tab 
+{
+	margin:0px;
+	padding:0px;
+}
+.altTabUI .mod-root .workspace-tab-header-tab-list .clickable-icon,
+.altTabUI .mod-root .workspace-tab-header-new-tab .clickable-icon
+{
+	height:40px;
+	width:100%;
+}
+/* Tab sizing */
+
+.altTabUI .mod-root .workspace-tab-header-container .workspace-tab-header
+{
+	max-width:unset;
+	flex-grow:1;
+}
+.altTabUI .workspace-tab-header-container
+{
+	top:0px;
+}
+.altTabUI .mod-root .workspace-tab-header-tab-list
+{
+	display:none;
+}
 /* Sidebar */
 
 .mod-left-split .workspace-tab-header,
@@ -1864,7 +2018,10 @@ input.prompt-input {
 	min-height:20px;
 }
 /* Disable annoying positioning */
-
+.mod-right-split .workspace-tab-header-container
+{
+	padding-right:160px !important;
+}
 .disableWindowMargins .mod-right-split .workspace-tab-header-container
 {
 	padding-right: 0px !important;
@@ -1882,6 +2039,11 @@ input.prompt-input {
 	height:calc(var(--tabHeight) + var(--dragSize));
 }
 .mod-top .workspace-tab-header-container-inner
+{
+	margin-top:var(--dragSize);
+}
+
+.altTabUI .mod-root .mod-top .workspace-tab-header-container-inner
 {
 	margin-top:var(--dragSize);
 }
@@ -1950,6 +2112,7 @@ input.prompt-input {
 	color: white;
 	border-radius:0px;
 }
+
 .workspace-leaf-content[data-type=file-explorer] .nav-file.has-focus,
 .workspace-leaf-content[data-type=file-explorer] .nav-folder.has-focus
 {
@@ -1973,6 +2136,7 @@ input.prompt-input {
 	border:0px;
 	margin:0px;
 	padding:0px;
+	color:var(--listItemFontCol);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover,
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover
@@ -1993,6 +2157,7 @@ input.prompt-input {
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-active .nav-file-tag,
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-file-tag
 {
+	
 	color:var(--fontCol);
 }
 
@@ -2003,6 +2168,7 @@ input.prompt-input {
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content,
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title-content
 {
+	
 	padding: 1px;
 	text-overflow:unset;
 	white-space:normal;
@@ -2010,6 +2176,10 @@ input.prompt-input {
 	font-size:12px;
 	padding:0px;
 	border:0px;
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title
+{
+	border-top: 1px solid var(--backgroundActive);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-collapse-indicator
 {
@@ -2375,4 +2545,21 @@ body
 .workspace-tab-header-inner-close-button
 {
 	background-image: var(--iconX);
-}*/
+}*/.equaltable th
+{
+	display:none;
+}
+.equaltable tr
+{
+	display:flex;
+}
+.equaltable td
+{
+	display:flex;
+	flex-grow:1;
+	flex-basis:33%;
+}
+.equaltable .markdown-embed-content.markdown-embed-page
+{
+	display:flex;
+}
