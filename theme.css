@@ -159,6 +159,11 @@ settings:
 		description: This turns off the new icons for the normal ones.
 		type: class-toggle
 	-
+		id: disableGutter
+		title: Disable Gutter
+		description: This forces the text to the direct left of the screen. This will make the heading collapse buttons not work properly.
+		type: class-toggle
+	-
 		id: altTabUI
 		title: Enable Experimental Editor Tabs
 		description: Enable vertical tab interface - potentially of interest but with limitations. 
@@ -552,6 +557,83 @@ div[data-mode=preview] .view-header
 .mod-top-right-space .view-header
 {
 	margin-right: 165px;
+}
+/* Editor buttons */
+
+.view-header
+{
+	height:40px;
+	background-color: var(--backgroundHigh);
+	margin:0px;
+	padding:0px 2px;
+	border-bottom: 1px var(--intermediary) solid !important;
+	display:flex;
+}
+div[data-mode=source] .view-header
+{
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,89,3,1) 77%, rgba(4,186,0,1) 100%);
+}
+div[data-mode=preview] .view-header
+{
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,66,89,1) 77%, rgba(0,138,186,1) 100%);
+}
+.view-header-nav-buttons {
+	min-width:80px;
+	flex-grow:1;
+	height:100%;
+}
+.view-header-nav-buttons
+{
+	flex-grow:1;
+}
+.view-header-nav-buttons button
+{
+	flex-grow:1;
+	box-shadow:var(--bevelStyleButton);
+	height:100%;
+	padding:0px;
+	background-color:var(--background);
+}
+.view-header-title-container
+{
+	flex-grow:0;
+}
+.view-header-title-container.mod-at-start::after
+{
+	height:0px;
+}
+.view-actions
+{
+	min-width:80px;
+	height:100%;
+	flex-grow:1;
+}
+.view-actions a
+{
+	flex-grow:1;
+	box-shadow:var(--bevelStyleButton);
+	height:100%;
+	padding:0px;
+	background-color:var(--background);
+}
+.sidebar-toggle-button.mod-right
+{
+	margin-top:0px;
+	left:0px;
+	position:relative;
+	width:40px;
+	height:40px;
+	padding:0px;
+	box-shadow: var(--bevelStyleButton);
+	background-color: var(--background);
+}
+.sidebar-toggle-button.mod-right .clickable-icon
+{
+	width:40px;
+}
+.mod-top-right-space .view-header
+{
+	margin-right: 165px;
 }/* Editor */
 
 
@@ -560,7 +642,10 @@ div[data-mode=preview] .view-header
 	padding:16px;
 	padding-left:21px;
 }
-
+.disableGutter .markdown-source-view.mod-cm6 .cm-scroller
+{
+	padding-left:0px;
+}
 .markdown-source-view.mod-cm6 .cm-gutters
 {
 	border-right:1px solid var(--intermediary) !important;
@@ -848,6 +933,117 @@ div[data-mode=preview] .view-header
 body body canvas
 {
 	background-color:var(--backgroundDeep) !important;
+}/* Outline */
+
+/* Debug */
+
+/*
+.tree-item
+{
+	border: 1px solid red;
+}
+.tree-item-self
+{
+	border: 1px solid blue;
+}
+.tree-item-children 
+{
+	border: 1px dotted green;
+}
+.tree-item-inner
+{
+	border: 1px solid yellow;
+}
+.tree-item-icon
+{
+	border: 1px solid purple;
+}
+*/
+
+.workspace-leaf-content[data-type=outline]
+{
+	background: var(--backgroundDeep);
+	box-shadow: var(--bevelStyleContainer);
+
+}
+.outline {	
+	padding: 0px;
+	margin: 2px;
+	overflow: clip;
+}
+.tree-item-self {
+  padding: 0px;
+  color: var(--backgroundDeep);
+}
+.tree-item-self.is-clickable
+{
+	padding:0px;
+	margin:auto;
+}
+.tree-item-self.is-clickable:hover
+{
+	padding:0px;
+	background-color: var(--backgroundDeep);
+}
+.tree-item-inner::after {
+	color: var(--listItemFontCol);
+  content: "⮞";
+  position: absolute;
+  left: -15px;
+  top:0px;
+}
+.tree-item-inner {
+	font-size: 11px;
+	margin: 0px;
+	line-height:1.2em;
+	min-height:12px;
+	color: var(--listItemFontCol);
+	flex-shrink:1;
+	
+}
+
+.tree-item-inner:hover
+{
+	color: var(--listItemHoverFontCol);
+	background-color: var(--listItemHoverAccent);
+	text-decoration: underline;
+	text-decoration-color: var(--listItemHoverFontCol);
+}
+.is-clickable .tree-item-icon.collapse-icon {
+	width:var(--outlineLevelSize);
+	box-shadow: var(--bevelStyleButton);
+	padding:0px;
+	margin-left:2px;
+	height:16px;
+}
+.is-clickable .tree-item-icon.collapse-icon:hover
+{
+	background-color: var(--selectionAccentHover);
+}
+.tree-item-icon.collapse-icon svg{
+	color: var(--fontCol);
+    margin: auto;
+  /*display: none;*/
+}
+.tree-item-children
+{
+	margin-left:calc(var(--outlineLevelSize));
+	padding:0px;
+}
+
+/* New Layout */
+
+.outline>.tree-item>.tree-item-self>.tree-item-inner:first-child
+{
+	position:relative;
+	left:var(--outlineLevelSize);
+	margin-right:var(--outlineLevelSize);
+}
+.outline>.tree-item>.tree-item-children .tree-item-inner:first-child
+{
+	position:relative;
+	left:var(--outlineLevelSize);
+	margin-right:var(--outlineLevelSize);
 }/* Outline */
 
 /* Debug */
@@ -1870,9 +2066,9 @@ input.prompt-input {
 	overflow-y:hidden;
 	margin:0px;
 }
-.altTabUI .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container
+.workspace-tab-header-container
 {	
-	padding-right:0px;
+	padding-right:0px !important;
 }
 .altTabUI .mod-root .workspace-tab-header-container-inner
 {
@@ -2583,8 +2779,32 @@ body.disableNewIcons div
 	display:flex;
 	flex-grow:1;
 	flex-basis:33%;
+	max-width:33%;
+}
+.equaltable .markdown-embed
+{
+}
+.contains-task-list.plugin-tasks-query-result
+{
+	max-width:100%;
+}
+.task-list-item.plugin-tasks-list-item
+{
+	word-wrap:break-word;
+	overflow-wrap: break-word;
 }
 .equaltable .markdown-embed-content.markdown-embed-page
 {
 	display:flex;
 }
+/*
+.mod-root .nav-folder
+{
+	display:flex;
+}
+.mod-root .nav-folder-children
+{
+	display:flex;
+	flex-direction:column-reverse;
+}
+*/
