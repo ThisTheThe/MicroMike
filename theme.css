@@ -644,7 +644,7 @@ div[data-mode=preview] .view-header
 }
 .disableGutter .markdown-source-view.mod-cm6 .cm-scroller
 {
-	padding-left:0px;
+	padding-left:5px;
 }
 .markdown-source-view.mod-cm6 .cm-gutters
 {
