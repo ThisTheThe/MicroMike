@@ -284,8 +284,11 @@ body .workspace-tabs
   --intermediary: #7A7672;
   --fontCol: #a3a5aa;
   --bright: var(--fontCol);
+  --lessBright: #8B8D91;
   --backgroundDeep: #000;
+  --backgroundDark: #111111;
   --background: #222222;
+  --backgroundMid: #333333;
   --backgroundHigh: var(--backgroundHover);
 
   --backgroundActive: #525252;
@@ -299,7 +302,7 @@ body .workspace-tabs
   --backgroundButtonHover: var(--backgroundActive);
   
   --listItemFontCol: var(--fontCol);
-  --listItemHoverAccent: var(--backgroundActive);
+  --listItemHoverAccent: var(--backgroundMid);
   --listItemHoverFontCol: var(--fontCol);
   --listItemActiveAccent: var(--backgroundActive);
   --listItemActiveFontCol: var(--fontCol);
@@ -308,9 +311,6 @@ body .workspace-tabs
   --iconColor: var(--fontCol);
   --hoverAccent: var(--backgroundActive);
   --activeAccent: var(--intermediary);
-  
-  --selectionAccentHover: #4B4844;
-  --selectionAccentActive: #4B4844;
   
   --bevelBright1: #a3a5aa;
   --bevelBright2: #7A7672;
@@ -322,11 +322,15 @@ body .workspace-tabs
   --bevelStyleTabActive: inset -1px 0 var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px 0 var(--bevelDark2), inset 2px 2px var(--bevelBright1);
 
   /* --interactive-accent: red; */
+  
+  /* Compat */
+  
+  --text-normal: var(--fontCol);
   }
 
 body.invertItemHighlight
 {
-  --listItemHoverAccent: var(--fontCol);
+  --listItemHoverAccent: var(--lessBright);
   --listItemHoverFontCol: var(--backgroundDeep);
   --listItemActiveAccent: var(--fontCol);
   --listItemActiveFontCol: var(--backgroundDeep);
@@ -750,7 +754,11 @@ div[data-mode=preview] .view-header
 	font-size: var(--font-text-size);
 	font-weight:600;
 }
-
+.HyperMD-list-line
+{
+    text-indent: 0px !important;
+    padding-inline-start: 0px !important;
+}
 /* Preview */
 
 /* Recolor editor BG */
@@ -964,7 +972,6 @@ body body canvas
 {
 	background: var(--backgroundDeep);
 	box-shadow: var(--bevelStyleContainer);
-
 }
 .outline {	
 	padding: 0px;
@@ -979,35 +986,42 @@ body body canvas
 {
 	padding:0px;
 	margin:auto;
+	color: var(--listItemFontCol);
 }
 .tree-item-self.is-clickable:hover
 {
 	padding:0px;
-	background-color: var(--backgroundDeep);
+	background-color: var(--listItemHoverAccent);
+	color: var(--listItemHoverFontCol);
+		text-decoration: underline;
+	text-decoration-color: var(--listItemHoverFontCol);
+
 }
+
 .tree-item-inner::after {
 	color: var(--listItemFontCol);
-  content: "⮞";
-  position: absolute;
-  left: -15px;
-  top:0px;
+	content: "⮞";
+	position: absolute;
+	left: -15px;
+	top:0px;
 }
-.tree-item-inner {
+.tree-item-self.is-clickable:hover .tree-item-inner::after
+{
+	color: var(--listItemHoverFontCol);
+}
+.tree-item-inner 
+{
 	font-size: 11px;
 	margin: 0px;
 	line-height:1.2em;
 	min-height:12px;
-	color: var(--listItemFontCol);
-	flex-shrink:1;
-	
+	margin-top:auto;
+	margin-bottom:auto;
+	margin-left:3px;
+	flex-shrink:1;	
 }
-
 .tree-item-inner:hover
 {
-	color: var(--listItemHoverFontCol);
-	background-color: var(--listItemHoverAccent);
-	text-decoration: underline;
-	text-decoration-color: var(--listItemHoverFontCol);
 }
 .is-clickable .tree-item-icon.collapse-icon {
 	width:var(--outlineLevelSize);
@@ -1015,126 +1029,19 @@ body body canvas
 	padding:0px;
 	margin-left:2px;
 	height:16px;
+	background-color: var(--background);
 }
 .is-clickable .tree-item-icon.collapse-icon:hover
 {
-	background-color: var(--selectionAccentHover);
-}
-.tree-item-icon.collapse-icon svg{
-	color: var(--fontCol);
-    margin: auto;
-  /*display: none;*/
-}
-.tree-item-children
-{
-	margin-left:calc(var(--outlineLevelSize));
-	padding:0px;
-}
-
-/* New Layout */
-
-.outline>.tree-item>.tree-item-self>.tree-item-inner:first-child
-{
-	position:relative;
-	left:var(--outlineLevelSize);
-	margin-right:var(--outlineLevelSize);
-}
-.outline>.tree-item>.tree-item-children .tree-item-inner:first-child
-{
-	position:relative;
-	left:var(--outlineLevelSize);
-	margin-right:var(--outlineLevelSize);
-}/* Outline */
-
-/* Debug */
-
-/*
-.tree-item
-{
-	border: 1px solid red;
-}
-.tree-item-self
-{
-	border: 1px solid blue;
-}
-.tree-item-children 
-{
-	border: 1px dotted green;
-}
-.tree-item-inner
-{
-	border: 1px solid yellow;
-}
-.tree-item-icon
-{
-	border: 1px solid purple;
-}
-*/
-
-.workspace-leaf-content[data-type=outline]
-{
-	background: var(--backgroundDeep);
-	box-shadow: var(--bevelStyleContainer);
-
-}
-.outline {	
-	padding: 0px;
-	margin: 2px;
-	overflow: clip;
-}
-.tree-item-self {
-  padding: 0px;
-  color: var(--backgroundDeep);
-}
-.tree-item-self.is-clickable
-{
-	padding:0px;
-	margin:auto;
-}
-.tree-item-self.is-clickable:hover
-{
-	padding:0px;
-	background-color: var(--backgroundDeep);
-}
-.tree-item-inner::after {
-	color: var(--listItemFontCol);
-  content: "⮞";
-  position: absolute;
-  left: -15px;
-  top:0px;
-}
-.tree-item-inner {
-	font-size: 11px;
-	margin: 0px;
-	line-height:1.2em;
-	min-height:12px;
-	color: var(--listItemFontCol);
-	flex-shrink:1;
-	
-}
-
-.tree-item-inner:hover
-{
-	color: var(--listItemHoverFontCol);
 	background-color: var(--listItemHoverAccent);
-	text-decoration: underline;
-	text-decoration-color: var(--listItemHoverFontCol);
-}
-.is-clickable .tree-item-icon.collapse-icon {
-	width:var(--outlineLevelSize);
-	box-shadow: var(--bevelStyleButton);
-	padding:0px;
-	margin-left:2px;
-	height:16px;
-}
-.is-clickable .tree-item-icon.collapse-icon:hover
-{
-	background-color: var(--selectionAccentHover);
 }
 .tree-item-icon.collapse-icon svg{
 	color: var(--fontCol);
     margin: auto;
   /*display: none;*/
+}
+.tree-item-icon.collapse-icon:hover svg{
+	color: var(--listItemHoverFontCol);
 }
 .tree-item-children
 {
@@ -1293,14 +1200,15 @@ input.prompt-input {
 /* New QE buttons */
 #quick-explorer
 {
-	position: fixed;
-	bottom:0px;
 	padding:0px;
+	position:relative;
+	bottom:0px;
 }
-.titlebar-inner #quick-explorer .explorable
+#quick-explorer .explorable.titlebar-button
 {
 	font-family:"DejaVu Sans";
 	font-size:16px;
+	line-height:1.5em;
 	font-weight: 100;
 	color: #000000;
 	background: linear-gradient(0deg, rgba(176,176,176,1) 0%, rgba(153,153,153,1) 100%);
@@ -1309,14 +1217,13 @@ input.prompt-input {
 	padding-top:4px;
 	padding-bottom:2px;
 	border-radius: 4px;
-	text-rendering: optimizeSpeed;
 }
-.titlebar-inner #quick-explorer .explorable:hover
+#quick-explorer .explorable:hover
 {
 	color:#000000;
 	background: linear-gradient(0deg, #BFBFBF 0%, #A8A8A8 100%);
 }
-.titlebar-inner #quick-explorer .explorable:active
+#quick-explorer .explorable:active
 {
 	color:#000000;
 	background: linear-gradient(0deg, #BFBFBF 0%, #A8A8A8 100%);
@@ -1339,9 +1246,10 @@ input.prompt-input {
 	height:0px;
 }
 */
-.qe-supp1 .horizontal-main-container
+.status-bar,
+.status-bar-item.left-region
 {
-	margin-bottom:26px;
+	padding:0px;
 }
 /* NEW MODULE: Recent Files (community) */
 
@@ -1481,7 +1389,7 @@ input.prompt-input {
 .side-dock-ribbon {
 	margin:0px;
 	padding:0px;
-	margin-left:1px;
+	margin-left:0px;
 }
 .side-dock-actions
 {
@@ -1858,7 +1766,7 @@ input.prompt-input {
 .sidebar-toggle-button.mod-left .clickable-icon
 {
 	margin-top:1px;
-	margin-left:-9px;
+	margin-left:-12px;
 	height:60px;
 	width:var(--widthRibbon);
 }
@@ -2295,7 +2203,14 @@ input.prompt-input {
 	min-height:30px;
 }
 /* COMPONENT: FILE SELECTOR */
-
+/* Modes of selection:
+ Unselected
+ Hover
+ Selected 
+ Hover & Selected
+ Dragged-To
+ Multiple Selected
+ */
 /* Repository title */
 .workspace-leaf-content[data-type=file-explorer] .mod-root >.nav-folder-title>.nav-folder-title-content
 {
@@ -2343,7 +2258,20 @@ input.prompt-input {
 	border:0px;
 	margin:0px;
 	padding:0px;
+	padding-left:2px;
 	color:var(--listItemFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title
+{
+	border-top: 1px solid var(--backgroundActive);
+	border-left: 1px solid var(--backgroundActive);
+	background-color: var(--backgroundDark);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title
+{
+	border-top: 1px solid var(--backgroundHover);
+	border-left: 1px solid var(--backgroundHover);
+	background-color: var(--background);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover,
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover
@@ -2352,25 +2280,41 @@ input.prompt-input {
 	background-color:var(--listItemHoverAccent);
 	color:var(--listItemHoverFontCol);
 }
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active,
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-active
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-selected,
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-selected
 {
 	border-radius:0px;
-	background-color:var(--listItemActiveAccent);
-	color:var(--listItemActiveFontCol);
+	background-color:var(--listItemHoverAccent);
+	color:var(--listItemHoverFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-being-dragged-over
+{
+	border-radius:0px;
+	background-color:var(--listItemHoverAccent);
+	color:var(--listItemHoverFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged-over svg
+{
+	color:var(--listItemHoverFontCol);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-active .nav-file-tag,
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover .nav-file-tag,
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-active .nav-file-tag,
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-file-tag
 {
-	
 	color:var(--fontCol);
 }
 
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged,
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-being-dragged  {
-	background-color: var(--listItemActiveAccent);
+	background-color: var(--listItemHoverAccent);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active,
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-active
+{
+	border-radius:0px;
+	background-color:var(--listItemActiveAccent);
+	color:var(--listItemActiveFontCol);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content,
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title-content
@@ -2384,10 +2328,7 @@ input.prompt-input {
 	padding:0px;
 	border:0px;
 }
-.workspace-leaf-content[data-type=file-explorer] .nav-file-title
-{
-	border-top: 1px solid var(--backgroundActive);
-}
+
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-collapse-indicator
 {
 	justify-content:center;
@@ -2766,45 +2707,4 @@ body.disableNewIcons div
 .workspace-tab-header-inner-close-button
 {
 	background-image: var(--iconX);
-}*/.equaltable th
-{
-	display:none;
-}
-.equaltable tr
-{
-	display:flex;
-}
-.equaltable td
-{
-	display:flex;
-	flex-grow:1;
-	flex-basis:33%;
-	max-width:33%;
-}
-.equaltable .markdown-embed
-{
-}
-.contains-task-list.plugin-tasks-query-result
-{
-	max-width:100%;
-}
-.task-list-item.plugin-tasks-list-item
-{
-	word-wrap:break-word;
-	overflow-wrap: break-word;
-}
-.equaltable .markdown-embed-content.markdown-embed-page
-{
-	display:flex;
-}
-/*
-.mod-root .nav-folder
-{
-	display:flex;
-}
-.mod-root .nav-folder-children
-{
-	display:flex;
-	flex-direction:column-reverse;
-}
-*/
+}*/
