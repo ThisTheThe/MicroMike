@@ -280,47 +280,69 @@ body .workspace-tabs
 	margin-left:1px;
 	margin-top:1px;
 }body {
-	
-  --intermediary: #7A7672;
-  --fontCol: #a3a5aa;
-  --bright: var(--fontCol);
-  --lessBright: #8B8D91;
+  /* Palette */
   --backgroundDeep: #000;
   --backgroundDark: #111111;
   --background: #222222;
   --backgroundMid: #333333;
-  --backgroundHigh: var(--backgroundHover);
+  --backgroundHigh: #4A4A4A;
+  --backgroundPeak: #5A5A5A;
 
-  --backgroundActive: #525252;
-  --backgroundHover: #3C3C3C;
-
-  --backgroundTopbar: var(--backgroundDeep);
-  --backgroundEditor: var(--backgroundDeep);
+  --intermediary: #6A6A6A;
   
+  --brightDeep: #8B8D91;
+  --brightDark: #9B9DA0;
+  --bright: #a3a5aa;
+  
+  /* Text */
+  
+  --fontCol: var(--bright);
+  
+  /* Icons */
+  
+  --iconColor: var(--fontCol);
+  
+  /* Generic BG */ 
+  --backgroundActive: var(--backgroundHigh);
+  --backgroundHover: var(--backgroundMid);
 
+  /* Generic button */ 
   --backgroundButton: var(--backgroundHover);
   --backgroundButtonHover: var(--backgroundActive);
   
+  /* Editor */
+  --backgroundTopbar: var(--backgroundDeep);
+  --backgroundEditor: var(--backgroundDeep);
+  
+  /* Generic list views (file explorer, tag view, outliner, etc.) */
   --listItemFontCol: var(--fontCol);
+  --listItemBorder: var(--backgroundActive);
   --listItemHoverAccent: var(--backgroundMid);
   --listItemHoverFontCol: var(--fontCol);
   --listItemActiveAccent: var(--backgroundActive);
   --listItemActiveFontCol: var(--fontCol);
   --listItemRenameFontCol: var(--background);
   
-  --iconColor: var(--fontCol);
-  --hoverAccent: var(--backgroundActive);
-  --activeAccent: var(--intermediary);
+	/* Colors for folder note click region */
   
-  --bevelBright1: #a3a5aa;
-  --bevelBright2: #7A7672;
-  --bevelDark1: #3C3C3C; 
+  --listItemAltAccent: var(--backgroundMid);
+  --listItemAltAccentBorder: var(--backgroundActive);
+  --listItemHoverAltAccent: var(--backgroundActive);
+  --listItemHoverAltAccentBorder: var(--intermediary);
+  
+  --bevelStyleItemAlt: inset 1px 1px var(--listItemAltAccentBorder);
+  --bevelStyleItemAltHover: inset 1px 1px var(--listItemHoverAltAccentBorder);
+  /* Bevel palette */
+  
+  --bevelBright1: #8B8D91;
+  --bevelBright2: #5A5A5A;
+  --bevelDark1: #4A4A4a; 
   --bevelDark2: #7A7672; 
   --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
   --bevelStyleButtonMin: inset -1px -1px var(--bevelDark2), inset 1px 1px var(--bevelBright2);
   --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
   --bevelStyleTabActive: inset -1px 0 var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px 0 var(--bevelDark2), inset 2px 2px var(--bevelBright1);
-
+  --bevelStyleItem: inset 1px 1px var(--listItemBorder);
   /* --interactive-accent: red; */
   
   /* Compat */
@@ -330,10 +352,19 @@ body .workspace-tabs
 
 body.invertItemHighlight
 {
-  --listItemHoverAccent: var(--lessBright);
+  --listItemHoverAccent: var(--brightDeep);
   --listItemHoverFontCol: var(--backgroundDeep);
   --listItemActiveAccent: var(--fontCol);
   --listItemActiveFontCol: var(--backgroundDeep);
+  
+  --listItemAltAccent: var(--backgroundMid);
+  --listItemAltAccentBorder: var(--backgroundActive);
+  --listItemHoverAltAccent: var(--bright);
+  --listItemHoverAltAccentBorder: var(--intermediary);
+  
+  --bevelStyleItemAlt: inset 1px 1px var(--listItemAltAccentBorder);
+  --bevelStyleItemAltHover: inset 1px 1px var(--listItemHoverAltAccentBorder);
+
 }
 .theme-dark
 {
@@ -492,7 +523,7 @@ body.invertItemHighlight
 	height:40px;
 	background-color: var(--backgroundHigh);
 	margin:0px;
-	padding:0px 2px;
+	padding:0px 0px;
 	border-bottom: 1px var(--intermediary) solid !important;
 	display:flex;
 }
@@ -509,17 +540,14 @@ div[data-mode=preview] .view-header
 	flex-grow:1;
 	height:100%;
 }
-.view-header-nav-buttons
-{
-	flex-grow:1;
-}
-.view-header-nav-buttons button
+.view-header-nav-buttons .clickable-icon
 {
 	flex-grow:1;
 	box-shadow:var(--bevelStyleButton);
-	height:100%;
 	padding:0px;
 	background-color:var(--background);
+	height:34px;
+	margin:0px auto;
 }
 .view-header-title-container
 {
@@ -531,6 +559,7 @@ div[data-mode=preview] .view-header
 }
 .view-actions
 {
+	justify-content:center;
 	min-width:80px;
 	height:100%;
 	flex-grow:1;
@@ -542,83 +571,12 @@ div[data-mode=preview] .view-header
 	height:100%;
 	padding:0px;
 	background-color:var(--background);
+	height:34px;
+	margin:0px auto;
 }
-.sidebar-toggle-button.mod-right
+.view-action:not(:last-child)
 {
-	margin-top:0px;
-	left:0px;
-	position:relative;
-	width:40px;
-	height:40px;
-	padding:0px;
-	box-shadow: var(--bevelStyleButton);
-	background-color: var(--background);
-}
-.sidebar-toggle-button.mod-right .clickable-icon
-{
-	width:40px;
-}
-.mod-top-right-space .view-header
-{
-	margin-right: 165px;
-}
-/* Editor buttons */
-
-.view-header
-{
-	height:40px;
-	background-color: var(--backgroundHigh);
-	margin:0px;
-	padding:0px 2px;
-	border-bottom: 1px var(--intermediary) solid !important;
-	display:flex;
-}
-div[data-mode=source] .view-header
-{
-	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,89,3,1) 77%, rgba(4,186,0,1) 100%);
-}
-div[data-mode=preview] .view-header
-{
-	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,66,89,1) 77%, rgba(0,138,186,1) 100%);
-}
-.view-header-nav-buttons {
-	min-width:80px;
-	flex-grow:1;
-	height:100%;
-}
-.view-header-nav-buttons
-{
-	flex-grow:1;
-}
-.view-header-nav-buttons button
-{
-	flex-grow:1;
-	box-shadow:var(--bevelStyleButton);
-	height:100%;
-	padding:0px;
-	background-color:var(--background);
-}
-.view-header-title-container
-{
-	flex-grow:0;
-}
-.view-header-title-container.mod-at-start::after
-{
-	height:0px;
-}
-.view-actions
-{
-	min-width:80px;
-	height:100%;
-	flex-grow:1;
-}
-.view-actions a
-{
-	flex-grow:1;
-	box-shadow:var(--bevelStyleButton);
-	height:100%;
-	padding:0px;
-	background-color:var(--background);
+	padding-left:0px;
 }
 .sidebar-toggle-button.mod-right
 {
@@ -898,7 +856,7 @@ div[data-mode=preview] .view-header
 .markdown-preview-view .markdown-embed,
 .markdown-preview-view .file-embed {
 
-  box-shadow: var(--border-sunken);
+  box-shadow: var(--bevelStyleContainer);
   padding-left:10px;
   padding-right:5px;
 }
@@ -1029,6 +987,7 @@ body body canvas
 	padding:0px;
 	margin-left:2px;
 	height:16px;
+	margin-bottom:-3px;
 	background-color: var(--background);
 }
 .is-clickable .tree-item-icon.collapse-icon:hover
@@ -1147,7 +1106,6 @@ input.prompt-input {
   font-size: var(--the-font-size);
   padding: 0 0 0 3px;
   border-width: 0;
-  height: calc(var(--editor-line-height) * 1em);
   line-height:1.2em;
 }
 :not(.mod-search-suggestion) .suggestion-item.is-selected
@@ -2232,7 +2190,6 @@ input.prompt-input {
 {
 	border:0px;
 	color: white;
-	border-radius:0px;
 }
 
 .workspace-leaf-content[data-type=file-explorer] .nav-file.has-focus,
@@ -2263,39 +2220,39 @@ input.prompt-input {
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title
 {
-	border-top: 1px solid var(--backgroundActive);
-	border-left: 1px solid var(--backgroundActive);
-	background-color: var(--backgroundDark);
+	box-shadow: var(--bevelStyleItem);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title
 {
-	border-top: 1px solid var(--backgroundHover);
-	border-left: 1px solid var(--backgroundHover);
+	box-shadow: var(--bevelStyleItem);
 	background-color: var(--background);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover,
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover
 {
-	border-radius:0px;
+	border-radius: var(--radius-s);
 	background-color:var(--listItemHoverAccent);
-	color:var(--listItemHoverFontCol);
+	color: var(--listItemHoverFontCol);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-selected,
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-selected
 {
-	border-radius:0px;
 	background-color:var(--listItemHoverAccent);
 	color:var(--listItemHoverFontCol);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-being-dragged-over
 {
-	border-radius:0px;
 	background-color:var(--listItemHoverAccent);
 	color:var(--listItemHoverFontCol);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged-over svg
 {
 	color:var(--listItemHoverFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged-over .nav-file-title-content
+{
+	box-shadow: var(--bevelStyleItemAltHover);
+	background-color: var(--listItemHoverAltAccent);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-active .nav-file-tag,
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover .nav-file-tag,
@@ -2312,23 +2269,34 @@ input.prompt-input {
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active,
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-active
 {
-	border-radius:0px;
 	background-color:var(--listItemActiveAccent);
 	color:var(--listItemActiveFontCol);
 }
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content,
 .workspace-leaf-content[data-type=file-explorer] .nav-file-title-content
 {
-	
 	padding: 1px;
 	text-overflow:unset;
 	white-space:normal;
 	word-wrap: break-word;
 	font-size:12px;
 	padding:0px;
+	padding-right:3px;
 	border:0px;
 }
-
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content
+{
+	padding-left:2px;
+	display:flex;
+	min-width:100px;
+	background-color: var(--listItemAltAccent);
+	box-shadow: var(--bevelStyleItemAlt);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-folder-title-content
+{
+	background-color: var(--listItemHoverAltAccent);
+	box-shadow: var(--bevelStyleItemAltHover);
+}
 .workspace-leaf-content[data-type=file-explorer] .nav-folder-collapse-indicator
 {
 	justify-content:center;
@@ -2374,6 +2342,16 @@ input.prompt-input {
 	font-size:20px;
 	margin:auto;
 	margin-left:0px;
+}
+
+:not(.invertItemHighlight .nav-folder-title:hover svg) .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover svg
+{
+	color:var(--fontCol);
+}
+.workspace-leaf-content[data-type=file-explorer]  .nav-folder-title.is-being-dragged-over .nav-file-title-content:not(.invertItemHighlight .nav-file-title-content) 
+{
+	background-color: red !important;
+	box-shadow: var(--bevelStyleItemAltHover) !important;
 }/* Sauce:  https://www.iconshock.com */
 body
 {
@@ -2707,4 +2685,52 @@ body.disableNewIcons div
 .workspace-tab-header-inner-close-button
 {
 	background-image: var(--iconX);
-}*/
+}*//*
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+DELETE BELOW THIS
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+*/
+.equaltable th
+{
+	display:none;
+}
+.equaltable tr
+{
+	display:flex;
+}
+.equaltable td
+{
+	display:flex;
+	flex-grow:1;
+	flex-basis:33%;
+	max-width:33%;
+}
+.equaltable .markdown-embed
+{
+}
+.contains-task-list.plugin-tasks-query-result
+{
+	max-width:100%;
+}
+.task-list-item.plugin-tasks-list-item
+{
+	word-wrap:break-word;
+	overflow-wrap: break-word;
+}
+.equaltable .markdown-embed-content.markdown-embed-page
+{
+	display:flex;
+}
+/*
+.mod-root .nav-folder
+{
+	display:flex;
+}
+.mod-root .nav-folder-children
+{
+	display:flex;
+	flex-direction:column-reverse;
+}
+*/
