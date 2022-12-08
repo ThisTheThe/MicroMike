@@ -953,7 +953,7 @@ body body canvas
 	padding:0px;
 	background-color: var(--listItemHoverAccent);
 	color: var(--listItemHoverFontCol);
-		text-decoration: underline;
+	text-decoration: underline;
 	text-decoration-color: var(--listItemHoverFontCol);
 
 }
@@ -987,9 +987,8 @@ body body canvas
 	width:var(--outlineLevelSize);
 	box-shadow: var(--bevelStyleButton);
 	padding:0px;
-	margin-left:2px;
+	margin-left:1px;
 	height:16px;
-	margin-bottom:-3px;
 	background-color: var(--background);
 }
 .is-clickable .tree-item-icon.collapse-icon:hover
@@ -1521,15 +1520,25 @@ input.prompt-input {
 .modal.mod-community-theme {
 	height: 100%;
 	min-height:100%;
+
   width: 50%;
+  min-width:700px;
   max-width: unset;
+
   border-radius: 0;
-  opacity:0.3;
-  min-width:800px;
-  padding-right:3px;
+  background-color:rgba(50,50,50,0.2);
+
 }
-.bigthemes .modal.mod-community-theme{
-	width: 100%;
+
+.modal-container.mod-dim .modal.mod-settings,
+.modal-container.mod-dim .modal.mod-community-plugin,
+.modal-container.mod-dim .modal.mod-community-theme
+{
+  box-shadow:var(--bevelStyleButton);
+}
+.bigthemes .modal.mod-community-theme,
+.bigthemes .modal.mod-community-plugin{
+	width: calc(100% - var(--widthRibbon));
 }
 .modal.mod-settings:hover,
 .modal.mod-community-plugin:hover,
@@ -1537,9 +1546,18 @@ input.prompt-input {
 {
 	opacity:1;
 }
-.modal.mod-settings .modal-content
+.modal.mod-settings .modal-content,
+.modal.mod-community-plugin .modal-content,
+.modal.mod-community-theme .modal-content
+{
+  opacity:0;
+}
+.modal.mod-settings .modal-content:hover,
+.modal.mod-community-plugin .modal-content:hover,
+.modal.mod-community-theme .modal-content:hover
 {
 	background-color: var(--background);
+    opacity:1;
 }
 .modal.mod-settings .vertical-tab-header
 {
@@ -1768,7 +1786,11 @@ input.prompt-input {
 	left:unset;
 	max-width:38px;
 	z-index:10;
-	min-height:30px;
+	min-height:20px;
+	height:var(--tabHeight);
+}
+.disableWindowMargins
+{
 	height:var(--dragSize);
 }
 .sidebar-toggle-button.mod-right .clickable-icon
@@ -2193,18 +2215,16 @@ input.prompt-input {
 
 .titlebar .titlebar-button-container.mod-right
 {
-	min-height:30px;
-	height:var(--dragSize);
+	min-height:20px;
 	z-index:10;
 }
-
-.disableWindowMargins .titlebar .titlebar-button-container.mod-right
+.titlebar .titlebar-button-container.mod-right
 {
 	height:var(--tabHeight);
 }
-.altTabUI
+.disableWindowMargins .titlebar .titlebar-button-container.mod-right
 {
-	height:40px;
+	height:var(--dragSize);
 }
 /* This is what allows us to click the window buttons, I have learned the hard way */
 .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
@@ -2213,8 +2233,12 @@ input.prompt-input {
 	top:0px;
 	right:0px;
 	width:var(--titleBarWidth);
-	height:var(--dragSize);
-	min-height:30px;
+	height:var(--tabHeight);
+	min-height:20px;
+}
+.disableWindowMargins .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
+{
+height:var(--dragSize);
 }
 /* COMPONENT: FILE SELECTOR */
 /* Modes of selection:
