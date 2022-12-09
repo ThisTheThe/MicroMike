@@ -1340,7 +1340,7 @@ input.prompt-input {
 .workspace-ribbon.mod-left
 {
 	margin-top:var(--heightRibbon) !important;
-	flex-basis: calc(var(--widthRibbon) + 2px);
+	flex-basis: calc(var(--widthRibbon) + 1px);
 }
 .workspace-ribbon.mod-left:before
 {
@@ -1367,7 +1367,7 @@ input.prompt-input {
 {
 	margin:0px;
 	padding:0px;
-	margin-left:1px;
+	margin-left:0px;
 	margin-right:1px;
 	opacity:1;
 }
@@ -1527,7 +1527,7 @@ input.prompt-input {
 
   border-radius: 0;
   background-color:rgba(50,50,50,0.2);
-
+  
 }
 
 .modal-container.mod-dim .modal.mod-settings,
@@ -1567,6 +1567,7 @@ input.prompt-input {
 .modal.mod-settings .vertical-tab-content
 {
 	margin-left:5px;
+  margin-right:3px;
 	background-color: var(--background);
 }
   .modal.mod-settings .vertical-tab-header,
@@ -1788,10 +1789,6 @@ input.prompt-input {
 	z-index:10;
 	min-height:20px;
 	height:var(--tabHeight);
-}
-.disableWindowMargins
-{
-	height:var(--dragSize);
 }
 .sidebar-toggle-button.mod-right .clickable-icon
 {
@@ -2111,20 +2108,20 @@ input.prompt-input {
 .mod-left-split .workspace-tab-header,
 .mod-right-split .workspace-tab-header
 {
-	background-color:var(--background);
+	margin-top:0px;
+	background-color:var(--backgroundDeep);
 	box-shadow:var(--bevelStyleTabActive);
+}
+.mod-left-split .workspace-tab-header:hover,
+.mod-right-split .workspace-tab-header:hover
+{
+	background-color:var(--background);
 }
 .mod-left-split .workspace-tab-header-container-inner,
 .mod-right-split .workspace-tab-header-container-inner {
 	width:100%;
 	margin-bottom:-4px;
 	bottom:3px;
-}
-.mod-left-split .workspace-tab-header
-.mod-right-split .workspace-tab-header
-{
-	margin-top:0px;
-	background-color: var(--backgroundHover);
 }
 .mod-left-split .workspace-tab-header.is-active,
 .mod-right-split .workspace-tab-header.is-active{
@@ -2170,7 +2167,9 @@ input.prompt-input {
 .mod-top .workspace-tab-header-container-inner
 {
 	margin-top:var(--dragSize);
-}a.tag, .cm-hashtag
+}/* Tags in editor / preview */
+
+a.tag, .cm-hashtag
 {
 	padding:0px !important;
 	border-radius:0px;
