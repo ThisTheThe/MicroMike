@@ -101,14 +101,34 @@ settings:
 		step: 1
 		format: px
 	-
+		id: fileSecHeight
+		title: File Section Height
+		description: The height of the file tabs.
+		type: variable-number-slider
+		default: 14
+		min: 14
+		max: 30
+		step: 2
+		format: px
+	-
 		id: outlineLevelSize
 		title: Outline Level Size
-		description: Tab Height 
+		description: The size of each level's separation. This affects the size of the collapse buttons.
 		type: variable-number-slider
 		default: 40
 		min: 20
 		max: 40
 		step: 1
+		format: px
+	-
+		id: outlineSecHeight
+		title: Outline Section Height
+		description: The height of the outline tabs. This affects the size of the collapse buttons.
+		type: variable-number-slider
+		default: 16
+		min: 14
+		max: 30
+		step: 2
 		format: px
 	-
 		id: windowSize
@@ -158,6 +178,11 @@ settings:
 		title: Disable Gutter
 		description: This forces the text to the direct left of the screen. This will make the heading collapse buttons not work properly.
 		type: class-toggle
+	-
+		id: rainbowFolders
+		title: Rainbow folders
+		description: Folders will have rainbow colors. This helps distinguish them quickly in habit.
+		type: class-toggle
 	- 
 		id: folderNoteEmphasis
 		title: Enable Folder Note Emphasis
@@ -169,6 +194,7 @@ settings:
 		title: Enable Experimental Editor Tabs
 		description: Enable vertical tab interface - potentially of interest but with limitations. 
 		type: class-toggle
+		default: true
 	-
 		id: newTabLength
 		title: Experimental Tab Length
@@ -205,7 +231,9 @@ settings:
   --gutterSize:30px;
   --tabHeight:40px;
   --dragSize:30px;
+  --fileSecHeight:14px;
   --outlineLevelSize:40px;
+  --outlineSecHeight:16px;
   --newTabLength: 200px;
   --frame-right-space:0px;
   
@@ -318,11 +346,15 @@ body .workspace-tabs
   /* Generic list views (file explorer, tag view, outliner, etc.) */
   --listItemFontCol: var(--fontCol);
   --listItemBorder: var(--backgroundActive);
+  --listItemBackground: var(--background);
   --listItemHoverAccent: var(--backgroundMid);
   --listItemHoverFontCol: var(--fontCol);
   --listItemActiveAccent: var(--backgroundActive);
   --listItemActiveFontCol: var(--fontCol);
   --listItemRenameFontCol: var(--background);
+
+
+
   
 	/* Colors for folder note click region */
   
@@ -349,6 +381,20 @@ body .workspace-tabs
   /* Compat */
   
   --text-normal: var(--fontCol);
+  --ctp-rosewater: 242, 213, 207;
+  --ctp-flamingo: 238, 190, 190;
+  --ctp-pink: 244, 184, 228;
+  --ctp-mauve: 202, 158, 230;
+  --ctp-red: 231, 130, 132;
+  --ctp-maroon: 234, 153, 156;
+  --ctp-peach: 239, 159, 118;
+  --ctp-yellow: 229, 200, 144;
+  --ctp-green: 166, 209, 137;
+  --ctp-teal: 129, 200, 190;
+  --ctp-sky: 153, 209, 219;
+  --ctp-sapphire: 133, 193, 220;
+  --ctp-blue: 140, 170, 238;
+  --ctp-lavender: 186, 187, 241;
   }
 
 body.invertItemHighlight
@@ -599,6 +645,10 @@ div[data-mode=preview] .view-header
 .mod-top-right-space .view-header
 {
 	margin-right: 165px;
+}
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
+{
+	display:none;
 }/* Editor */
 
 
@@ -895,7 +945,250 @@ div[data-mode=preview] .view-header
 {
 	background-image: linear-gradient(to right, #005c99 0%, rgba(121,9,9,0) 4%)
 
-}*/
+}*//*------------RAINBOW FOLDERS-------------*/
+/* Rainbow colors */
+.nav-folder-children > .nav-folder:nth-child(11n+2) {
+  --rainbow-folder-color: var(--ctp-red);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+3) {
+  --rainbow-folder-color: var(--ctp-maroon);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+4) {
+  --rainbow-folder-color: var(--ctp-peach);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+5) {
+  --rainbow-folder-color: var(--ctp-yellow);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+6) {
+  --rainbow-folder-color: var(--ctp-green);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+7) {
+  --rainbow-folder-color: var(--ctp-teal);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+8) {
+  --rainbow-folder-color: var(--ctp-sky);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+9) {
+  --rainbow-folder-color: var(--ctp-sapphire);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+10) {
+  --rainbow-folder-color: var(--ctp-blue);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+11) {
+  --rainbow-folder-color: var(--ctp-lavender);
+}
+.nav-folder-children > .nav-folder:nth-child(11n+12) {
+  --rainbow-folder-color: var(--ctp-mauve);
+}
+
+/*-Full rainbow theme-*/
+
+.rainbowFolders .workspace-leaf-content[data-type=file-explorer] .nav-folder-title,
+.rainbowFolders .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover,
+.rainbowFolders .workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged-over
+{
+	color: rgb(var(--rainbow-folder-color));
+  text-decoration-color: red !important;
+}
+/* COMPONENT: FILE SELECTOR */
+/* Modes of selection:
+ Unselected
+ Hover
+ Selected 
+ Hover & Selected
+ Dragged-To
+ Multiple Selected
+ */
+/* Repository title */
+.workspace-leaf-content[data-type=file-explorer] .mod-root >.nav-folder-title>.nav-folder-title-content
+{
+	font-size:20px;
+	line-height:24px;
+	margin-bottom:3px;
+	text-align:center;
+	width:100%;
+}
+
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container
+{
+	background-color:var(--backgroundDeep);
+	box-shadow: var(--bevelStyleContainer);
+	padding:2px;
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-file,
+.workspace-leaf-content[data-type=file-explorer] .nav-folder
+{
+	border:0px;
+	color: white;
+}
+
+.workspace-leaf-content[data-type=file-explorer] .nav-file.has-focus,
+.workspace-leaf-content[data-type=file-explorer] .nav-folder.has-focus
+{
+	border:0px;
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-file:hover,
+.workspace-leaf-content[data-type=file-explorer] .nav-folder .is-collapsed:hover /* Technical limitation. If you remove the is-collapsed property, huge chunks of files will become underlined. */
+{
+	text-decoration: underline;
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-file.has-focus,
+.workspace-leaf-content[data-type=file-explorer] .nav-file:hover,
+.workspace-leaf-content[data-type=file-explorer] .nav-folder .is-collapsed:hover
+{
+	color:var(--listItemHoverFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title,
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title
+{
+	line-height:var(--fileSecHeight);
+	border:0px;
+	margin:0px;
+	padding:0px;
+	padding-left:2px;
+	color:var(--listItemFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title
+{
+	box-shadow: var(--bevelStyleItem);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title
+{
+	box-shadow: var(--bevelStyleItem);
+	background-color: var(--background);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover,
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover
+{
+	border-radius: var(--radius-s);
+	background-color:var(--listItemHoverAccent);
+	color: var(--listItemHoverFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-selected,
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-selected
+{
+	background-color:var(--listItemHoverAccent);
+	color:var(--listItemHoverFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-being-dragged-over
+{
+	background-color:var(--listItemHoverAccent);
+	color:var(--listItemHoverFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged-over svg
+{
+	color:var(--listItemHoverFontCol);
+}
+.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged-over .nav-file-title-content
+{
+	box-shadow: var(--bevelStyleItemAltHover);
+	background-color: var(--listItemHoverAltAccent);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-active .nav-file-tag,
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover .nav-file-tag,
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-active .nav-file-tag,
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-file-tag
+{
+	color:var(--fontCol);
+}
+
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged,
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-being-dragged  {
+	background-color: var(--listItemHoverAccent);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active,
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-active
+{
+	background-color:var(--listItemActiveAccent);
+	color:var(--listItemActiveFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content,
+.workspace-leaf-content[data-type=file-explorer] .nav-file-title-content
+{
+	padding: 0px;
+	text-overflow:unset;
+	white-space:normal;
+	word-wrap: break-word;
+	vertical-align:middle;
+	font-size:12px;
+	padding-right:3px;
+	padding-left:2px;
+	border:0px;
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content
+{
+	position:relative;
+	top:0px;
+}
+.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content
+{
+	padding-left:2px;
+	display:flex;
+	min-width:70px;
+	background-color: var(--listItemAltAccent);
+	box-shadow: var(--bevelStyleItemAlt);
+}
+.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-folder-title-content
+{
+	background-color: var(--listItemHoverAltAccent);
+	box-shadow: var(--bevelStyleItemAltHover);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-collapse-indicator
+{
+	justify-content:center;
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-folder-collapse-indicator.collapse-icon svg
+{
+	color:var(--background);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-collapse-indicator svg
+{
+	color:var(--listItemFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .is-collapsed svg
+{
+	color:var(--listItemFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover svg
+.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-active svg
+{
+	color:var(--listItemHoverFontCol);
+}
+.workspace-leaf-content[data-type=file-explorer] .is-being-renamed
+{
+	background-color:var(--listItemActiveAccent);
+	color:var(--listItemRenameFontCol);
+}
+
+/* Alx */
+
+.alx-folder-note
+{
+	color:var(--fontCol);
+}
+/* Big folders */
+
+.bigfolders .workspace-leaf-content[data-type=file-explorer] .nav-folder-title
+{
+	height:30px;
+}
+.bigfolders .workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content
+{
+	line-height:30px;
+	font-size:20px;
+	margin:auto;
+	margin-left:0px;
+}
+
+:not(.invertItemHighlight .nav-folder-title:hover svg) .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover svg
+{
+	color:var(--fontCol);
+}
+.workspace-leaf-content[data-type=file-explorer]  .nav-folder-title.is-being-dragged-over .nav-file-title-content:not(.invertItemHighlight .nav-file-title-content) 
+{
+	background-color: red !important;
+	box-shadow: var(--bevelStyleItemAltHover) !important;
+}
 /* Graph View */
 
 body body canvas
@@ -933,6 +1226,15 @@ body body canvas
 	background: var(--backgroundDeep);
 	box-shadow: var(--bevelStyleContainer);
 }
+
+.tree-item
+{
+	margin-top:-1px;
+}
+.tree-item .tree-item:first-of-type
+{
+	margin-top:0px;
+}
 .outline {	
 	padding: 0px;
 	margin: 2px;
@@ -947,6 +1249,8 @@ body body canvas
 	padding:0px;
 	margin:auto;
 	color: var(--listItemFontCol);
+		background-color:var(--listItemBackground);
+	box-shadow:var(--bevelStyleItem);
 }
 .tree-item-self.is-clickable:hover
 {
@@ -959,10 +1263,12 @@ body body canvas
 }
 
 .tree-item-inner::after {
+	font-size:12px;
 	color: var(--listItemFontCol);
-	content: "⮞";
+	content: "–";
+
 	position: absolute;
-	left: -15px;
+	left: -24px;
 	top:0px;
 }
 .tree-item-self.is-clickable:hover .tree-item-inner::after
@@ -973,8 +1279,8 @@ body body canvas
 {
 	font-size: 11px;
 	margin: 0px;
-	line-height:1.2em;
-	min-height:12px;
+	line-height:var(--outlineSecHeight);
+	min-height:var(--outlineSecHeight);
 	margin-top:auto;
 	margin-bottom:auto;
 	margin-left:3px;
@@ -987,9 +1293,9 @@ body body canvas
 	width:var(--outlineLevelSize);
 	box-shadow: var(--bevelStyleButton);
 	padding:0px;
-	margin-left:1px;
-	height:16px;
-	background-color: var(--background);
+	margin-left:0px;
+	height:var(--outlineSecHeight);
+	background-color: var(--listItemBackground);
 }
 .is-clickable .tree-item-icon.collapse-icon:hover
 {
@@ -1755,7 +2061,6 @@ input.prompt-input {
 .sidebar-toggle-button.mod-left
 {
 	display:block;
-	
 	height:var(--heightRibbon);
 	width:var(--widthRibbon);
 	padding:0px;
@@ -1789,6 +2094,10 @@ input.prompt-input {
 	z-index:10;
 	min-height:20px;
 	height:var(--tabHeight);
+}
+.disableWindowMargins .sidebar-toggle-button.mod-right
+{
+	height:var(--dragSize);
 }
 .sidebar-toggle-button.mod-right .clickable-icon
 {
@@ -2238,199 +2547,6 @@ a.tag, .cm-hashtag
 .disableWindowMargins .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
 {
 height:var(--dragSize);
-}
-/* COMPONENT: FILE SELECTOR */
-/* Modes of selection:
- Unselected
- Hover
- Selected 
- Hover & Selected
- Dragged-To
- Multiple Selected
- */
-/* Repository title */
-.workspace-leaf-content[data-type=file-explorer] .mod-root >.nav-folder-title>.nav-folder-title-content
-{
-	font-size:20px;
-	line-height:24px;
-	margin-bottom:3px;
-	text-align:center;
-	width:100%;
-}
-
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container
-{
-	background-color:var(--backgroundDeep);
-	box-shadow: var(--bevelStyleContainer);
-	padding:2px;
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-file,
-.workspace-leaf-content[data-type=file-explorer] .nav-folder
-{
-	border:0px;
-	color: white;
-}
-
-.workspace-leaf-content[data-type=file-explorer] .nav-file.has-focus,
-.workspace-leaf-content[data-type=file-explorer] .nav-folder.has-focus
-{
-	border:0px;
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-file:hover,
-.workspace-leaf-content[data-type=file-explorer] .nav-folder .is-collapsed:hover /* Technical limitation. If you remove the is-collapsed property, huge chunks of files will become underlined. */
-{
-	text-decoration: underline;
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-file.has-focus,
-.workspace-leaf-content[data-type=file-explorer] .nav-file:hover,
-.workspace-leaf-content[data-type=file-explorer] .nav-folder .is-collapsed:hover
-{
-	color:var(--listItemHoverFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title,
-.workspace-leaf-content[data-type=file-explorer] .nav-file-title
-{
-	line-height:14px;
-	border:0px;
-	margin:0px;
-	padding:0px;
-	padding-left:2px;
-	color:var(--listItemFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-file-title
-{
-	box-shadow: var(--bevelStyleItem);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title
-{
-	box-shadow: var(--bevelStyleItem);
-	background-color: var(--background);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover,
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover
-{
-	border-radius: var(--radius-s);
-	background-color:var(--listItemHoverAccent);
-	color: var(--listItemHoverFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-selected,
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-selected
-{
-	background-color:var(--listItemHoverAccent);
-	color:var(--listItemHoverFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-being-dragged-over
-{
-	background-color:var(--listItemHoverAccent);
-	color:var(--listItemHoverFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged-over svg
-{
-	color:var(--listItemHoverFontCol);
-}
-.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged-over .nav-file-title-content
-{
-	box-shadow: var(--bevelStyleItemAltHover);
-	background-color: var(--listItemHoverAltAccent);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-active .nav-file-tag,
-.workspace-leaf-content[data-type=file-explorer] .nav-file-title:hover .nav-file-tag,
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-active .nav-file-tag,
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-file-tag
-{
-	color:var(--fontCol);
-}
-
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-being-dragged,
-.workspace-leaf-content[data-type=file-explorer] .nav-file-title.is-being-dragged  {
-	background-color: var(--listItemHoverAccent);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title.is-active,
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title.is-active
-{
-	background-color:var(--listItemActiveAccent);
-	color:var(--listItemActiveFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content,
-.workspace-leaf-content[data-type=file-explorer] .nav-file-title-content
-{
-	padding: 1px;
-	text-overflow:unset;
-	white-space:normal;
-	word-wrap: break-word;
-	font-size:12px;
-	padding:0px;
-	padding-right:3px;
-	border:0px;
-}
-.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content
-{
-	padding-left:2px;
-	display:flex;
-	min-width:100px;
-	background-color: var(--listItemAltAccent);
-	box-shadow: var(--bevelStyleItemAlt);
-}
-.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-folder-title-content
-{
-	background-color: var(--listItemHoverAltAccent);
-	box-shadow: var(--bevelStyleItemAltHover);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-collapse-indicator
-{
-	justify-content:center;
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-folder-collapse-indicator.collapse-icon svg
-{
-	color:var(--background);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-collapse-indicator svg
-{
-	color:var(--listItemFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .is-collapsed svg
-{
-	color:var(--listItemFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover svg
-.workspace-leaf-content[data-type=file-explorer] .nav-folder-title.is-active svg
-{
-	color:var(--listItemHoverFontCol);
-}
-.workspace-leaf-content[data-type=file-explorer] .is-being-renamed
-{
-	background-color:var(--listItemActiveAccent);
-	color:var(--listItemRenameFontCol);
-}
-
-/* Alx */
-
-.alx-folder-note
-{
-	color:var(--fontCol);
-}
-/* Big folders */
-
-.bigfolders .workspace-leaf-content[data-type=file-explorer] .nav-folder-title
-{
-	height:30px;
-}
-.bigfolders .workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content
-{
-	line-height:100%;
-	font-size:20px;
-	margin:auto;
-	margin-left:0px;
-}
-
-:not(.invertItemHighlight .nav-folder-title:hover svg) .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover svg
-{
-	color:var(--fontCol);
-}
-.workspace-leaf-content[data-type=file-explorer]  .nav-folder-title.is-being-dragged-over .nav-file-title-content:not(.invertItemHighlight .nav-file-title-content) 
-{
-	background-color: red !important;
-	box-shadow: var(--bevelStyleItemAltHover) !important;
 }/* Sauce:  https://www.iconshock.com */
 body
 {
