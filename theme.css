@@ -10,7 +10,7 @@ body
 	--handleSize:16px;
 	--tabHeightSidebar:30px;
 	--tabHeightEditor:30px;
-	--tabHeightEditorStack:30px;
+	--tabHeightEditorStack:40px;
 	--dashboardHeight:40px;
 	--fileHeight: 14px;
 	--outlineHeight:14px;
@@ -160,6 +160,26 @@ settings:
 		max: 300
 		step: 5
 		format: px
+	-
+		id: tabHeightEditorStack
+		title: Editor Stack Tab Height
+		description: Tab Height 
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 40
+		step: 1
+		format: px
+	-
+		id: folderNoteEmphasis
+		title: Folder Note Emphasis 
+		description: The tabs will be stacked.
+		type: class-toggle
+	-
+		id: disableBevels
+		title: Disable Bevels 
+		description: The tabs will be stacked.
+		type: class-toggle
 */*, *:after, *:before {
   /*CSS transitions*/
   -webkit-transition-property: none !important;
@@ -251,6 +271,9 @@ body
 	--bevelDark1: yellow; 
 	--bevelDark2: purple; 
 	*/
+
+}
+body:not(.disableBevels) {
 	--bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
 	--bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
     --bevelStyleContainerOuter:
@@ -262,16 +285,13 @@ body
     0px -2px var(--bevelDark1),
     -2px 2px var(--bevelBright2),
     2px -2px var(--bevelBright2);
-
-
-
-
-     
-    
-
     --bevelStyleTabActive: inset -1px 0 var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px 0 var(--bevelDark2), inset 2px 2px var(--bevelBright1);
     --bevelStyleFile: inset 1px 1px var(--level1);
+    --bevelStyleFileHover: inset 1px 1px var(--level1_a);
     --bevelStyleFolder: inset 1px 1px var(--level2);
+    --bevelStyleFolderHover:inset 1px 1px var(--level2_a);
+    --bevelStyleFolderLabel:inset 1px 1px var(--level2_b);
+    --bevelStyleFolderLabelHover:inset 1px 1px var(--level3_a);
     --bevelStyleTreeItem: inset 1px 1px var(--level2);
 }.theme-dark
 {
@@ -332,7 +352,10 @@ input[type='password']:focus-visible,
 input[type='number']:focus-visible {
   box-shadow:var(--bevelStyleContainer);
 }
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
+input.slider
+{
+	background-color:var(--level2);
+}.workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
 .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
 .workspace-leaf-content[data-type=outline] .view-content,
 .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
@@ -498,7 +521,8 @@ input[type='number']:focus-visible {
 	flex-basis:33%;
 }
 .view-actions .clickable-icon,
-.view-header-nav-buttons .clickable-icon
+.view-header-nav-buttons .clickable-icon,
+.view-actions .clickable-icon[aria-disabled='true']
 {
 	flex-grow:1;
 	opacity:1;
@@ -681,13 +705,14 @@ input[type='number']:focus-visible {
 }
  .stackTabs .mod-root .workspace-tab-header-container-inner
 {
-	/*background-color: var(--bottom_a);*/
+	background-color: var(--bottom);
 	flex-direction: column;
 	flex-grow:1;
 	margin:0px;
 	padding:0px;
 	height:100%;
 	border-right: 1px solid var(--level2);
+	border-left: 1px solid var(--level2);;
 	margin-top:0px;
 	justify-content:left;
 
@@ -697,7 +722,7 @@ input[type='number']:focus-visible {
 {
 	flex-basis:0px;
 	height:0px;
-	max-height:var(--tabHeightEditor);
+	max-height:var(--tabHeightEditorStack);
 	max-width:var(--editorStackWidth);
 	flex-grow:1;
 	min-width:0px;
@@ -770,7 +795,27 @@ input[type='number']:focus-visible {
 .markdown-reading-view blockquote p
 {
   padding-left:10px;
-}body
+}
+.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title-content
+{
+	padding-left:2px;
+	padding-right:5px;
+	display:flex;
+	min-width:70px;
+	background-color: var(--level1_a);
+	box-shadow: var(--bevelStyleFolderHover);
+}
+.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title .nav-folder-title-content
+{
+	background-color: var(--level1_a);
+	box-shadow: var(--bevelStyleFolderLabel);
+}
+.folderNoteEmphasis .workspace-leaf-content[data-type=file-explorer] .nav-folder-title:hover .nav-folder-title-content
+{
+	background-color: var(--level2_a);
+	box-shadow: var(--bevelStyleFolderLabelHover);
+}
+body
 {
 	--nav-item-size: 12px;
     --nav-item-color: var(--text-muted);
@@ -821,9 +866,11 @@ input[type='number']:focus-visible {
 
 body:not(.is-grabbing) .nav-file-title:hover {
 	background-color:var(--bottom_a);
+  box-shadow:var(--bevelStyleFileHover);
 }
 body:not(.is-grabbing) .nav-folder-title:hover {
 	background-color:var(--level1_a);
+  box-shadow:var(--bevelStyleFolderHover);
 }
 .nav-file-title.is-active,
 .nav-file-title.is-selected,
@@ -896,6 +943,10 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 .nav-folder-children div[style*="height: 0.1px"]
 {
   height:0px !important;
+}
+.nav-file-tag
+{
+  margin-left:10px;
 }/* Outline */
 
 /* Debug */
@@ -958,6 +1009,107 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 }.view-action:not(:last-child)
 {
 	margin-right:0px;
+}.qsp-recent-file .suggestion-title.qsp-title
+{
+	text-decoration-style: initial;
+	text-decoration-line: none;
+}/* > TERMINAL: BETTER PROMPT WINDOW */
+
+/* PROMPT WINDOW */
+
+
+.prompt {
+	background-color:var(--level1);
+	box-shadow:var(--bevelStyleTabActive);
+  font-size: var(--the-font-size);
+  display: unset;
+  /* position: absolute; */
+  bottom: 0px;
+  top: 59%;
+  right:25%;
+  width: 50%;
+  max-width: unset;
+  max-height: 50%;
+  border:0;
+  border-style: solid;
+  border-width: 0px 0 0px 0;
+  border-radius: unset;
+  /* padding-top: 9px; */
+  padding: 0px 5px;
+  align-content: center;
+}
+input {
+  font-family: var(--the-font) !important;
+}
+input.prompt-input {
+  background-color:var(--bottom);
+  font-size: var(--the-font-size);
+  padding: 0 0 0 5px; /* same as CodeMirror line */
+  margin: 5px 0 0 0;
+  border-width: 0;
+  top:2px;
+  height:40px;
+}
+input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-visible
+{
+  border:0px;
+  box-shadow:var(--bevelStyleContainer);
+}
+.modal-bg {
+  background-color: unset;
+}
+.prompt:before {
+  content: var(--input-prompt);
+  position: absolute;
+  top: calc(20px - 0.5 * var(--editor-line-height) * 1em);
+  left: calc(20px - 0.5em);
+}
+.prompt-results {
+  position: absolute;
+  top: calc(50px);
+  bottom: 0;
+  right: 5px;
+  left: 5px;
+  /* max-height: 90%; */
+  padding-top: 0;
+  padding:0px;
+}
+
+/* Hide instructions */
+.prompt-instructions {
+  display:none;
+}
+
+
+.suggestion-container:not(.mod-search-suggestion) {
+  max-width: 33%;
+  width: 100%;
+  height: calc( var(--font-text-size) * 24 + 2px);
+  border-radius: 0;
+  border-width: 1px 0 1px 0;
+  padding: 0 10px 0 10px;
+  margin-top: -5px;
+  box-shadow: none;
+  align-content: center;
+}
+.suggestion {
+  max-height: 100%;
+}
+.suggestion-item {
+  padding: 0 0 0 3px;
+  border-width: 0;
+  height:18px;
+}
+:not(.mod-search-suggestion) .suggestion-item.is-selected
+{
+	background-color: var(--level2);
+}
+.suggestion-item .suggestion-note {
+  display: none;
+}
+.suggestion-hotkey
+{
+  height:18px;
 }body
 {
 	--divider-width: 0px;
@@ -1058,6 +1210,7 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 .modal-bg
 {
 	left:-45px;
+  background-color:transparent;
 }
 .modal-container.mod-dim .modal
 {
@@ -1083,22 +1236,21 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
   background-color:var(--level1);
   width: calc(100% - var(--ribbonWidth));
 }
+
 .modal-container.mod-dim .modal.mod-settings,
 .modal-container.mod-dim .modal.mod-community-plugin,
-.modal-container.mod-dim .modal.mod-community-theme
+.modal-container.mod-dim .modal.mod-community-theme,
+.modal.mod-community-theme
 {
+  background-color:transparent;
   box-shadow:var(--bevelStyleButton);
 }
 
-.modal.mod-settings:hover,
-.modal.mod-community-plugin:hover,
-.modal.mod-community-theme:hover
+.modal.mod-settings:hover
 {
 	opacity:1;
 }
-.modal.mod-settings .modal-content,
-.modal.mod-community-plugin .modal-content,
-.modal.mod-community-theme .modal-content
+.modal.mod-settings .modal-content
 {
   opacity:0;
 }
@@ -1112,17 +1264,17 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 .modal.mod-settings .vertical-tab-header
 {
 	box-shadow:var(--bevelStyleButton);
-  background-color: var(--level2);
+  background-color: var(--level1);
 }
 .modal.mod-settings .vertical-tab-content-container
 {
-  background-color: var(--level1);
+  background-color: var(--bottom_b);
 }
 .modal.mod-settings .vertical-tab-content
 {
 	margin-left:5px;
   margin-right:3px;
-	
+	background-color: var(--bottom_b);
 }
   .modal.mod-settings .vertical-tab-header,
 .modal.mod-settings .vertical-tab-content-container, .vertical-tab-content {
@@ -1130,11 +1282,6 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
   height: 100vh;
   overflow: auto;
   padding: 0;
-}
-.modal.mod-settings.mod-sidebar-layout .vertical-tab-nav-item.is-active
-{
-	background-color:var(--fontCol);
-  background-color: var(--level1);
 }
 /* Settings Config */
 .setting-item-name, .setting-item-description {
@@ -1328,6 +1475,12 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 .workspace-ribbon.side-dock-ribbon.mod-left::before
 {
 	display:none;
+}
+.is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
+    background-color: var(--level2);
+}
+.is-collapsed .sidebar-toggle-button.mod-left .clickable-icon:hover {
+    background-color: var(--level2_a);
 }.sidebar-toggle-button.mod-right
 {
 	justify-items:center;
@@ -1350,6 +1503,14 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 .sidebar-toggle-button.mod-right .clickable-icon:hover
 {
 	background-color:var(--level1_a);
+}
+.mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon
+{
+	background-color:var(--level2);
+}
+.mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon:hover
+{
+	background-color:var(--level2_a);
 }/* Tags in editor / preview */
 
 a.tag, .cm-hashtag
