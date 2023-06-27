@@ -1901,6 +1901,7 @@ button
 textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']
 {
 	padding:3px;
+	padding-left:30px;
 	box-shadow:var(--bevelStyleContainer);
 }
 textarea:active,
