@@ -408,7 +408,6 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 	margin-top:var(--dragHeight);
 	align-items: flex-end;
 	bottom:0px;
-
 }
 /* I managed to make the tabs close quickly by never specifying in the skin the "height" value for ed. tabs - instead using "max-height". I have no idea why this works. */
 
@@ -470,6 +469,10 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .workspace-tab-header-inner-close-button svg
 {
 	margin:auto;
+}
+.workspace .mod-root .workspace-tab-header-tab-list
+{
+	display:none;
 }/* Editor */
  .stackTabs .mod-root .workspace-tabs 
 {
@@ -793,7 +796,20 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 	content: "–";
 	position:relative;
 	left: calc(calc(var(--outlineLevelWidth) + var(--outlineDashPos)) / -2);
-	
+}
+.workspace-leaf-content[data-type=outline] .tree-item-self.mod-collapsible .tree-item-inner::before
+{
+	content: "";
+}
+.workspace-leaf-content[data-type=outline] .tree-item-self.mod-collapsible .tree-item-inner
+{
+	padding-left:10px;
+}
+.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner::before
+{
+	display:inline-block;
+	text-decoration-line:none;
+	text-decoration-color:transparent;
 }
 .workspace-leaf-content[data-type=outline] .tree-item-children
 {
@@ -1418,7 +1434,6 @@ body
 
 .enableNewIcons .mod-root .workspace-tab-header-container-inner .workspace-tab-header
 {
-	color:green;
 	background-image: none;
 
 }
