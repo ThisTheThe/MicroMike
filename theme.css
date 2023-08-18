@@ -233,7 +233,14 @@ button
 	min-height:40px;
 	padding:0px;
 }
-*, *:after, *:before {
+textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']
+{
+	padding:3px;
+}
+.search-input-container input[type='search']
+{
+	padding-left:30px;
+}*, *:after, *:before {
   /*CSS transitions*/
   -webkit-transition-property: none !important;
   transition-property: none !important;
@@ -1138,6 +1145,14 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 {
 	display:none;
 }
+.workspace-leaf-content[data-type=search] .tree-item-flair-outer
+{
+	margin-left: calc(var(--outlineLevelWidth));
+}
+.workspace-leaf-content[data-type=search] .tree-item-inner
+{
+	margin-left:0px;
+}
 /* SETTINGS */
 /* some borrowings from Terminal */
 /* Modal Config */
@@ -1901,7 +1916,6 @@ button
 textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']
 {
 	padding:3px;
-	padding-left:30px;
 	box-shadow:var(--bevelStyleContainer);
 }
 textarea:active,
