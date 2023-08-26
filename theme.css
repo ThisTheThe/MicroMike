@@ -185,17 +185,17 @@ settings:
 	-
 		id: folderNoteEmphasis
 		title: Folder Note Emphasis 
-		description: The tabs will be stacked.
+		description: Give a special background and region to folder notes.
 		type: class-toggle
 	-
 		id: disableBevels
 		title: Disable Bevels 
-		description: The tabs will be stacked.
+		description: Disable bevels, resulting in a more minimalist appearance.
 		type: class-toggle
 	-
 		id: enableNewIcons
 		title: Enable XP-style Icons 
-		description: The tabs will be stacked.
+		description: Enable colorful XP-style icons to replace flat SVG icons. This is only done where the icons are supported.
 		type: class-toggle
 */body
 {
@@ -218,6 +218,15 @@ settings:
 {
 	padding: 0px;
 }
+.backlink-pane .tree-item-inner,
+.outgoing-link-pane .tree-item-inner
+{
+	margin-left:0px;
+}.clickable-icon
+{
+	height:40px;
+	width:40px;
+}
 .clickable-icon,
 .clickable-icon:hover,
 .workspace-tab-header-inner-close-button,
@@ -226,7 +235,8 @@ button
 	padding:0px;
 	align-items:center;
 	margin:0px;
-}.view-header,
+}
+.view-header,
 .mod-left-split .nav-header,
 .mod-right-split .nav-header
 {
@@ -340,7 +350,7 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 }
 .tree-item-children
 {
-		border-left:0px;
+	border-left:0px;
 	margin-left:calc(var(--outlineLevelWidth));
 	padding:0px;
 }
@@ -636,15 +646,7 @@ body
   margin:0px;
 	border-left:1px solid var(--lineColor);
   border-top:1px solid var(--lineColor);
-}
-
-body:not(.is-grabbing) .nav-file-
-.nav-file-title.is-active,
-.nav-file-title.is-selected,
-body:not(.is-grabbing) .nav-file-title.is-active:hover,
-body:not(.is-grabbing) .nav-file-title.is-selected:hover
-{
-	text-decoration:underline;
+  line-height:0px;
 }
 .nav-folder-title.is-active,
 .nav-folder-title.is-selected,
@@ -652,6 +654,10 @@ body:not(.is-grabbing) .nav-folder-title.is-active:hover,
 body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 {
 	text-decoration:underline;
+}
+.tree-item-children
+{
+	margin-bottom:0px;
 }
 .nav-file-collapse-indicator, 
 .nav-folder-collapse-indicator
@@ -669,6 +675,14 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 .nav-folder-title-content
 {
   flex-grow:0;
+}
+.mod-root>.nav-folder-children>.nav-file>.nav-file-title>.nav-file-title-content
+{
+	margin-left:0px;
+}
+.tree-item-inner.nav-file-title-content
+{
+	margin-left:0px;
 }
 .nav-folder.mod-root>.nav-folder-title:first-of-type
 {
@@ -690,8 +704,7 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 .nav-file-tag
 {
   margin-left:10px;
-}
-.body:not(.anp-alternate-tab-toggle):not(.anp-disable-newtab-align) .workspace-split.mod-vertical .workspace-tab-header-new-tab
+}body:not(.anp-alternate-tab-toggle):not(.anp-disable-newtab-align) .workspace-split.mod-vertical .workspace-tab-header-new-tab
 {
     margin-left:0px;
 }
@@ -744,46 +757,6 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 }
 *//* Outline */
 
-/* Debug */
-
-/*
-.workspace-leaf-content[data-type=outline] .tree-item
-{
-	border: 1px solid red;
-}
-.workspace-leaf-content[data-type=outline] .tree-item-self
-{
-	border: 1px solid blue;
-}
-.workspace-leaf-content[data-type=outline] .tree-item-children 
-{
-	border: 1px dotted green;
-}
-.workspace-leaf-content[data-type=outline] .tree-item-inner
-{
-	border: 1px solid yellow;
-}
-.workspace-leaf-content[data-type=outline] .tree-item-icon
-{
-	border: 1px solid purple;
-}
-*/
-.workspace-leaf-content[data-type=outline] .tree-item
-{
-	margin-top:-1px;
-}
-.workspace-leaf-content[data-type=outline] .tree-item .tree-item:first-of-type
-{
-	margin-top:0px;
-}
-.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable
-{
-	box-shadow:var(--bevelStyleTreeItem);
-}
-.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover
-{
-	text-decoration: underline;
-}
 .workspace-leaf-content[data-type=outline] .tree-item-inner
 {
 	border-left:1px solid var(--lineColor);
@@ -791,29 +764,6 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner
 {
 	border-left:1px solid var(--lineColor);
-}
-.workspace-leaf-content[data-type=outline] .tree-item-inner::before {
-	content: "–";
-	position:relative;
-	left: calc(calc(var(--outlineLevelWidth) + var(--outlineDashPos)) / -2);
-}
-.workspace-leaf-content[data-type=outline] .tree-item-self.mod-collapsible .tree-item-inner::before
-{
-	content: "";
-}
-.workspace-leaf-content[data-type=outline] .tree-item-self.mod-collapsible .tree-item-inner
-{
-	padding-left:10px;
-}
-.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner::before
-{
-	display:inline-block;
-	text-decoration-line:none;
-	text-decoration-color:transparent;
-}
-.workspace-leaf-content[data-type=outline] .tree-item-children
-{
-	border-left:0px;
 }.boostlink-item
 {
 	font-size:1em;
@@ -1241,6 +1191,7 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 .vertical-tab-header-group-title {
   padding: 6px 16px;
   user-select: none;
+  color: var(--text-normal);
 }
 .horizontal-tab-nav-item, .vertical-tab-nav-item {
   padding:0px;
@@ -1378,6 +1329,10 @@ a.tag, .cm-hashtag
 .tag-container .tree-item-self.is-clickable:hover
 {
 	text-decoration-color: transparent;
+}
+.tag-container .tree-item-inner
+{
+	margin-left:0px;
 }body:not(.native-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar,
 body:not(.native-scrollbars) .prompt-results::-webkit-scrollbar,
 body:not(.native-scrollbars) ::-webkit-scrollbar {
@@ -2125,19 +2080,12 @@ body:not(.is-grabbing) .nav-folder-title.tree-item-self.is-clickable:hover
 }
 body:not(.is-grabbing) .tree-item-self.is-clickable.nav-file-title.is-active:hover, 
 body:not(.is-grabbing) .tree-item-self.is-clickable.nav-folder-title.is-active:hover, 
-.tree-item-self.is-clickable.nav-file-title.is-active, .tree-item-self.is-clickable.nav-folder-title.is-active {
-	background-color:var(--level1_a);
+.tree-item-self.is-clickable.nav-file-title.is-active, 
+.tree-item-self.is-clickable.nav-folder-title.is-active {
+	background-color:var(--bottom_b);
 	color: var(--nav-item-color);
 }
 
-.nav-file-title.is-active,
-.nav-file-title.is-selected,
-body:not(.is-grabbing) .nav-file-title.is-active:hover,
-body:not(.is-grabbing) .nav-file-title.is-selected:hover
-{
-    box-shadow:var(--bevelStyleFolder);
-	background-color:var(--level1);
-}
 .nav-folder-title.is-active,
 .nav-folder-title.is-selected,
 body:not(.is-grabbing) .nav-folder-title.is-active:hover,
