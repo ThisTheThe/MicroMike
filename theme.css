@@ -218,10 +218,14 @@ settings:
 {
 	padding: 0px;
 }
-.backlink-pane .tree-item-inner,
-.outgoing-link-pane .tree-item-inner
+.outgoing-link-pane .tree-item-inner,
+.backlink-pane .tree-item-inner
 {
 	margin-left:0px;
+}
+.backlink-pane .search-results-children .tree-item-inner
+{
+	margin-left:calc(var(--outlineLevelWidth) - 20px);
 }.clickable-icon
 {
 	height:40px;
