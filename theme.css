@@ -609,8 +609,9 @@ body
     --nav-item-background-selected: hsla(var(--color-accent-hsl), 0.2);
     --nav-item-padding: var(--size-4-1) var(--size-4-2);
     --nav-item-parent-padding: var(--nav-item-padding);
-    --nav-item-children-padding-left: calc(var(--outlineLevelWidth) / 2);
-    --nav-item-children-margin-left: calc(var(--outlineLevelWidth) / 2);
+	
+    --nav-item-children-padding-left: calc(var(--outlineLevelWidth));
+    --nav-item-children-margin-left: 0px;
     --nav-item-weight: inherit;
     --nav-item-weight-hover: inherit;
     --nav-item-weight-active: inherit;
@@ -663,11 +664,12 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 {
 	margin-bottom:0px;
 }
+/*
 .nav-file-collapse-indicator, 
 .nav-folder-collapse-indicator
 {
     border-right:1px solid var(--lineColor);
-} 
+} */
 .nav-file-title-content,
 .nav-folder-title-content
 {
@@ -768,6 +770,10 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner
 {
 	border-left:1px solid var(--lineColor);
+}
+.workspace-leaf-content[data-type=outline] .view-content.node-insert-event
+{
+	padding:0px;
 }.boostlink-item
 {
 	font-size:1em;
@@ -1326,10 +1332,11 @@ a.tag, .cm-hashtag
 	overflow: hidden;
 
 }
+/*
 .tag-container .tree-item-icon.collapse-icon
 {
 	left:10px;
-}
+}*/
 .tag-container .tree-item-self.is-clickable:hover
 {
 	text-decoration-color: transparent;
@@ -1846,6 +1853,9 @@ body
 	--bevelDark1: yellow; 
 	--bevelDark2: purple; 
 	*/
+	
+	--levelLayer: #ffffff18;
+	--levelHover: #ffffff11;
 
 }
 body:not(.disableBevels) {
@@ -1957,6 +1967,10 @@ input.slider
 	box-shadow: var(--bevelStyleButton);
 	background-color: var(--level1);
 }
+.is-clickable .tree-item-icon.collapse-icon:hover
+{
+	background-color:var(--level1_a);
+}
 .workspace-leaf-content[data-type=outline] .is-clickable .tree-item-icon.collapse-icon:hover
 {
 	background-color:var(--level2);
@@ -2058,16 +2072,19 @@ input.slider
 }
 .nav-folder-title
 {
-	background-color:var(--level1);
 }
-
+.tree-item.nav-folder:not(.mod-root)
+{
+	background-color: var(--levelLayer);
+}
 body:not(.is-grabbing) .nav-file-title:hover {
-	background-color:var(--bottom_a);
+	background-color:var(--levelHover);
 }
 body:not(.is-grabbing) .nav-folder-title:hover {
-	background-color:var(--level1_a);
+	background-color:var(--levelHover);
 }
 /* Update */
+/*
 body:not(.is-grabbing) .tree-item-self.is-clickable:hover {
 	color: var(--nav-item-color);
 	background-color:var(--level1_a);
@@ -2089,7 +2106,6 @@ body:not(.is-grabbing) .tree-item-self.is-clickable.nav-folder-title.is-active:h
 	background-color:var(--bottom_b);
 	color: var(--nav-item-color);
 }
-
 .nav-folder-title.is-active,
 .nav-folder-title.is-selected,
 body:not(.is-grabbing) .nav-folder-title.is-active:hover,
@@ -2109,16 +2125,16 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 .nav-folder.mod-root>.nav-folder-title:first-of-type:hover
 {
   background-color:var(--level1);
-}
+}*/
 /* Outline (specific) */
+
 .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable
 {
-	background-color:var(--level1);
 	box-shadow:var(--bevelStyleTreeItem);
 }
 .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover
 {
-	background-color: var(--level1_a);
+	background-color: var(--bottom_a);
 }
 /* Quick Explorer */
 .explorable.titlebar-button
@@ -2343,3 +2359,4 @@ body
 {
 	background-color:var(--bottom);
 }
+
