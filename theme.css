@@ -87,19 +87,9 @@ settings:
 		step: 1
 		format: px
 	-
-		id: tabHeightEditor
-		title: Editor Tab Height
-		description: Tab Height 
-		type: variable-number-slider
-		default: 40
-		min: 20
-		max: 40
-		step: 1
-		format: px
-	-
 		id: outlineLevelWidth
-		title: Outline Level Size
-		description: The size of each level's separation. This affects the size of the collapse buttons.
+		title: Hierarchical Display Level Size
+		description: The size of each level's separation. This affects the size of the collapse buttons. (Hierarchical Display - Editor, Outline, Tag View, Outgoing/Backlinks)
 		type: variable-number-slider
 		default: 40
 		min: 20
@@ -108,7 +98,7 @@ settings:
 		format: px
 	-
 		id: outlineHeight
-		title: Outline Section Height
+		title: Hierarchical Display Section Height
 		description: The height of the outline tabs. This affects the size of the collapse buttons.
 		type: variable-number-slider
 		default: 16
@@ -670,8 +660,8 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 {
     border-right:1px solid var(--lineColor);
 } */
-.nav-file-title-content,
-.nav-folder-title-content
+div .nav-file-title-content,
+div .nav-folder-title-content
 {
     overflow-wrap: break-word;
     white-space: normal;
@@ -2359,4 +2349,3 @@ body
 {
 	background-color:var(--bottom);
 }
-
