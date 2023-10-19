@@ -216,6 +216,9 @@ settings:
 .backlink-pane .search-results-children .tree-item-inner
 {
 	margin-left:calc(var(--outlineLevelWidth) - 20px);
+}.workspace-leaf-content[data-type=bookmarks] .view-content
+{
+	padding:0px;
 }.clickable-icon
 {
 	height:40px;
@@ -230,7 +233,11 @@ button
 	align-items:center;
 	margin:0px;
 }
-.view-header,
+button.mod-cta
+{
+	padding-left:5px;
+	padding-right:5px;
+}.view-header,
 .mod-left-split .nav-header,
 .mod-right-split .nav-header
 {
@@ -366,6 +373,13 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .tree-item-inner
 {
 	margin-left: var(--outlineLevelWidth);
+}
+
+/* Bottom children aren't given useless space */
+
+.view-content>div>.tree-item>.tree-item-self:not(.mod-collapsible)>.tree-item-inner
+{
+	margin-left:0px;
 }
 .menu-item-icon
 {
@@ -641,7 +655,6 @@ body
   margin:0px;
 	border-left:1px solid var(--lineColor);
   border-top:1px solid var(--lineColor);
-  line-height:0px;
 }
 .nav-folder-title.is-active,
 .nav-folder-title.is-selected,
@@ -663,8 +676,11 @@ body:not(.is-grabbing) .nav-folder-title.is-selected:hover
 div .nav-file-title-content,
 div .nav-folder-title-content
 {
-    overflow-wrap: break-word;
-    white-space: normal;
+    /*overflow-wrap: break-word;
+    white-space: normal;*/
+	  white-space: nowrap;
+  overflow: hidden;
+
     padding-left:3px;
     padding-right:3px;
 }
@@ -988,7 +1004,11 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 {
   --ribbon-width: 40px;
 }
+.workspace-ribbon.side-dock-ribbon.mod-left
+{
+		box-sizing:content-box;
 
+}
 .workspace-split.mod-horizontal.mod-left-split.is-sidedock-collapsed
 {
   padding-right:0px;
@@ -1005,6 +1025,7 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
   opacity:1;
 	width:40px;
 	height:40px;
+	box-sizing:border-box;
 }
 .workspace-ribbon.side-dock-ribbon.mod-left
 {
@@ -1817,6 +1838,7 @@ body
 }body
 {
 	/* Hierarchical palette */
+	/*
 	--bottom: #000000;
 	--bottom_a:#111111;
 	--bottom_b:#222222;
@@ -1829,23 +1851,48 @@ body
 	--level3: #555555;
 	--level3_a: #666666;
 	--collapseIconColor: #999999;
-
+	*/
+	--bottom: #000000;
+	--bottom_a: hsl(var(--accent-h), var(--accent-s), 4%);
+	--bottom_b: hsl(var(--accent-h), var(--accent-s), 8%);
+	--level1: hsl(var(--accent-h), var(--accent-s), 12%);
+	--level1_a: hsl(var(--accent-h), var(--accent-s), 16%);
+	--level1_b: hsl(var(--accent-h), var(--accent-s), 20%);
+	--level2: hsl(var(--accent-h), var(--accent-s), 20%);
+	--level2_a: hsl(var(--accent-h), var(--accent-s), 24%);
+	--level2_b: hsl(var(--accent-h), var(--accent-s), 28%);
+	--level3: hsl(var(--accent-h), var(--accent-s), 32%);
+	--level3_a: hsl(var(--accent-h), var(--accent-s), 36%);
 	--text-normal: #a3a5aa;
 	/* Bevels */
 	
-	--bevelBright1: #a3a5aa;
-	--bevelBright2: #8B8D91;
-	--bevelDark1: #5A5A5A; 
-	--bevelDark2: #7A7672; 
+	--bevelBright1: hsla(var(--accent-h), var(--accent-s), 45%, 45%);
+	--bevelBright2: hsla(var(--accent-h), var(--accent-s), 40%, 40%);
+	--bevelDark1: hsla(var(--accent-h), var(--accent-s), 30%, 30%);
+	--bevelDark2: hsla(var(--accent-h), var(--accent-s), 30%, 30%);
+	/*
+	--bevelBright1: #a3a5aa99;
+	--bevelBright2: #8B8D9199;
+	--bevelDark1: #5A5A5A99; 
+	--bevelDark2: #7A767299; 
+	*/
 	/*
 	--bevelBright1: red;
 	--bevelBright2: green;
 	--bevelDark1: yellow; 
 	--bevelDark2: purple; 
 	*/
-	
+	/*
 	--levelLayer: #ffffff18;
 	--levelHover: #ffffff11;
+	*/
+	--levelLayer: hsl(var(--accent-h), var(--accent-s), 9%);
+	--levelHover: hsl(var(--accent-h), var(--accent-s), 6%);
+	
+	--icon-color: hsl(var(--accent-h), var(--accent-s), 55%);
+    --icon-color-hover: hsl(var(--accent-h), var(--accent-s), 60%);
+    --icon-color-active: hsl(var(--accent-h), var(--accent-s), 75%);
+    --icon-color-focused: hsl(var(--accent-h), var(--accent-s), 60%);
 
 }
 body:not(.disableBevels) {
@@ -2181,6 +2228,11 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 	  border-left:1px solid var(--level2);
   border-right:1px solid var(--level2);
 }
+.mod-horizontal>div>hr:not(.mod-root hr)
+{
+		  border-top:1px solid var(--level2);
+  border-bottom:1px solid var(--level2);
+}
 /* Ribbon */
 body
 {
@@ -2193,6 +2245,10 @@ body
 .clickable-icon.side-dock-ribbon-action:hover
 {
     background-color: var(--level1_a);
+}
+.workspace-ribbon.side-dock-ribbon.mod-left
+{
+	border-right: var(--divider-width) solid var(--line-color);
 }
 /* Settings */
 .modal-bg
