@@ -20,6 +20,11 @@ body
 	--editorStackWidth:200px;
 	--outlineDashPos:8px;
     --scrollBarSize: 24px;
+	--colorIntensity: 1;
+	--colorIntensityBevel: 1;
+	--text-normal: #a3a5aa;
+	--text-normal: #a3a5aa;
+
 	/*
 	tabFlexbox
 	dashboardFlexbox
@@ -29,23 +34,40 @@ body
 }
 /* @settings
 name: Micro Mike
-id: a-unique-id
+id: MicroMike
 settings:
 	-
-		id: my-title
-		title: My Settings
+		id: MicroMikeInner
+		title: Micro Mike Configuration
 		type: heading
 		level: 3
 	-
-		id: ribbonWidth
-		title: Ribbon Button Width
-		description: Height of buttons on side ribbon.
+		id: colorIntensity
+		title: Color Intensity Multiplier
+		description: Determine Micro Mike Palette color brightness.
 		type: variable-number-slider
-		default: 40
-		min: 30
-		max: 90
-		step: 1
-		format: px
+		default: 1
+		min: 0.5
+		max: 2
+		step: 0.05
+		format: 
+	-
+		id: colorIntensityBevel
+		title: Bevel Color Intensity Multiplier
+		description: Determine Micro Mike Palette color brightness for bevel.
+		type: variable-number-slider
+		default: 1
+		min: 0.5
+		max: 2
+		step: 0.05
+		format: 
+	- 
+		id: text-normal
+		title: Primary Text Color
+		type: variable-color
+		opacity: false
+		format: hex
+		default: '#a3a5aa'
 	-
 		id: ribbonButtonHeight
 		title: Ribbon Button Height
@@ -196,14 +218,16 @@ settings:
   --tab-radius-active: 0px;
 }body:not(.disableBevels)
 {
-	--lineColor: rgba(255,255,255, 0.2);
-	--bevelStyleFile: inset 1px 1px var(--lineColor);
-    --bevelStyleFileHover: inset 1px 1px var(--lineColor);
-    --bevelStyleFolder: inset 1px 1px var(--lineColor);
-    --bevelStyleFolderHover:inset 1px 1px var(--lineColor);
-    --bevelStyleFolderLabel:inset 0px 1px var(--lineColor);
-    --bevelStyleFolderLabelHover:inset 0px 1px var(--lineColor);
-    --bevelStyleTreeItem: inset 1px 1px var(--lineColor);
+	/*--lineColor: rgba(255,255,255, 0.2);*/
+	--bevelStyleFile: inset 1px 1px var(--separatorColor);
+    --bevelStyleFileHover: inset 1px 1px var(--separatorColor);
+    --bevelStyleFolder: inset 1px 1px var(--separatorColor);
+    --bevelStyleFolderHover:inset 1px 1px var(--separatorColor);
+    --bevelStyleFolderLabel:inset 0px 1px var(--separatorColor);
+    --bevelStyleFolderLabelHover:inset 0px 1px var(--separatorColor);
+    --bevelStyleTreeItem: inset 1px 1px var(--separatorColor);
+	
+	
 }.backlink-pane, .outgoing-link-pane
 {
 	padding: 0px;
@@ -509,7 +533,7 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 	margin:0px;
 	padding:0px;
 	height:100%;
-	border-right: 1px solid var(--tab-container-background);
+	border-right: 1px solid var(--level2);
 	/*border-left: 1px solid var(--level2);;*/
 	margin-top:0px;
 	justify-content:left;
@@ -554,7 +578,7 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .stackTabs .mod-root .workspace-tab-header-new-tab
 {
 	margin:0px;
-	border-right: 1px solid var(--tab-container-background);
+	border-right: 1px solid var(--level2_a);
 }
 .stackTabs .mod-root .workspace-tab-header-tab-list .clickable-icon,
 .stackTabs .mod-root .workspace-tab-header-new-tab .clickable-icon
@@ -653,8 +677,7 @@ body
   border:0px;
   padding:0px;
   margin:0px;
-	border-left:1px solid var(--lineColor);
-  border-top:1px solid var(--lineColor);
+  border-top:1px solid var(--separatorColor);
 }
 .nav-folder-title.is-active,
 .nav-folder-title.is-selected,
@@ -769,14 +792,6 @@ div .nav-folder-title-content
 }
 *//* Outline */
 
-.workspace-leaf-content[data-type=outline] .tree-item-inner
-{
-	border-left:1px solid var(--lineColor);
-}
-.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner
-{
-	border-left:1px solid var(--lineColor);
-}
 .workspace-leaf-content[data-type=outline] .view-content.node-insert-event
 {
 	padding:0px;
@@ -953,6 +968,9 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 .suggestion-hotkey
 {
   height:18px;
+}.style-settings-heading
+{
+	border-bottom:0px;
 }body
 {
 	--divider-width: 1px;
@@ -1098,6 +1116,10 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 .mod-right-split .workspace-tab-header
 {
   min-width:0px;
+}body:not(.native-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar,
+body:not(.native-scrollbars) .prompt-results::-webkit-scrollbar,
+body:not(.native-scrollbars) ::-webkit-scrollbar {
+  width: var(--scrollBarSize);
 }.nav-header ~ .search-input-container
 {
 	margin:3px;
@@ -1178,18 +1200,23 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
   max-width: unset;
 
   border-radius: 0;
-  
+  border:0px;
 }
 .modal.mod-community-theme,
 .modal.mod-community-plugin{
   width: calc(100% - var(--ribbonWidth));
 }
 
+/* Settings Config */
 .modal.mod-settings .vertical-tab-content
 {
-	margin-left:5px;
+	padding-left:10px;
   padding-right:3px;
 }
+  .modal.mod-settings .vertical-tab-header
+  {
+	  border:0px;
+  }
   .modal.mod-settings .vertical-tab-header,
 .modal.mod-settings .vertical-tab-content-container, .vertical-tab-content {
   /* height: 100%; */
@@ -1197,7 +1224,6 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
   overflow: auto;
   padding: 0;
 }
-/* Settings Config */
 .setting-item-name, .setting-item-description {
 	line-height:1.5em;
 }
@@ -1341,24 +1367,21 @@ a.tag, .cm-hashtag
 	padding:0px;
 	margin-right:4px;
 	overflow: hidden;
-
 }
 /*
 .tag-container .tree-item-icon.collapse-icon
 {
 	left:10px;
 }*/
+.tag-container tree-item-inner
 .tag-container .tree-item-self.is-clickable:hover
 {
 	text-decoration-color: transparent;
 }
 .tag-container .tree-item-inner
 {
+	display:flex;
 	margin-left:0px;
-}body:not(.native-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar,
-body:not(.native-scrollbars) .prompt-results::-webkit-scrollbar,
-body:not(.native-scrollbars) ::-webkit-scrollbar {
-  width: var(--scrollBarSize);
 }/* Sauce:  https://www.iconshock.com */
 body
 {
@@ -1853,23 +1876,25 @@ body
 	--collapseIconColor: #999999;
 	*/
 	--bottom: #000000;
-	--bottom_a: hsl(var(--accent-h), var(--accent-s), 4%);
-	--bottom_b: hsl(var(--accent-h), var(--accent-s), 8%);
-	--level1: hsl(var(--accent-h), var(--accent-s), 12%);
-	--level1_a: hsl(var(--accent-h), var(--accent-s), 16%);
-	--level1_b: hsl(var(--accent-h), var(--accent-s), 20%);
-	--level2: hsl(var(--accent-h), var(--accent-s), 20%);
-	--level2_a: hsl(var(--accent-h), var(--accent-s), 24%);
-	--level2_b: hsl(var(--accent-h), var(--accent-s), 28%);
-	--level3: hsl(var(--accent-h), var(--accent-s), 32%);
-	--level3_a: hsl(var(--accent-h), var(--accent-s), 36%);
-	--text-normal: #a3a5aa;
+	--bottom_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 6% ));
+	--bottom_b: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 12% ));
+	--level1: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 18% ));
+	--level1_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 24% ));
+	--level1_b: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 27% ));
+	--level2: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 27% ));
+	--level2_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% ));
+	--level2_b: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 33% ));
+	--level3: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 33% ));
+	--level3_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 36% ));
+	
 	/* Bevels */
 	
-	--bevelBright1: hsla(var(--accent-h), var(--accent-s), 45%, 45%);
-	--bevelBright2: hsla(var(--accent-h), var(--accent-s), 40%, 40%);
-	--bevelDark1: hsla(var(--accent-h), var(--accent-s), 30%, 30%);
-	--bevelDark2: hsla(var(--accent-h), var(--accent-s), 30%, 30%);
+	--bevelBright1: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 35% + 40%), 50%);
+	--bevelBright2: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 25% + 40% ), 50%);
+	--bevelDark1: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 20% + 25% ), 50%);
+	--bevelDark2: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 20% + 35% ), 50%);
+	
+	--lineColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 40% + 20%), 50%);
 	/*
 	--bevelBright1: #a3a5aa99;
 	--bevelBright2: #8B8D9199;
@@ -1886,13 +1911,22 @@ body
 	--levelLayer: #ffffff18;
 	--levelHover: #ffffff11;
 	*/
-	--levelLayer: hsl(var(--accent-h), var(--accent-s), 9%);
-	--levelHover: hsl(var(--accent-h), var(--accent-s), 6%);
+	--levelLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 12%);
+	--levelHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 18%);
+	--separatorColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 40%);
 	
+	--nav-item-background-hover: var(--levelHover);
+    --nav-item-background-active: var(--levelHover);
+	/*
 	--icon-color: hsl(var(--accent-h), var(--accent-s), 55%);
     --icon-color-hover: hsl(var(--accent-h), var(--accent-s), 60%);
     --icon-color-active: hsl(var(--accent-h), var(--accent-s), 75%);
     --icon-color-focused: hsl(var(--accent-h), var(--accent-s), 60%);
+	*/
+	--icon-color: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 30%));
+    --icon-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
+    --icon-color-active: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 50%));
+    --icon-color-focused: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
 
 }
 body:not(.disableBevels) {
@@ -2112,6 +2146,7 @@ input.slider
 }
 .tree-item.nav-folder:not(.mod-root)
 {
+	color:red;
 	background-color: var(--levelLayer);
 }
 body:not(.is-grabbing) .nav-file-title:hover {
@@ -2119,6 +2154,10 @@ body:not(.is-grabbing) .nav-file-title:hover {
 }
 body:not(.is-grabbing) .nav-folder-title:hover {
 	background-color:var(--levelHover);
+}
+.nav-folder.mod-root .nav-folder > .nav-folder-children
+{
+	border-left: 1px solid var(--separatorColor);
 }
 /* Update */
 /*
@@ -2173,6 +2212,14 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 {
 	background-color: var(--bottom_a);
 }
+.workspace-leaf-content[data-type=outline] .tree-item-inner
+{
+	border-left:1px solid var(--separatorColor);
+}
+.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner
+{
+	border-left:1px solid var(--separatorColor);
+}
 /* Quick Explorer */
 .explorable.titlebar-button
 {
@@ -2191,7 +2238,7 @@ body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
 /* Prompt */
 .prompt {
 	background-color:var(--level1);
-	box-shadow:var(--bevelStyleTabActive);
+	box-shadow:var(--bevelStyleButton);
 }
 input.prompt-input {
   background-color:var(--bottom);
@@ -2257,7 +2304,7 @@ body
 }
 .modal.mod-community-theme,
 .modal.mod-community-plugin{
-  background-color: var(--level1_a);
+  background-color: var(--level1);
 }
 .modal-container.mod-dim .modal.mod-settings,
 .modal-container.mod-dim .modal.mod-community-plugin,
@@ -2265,19 +2312,25 @@ body
 .modal.mod-community-theme
 {
   box-shadow:var(--bevelStyleButton);
+  
 }
 .modal.mod-settings .vertical-tab-header
 {
-	box-shadow:var(--bevelStyleButton);
-  background-color: var(--level1_a);
+	
+  background-color: var(--bottom);
 }
 .modal.mod-settings .vertical-tab-content-container
 {
-  background-color: var(--level1);
+  background-color: var(--bottom_b);
 }
 .modal.mod-settings .vertical-tab-content
 {
-	background-color: var(--level1);
+	box-shadow:var(--bevelStyleButton);
+	background-color: var(--bottom_b);
+}
+.setting-item
+{
+    border-top: 1px solid var(--level3);
 }
 .dropdown
 {
@@ -2301,6 +2354,10 @@ body
   background-color:var(--level3);
 }
 .community-modal-details
+{
+  background-color:var(--level1_a);
+}
+.modal .clickable-icon
 {
   background-color:var(--level1_a);
 }
@@ -2374,7 +2431,7 @@ body
 .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon:hover {
     background-color: var(--level2_a);
 }
-/* Sidewbar Toggle Right */
+/* Sidebar Toggle Right */
 .sidebar-toggle-button.mod-right .clickable-icon
 {
 	background-color:var(--level1);
@@ -2391,6 +2448,10 @@ body
 {
 	background-color:var(--level2_a);
 }
+
+/* Theme Picker */
+
+
 /* Titlebar */
 .titlebar-button-container .titlebar-button
 {
