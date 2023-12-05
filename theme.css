@@ -47,7 +47,7 @@ settings:
 		description: Determine Micro Mike Palette color brightness.
 		type: variable-number-slider
 		default: 1
-		min: 0.5
+		min: 0
 		max: 2
 		step: 0.05
 		format: 
@@ -57,7 +57,7 @@ settings:
 		description: Determine Micro Mike Palette color brightness for bevel.
 		type: variable-number-slider
 		default: 1
-		min: 0.5
+		min: 0
 		max: 2
 		step: 0.05
 		format: 
@@ -69,18 +69,8 @@ settings:
 		format: hex
 		default: '#a3a5aa'
 	-
-		id: ribbonButtonHeight
-		title: Ribbon Button Height
-		description: Width of buttons on side ribbon.
-		type: variable-number-slider
-		default: 40
-		min: 10
-		max: 90
-		step: 1
-		format: px
-	-
 		id: dragHeight
-		title: Drag Height
+		title: Title Bar Height
 		description: Size of draggable region on top of window.
 		type: variable-number-slider
 		default: 10
@@ -208,6 +198,11 @@ settings:
 		id: enableNewIcons
 		title: Enable XP-style Icons 
 		description: Enable colorful XP-style icons to replace flat SVG icons. This is only done where the icons are supported.
+		type: class-toggle
+	-
+		id: oldPalette
+		title: Old Palette
+		description: Use older palette. This doesn't support accent-based coloring.
 		type: class-toggle
 */body
 {
@@ -1382,6 +1377,24 @@ a.tag, .cm-hashtag
 {
 	display:flex;
 	margin-left:0px;
+}
+.tag-pane-tag-count
+{
+	color: var(--text-normal);
+	font-weight:700;
+}
+
+.outgoing-link-pane .tree-item-inner
+{
+	width:100%;
+	display:flex;
+	justify-content: space-between;
+	border-bottom:1px solid var(--lineColor);
+}
+.tree-item-self .tree-item-icon.collapse-icon
+{
+	order:-2;
+	position:relative;
 }/* Sauce:  https://www.iconshock.com */
 body
 {
@@ -1858,22 +1871,20 @@ body
 .enableNewIcons .clickable-icon[aria-label="Open quick switcher"] svg
 {
 	display:none;
-}body
+}body:not(.oldPalette)
+{
+	--icon-color: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 30%));
+    --icon-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
+    --icon-color-active: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 50%));
+    --icon-color-focused: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
+	
+	--tab-text-color-focused-active-current: var(--icon-color-focused);
+}
+body
 {
 	/* Hierarchical palette */
 	/*
-	--bottom: #000000;
-	--bottom_a:#111111;
-	--bottom_b:#222222;
-	--level1: #333333;
-	--level1_a: #444444;
-	--level1_b: #4b4b4b;
-	--level2: #4b4b4b;
-	--level2_a: #555555;
-	--level2_b: #5b5b5b;
-	--level3: #555555;
-	--level3_a: #666666;
-	--collapseIconColor: #999999;
+
 	*/
 	--bottom: #000000;
 	--bottom_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 6% ));
@@ -1896,10 +1907,7 @@ body
 	
 	--lineColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 40% + 20%), 50%);
 	/*
-	--bevelBright1: #a3a5aa99;
-	--bevelBright2: #8B8D9199;
-	--bevelDark1: #5A5A5A99; 
-	--bevelDark2: #7A767299; 
+
 	*/
 	/*
 	--bevelBright1: red;
@@ -1923,11 +1931,27 @@ body
     --icon-color-active: hsl(var(--accent-h), var(--accent-s), 75%);
     --icon-color-focused: hsl(var(--accent-h), var(--accent-s), 60%);
 	*/
-	--icon-color: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 30%));
-    --icon-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
-    --icon-color-active: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 50%));
-    --icon-color-focused: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
+}
 
+body.oldPalette {
+	--bottom: #000000;
+	--bottom_a:#111111;
+	--bottom_b:#222222;
+	--level1: #333333;
+	--level1_a: #444444;
+	--level1_b: #4b4b4b;
+	--level2: #4b4b4b;
+	--level2_a: #555555;
+	--level2_b: #5b5b5b;
+	--level3: #555555;
+	--level3_a: #666666;
+	--collapseIconColor: #999999;
+		--bevelBright1: #a3a5aa99;
+	--bevelBright2: #8B8D9199;
+	--bevelDark1: #5A5A5A99; 
+	--bevelDark2: #7A767299; 
+		--levelLayer: #ffffff18;
+	--levelHover: #ffffff11;
 }
 body:not(.disableBevels) {
 	--bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
@@ -2349,10 +2373,10 @@ body
 {
   background-color:var(--level1_b)
 }
-.checkbox-container
+/*.checkbox-container
 {
   background-color:var(--level3);
-}
+}*/
 .community-modal-details
 {
   background-color:var(--level1_a);
