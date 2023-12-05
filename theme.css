@@ -1985,6 +1985,18 @@ body:not(.disableBevels) {
     -2px 2px var(--bevelBright2),
     2px -2px var(--bevelBright2);
 }
+
+body{
+	
+    --background-primary: var(--level1_a);
+    --background-primary-alt: var(--level1_b);
+    --background-secondary: var(--level1);
+	--modal-border-color: var(--level3);
+	--divider-color: var(--level3);
+	--background-modifier-border: var(--level3);
+	--background-modifier-border-hover: var(--level3_a);
+    --background-modifier-border-focus: var(--level3_a);
+}
 /* Button Component */
 .theme-dark
 {
@@ -2384,7 +2396,8 @@ body
 {
   background-color:var(--level1_a);
 }
-.dropdown:hover
+.dropdown:hover,
+.search-results-info .dropdown:hover
 {
   box-shadow:var(--bevelStyleButton);
   background-color:var(--level1_b);
@@ -2504,6 +2517,17 @@ body
 
 /* Theme Picker */
 
+	.community-item
+	{
+	--background-modifier-border: var(--level3);
+	--background-modifier-border-hover: var(--level3_a);
+	}
+	.community-item.is-selected,
+	.community-item.is-selected:hover
+	{
+		border-color: var(--level3_a);
+		background-color: var(--level3);
+	}
 
 /* Titlebar */
 .titlebar-button-container .titlebar-button
@@ -2519,3 +2543,5 @@ body
 {
 	background-color:var(--bottom);
 }
+
+.tree-item 
