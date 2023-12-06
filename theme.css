@@ -1,3 +1,5 @@
+/* Config */
+
 .mod-windows, .mod-linux
 {
 	--frame-right-space:0px;
@@ -204,14 +206,18 @@ settings:
 		title: Old Palette
 		description: Use older palette. This doesn't support accent-based coloring.
 		type: class-toggle
-*/body
+*//* Variable sets */
+
+body
 {
   --radius-s: 0px;
   --radius-m: 0px;
   --radius-l: 0px;
   --radius-xl: 0px;
   --tab-radius-active: 0px;
-}body:not(.disableBevels)
+}/* Palette */
+
+body:not(.disableBevels)
 {
 	/*--lineColor: rgba(255,255,255, 0.2);*/
 	--bevelStyleFile: inset 1px 1px var(--separatorColor);
@@ -223,18 +229,23 @@ settings:
     --bevelStyleTreeItem: inset 1px 1px var(--separatorColor);
 	
 	
-}.backlink-pane, .outgoing-link-pane
+}/* Backlinks */
+
+.backlink-pane, .outgoing-link-pane
 {
 	padding: 0px;
 }
-.outgoing-link-pane .tree-item-inner,
 .backlink-pane .tree-item-inner
 {
 	margin-left:0px;
-}.workspace-leaf-content[data-type=bookmarks] .view-content
+}/* Bookmarks */
+
+.workspace-leaf-content[data-type=bookmarks] .view-content
 {
 	padding:0px;
-}.clickable-icon
+}/* Component: Button */
+
+.clickable-icon
 {
 	height:40px;
 	width:40px;
@@ -252,13 +263,17 @@ button
 {
 	padding-left:10px;
 	padding-right:10px;
-}.view-header,
+}/* Component: Dashboard */
+
+.view-header,
 .mod-left-split .nav-header,
 .mod-right-split .nav-header
 {
 	min-height:40px;
 	padding:0px;
 }
+/* Component: Input */
+
 textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']
 {
 	padding:3px;
@@ -266,7 +281,9 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .search-input-container input[type='search']
 {
 	padding-left:30px;
-}*, *:after, *:before {
+}/* Animation Disabler */
+
+*, *:after, *:before {
   /*CSS transitions*/
   -webkit-transition-property: none !important;
   transition-property: none !important;
@@ -281,10 +298,13 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
   /*CSS animations*/
   -webkit-animation: none !important;
   animation: none !important;
-}.workspace-leaf-content[data-type=tag] .tag-container.node-insert-event
+}/* Component: Sidebar Container */
+
+.workspace-leaf-content[data-type=tag] .tag-container.node-insert-event
 {
 	height:100%;
-}
+}/* Component: Sidebar Dashboard */
+
 .nav-buttons-container
 {
 	height:100%;
@@ -304,7 +324,9 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .workspace-tab-header-container
 {
 	border:0px;
-}*/.tree-item-self.is-clickable
+}*//* Component: Left-aligned Tree Layout Coutn */
+
+.tree-item-self.is-clickable
 {
 	display:flex;
 }
@@ -321,7 +343,9 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 {
 	flex-shrink:0;
 	flex-grow:0;
-}.outline {	
+}/* Component: Tree View */
+
+.outline {	
 	padding: 0px;
 	overflow: clip;
 }
@@ -408,11 +432,14 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 {
 	color: var(--text-normal);
 	font-weight:700;
-}
+}/* Dropdown */
+
 .menu-item-icon
 {
 	margin-right:3px;
-}.view-header-title-container
+}/* Editor Dashboard */
+
+.view-header-title-container
 {
 	flex-basis:34%;
 }
@@ -427,7 +454,8 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 }
 .view-actions .clickable-icon,
 .view-header-nav-buttons .clickable-icon,
-.view-actions .clickable-icon[aria-disabled='true']
+.view-actions .clickable-icon[aria-disabled='true'],
+.clickable-icon[aria-disabled='true']
 {
 	flex-grow:1;
 	opacity:1;
@@ -438,6 +466,8 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 {
 	display:none;
 }
+/* Editor Tabs */
+
 .workspace-tab-header.is-active::before,
 .workspace-tab-header.is-active::after
 {
@@ -495,6 +525,10 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 	height:calc(100% - var(--dragHeight));
 	width:30px;
 }
+.workspace .mod-root .workspace-tab-header-inner-title
+{
+text-decoration-line: none;
+}
 .workspace .mod-root .workspace-tab-header-inner-icon
 {
 	height:100%;
@@ -519,7 +553,7 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .workspace .mod-root .workspace-tab-header-tab-list
 {
 	display:none;
-}/* Editor */
+}/* Editor Tabs (Stack Mode) */
  .stackTabs .mod-root .workspace-tabs 
 {
 	flex-direction: row;
@@ -605,7 +639,9 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
 {
 	display:none;
-}body
+}/* Editor View */
+
+body
 {
   --h1-line-height: var(--line-height-normal);
   --h2-line-height: var(--line-height-normal);
@@ -628,6 +664,15 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 {
   max-width: var(--editorSize);
 }
+.workspace-leaf-content[data-mode="preview"] .view-content
+{
+	background: linear-gradient(90deg, var(--bottom) 0%, var(--level2) 5px, var(--level1) 15px, rgba(0,0,0,1) 30px);
+}
+.markdown-source-view.cm-s-obsidian
+{
+	
+}/* File Browser */
+
 body
 {
 	--nav-item-size: 12px;
@@ -764,7 +809,8 @@ div .nav-folder-title-content
 .anp-full-rainbow-color-toggle .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-folder-title, .anp-full-rainbow-color-toggle .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-file-title, .anp-full-rainbow-color-toggle .tree-item-self .tree-item-icon
 {
 	color: var(--icon-color);
-}
+}/* Left Sidebar Button */
+
 .sidebar-toggle-button.mod-left
 {
 	padding:0px;
@@ -798,12 +844,40 @@ div .nav-folder-title-content
 {
 	border:0px;
 }
-*//* Outline */
+*//* Outgoing Links */
+
+.outgoing-link-pane .tree-item-self .tree-item-inner
+{
+	width:100%;
+	display:flex;
+	justify-content: space-between;
+	border-bottom:1px solid var(--separatorColor);
+}
+
+.outgoing-link-pane :not(.search-result-container) .tree-item-self .tree-item-inner
+{
+	border:0px;
+}
+.outgoing-link-pane .tree-item-inner
+{
+	margin-left:0px;
+}
+.tree-item-inner-subtext
+{
+	font-size:12px;
+	color: var(--nav-item-color);
+}/* Outline */
 
 .workspace-leaf-content[data-type=outline] .view-content.node-insert-event
 {
 	padding:0px;
-}.boostlink-item
+}
+.workspace-leaf-content[data-type=outline] .tree-item-inner
+{
+	padding-left:3px;
+}/* Plugin: Boost Link */
+
+.boostlink-item
 {
 	font-size:1em;
 	color:var(--text-normal);
@@ -821,15 +895,50 @@ div .nav-folder-title-content
 .boostlink-alias {
 	display:none;
 }
+/* Plugin: Commander */
+
 .view-action:not(:last-child)
 {
 	margin-right:0px;
-}.view-header-nav-buttons .clickable-icon::before,
+}/* Plugin: Pane Relief */
+
+.view-header-nav-buttons .clickable-icon::before,
 .view-header-nav-buttons .clickable-icon::after
 {
 	line-height:100%;
 	margin-bottom:3px;
-}.status-bar
+}
+/* Pane Relief Button History Counts */
+body:not(.pane-relief-disable-counts) .view-header-nav-buttons svg
+{
+	display:flex;
+	flex-grow:1;
+}
+body:not(.pane-relief-disable-counts) .view-header-nav-buttons button
+{
+	position:relative;
+	justify-content: center;
+}
+body:not(.pane-relief-disable-counts) .view-header-nav-buttons button:first-child:before,
+body:not(.pane-relief-disable-counts) .view-header-nav-buttons button:last-child:after
+{
+	position:absolute;
+	margin-left:3px;
+	display:flex;
+	flex-grow:0;
+	font-size:30px;
+	min-width: 1em;
+}
+body:not(.pane-relief-disable-counts) .view-header-nav-buttons button:first-child:before
+{
+	left:0px;
+}
+body:not(.pane-relief-disable-counts) .view-header-nav-buttons button:last-child:after
+{
+	right:0px;
+}/* Plugin: Quick Explorer */
+
+.status-bar
 {
 	border-left:0px;
 }
@@ -885,11 +994,15 @@ div .nav-folder-title-content
 {
     background-color: var(--background-modifier-hover);
     color:var(--text-normal);
-}.qsp-recent-file .suggestion-title.qsp-title
+}/* Plugin: Quick Switcher */
+
+.qsp-recent-file .suggestion-title.qsp-title
 {
 	text-decoration-style: initial;
 	text-decoration-line: none;
-}.workspace-leaf-content[data-type=recent-files] .view-content
+}/* Plugin: Recent Files */
+
+.workspace-leaf-content[data-type=recent-files] .view-content
 {
 	padding:0px;
 	margin-top:-1px;
@@ -976,10 +1089,14 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 .suggestion-hotkey
 {
   height:18px;
-}.style-settings-heading
+}/* Plugin: Style Settings */
+
+.style-settings-heading
 {
 	border-bottom:0px;
-}body
+}/* Resize Bars */
+
+body
 {
 	--divider-width: 1px;
 }
@@ -1026,7 +1143,9 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 	height:var(--handleSize) !important;
 	flex-direction:column-reverse;
 	border-bottom:0px !important;
-}body
+}/* Ribbon */
+
+body
 {
   --ribbon-width: 40px;
 }
@@ -1061,7 +1180,9 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 .side-dock-settings
 {
 	gap:0px;
-}.mod-windows, .mod-linux
+}/* Right Sidebar Button */
+
+.mod-windows, .mod-linux
 {
   --frame-right-space:160px;
 }
@@ -1124,11 +1245,15 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
 .mod-right-split .workspace-tab-header
 {
   min-width:0px;
-}body:not(.native-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar,
+}/* Scrollbar */
+
+body:not(.native-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar,
 body:not(.native-scrollbars) .prompt-results::-webkit-scrollbar,
 body:not(.native-scrollbars) ::-webkit-scrollbar {
   width: var(--scrollBarSize);
-}body
+}/* Search */
+
+body
 {
 	--search-result-background: var(--bottom_b);
 }
@@ -1311,7 +1436,9 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
   background-color:var(--level1_a);
   min-height:40px;
   width:40px;
-}.mod-left-split .workspace-tab-header-container,
+}/* Sidebar Tabs */
+
+.mod-left-split .workspace-tab-header-container,
 .mod-right-split .workspace-tab-header-container
 {
 	height: var(--tabHeightSidebar);
@@ -1355,7 +1482,9 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
 .workspace-tab-header-inner
 {
 	height:var(--tabHeightSidebar);
-}.status-bar
+}/* Status Bar */
+
+.status-bar
 {
 	padding:0px;
 }/* Tags in editor / preview */
@@ -1377,7 +1506,7 @@ a.tag, .cm-hashtag
 {
 	padding:0;
 	border-style:none none solid none;
-	border-color: var(--lineColor);
+	border-color: var(--separatorColor);
 	border-width: 1px;
 }
 .tag-container.node-insert-event
@@ -1401,19 +1530,9 @@ a.tag, .cm-hashtag
 	display:flex;
 	margin-left:0px;
 }
-.tag-pane-tag-count
-{
-	color: var(--text-normal);
-	font-weight:700;
-}
 
-.outgoing-link-pane .tree-item-inner
-{
-	width:100%;
-	display:flex;
-	justify-content: space-between;
-	border-bottom:1px solid var(--lineColor);
-}
+
+/* XP Icons */
 /* Sauce:  https://www.iconshock.com */
 body
 {
@@ -1940,6 +2059,8 @@ body
 	*/
 	--levelLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 12%);
 	--levelHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
+	--buttonLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
+	--buttonLayerHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 36%);
 	--separatorColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 40%);
 	
 	--nav-item-background-hover: var(--levelHover);
@@ -2187,6 +2308,10 @@ input.slider
 {
   background-color: var(--bottom);
 }
+.workspace-leaf-content[data-mode="preview"] .view-content
+{
+	background: linear-gradient(90deg, var(--bottom) 0%, var(--level2) 5px, var(--level1) 15px, rgba(0,0,0,1) 30px);
+}
 /* Embeds */
 .markdown-preview-view .markdown-embed,
 .markdown-preview-view .file-embed {
@@ -2413,11 +2538,11 @@ body
 /*.checkbox-container
 {
   background-color:var(--level3);
-}*/
+}
 .community-modal-details
 {
   background-color:var(--level1_a);
-}
+}*/
 .modal .clickable-icon
 {
   background-color:var(--level1_a);
@@ -2528,6 +2653,10 @@ body
 		border-color: var(--level3_a);
 		background-color: var(--level3);
 	}
+	.community-modal-details
+	{
+		background-color:transparent;
+	}
 
 /* Titlebar */
 .titlebar-button-container .titlebar-button
@@ -2543,3 +2672,5 @@ body
 {
 	background-color:var(--bottom);
 }
+
+.tree-item 
