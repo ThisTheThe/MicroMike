@@ -1,0 +1,50 @@
+/* Resize Bars */
+
+body
+{
+	--divider-width: 1px;
+}
+.workspace-split.mod-horizontal.mod-right-split
+{
+	/* border:0px; */
+	padding-left:var(--handleSize);
+}
+.workspace-split.mod-horizontal.mod-left-split
+{
+	/* border:0px; */
+	padding-right:var(--handleSize);
+}
+.mod-left-split .workspace-tabs
+{
+	padding-bottom:var(--handleSize);
+}
+
+.mod-right-split .workspace-tabs
+{
+	padding-bottom:var(--handleSize);
+}
+.mod-right-split .workspace-tabs:last-of-type,
+.mod-left-split .workspace-tabs:last-of-type
+{
+	padding-bottom:0;
+}
+/* Vertical */
+.mod-left-split > hr,
+.mod-right-split > hr
+/*.mod-vertical>div>hr*/
+{
+	width:var(--handleSize) !important;
+	right: calc(0 - var(--handleSize));
+	box-sizing: border-box;
+	display:flex;
+	z-index:99;
+}
+/* Horizontal */
+.mod-horizontal>div>hr:not(.mod-root hr)
+{
+	display:flex;
+	width:100% !important;
+	height:var(--handleSize) !important;
+	flex-direction:column-reverse;
+	border-bottom:0px !important;
+}

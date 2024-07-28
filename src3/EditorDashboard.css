@@ -1,0 +1,29 @@
+/* Editor Dashboard */
+
+.view-header-title-container
+{
+	flex-basis:34%;
+}
+.view-header-nav-buttons
+{
+	flex-basis:33%;
+}
+
+.view-actions
+{
+	flex-basis:33%;
+}
+.view-actions .clickable-icon,
+.view-header-nav-buttons .clickable-icon,
+.view-actions .clickable-icon[aria-disabled='true'],
+.clickable-icon[aria-disabled='true']
+{
+	flex-grow:1;
+	opacity:1;
+	height:100%;
+	justify-content:center;
+}
+.view-header-title-container.mod-at-start::after
+{
+	display:none;
+}

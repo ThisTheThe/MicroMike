@@ -1,0 +1,90 @@
+/* Component: Tree View */
+
+.outline {	
+	padding: 0px;
+	overflow: clip;
+}
+.tree-item-self {
+  padding: 0px;
+}
+.tree-item-self.is-clickable
+{
+	padding:0px;
+	margin:auto;
+}
+.tree-item-self.is-clickable:hover
+{
+	padding:0px;
+	text-decoration: underline;
+}
+.tree-item-inner 
+{
+	font-size: 12px;
+	margin: 0px;
+	line-height:var(--outlineHeight);
+	min-height:var(--outlineHeight);
+	margin-top:auto;
+	margin-bottom:auto;
+	flex-shrink:1;	
+}
+.is-clickable .tree-item-icon.collapse-icon {
+	width:var(--outlineLevelWidth);
+	padding:0px;
+	margin-left:0px;
+	height:var(--outlineHeight);
+}
+.is-collapsed .collapse-icon svg.svg-icon,
+.tree-item-icon.collapse-icon svg{
+	color: var(--collapseIconColor);
+    margin: auto;
+  /*display: none;*/
+}
+.tree-item-icon.collapse-icon:hover svg{
+	color: var(--collapseIconColor);
+}
+.tree-item-children
+{
+	border-left:0px;
+	margin-left:calc(var(--outlineLevelWidth));
+	padding:0px;
+}
+
+/* New Layout */
+
+.outline>.tree-item>.tree-item-self>.tree-item-inner:first-child
+{
+	position:relative;
+	left:var(--outlineLevelWidth);
+	margin-right:var(--outlineLevelWidth);
+}
+.outline>.tree-item>.tree-item-children .tree-item-inner:first-child
+{
+	position:relative;
+	left:var(--outlineLevelWidth);
+	margin-right:var(--outlineLevelWidth);
+}
+
+/* Bottom children aren't given useless space */
+
+.view-content>div>.tree-item>.tree-item-self:not(.mod-collapsible)>.tree-item-inner
+{
+	margin-left:0px;
+}
+
+.tree-item-self .tree-item-icon.collapse-icon
+{
+	order:-2;
+	position:relative;
+
+}
+.tree-item-flair-outer
+{
+	padding:0px;
+	padding-left:3px;
+	padding-right:3px;
+}
+.tree-item-flair
+{
+	color: var(--text-normal);
+	font-weight:700;
+}

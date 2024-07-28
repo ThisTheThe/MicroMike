@@ -1,0 +1,6 @@
+/* Bookmarks */
+
+.workspace-leaf-content[data-type=bookmarks] .view-content
+{
+	padding:0px;
+}

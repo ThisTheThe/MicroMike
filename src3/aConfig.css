@@ -1,0 +1,227 @@
+/* Config */
+
+.mod-windows, .mod-linux
+{
+	--frame-right-space:0px;
+}
+body
+{
+	--ribbonWidth:40px;
+	--ribbonButtonHeight:40px;
+	--dragHeight:10px;
+	--handleSize:16px;
+	--tabHeightSidebar:30px;
+	--tabHeightEditor:30px;
+	--tabHeightEditorStack:40px;
+	--dashboardHeight:40px;
+	--fileHeight: 14px;
+	--outlineHeight:16px;
+	--outlineLevelWidth:40px;
+	--editorSize:700px;
+	--titlebarOffset:160px;
+	--editorStackWidth:200px;
+	--outlineDashPos:8px;
+    --scrollBarSize: 24px;
+	--colorIntensity: 1;
+	--colorIntensityBevel: 1;
+	--text-normal: #a3a5aa;
+	--text-normal: #a3a5aa;
+
+	/*
+	tabFlexbox
+	dashboardFlexbox
+	bevels
+	stackTabs
+	Filebrowser hierarchical whatever wordwrap
+Tab wordwrap
+	gradient based on whether stacktabs or not
+	*/
+}
+/* @settings
+name: Micro Mike
+id: MicroMike
+settings:
+	-
+		id: MicroMikeInner
+		title: Micro Mike Configuration
+		type: heading
+		level: 3
+	-
+		id: colorIntensity
+		title: Color Intensity Multiplier
+		description: Determine Micro Mike Palette color brightness.
+		type: variable-number-slider
+		default: 1
+		min: 0
+		max: 2
+		step: 0.05
+		format: 
+	-
+		id: colorIntensityBevel
+		title: Bevel Color Intensity Multiplier
+		description: Determine Micro Mike Palette color brightness for bevel.
+		type: variable-number-slider
+		default: 1
+		min: 0
+		max: 2
+		step: 0.05
+		format: 
+	- 
+		id: text-normal
+		title: Primary Text Color
+		type: variable-color
+		opacity: false
+		format: hex
+		default: '#a3a5aa'
+	-
+		id: dragHeight
+		title: Title Bar Height
+		description: Size of draggable region on top of window.
+		type: variable-number-slider
+		default: 10
+		min: 0
+		max: 40
+		step: 1
+		format: px
+	-
+		id: handleSize
+		title: Side Handle Thickness
+		description: Resize handle thickness. 
+		type: variable-number-slider
+		default: 8
+		min: 4
+		max: 32
+		step: 2
+		format: px
+	-
+		id: tabHeightSidebar
+		title: Sidebar Tab Height
+		description: Tab Height 
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 40
+		step: 1
+		format: px
+	-
+		id: outlineLevelWidth
+		title: Hierarchical Display Level Size
+		description: The size of each level's separation. This affects the size of the collapse buttons. (Hierarchical Display - Editor, Outline, Tag View, Outgoing/Backlinks)
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 40
+		step: 2
+		format: px
+	-
+		id: outlineHeight
+		title: Hierarchical Display Section Height
+		description: The height of the outline tabs. This affects the size of the collapse buttons.
+		type: variable-number-slider
+		default: 16
+		min: 14
+		max: 40
+		step: 1
+		format: px
+	-
+		id: outlineDashPos
+		title: Outline Dash Position
+		description: The height of the outline tabs. This affects the size of the collapse buttons.
+		type: variable-number-slider
+		default: 8
+		min: 0
+		max: 20
+		step: 1
+		format: px
+	-
+		id: editorSize
+		title: Text Window Length
+		description: Size of text window in text editor. 
+		type: variable-number-slider
+		default: 700
+		min: 300
+		max: 1800
+		step: 50
+		format: px
+	-
+		id: resizeBarsSize
+		title: Resize Bars Size
+		description: The height of the outline tabs. This affects the size of the collapse buttons.
+		type: variable-number-slider
+		default: 16
+		min: 4
+		max: 30
+		step: 2
+		format: px
+	-
+		id: scrollBarSize
+		title: Scroll Bar Size
+		description: The width of the scrollbar on the side. 
+		type: variable-number-slider
+		default: 16
+		min: 4
+		max: 30
+		step: 2
+		format: px
+	-
+		id: stackTabs
+		title: Stack the tabs
+		description: The tabs will be stacked.
+		type: class-toggle
+		default: true
+	-
+		id: editorStackWidth
+		title: Editor Stack Width
+		description: The height of the outline tabs. This affects the size of the collapse buttons.
+		type: variable-number-slider
+		default: 200
+		min: 120
+		max: 300
+		step: 5
+		format: px
+	-
+		id: tabHeightEditorStack
+		title: Editor Stack Tab Height
+		description: Tab Height 
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 40
+		step: 1
+		format: px
+	-
+    	id: showSuggestionDirectory
+		title: Show Suggestion Directory
+		description: On link suggestions, include additional line showing where file is located. Will increase space usage.
+		type: class-toggle
+    -
+		id: folderNoteEmphasis
+		title: Folder Note Emphasis 
+		description: Give a special background and region to folder notes.
+		type: class-toggle
+	-
+		id: disableBevels
+		title: Disable Bevels 
+		description: Disable bevels, resulting in a more minimalist appearance.
+		type: class-toggle
+	-
+		id: enableNewIcons
+		title: Enable XP-style Icons 
+		description: Enable colorful XP-style icons to replace flat SVG icons. This is only done where the icons are supported.
+		type: class-toggle
+	-
+    	id: blendDropDown
+		title: Blender Style Dropdowns
+		description: Enable Blender 2.7esque dropdowns. 
+		type: class-toggle
+    -
+        id: settingsHoverPreview
+		title: Settings Hover Preview
+		description: With this on, you can preview your Obsidian appearance by simply putting the cursor outside of the settings window. 
+		type: class-toggle
+	-
+		id: oldPalette
+		title: Old Palette
+		description: Use older palette. This doesn't support accent-based coloring.
+		type: class-toggle
+*/

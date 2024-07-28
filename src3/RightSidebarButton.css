@@ -1,0 +1,66 @@
+/* Right Sidebar Button */
+
+.mod-windows, .mod-linux
+{
+  --frame-right-space:160px;
+}
+.sidebar-toggle-button.mod-right
+{
+  align-items:center;
+  padding-bottom:0px;
+  position:fixed;
+  top:0px;
+  right:120px;
+  left:unset;
+  height:40px;
+  width:40px;
+  z-index:10;
+
+  padding:0px;
+}
+.sidebar-toggle-button.mod-right .clickable-icon
+{
+  width:100%;
+  height:100%;
+  opacity:1;
+  bottom:-1px;
+
+  padding:0px;
+}
+.is-hidden-frameless:not(.is-fullscreen) .mod-right-split .workspace-tabs.mod-top-right-space .workspace-tab-header-container
+{
+  margin-right: var(--frame-right-space);
+  padding-right:0px;
+}
+.stackTabs .mod-top-right-space .view-header
+{
+  margin-right:var(--frame-right-space);
+}
+
+.titlebar-button-container.mod-right
+{
+  height:40px;
+}
+.titlebar-button-container .titlebar-button
+{
+  width:40px;
+}
+.mod-linux .titlebar-button, 
+.mod-windows .titlebar-button
+{
+  padding-left:15px;
+  padding-right:15px;
+}
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
+{
+  position:absolute;
+  top:0px;
+  right:0px;
+  width:var(--titleBarWidth);
+  height:var(--tabHeight);
+  min-height:20px;
+}
+.mod-right-split .workspace-tab-header
+{
+  min-width:0px;
+}

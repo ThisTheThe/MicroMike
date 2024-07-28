@@ -1,0 +1,124 @@
+/* File Browser */
+
+body
+{
+	--nav-item-size: 12px;
+    --nav-item-color: var(--text-muted);
+    --nav-item-color-hover: var(--text-normal);
+    --nav-item-color-active: var(--text-normal);
+    --nav-item-color-selected: var(--text-normal);
+    --nav-item-color-highlighted: var(--text-accent-hover);
+    --nav-item-background-hover: var(--background-modifier-hover);
+    --nav-item-background-active: var(--background-modifier-hover);
+    --nav-item-background-selected: hsla(var(--color-accent-hsl), 0.2);
+    --nav-item-padding: var(--size-4-1) var(--size-4-2);
+    --nav-item-parent-padding: var(--nav-item-padding);
+	
+    --nav-item-children-padding-left: calc(var(--outlineLevelWidth));
+    --nav-item-children-margin-left: 0px;
+    --nav-item-weight: inherit;
+    --nav-item-weight-hover: inherit;
+    --nav-item-weight-active: inherit;
+    --nav-item-white-space: nowrap;
+}
+.nav-files-container
+{
+  padding-right:0px;
+  padding-left:0px;
+}
+.nav-folder-title
+{
+	align-items:center;
+}
+.nav-folder-collapse-indicator {
+	  justify-content:center;
+    width: 20px;
+    padding:auto;
+    position:relative;
+}
+.nav-file,
+.nav-folder
+{
+  padding:0px;
+  margin:0px;
+}
+
+.nav-file:not(.mod-root>.nav-folder-children>.nav-file)
+{
+	padding-left:0px;
+}
+.nav-file-title,
+.nav-folder-title
+{
+  border:0px;
+  padding:0px;
+  margin:0px;
+  border-bottom:1px solid var(--separatorColor);
+  box-sizing:border-box;
+}
+.nav-folder-title.is-active,
+.nav-folder-title.is-selected,
+body:not(.is-grabbing) .nav-folder-title.is-active:hover,
+body:not(.is-grabbing) .nav-folder-title.is-selected:hover
+{
+	text-decoration:underline;
+}
+.tree-item-children
+{
+	margin-bottom:0px;
+}
+/*
+.nav-file-collapse-indicator, 
+.nav-folder-collapse-indicator
+{
+    border-right:1px solid var(--lineColor);
+} */
+div .nav-file-title-content,
+div .nav-folder-title-content
+{
+    /*overflow-wrap: break-word;
+    white-space: normal;*/
+	  white-space: nowrap;
+  overflow: hidden;
+
+    padding-left:3px;
+    padding-right:3px;
+}
+.nav-folder-title-content
+{
+  flex-grow:0;
+}
+.mod-root>.nav-folder-children>.nav-file>.nav-file-title>.nav-file-title-content
+{
+	margin-left:0px;
+}
+.tree-item-inner.nav-file-title-content
+{
+	margin-left:0px;
+}
+.nav-folder.mod-root>.nav-folder-title:first-of-type
+{
+  font-size:16px;
+  background-color:var(--level2);
+  border-bottom:1px solid var(--lineColor);
+  border-top:0px;
+  box-sizing:border-box;
+}
+.mod-root>.nav-folder-title:first-of-type .nav-folder-title-content
+{
+  height:100%;
+  line-height:150%;
+
+	margin:auto;
+	text-align:center;
+  border:0px;
+
+}
+.nav-folder-children div[style*="height: 0.1px"]
+{
+  height:0px !important;
+}
+.nav-file-tag
+{
+  margin-left:10px;
+}

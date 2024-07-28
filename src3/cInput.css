@@ -1,0 +1,10 @@
+/* Component: Input */
+
+textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']
+{
+	padding:3px;
+}
+.search-input-container input[type='search']
+{
+	padding-left:30px;
+}

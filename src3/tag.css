@@ -1,0 +1,9 @@
+/* Tags in editor / preview */
+
+a.tag, .cm-hashtag
+{
+	padding:0px !important;
+	border-radius:0px;
+	font-size: var(--font-text-size);
+	background-color: transparent;
+}

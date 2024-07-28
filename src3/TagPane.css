@@ -1,0 +1,37 @@
+
+/* Tag Pane */
+.workspace-leaf-content[data-type=tag]
+{
+	padding:0px;
+	margin:0px;
+}
+.tag-pane-tag
+{
+	padding:0;
+	border-style:none none solid none;
+	border-color: var(--separatorColor);
+	border-width: 1px;
+}
+.tag-container.node-insert-event
+{
+	padding:0px;
+	margin-right:4px;
+	overflow: hidden;
+}
+/*
+.tag-container .tree-item-icon.collapse-icon
+{
+	left:10px;
+}*/
+.tag-container tree-item-inner
+.tag-container .tree-item-self.is-clickable:hover
+{
+	text-decoration-color: transparent;
+}
+.tag-container .tree-item-inner
+{
+	display:flex;
+	margin-left:0px;
+}
+
+

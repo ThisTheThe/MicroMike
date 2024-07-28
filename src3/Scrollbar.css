@@ -1,0 +1,11 @@
+/* Scrollbar */
+
+body:not(.native-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar,
+body:not(.native-scrollbars) .prompt-results::-webkit-scrollbar,
+body:not(.native-scrollbars) ::-webkit-scrollbar {
+  width: var(--scrollBarSize);
+}
+.body:not(.native-scrollbars) ::-webkit-scrollbar-thumb
+{
+	border:0px;
+}

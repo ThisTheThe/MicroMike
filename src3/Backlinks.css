@@ -1,0 +1,10 @@
+/* Backlinks */
+
+.backlink-pane, .outgoing-link-pane
+{
+	padding: 0px;
+}
+.backlink-pane .tree-item-inner
+{
+	margin-left:0px;
+}

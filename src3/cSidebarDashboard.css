@@ -1,0 +1,23 @@
+/* Component: Sidebar Dashboard */
+
+.nav-buttons-container
+{
+	height:100%;
+	gap:0px;
+}
+.workspace-leaf-content[data-type=bookmarks] .clickable-icon,
+.workspace-leaf-content[data-type=tag] .clickable-icon,
+.workspace-leaf-content[data-type=search] .clickable-icon,
+.workspace-leaf-content[data-type=file-explorer] .clickable-icon,
+.workspace-leaf-content[data-type=backlink] .clickable-icon,
+.workspace-leaf-content[data-type=outline] .clickable-icon
+{
+	display:flex;
+	flex-grow:1;
+	height:100%;
+}
+/*
+.workspace-tab-header-container
+{
+	border:0px;
+}*/

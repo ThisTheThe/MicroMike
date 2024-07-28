@@ -1,0 +1,7 @@
+/* Plugin: Quick Switcher */
+
+.qsp-recent-file .suggestion-title.qsp-title
+{
+	text-decoration-style: initial;
+	text-decoration-line: none;
+}

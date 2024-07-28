@@ -1,0 +1,36 @@
+/* Left Sidebar Button */
+
+.sidebar-toggle-button.mod-left
+{
+	padding:0px;
+}
+.sidebar-toggle-button.mod-left	.clickable-icon
+{
+	width:100%;
+	height:100%;
+}
+.sidebar-toggle-button.mod-left
+{
+	height:40px;
+}
+/*
+.workspace-ribbon.mod-left:before
+{
+	height:40px;
+}
+
+.sidebar-toggle-button.mod-left
+{
+	padding:0px;
+	height:40px;
+}
+.sidebar-toggle-button.mod-left	.clickable-icon
+{
+	width:100%;
+	height:100%;
+}
+.workspace-ribbon.mod-left:before
+{
+	border:0px;
+}
+*/

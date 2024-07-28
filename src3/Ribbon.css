@@ -1,0 +1,38 @@
+/* Ribbon */
+
+body
+{
+  --ribbon-width: 40px;
+}
+.workspace-ribbon.side-dock-ribbon.mod-left
+{
+		box-sizing:content-box;
+
+}
+.workspace-split.mod-horizontal.mod-left-split.is-sidedock-collapsed
+{
+  padding-right:0px;
+}
+.workspace-split.mod-horizontal.mod-right-split.is-sidedock-collapsed
+{
+  padding-left:0px;
+}
+.sidebar-toggle-button.mod-left{
+    width:40px;
+}
+.clickable-icon.side-dock-ribbon-action
+{
+  opacity:1;
+	width:40px;
+	height:40px;
+	box-sizing:border-box;
+}
+.workspace-ribbon.side-dock-ribbon.mod-left
+{
+	padding:0px;
+}
+.side-dock-actions,
+.side-dock-settings
+{
+	gap:0px;
+}

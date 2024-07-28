@@ -1,0 +1,47 @@
+/* Sidebar Tabs */
+
+.mod-left-split .workspace-tab-header-container,
+.mod-right-split .workspace-tab-header-container
+{
+	height: var(--tabHeightSidebar);
+  padding:0px;
+}
+.mod-left-split .mod-top .workspace-tab-header-container,
+.mod-right-split .mod-top .workspace-tab-header-container
+{
+	height:calc(var(--dragHeight) + var(--tabHeightSidebar));
+}
+.mod-left-split .workspace-tab-header-container-inner, 
+.mod-right-split .workspace-tab-header-container-inner
+{
+	padding:0px;
+	gap:0px;
+	align-items:flex-end;
+	height:var(--tabHeightSidebar);
+	flex-grow:1;
+	margin-top:0px;
+}
+.mod-left-split .mod-top .workspace-tab-header-container-inner, 
+.mod-right-split .mod-top .workspace-tab-header-container-inner
+{
+	margin-top: var(--dragHeight);
+}
+.workspace-tab-header-spacer
+{
+	display:none;
+}
+.mod-left-split .workspace-tab-header, 
+.mod-right-split .workspace-tab-header
+{
+	display:flex;
+	flex-grow:1;
+	min-height:var(--tabHeightSidebar);
+}
+.mod-right-split .workspace-tab-header
+{
+	min-width:0px;
+}
+.workspace-tab-header-inner
+{
+	height:var(--tabHeightSidebar);
+}

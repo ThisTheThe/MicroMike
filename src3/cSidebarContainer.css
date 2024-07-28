@@ -1,0 +1,6 @@
+/* Component: Sidebar Container */
+
+.workspace-leaf-content[data-type=tag] .tag-container.node-insert-event
+{
+	height:100%;
+}

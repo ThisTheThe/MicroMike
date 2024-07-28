@@ -1,0 +1,7 @@
+/* Plugin: Recent Files */
+
+.workspace-leaf-content[data-type=recent-files] .view-content
+{
+	padding:0px;
+	margin-top:-1px;
+}

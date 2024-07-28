@@ -1,0 +1,10 @@
+/* Outline */
+
+.workspace-leaf-content[data-type=outline] .view-content.node-insert-event
+{
+	padding:0px;
+}
+.workspace-leaf-content[data-type=outline] .tree-item-inner
+{
+	padding-left:3px;
+}
