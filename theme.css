@@ -1568,16 +1568,7 @@ body
 
 /* Settings Hover Preview */
 
-.settingsHoverPreview .modal.mod-community-theme,
-.settingsHoverPreview .modal.mod-community-plugin{
-  background-color: var(--level1_a);
-  width: calc(100% - var(--ribbonWidth));
-}
-
-.settingsHoverPreview .modal-container.mod-dim .modal.mod-settings,
-.settingsHoverPreview .modal-container.mod-dim .modal.mod-community-plugin,
-.settingsHoverPreview .modal-container.mod-dim .modal.mod-community-theme,
-.settingsHoverPreview .modal.mod-community-theme
+.settingsHoverPreview .modal-container.mod-dim .modal.mod-settings
 {
   background-color:transparent;
   box-shadow:var(--bevelStyleButton);
@@ -1591,9 +1582,7 @@ body
 {
   opacity:0.1;
 }
-.settingsHoverPreview .modal.mod-settings .modal-content:hover,
-.settingsHoverPreview .modal.mod-community-plugin .modal-content:hover,
-.settingsHoverPreview .modal.mod-community-theme .modal-content:hover
+.settingsHoverPreview .modal.mod-settings .modal-content:hover
 {
 	background-color: var(--background);
     opacity:1;
