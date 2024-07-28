@@ -15,7 +15,7 @@ body
 	--tabHeightEditorStack:40px;
 	--dashboardHeight:40px;
 	--fileHeight: 14px;
-	--outlineHeight:14px;
+	--outlineHeight:16px;
 	--outlineLevelWidth:40px;
 	--editorSize:700px;
 	--titlebarOffset:160px;
@@ -32,6 +32,9 @@ body
 	dashboardFlexbox
 	bevels
 	stackTabs
+	Filebrowser hierarchical whatever wordwrap
+Tab wordwrap
+	gradient based on whether stacktabs or not
 	*/
 }
 /* @settings
@@ -187,6 +190,11 @@ settings:
 		step: 1
 		format: px
 	-
+    	id: showSuggestionDirectory
+		title: Show Suggestion Directory
+		description: On link suggestions, include additional line showing where file is located. Will increase space usage.
+		type: class-toggle
+    -
 		id: folderNoteEmphasis
 		title: Folder Note Emphasis 
 		description: Give a special background and region to folder notes.
@@ -200,6 +208,16 @@ settings:
 		id: enableNewIcons
 		title: Enable XP-style Icons 
 		description: Enable colorful XP-style icons to replace flat SVG icons. This is only done where the icons are supported.
+		type: class-toggle
+	-
+    	id: blendDropDown
+		title: Blender Style Dropdowns
+		description: Enable Blender 2.7esque dropdowns. 
+		type: class-toggle
+    -
+        id: settingsHoverPreview
+		title: Settings Hover Preview
+		description: With this on, you can preview your Obsidian appearance by simply putting the cursor outside of the settings window. 
 		type: class-toggle
 	-
 		id: oldPalette
@@ -314,7 +332,8 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .workspace-leaf-content[data-type=tag] .clickable-icon,
 .workspace-leaf-content[data-type=search] .clickable-icon,
 .workspace-leaf-content[data-type=file-explorer] .clickable-icon,
-.workspace-leaf-content[data-type=backlink] .clickable-icon
+.workspace-leaf-content[data-type=backlink] .clickable-icon,
+.workspace-leaf-content[data-type=outline] .clickable-icon
 {
 	display:flex;
 	flex-grow:1;
@@ -437,7 +456,108 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 .menu-item-icon
 {
 	margin-right:3px;
-}/* Editor Dashboard */
+}
+/* Dropdown */
+/* Universal Dropdown mods */
+.blendDropDown .menu{
+  word-wrap: none;
+  white-space: nowrap;
+  text-overflow: clip;
+  background-color: #111111;
+  padding: 1px;
+  opacity:0.9;
+  box-shadow: 0px 10px 10px #000000;
+  border: none;
+  border-radius: 0px;
+}
+
+.blendDropDown .menu-item{
+  user-select: none;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0px;
+  
+  text-align: left;
+  border: none;
+  outline: none;
+  height: 20px;
+  color:var(--fontCol);
+  font-size: var(--the-font-size);
+  font-family: var(--the-font);
+  line-height: 1em;
+  font-size:12px;
+}
+.blendDropDown .menu-separator {
+  position: relative;
+  width: 200%;
+  left:-1px;
+  margin: 2px auto;
+}
+.blendDropDown .menu-item.selected:not(.is-disabled):not(.is-label) {
+  background: linear-gradient(180deg, #7AA3E5 0%, #5680C1 100%);
+  background-color: var(--background);
+  color: #000;
+}
+.blendDropDown .menu-item-icon svg {
+  color: #ffffff;
+  padding-left:5px; 
+  padding-top:1px;
+  width:20px;
+  height:20px;
+}
+.blendDropDown .menu-item-icon {
+  color: #000;
+  height:14px;
+}
+.blendDropDown .menu:not(.qe-popup-menu) .menu-item-title
+{
+	padding-left:24px;
+	align-items:center;
+
+}
+.blendDropDown .menu-item.selected:not(.is-disabled):not(.is-label) svg {
+  color:#000;
+}
+
+.blendDropDown .menu-item-title:not(.mod-tab-list .menu-item-title):not(.qe-popup-menu .menu-item-title):not(.mod-no-icon .menu-item-title)
+{
+	top:-10px;
+	position:relative;
+}
+/* Tab List */
+.blendDropDown .menu.mod-tab-list .menu-item-title
+{
+	margin-top:-10px;
+	line-height:12px;
+	align-items:flex-start;
+	vertical-align: text-top;
+	margin-right:3px;
+}
+.blendDropDown .menu.mod-no-icon .menu-item-title
+{
+	margin:0px;
+}
+
+/* Button Dropdowns */
+.blendDropDown .menu.mod-no-icon .menu-item
+{
+	margin:auto;
+	row-gap:0px;
+	column-gap:0px;
+}
+.blendDropDown .menu.mod-no-icon .menu-item-title
+{
+	vertical-align:middle;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding-top:5px;
+}
+.blendDropDown .menu.mod-no-icon .menu-item-icon.mod-checked
+{
+	margin-top:-17px;
+}
+/* Editor Dashboard */
 
 .view-header-title-container
 {
@@ -527,7 +647,7 @@ textarea, input[type='text'], input[type='search'], input[type='email'], input[t
 }
 .workspace .mod-root .workspace-tab-header-inner-title
 {
-text-decoration-line: none;
+    text-decoration-line: none;
 }
 .workspace .mod-root .workspace-tab-header-inner-icon
 {
@@ -664,14 +784,7 @@ body
 {
   max-width: var(--editorSize);
 }
-.workspace-leaf-content[data-mode="preview"] .view-content
-{
-	background: linear-gradient(90deg, var(--bottom) 0%, var(--level2) 5px, var(--level1) 15px, rgba(0,0,0,1) 30px);
-}
-.markdown-source-view.cm-s-obsidian
-{
-	
-}/* File Browser */
+/* File Browser */
 
 body
 {
@@ -726,7 +839,8 @@ body
   border:0px;
   padding:0px;
   margin:0px;
-  border-top:1px solid var(--separatorColor);
+  border-bottom:1px solid var(--separatorColor);
+  box-sizing:border-box;
 }
 .nav-folder-title.is-active,
 .nav-folder-title.is-selected,
@@ -771,6 +885,10 @@ div .nav-folder-title-content
 .nav-folder.mod-root>.nav-folder-title:first-of-type
 {
   font-size:16px;
+  background-color:var(--level2);
+  border-bottom:1px solid var(--lineColor);
+  border-top:0px;
+  box-sizing:border-box;
 }
 .mod-root>.nav-folder-title:first-of-type .nav-folder-title-content
 {
@@ -780,6 +898,7 @@ div .nav-folder-title-content
 	margin:auto;
 	text-align:center;
   border:0px;
+
 }
 .nav-folder-children div[style*="height: 0.1px"]
 {
@@ -890,12 +1009,13 @@ div .nav-folder-title-content
 {
 	width:800px;
 }
+/*
 .boostlink-count,
 .boostlink-is-alias,
 .boostlink-alias {
 	display:none;
 }
-/* Plugin: Commander */
+*//* Plugin: Commander */
 
 .view-action:not(:last-child)
 {
@@ -932,10 +1052,12 @@ body:not(.pane-relief-disable-counts) .view-header-nav-buttons button:last-child
 body:not(.pane-relief-disable-counts) .view-header-nav-buttons button:first-child:before
 {
 	left:0px;
+	display:none;
 }
 body:not(.pane-relief-disable-counts) .view-header-nav-buttons button:last-child:after
 {
 	right:0px;
+	display:none;
 }/* Plugin: Quick Explorer */
 
 .status-bar
@@ -1083,7 +1205,9 @@ input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-vis
   border-width: 0;
   border-bottom:1px solid var(--lineColor);
 }
-.suggestion-item .suggestion-note {
+
+
+body:not(.showSuggestionDirectory) .suggestion-item .suggestion-note {
   display: none;
 }
 .suggestion-hotkey
@@ -1251,6 +1375,10 @@ body:not(.native-scrollbars) .kanban-plugin__scroll-container::-webkit-scrollbar
 body:not(.native-scrollbars) .prompt-results::-webkit-scrollbar,
 body:not(.native-scrollbars) ::-webkit-scrollbar {
   width: var(--scrollBarSize);
+}
+.body:not(.native-scrollbars) ::-webkit-scrollbar-thumb
+{
+	border:0px;
 }/* Search */
 
 body
@@ -1436,6 +1564,39 @@ body
   background-color:var(--level1_a);
   min-height:40px;
   width:40px;
+}
+
+/* Settings Hover Preview */
+
+.settingsHoverPreview .modal.mod-community-theme,
+.settingsHoverPreview .modal.mod-community-plugin{
+  background-color: var(--level1_a);
+  width: calc(100% - var(--ribbonWidth));
+}
+
+.settingsHoverPreview .modal-container.mod-dim .modal.mod-settings,
+.settingsHoverPreview .modal-container.mod-dim .modal.mod-community-plugin,
+.settingsHoverPreview .modal-container.mod-dim .modal.mod-community-theme,
+.settingsHoverPreview .modal.mod-community-theme
+{
+  background-color:transparent;
+  box-shadow:var(--bevelStyleButton);
+}
+
+.settingsHoverPreview .modal.mod-settings:hover
+{
+	opacity:1;
+}
+.settingsHoverPreview .modal.mod-settings .modal-content
+{
+  opacity:0.1;
+}
+.settingsHoverPreview .modal.mod-settings .modal-content:hover,
+.settingsHoverPreview .modal.mod-community-plugin .modal-content:hover,
+.settingsHoverPreview .modal.mod-community-theme .modal-content:hover
+{
+	background-color: var(--background);
+    opacity:1;
 }/* Sidebar Tabs */
 
 .mod-left-split .workspace-tab-header-container,
@@ -2117,6 +2278,7 @@ body{
 	--background-modifier-border: var(--level3);
 	--background-modifier-border-hover: var(--level3_a);
     --background-modifier-border-focus: var(--level3_a);
+	--text-on-accent-inverted: #ffffff;
 }
 /* Button Component */
 .theme-dark
@@ -2672,5 +2834,3 @@ body
 {
 	background-color:var(--bottom);
 }
-
-.tree-item 
