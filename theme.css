@@ -388,7 +388,7 @@ settings:
 	-
 		id: genericOption
 		title: Settings Alignment
-		description: Pick the compass direction that the generic (file seeking, etc...) modal is aligned to.
+		description: Pick the compass direction that the generic (file seeking, etc...) settings is aligned to.
 		type: class-select
 		allowEmpty: false
 		default: settingsWAlign
@@ -405,7 +405,7 @@ settings:
 	-
 		id: settingsHSize
 		title: Settings Height
-		description: In percentage, choose the height of the modal.
+		description: In percentage, choose the height of the settings.
 		type: variable-number-slider
 		default: 100
 		min: 20
@@ -415,7 +415,7 @@ settings:
 	-
 		id: settingsWSize
 		title: Settings Width
-		description: In percentage, choose the width of the modal.
+		description: In percentage, choose the width of the settings.
 		type: variable-number-slider
 		default: 75
 		min: 55
@@ -425,7 +425,7 @@ settings:
 	-
 		id: settingsOffsetX
 		title: Settings X Offset
-		description: Choose an X offset for the modal. If uncarefully applied, will cause it to move offscreen.
+		description: Choose an X offset for the settings. If uncarefully applied, will cause it to move offscreen.
 		type: variable-number-slider
 		default: 0
 		min: -520
@@ -435,7 +435,7 @@ settings:
 	-
 		id: settingsOffsetY
 		title: Settings Y Offset
-		description: Choose a Y offset for the modal. If uncarefully applied, will cause it to move offscreen.
+		description: Choose a Y offset for the settings. If uncarefully applied, will cause it to move offscreen.
 		type: variable-number-slider
 		default: 0
 		min: -500
@@ -638,7 +638,7 @@ body {
   max-width: var(--editorSize);
 }
 
-.centerAlignReadableLength .cm-sizer, .markdown-preview-sizer {
+.centerAlignReadableLength .cm-sizer, .centerAlignReadableLength .markdown-preview-sizer {
   margin-left: auto;
   margin-right: auto;
 }
