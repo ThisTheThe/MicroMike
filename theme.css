@@ -753,12 +753,6 @@ body {
   left: -20px;
 }
 
-.modal-container .prompt {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 50%;
-}
 .modal-container .prompt .prompt-input-container {
   margin-top: 5px;
   margin-left: 5px;
@@ -789,7 +783,14 @@ body {
   justify-content: flex-start;
 }
 
-.modal-container .prompt {
+body:not(.is-mobile) .modal-container .prompt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+}
+
+body:not(.is-mobile) .modal-container .prompt {
   top: unset;
   left: unset;
   height: unset;
@@ -798,31 +799,31 @@ body {
   margin-left: var(--modalOffsetX);
   margin-bottom: var(--modalOffsetY);
 }
-.modalNAlign .modal-container .prompt {
+.modalNAlign body:not(.is-mobile) .modal-container .prompt {
   top: 0%;
 }
-.modalNEAlign .modal-container .prompt {
+.modalNEAlign body:not(.is-mobile) .modal-container .prompt {
   top: 0%;
   right: 0%;
 }
-.modalEAlign .modal-container .prompt {
+.modalEAlign body:not(.is-mobile) .modal-container .prompt {
   right: 0%;
 }
-.modalSEAlign .modal-container .prompt {
+.modalSEAlign body:not(.is-mobile) .modal-container .prompt {
   bottom: 0%;
   right: 0%;
 }
-.modalSAlign .modal-container .prompt {
+.modalSAlign body:not(.is-mobile) .modal-container .prompt {
   bottom: 0%;
 }
-.modalSWAlign .modal-container .prompt {
+.modalSWAlign body:not(.is-mobile) .modal-container .prompt {
   bottom: 0%;
   left: 0%;
 }
-.modalWAlign .modal-container .prompt {
+.modalWAlign body:not(.is-mobile) .modal-container .prompt {
   left: 0%;
 }
-.modalNWAlign .modal-container .prompt {
+.modalNWAlign body:not(.is-mobile) .modal-container .prompt {
   top: 0%;
   left: 0%;
 }
@@ -918,26 +919,6 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
   border: 0px;
 }
 
-body:not(.css-settings-manager) .modal-container:has(.mod-settings) {
-  align-items: flex-start;
-}
-body:not(.css-settings-manager) .modal-container:has(.mod-settings) .modal.mod-settings {
-  margin-left: 40px;
-  height: 100%;
-  width: 90%;
-  min-width: 600px;
-}
-
-.css-settings-manager .modal-container:has(.mod-settings) {
-  align-items: center;
-  justify-content: center;
-}
-
-.modal.mod-settings {
-  height: 100%;
-  width: 90%;
-  min-width: 600px;
-}
 .modal.mod-settings .vertical-tab-header-group {
   padding: 0px;
   margin: 0px;
@@ -962,10 +943,6 @@ body:not(.css-settings-manager) .modal-container:has(.mod-settings) .modal.mod-s
   gap: 0px;
   padding-left: 5px;
 }
-.modal.mod-settings .modal-close-button {
-  display: none;
-}
-
 .modal.mod-settings :is(h1, h2, h3, h4, h5, h6) {
   font-size: 20px;
   padding-top: 5px;
@@ -1003,7 +980,22 @@ body:not(.css-settings-manager) .modal-container:has(.mod-settings) .modal.mod-s
   font-size: 20px;
 }
 
-body:not(.disableLeftAlignSettings) .modal.mod-settings .vertical-tab-content:not(.file-explorer-plus) .setting-item-control {
+body:not(.css-settings-manager):not(.is-mobile) .modal-container:has(.mod-settings) {
+  align-items: flex-start;
+}
+body:not(.css-settings-manager):not(.is-mobile) .modal-container:has(.mod-settings) .modal.mod-settings {
+  margin-left: 40px;
+  height: 100%;
+  width: 90%;
+  min-width: 600px;
+}
+
+body:not(.is-mobile) .css-settings-manager .modal-container:has(.mod-settings) {
+  align-items: center;
+  justify-content: center;
+}
+
+body:not(.disableLeftAlignSettings):not(.is-mobile) .modal.mod-settings .vertical-tab-content:not(.file-explorer-plus) .setting-item-control {
   order: -1;
   flex-grow: 0;
   flex-shrink: 0;
@@ -1012,7 +1004,7 @@ body:not(.disableLeftAlignSettings) .modal.mod-settings .vertical-tab-content:no
   max-width: var(--settingsLeftColumnLength);
   flex-wrap: wrap;
 }
-body:not(.disableLeftAlignSettings) .modal.mod-settings .vertical-tab-content:not(.file-explorer-plus) .setting-item-control .dropdown, body:not(.disableLeftAlignSettings) .modal.mod-settings .vertical-tab-content:not(.file-explorer-plus) .setting-item-control .search-input-container {
+body:not(.disableLeftAlignSettings):not(.is-mobile) .modal.mod-settings .vertical-tab-content:not(.file-explorer-plus) .setting-item-control .dropdown, body:not(.disableLeftAlignSettings):not(.is-mobile) .modal.mod-settings .vertical-tab-content:not(.file-explorer-plus) .setting-item-control .search-input-container {
   text-wrap: wrap;
   max-width: var(--settingsLeftColumnLength);
   height: initial;
@@ -1020,21 +1012,21 @@ body:not(.disableLeftAlignSettings) .modal.mod-settings .vertical-tab-content:no
   padding-bottom: 5px;
   display: flex;
 }
-body:not(.disableLeftAlignSettings) .modal.mod-settings .vertical-tab-content:not(.file-explorer-plus) .setting-item-control textarea {
+body:not(.disableLeftAlignSettings):not(.is-mobile) .modal.mod-settings .vertical-tab-content:not(.file-explorer-plus) .setting-item-control textarea {
   max-width: var(--settingsLeftColumnLength);
 }
 
-.setting-item-control div[aria-label="Open themes folder"] + .dropdown {
+body:not(.is-mobile).setting-item-control div[aria-label="Open themes folder"] + .dropdown {
   width: 160px;
 }
 
-.largeSettingsButtons .modal.mod-settings .clickable-icon {
+body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   background-color: var(--level1_a);
   min-height: 40px;
   width: 40px;
 }
 
-.modal.mod-settings {
+body:not(.is-mobile).modal.mod-settings {
   position: absolute;
   top: unset;
   left: unset;
@@ -1046,49 +1038,46 @@ body:not(.disableLeftAlignSettings) .modal.mod-settings .vertical-tab-content:no
   margin-left: calc(var(--settingsOffsetX) + 40px);
   margin-bottom: var(--settingsOffsetY);
 }
-.settingsNAlign .modal.mod-settings {
+.settingsNAlign body:not(.is-mobile).modal.mod-settings {
   top: 0%;
 }
-.settingsNEAlign .modal.mod-settings {
+.settingsNEAlign body:not(.is-mobile).modal.mod-settings {
   top: 0%;
   right: 0%;
 }
-.settingsEAlign .modal.mod-settings {
+.settingsEAlign body:not(.is-mobile).modal.mod-settings {
   right: 0%;
 }
-.settingsSEAlign .modal.mod-settings {
+.settingsSEAlign body:not(.is-mobile).modal.mod-settings {
   bottom: 0%;
   right: 0%;
 }
-.settingsSAlign .modal.mod-settings {
+.settingsSAlign body:not(.is-mobile).modal.mod-settings {
   bottom: 0%;
 }
-.settingsSWAlign .modal.mod-settings {
+.settingsSWAlign body:not(.is-mobile).modal.mod-settings {
   bottom: 0%;
   left: 0%;
 }
-.settingsWAlign .modal.mod-settings {
+.settingsWAlign body:not(.is-mobile).modal.mod-settings {
   left: 0%;
 }
-.settingsNWAlign .modal.mod-settings {
+.settingsNWAlign body:not(.is-mobile).modal.mod-settings {
   top: 0%;
   left: 0%;
 }
 
-.settingsHoverPreview .modal-container.mod-dim .modal.mod-settings {
+body:not(.is-mobile).settingsHoverPreview .modal-container.mod-dim .modal.mod-settings {
   background-color: transparent;
   box-shadow: var(--bevelStyleButton);
 }
-
-.settingsHoverPreview .modal.mod-settings:hover {
+body:not(.is-mobile).settingsHoverPreview .modal.mod-settings:hover {
   opacity: 1;
 }
-
-.settingsHoverPreview .modal.mod-settings .modal-content {
+body:not(.is-mobile).settingsHoverPreview .modal.mod-settings .modal-content {
   opacity: 0.1;
 }
-
-.settingsHoverPreview .modal.mod-settings .modal-content:hover {
+body:not(.is-mobile).settingsHoverPreview .modal.mod-settings .modal-content:hover {
   background-color: var(--background);
   opacity: 1;
 }
