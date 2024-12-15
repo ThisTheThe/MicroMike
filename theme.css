@@ -162,6 +162,53 @@ settings:
 		step: 2
 		format: px
 	- 
+		id: this-is-a-heading------------------------------------------------------------------------------------------------------
+		title: Text Editor & Tabs
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: editorSize
+		title: Text Window Length
+		description: Size of text window in text editor. 
+		type: variable-number-slider
+		default: 700
+		min: 300
+		max: 1800
+		step: 50
+		format: px
+	-
+		id: centerAlignReadableLength
+		title: Center Align Readable Line Length
+		description: Undo modified left-aligned readable line length to normal standard.
+		type: class-toggle
+	-
+		id: stackTabs
+		title: Stack the tabs
+		description: The tabs will be stacked.
+		type: class-toggle
+		default: true
+	-
+		id: editorStackWidth
+		title: Stack Tabs Width
+		description: The width of the stacked tabs. 
+		type: variable-number-slider
+		default: 200
+		min: 120
+		max: 300
+		step: 5
+		format: px
+	-
+		id: tabHeightEditorStack
+		title: Editor Stack Tab Height
+		description: Tab Height 
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 40
+		step: 1
+		format: px
+	- 
 		id: this-is-a-heading ---------------------------------------------------------------------------------------
 		title: Sidebar Tabs
 		type: heading
@@ -242,54 +289,6 @@ settings:
 		description: Enable layered background in file browser. This helps perceive depth.
 		type: class-toggle
 		default: true	
-
-	- 
-		id: this-is-a-heading------------------------------------------------------------------------------------------------------
-		title: Text Editor & Tabs
-		type: heading
-		level: 2
-		collapsed: true
-	-
-		id: editorSize
-		title: Text Window Length
-		description: Size of text window in text editor. 
-		type: variable-number-slider
-		default: 700
-		min: 300
-		max: 1800
-		step: 50
-		format: px
-	-
-		id: centerAlignReadableLength
-		title: Center Align Readable Line Length
-		description: Undo modified left-aligned readable line length to normal standard.
-		type: class-toggle
-	-
-		id: stackTabs
-		title: Stack the tabs
-		description: The tabs will be stacked.
-		type: class-toggle
-		default: true
-	-
-		id: editorStackWidth
-		title: Stack Tabs Width
-		description: The width of the stacked tabs. 
-		type: variable-number-slider
-		default: 200
-		min: 120
-		max: 300
-		step: 5
-		format: px
-	-
-		id: tabHeightEditorStack
-		title: Editor Stack Tab Height
-		description: Tab Height 
-		type: variable-number-slider
-		default: 40
-		min: 20
-		max: 40
-		step: 1
-		format: px
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Modal Window
@@ -783,47 +782,58 @@ body {
   justify-content: flex-start;
 }
 
-body:not(.is-mobile) .modal-container .prompt {
+body:not(.is-mobile):not(.css-settings-manager) .modal-container .prompt {
   position: absolute;
   top: 50%;
   left: 50%;
   height: 50%;
 }
 
-body:not(.is-mobile) .modal-container .prompt {
+.css-settings-manager:not(.is-mobile) .modal-container .prompt {
+  position: absolute;
   top: unset;
   left: unset;
-  height: unset;
-  height: var(--modalHSize);
-  width: var(--modalWSize);
-  margin-left: var(--modalOffsetX);
+  min-width: unset;
+  min-height: var(--modalHSize);
+  max-height: var(--modalHSize);
+  min-width: var(--modalWSize);
+  max-width: var(--modalWSize);
+  margin-left: calc(var(--modalOffsetX) + 40px);
   margin-bottom: var(--modalOffsetY);
 }
-.modalNAlign body:not(.is-mobile) .modal-container .prompt {
+
+:not(.is-mobile).modalNAlign .modal-container .prompt {
   top: 0%;
 }
-.modalNEAlign body:not(.is-mobile) .modal-container .prompt {
+
+:not(.is-mobile).modalNEAlign .modal-container .prompt {
   top: 0%;
   right: 0%;
 }
-.modalEAlign body:not(.is-mobile) .modal-container .prompt {
+
+:not(.is-mobile).modalEAlign .modal-container .prompt {
   right: 0%;
 }
-.modalSEAlign body:not(.is-mobile) .modal-container .prompt {
+
+:not(.is-mobile).modalSEAlign .modal-container .prompt {
   bottom: 0%;
   right: 0%;
 }
-.modalSAlign body:not(.is-mobile) .modal-container .prompt {
+
+:not(.is-mobile).modalSAlign .modal-container .prompt {
   bottom: 0%;
 }
-.modalSWAlign body:not(.is-mobile) .modal-container .prompt {
+
+:not(.is-mobile).modalSWAlign .modal-container .prompt {
   bottom: 0%;
   left: 0%;
 }
-.modalWAlign body:not(.is-mobile) .modal-container .prompt {
+
+:not(.is-mobile).modalWAlign .modal-container .prompt {
   left: 0%;
 }
-.modalNWAlign body:not(.is-mobile) .modal-container .prompt {
+
+:not(.is-mobile).modalNWAlign .modal-container .prompt {
   top: 0%;
   left: 0%;
 }
@@ -1026,7 +1036,7 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   width: 40px;
 }
 
-body:not(.is-mobile).modal.mod-settings {
+.css-settings-manager:not(.is-mobile) .modal.mod-settings {
   position: absolute;
   top: unset;
   left: unset;
@@ -1036,48 +1046,56 @@ body:not(.is-mobile).modal.mod-settings {
   min-width: var(--settingsWSize);
   max-width: var(--settingsWSize);
   margin-left: calc(var(--settingsOffsetX) + 40px);
-  margin-bottom: var(--settingsOffsetY);
+  margin-bottom: var(--settingsOffsetY) d;
 }
-.settingsNAlign body:not(.is-mobile).modal.mod-settings {
+
+:not(.is-mobile).settingsNAlign .modal.mod-settings {
   top: 0%;
 }
-.settingsNEAlign body:not(.is-mobile).modal.mod-settings {
+
+:not(.is-mobile).settingsNEAlign .modal.mod-settings {
   top: 0%;
   right: 0%;
 }
-.settingsEAlign body:not(.is-mobile).modal.mod-settings {
+
+:not(.is-mobile).settingsEAlign .modal.mod-settings {
   right: 0%;
 }
-.settingsSEAlign body:not(.is-mobile).modal.mod-settings {
+
+:not(.is-mobile).settingsSEAlign .modal.mod-settings {
   bottom: 0%;
   right: 0%;
 }
-.settingsSAlign body:not(.is-mobile).modal.mod-settings {
+
+:not(.is-mobile).settingsSAlign .modal.mod-settings {
   bottom: 0%;
 }
-.settingsSWAlign body:not(.is-mobile).modal.mod-settings {
+
+:not(.is-mobile).settingsSWAlign .modal.mod-settings {
   bottom: 0%;
   left: 0%;
 }
-.settingsWAlign body:not(.is-mobile).modal.mod-settings {
+
+:not(.is-mobile).settingsWAlign .modal.mod-settings {
   left: 0%;
 }
-.settingsNWAlign body:not(.is-mobile).modal.mod-settings {
+
+:not(.is-mobile).settingsNWAlign .modal.mod-settings {
   top: 0%;
   left: 0%;
 }
 
-body:not(.is-mobile).settingsHoverPreview .modal-container.mod-dim .modal.mod-settings {
+:not(.is-mobile).settingsHoverPreview .modal-container.mod-dim .modal.mod-settings {
   background-color: transparent;
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.is-mobile).settingsHoverPreview .modal.mod-settings:hover {
+:not(.is-mobile).settingsHoverPreview .modal.mod-settings:hover {
   opacity: 1;
 }
-body:not(.is-mobile).settingsHoverPreview .modal.mod-settings .modal-content {
+:not(.is-mobile).settingsHoverPreview .modal.mod-settings .modal-content {
   opacity: 0.1;
 }
-body:not(.is-mobile).settingsHoverPreview .modal.mod-settings .modal-content:hover {
+:not(.is-mobile).settingsHoverPreview .modal.mod-settings .modal-content:hover {
   background-color: var(--background);
   opacity: 1;
 }
