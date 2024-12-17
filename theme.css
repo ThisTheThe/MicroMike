@@ -561,8 +561,6 @@ body {
 body.css-settings-manager {
   margin-top: var(--bodyMarginTop);
   margin-left: var(--bodyMarginLeft);
-  width: calc(100% + var(--bodyExtraWidth));
-  height: calc(100% + var(--bodyExtraHeight));
 }
 
 .canvas-wrapper .markdown-preview-view.markdown-rendered.node-insert-event.show-indentation-guide.allow-fold-headings.allow-fold-lists {
@@ -578,7 +576,7 @@ body {
 }
 
 .tree-item-self {
-  height: var(--outlineLevelHeight);
+  line-height: var(--outlineLevelHeight);
   margin-bottom: 0px;
 }
 
@@ -598,7 +596,7 @@ body {
   font-size: var(--outlineLevelFontSize);
 }
 
-.treeWordWrap .tree-item-inner {
+.treeWordWrap .workspace-leaf-content[data-type=file-explorer] .tree-item-inner {
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
@@ -802,6 +800,12 @@ body {
   --nav-item-children-margin-left: calc(var(--outlineLevelWidth) / 2);
 }
 
+body {
+  --vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1);
+  --nav-item-children-padding-left: 0px;
+  --nav-item-children-margin-left: calc(var(--outlineLevelWidth) - 1px);
+}
+
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container {
   padding: 0px;
   margin: 0px;
@@ -834,7 +838,6 @@ body {
 }
 .workspace-leaf-content[data-type=file-explorer] .tree-item-children .tree-item-children {
   position: relative;
-  left: -1px;
 }
 
 .boldFolders .nav-folder-title .tree-item-inner.nav-folder-title-content {
@@ -845,15 +848,16 @@ body {
   background-color: var(--levelLayer);
 }
 
-.workspace-leaf-content[data-type=outline] .view-content {
-  padding-left: 20px;
+.workspace-leaf-content[data-type=outline] .view-content .tree-item {
+  position: relative;
 }
-.workspace-leaf-content[data-type=outline] .view-content .tree-item-self.is-clickable {
+.workspace-leaf-content[data-type=outline] .view-content .tree-item .tree-item-self.is-clickable {
   padding: 0px;
   margin: 0px;
   gap: 0px;
   position: relative;
-  left: -20px;
+  height: unset;
+  min-height: unset;
 }
 
 .modal-container .prompt .prompt-input-container {
@@ -1560,6 +1564,11 @@ body {
   margin-right: 40px;
 }
 
+.titlebar-inner,
+.is-focused .titlebar-inner {
+  color: var(--icon-color);
+}
+
 body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   padding: 0px;
 }
@@ -2209,6 +2218,8 @@ body.classicMicroMike {
   --levelLayer: #ffffff18;
   --levelHover: #ffffff11;
   --separatorColor: #ffffff18;
+  --collapse-icon-color: var(--icon-color)
+  --collapse-icon-color-collapsed: var(--icon-color) ;
 }
 
 body:not(.inherit) {
@@ -2359,6 +2370,12 @@ body:not(.inherit) .is-clickable .tree-item-icon.collapse-icon:hover {
 body:not(.inherit) .workspace-leaf-content[data-type=outline] .is-clickable .tree-item-icon.collapse-icon:hover {
   background-color: var(--level2);
 }
+body:not(.inherit) .tree-item-self:hover, body:not(.inherit) .tree-item-self.is-active {
+  background-color: var(--levelHover);
+}
+body:not(.inherit) .tree-item-self:hover .tree-item-inner, body:not(.inherit) .tree-item-self.is-active .tree-item-inner {
+  color: white;
+}
 body:not(.inherit) .workspace-leaf-content[data-type=empty] .view-header,
 body:not(.inherit) .is-focused .workspace-leaf-content[data-type=empty] .view-header,
 body:not(.inherit) .workspace-leaf-content[data-type=markdown] .view-header,
@@ -2417,23 +2434,11 @@ body:not(.inherit) .workspace-leaf-content[data-mode=preview] .view-content {
 body:not(.inherit) .markdown-preview-view .markdown-embed:hover {
   background-color: var(--bottom);
 }
-body:not(.inherit) .nav-file-title:hover, body:not(.inherit) .nav-file-title.is-active {
-  background-color: var(--levelHover);
-}
-body:not(.inherit) .nav-file-title:hover .nav-file-title-content, body:not(.inherit) .nav-file-title.is-active .nav-file-title-content {
-  color: white;
-}
-body:not(.inherit) .nav-folder-title:hover, body:not(.inherit) .nav-file-title.is-active {
-  background-color: var(--levelHover);
-}
-body:not(.inherit) .nav-folder-title:hover .nav-folder-title-content, body:not(.inherit) .nav-file-title.is-active .nav-folder-title-content {
-  color: white;
-}
 body:not(.inherit) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
   background-color: var(--level1);
 }
 body:not(.inherit) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover {
-  background-color: var(--bottom_a);
+  background-color: var(--levelHover);
 }
 body:not(.inherit) .explorable.titlebar-button {
   box-shadow: var(--bevelStyleButton);
@@ -2627,6 +2632,7 @@ body:not(.disableBevels) {
   --bevelStyleFolderLabel:inset 0px 1px var(--separatorColor);
   --bevelStyleFolderLabelHover:inset 0px 1px var(--separatorColor);
   --bevelStyleTreeItem: inset 1px 1px var(--separatorColor);
+  --bevelStyleTop: inset 0px 1px var(--separatorColor);
   --bevelStyleTreeItem_invert: inset -1px -1px var(--separatorColor);
 }
 
@@ -2670,6 +2676,16 @@ body:not(.disableBevels) {
   }
   	*/
   /* Outline */
+  /*
+  .workspace-leaf-content[data-type=outline] .tree-item-inner
+  {
+  	border-left:1px solid var(--separatorColor);
+  }
+  .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner
+  {
+  	border-left:1px solid var(--separatorColor);
+  }
+  */
   /* Quick Explorer */
   /* Prompt */
   /* Resize Bars */
@@ -2756,19 +2772,13 @@ body:not(.disableBevels) .markdown-preview-view .file-embed {
   box-shadow: var(--bevelStyleContainer);
 }
 body:not(.disableBevels) .workspace-leaf-content[data-type=file-explorer] .tree-item-self.is-clickable {
-  box-shadow: var(--bevelStyleTreeItem);
+  box-shadow: var(--bevelStyleTop);
 }
 body:not(.disableBevels) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
   box-shadow: var(--bevelStyleTreeItem_invert);
 }
 body:not(.disableBevels) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable {
   box-shadow: var(--bevelStyleTreeItem);
-}
-body:not(.disableBevels) .workspace-leaf-content[data-type=outline] .tree-item-inner {
-  border-left: 1px solid var(--separatorColor);
-}
-body:not(.disableBevels) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner {
-  border-left: 1px solid var(--separatorColor);
 }
 body:not(.disableBevels) .explorable.titlebar-button {
   box-shadow: var(--bevelStyleButton);
