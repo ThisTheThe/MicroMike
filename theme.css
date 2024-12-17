@@ -9,12 +9,13 @@ body {
   --editorStackWidth: 200px;
   --dragSpaceHeight: 20px;
   --outlineLevelWidth: 30px;
-  --windowButtonsOffset: 160px;
   --ribbonWidth: 40px;
   --ribbonButtonHeight: 40px;
   --settingsLeftColumnLength: 200px;
   --outlineLevelFontSize: 13px;
   --editorDashboardHeight: 40px;
+  --outlineLevelHeight: 16px;
+  --editorTabHeight: 40px;
 }
 
 body {
@@ -38,6 +39,8 @@ body {
   --radius-l: 0px;
   --radius-xl: 0px;
   --tab-radius-active: 0px;
+  --input-radius: 0px;
+  --button-radius: 0px;
 }
 
 /* @settings
@@ -50,7 +53,6 @@ settings:
 		type: heading
 		level: 2
 		collapsed: true
-
 	-
 		id: palette
 		title: Color Palette
@@ -63,35 +65,10 @@ settings:
 			- accentMicroMike
 			- classicMicroMike
 	-
-		id: colorIntensity
-		title: Color Intensity Multiplier
-		description: Determine Micro Mike Palette color brightness.
-		type: variable-number-slider
-		default: 1
-		min: 0
-		max: 2
-		step: 0.05
-		format: 
-	-
-		id: colorIntensityBevel
-		title: Bevel Color Intensity Multiplier
-		description: Determine Micro Mike Palette color brightness for bevel.
-		type: variable-number-slider
-		default: 1
-		min: 0
-		max: 2
-		step: 0.05
-		format: 
-	-
-		id: linkBrightnessAdditive
-		title: Link Brightness Intensity Multiplier
-		description: Determine Micro Mike Palette additive brightness for link.
-		type: variable-number-slider
-		default: 1
-		min: 1
-		max: 2
-		step: 0.05
-		format: 
+		id: disableBevels
+		title: Disable Bevels 
+		description: Disable bevels, resulting in a more minimalist appearance.
+		type: class-toggle
 	- 
 		id: text-normal
 		title: Primary Text Color
@@ -109,11 +86,43 @@ settings:
 		title: Blender Style Dropdowns
 		description: Enable Blender 2.7esque dropdowns. 
 		type: class-toggle
+
+	- 
+		id: this-is-a-heading
+		title: Accent Palette Specific Settings
+		type: heading
+		level: 3
+		collapsed: true
 	-
-		id: disableBevels
-		title: Disable Bevels 
-		description: Disable bevels, resulting in a more minimalist appearance.
-		type: class-toggle
+		id: colorIntensity
+		title: Color Intensity Multiplier (Accent Only)
+		description: Determine Micro Mike Palette color brightness.
+		type: variable-number-slider
+		default: 1
+		min: 0
+		max: 2
+		step: 0.05
+		format: 
+	-
+		id: colorIntensityBevel
+		title: Bevel Color Intensity Multiplier (Accent Only)
+		description: Determine Micro Mike Palette color brightness for bevel.
+		type: variable-number-slider
+		default: 1
+		min: 0
+		max: 2
+		step: 0.05
+		format: 
+	-
+		id: linkBrightnessAdditive
+		title: Link Brightness Intensity Multiplier (Accent Only)
+		description: Determine Micro Mike Palette additive brightness for link.
+		type: variable-number-slider
+		default: 1
+		min: 1
+		max: 2
+		step: 0.05
+		format: 
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Supplemental Elements (Scrollbar, Drag bars, Resize bars, Ribbon...)
@@ -121,7 +130,7 @@ settings:
 		level: 2
 		collapsed: true
 	-
-		id: resizeBarsSize
+		id: handleSize
 		title: Resize Bars Size
 		description: The size of the resize bars for each of the sidebars.
 		type: variable-number-slider
@@ -140,7 +149,6 @@ settings:
 		max: 30
 		step: 2
 		format: px
-
 	-
 		id: ribbon-width
 		title: Ribbon Width
@@ -149,7 +157,7 @@ settings:
 		default: 40
 		min: 20
 		max: 80
-		step: 2
+		step: 5
 		format: px
 	-
 		id: ribbonButtonHeight
@@ -159,14 +167,23 @@ settings:
 		default: 40
 		min: 20
 		max: 80
-		step: 2
+		step: 5
 		format: px
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
-		title: Text Editor & Tabs
+		title: Text Editor
 		type: heading
 		level: 2
 		collapsed: true
+	-
+		id: editorDashboardHeight
+		title: Editor Dashboard Height
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 80
+		step: 5
+		format: px
 	-
 		id: editorSize
 		title: Text Window Length
@@ -182,6 +199,21 @@ settings:
 		title: Center Align Readable Line Length
 		description: Undo modified left-aligned readable line length to normal standard.
 		type: class-toggle
+	- 
+		id: this-is-a-heading------------------------------------------------------------------------------------------------------
+		title: Tabs & Sidebars
+		type: heading
+		level: 2
+		collapsed: true
+	- 
+		id: dragSpaceHeight
+		title: Drag Space Height
+		type: variable-number-slider
+		default: 20
+		min: 20
+		max: 80
+		step: 5
+		format: px
 	-
 		id: stackTabs
 		title: Stack the tabs
@@ -199,29 +231,34 @@ settings:
 		step: 5
 		format: px
 	-
-		id: tabHeightEditorStack
+		id: disableXButtons
+		title: Disable Tab X Buttons
+		description: Did you know you can close tabs by middle clicking on them?
+		type: class-toggle
+	-
+		id: tabTitleWordWrap
+		title: Tab Title Word Wrap
+		description: If there is space and the title is long enough, the text will now overflow onto more lines.
+		type: class-toggle
+	-
+		id: editorTabHeight
+		title: Editor (Non-Stack) Tab Height
+		description: Tab Height 
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 80
+		step: 5
+		format: px
+	-
+		id: editorTabHeightStack
 		title: Editor Stack Tab Height
 		description: Tab Height 
 		type: variable-number-slider
 		default: 40
 		min: 20
-		max: 40
-		step: 1
-		format: px
-	- 
-		id: this-is-a-heading ---------------------------------------------------------------------------------------
-		title: Sidebar Tabs
-		type: heading
-		level: 2
-		collapsed: true
-	-
-		id: dragSpaceHeight
-		title: Sidebar Drag Space Height
-		type: variable-number-slider
-		default: 20
-		min: 20
-		max: 40
-		step: 1
+		max: 80
+		step: 5
 		format: px
 	-
 		id: sidebarTabHeight
@@ -229,8 +266,8 @@ settings:
 		type: variable-number-slider
 		default: 40
 		min: 20
-		max: 40
-		step: 1
+		max: 80
+		step: 5
 		format: px
 	-
 		id: sidebarDashboardHeight
@@ -238,15 +275,19 @@ settings:
 		type: variable-number-slider
 		default: 40
 		min: 20
-		max: 40
-		step: 1
+		max: 80
+		step: 5
 		format: px
 	-
 		id: disableRightTitlebarOffset
 		title: Disable Titlebar offset in Right Sidebar Tabs
 		description: If the drag space is sufficiently high, it might not make sense to have the right sidebar tabs offset to make room for the titlebar buttons. This disables that.
 		type: class-toggle
-		default:
+	-
+		id: disableFastClose
+		title: Disable Sidebar Fast Close
+		description: Micro Mike uses a hack to make sidebars disappear immediately upon pressing the button. This disables that.
+		type: class-toggle
 	- 
 		id: this-is-a-heading ---------------------------------------------------------------------------------------
 		title: Tree Elements (File browser, outline, ...)
@@ -264,9 +305,19 @@ settings:
 		step: 1
 		format: px
 	-
+		id: outlineLevelHeight
+		title: Hierarchical Display Height
+		description: The height of each section. This affects the size of the collapse buttons. (Hierarchical Display - Editor, Outline, Tag View, Outgoing/Backlinks)
+		type: variable-number-slider
+		default: 16
+		min: 14
+		max: 40
+		step: 1
+		format: px
+	-
 		id: outlineLevelFontSize
 		title: Hierarchical Display Font Size
-		description: The size of the fonts, which makes the sections larger. This affects the size of the collapse buttons. (Hierarchical Display - Editor, Outline, Tag View, Outgoing/Backlinks)
+		description: The size of the fonts. Please adjust "Hierarchical Display Height" above to actually make the sections larger. This affects the size of the collapse buttons. (Hierarchical Display - Editor, Outline, Tag View, Outgoing/Backlinks)
 		type: variable-number-slider
 		default: 13
 		min: 9
@@ -407,7 +458,7 @@ settings:
 		description: In percentage, choose the height of the settings.
 		type: variable-number-slider
 		default: 100
-		min: 20
+		min: 35
 		max: 100
 		step: 5
 		format: "%"
@@ -417,7 +468,7 @@ settings:
 		description: In percentage, choose the width of the settings.
 		type: variable-number-slider
 		default: 75
-		min: 55
+		min: 50
 		max: 100
 		step: 5
 		format: "%"
@@ -441,6 +492,51 @@ settings:
 		max: 500
 		step: 10
 		format: px
+	- 
+		id: this-is-a-heading------------------------------------------------------------------------------------------------------
+		title: Body Position Offset
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: bodyMarginTop
+		title: Body Top Margin
+		description: These settings allow for offset adjustments to the "body" element if an undesired edge is appearing.
+		type: variable-number-slider
+		default: 0
+		min: -10
+		max: 10
+		step: 1
+		format: px
+	-
+		id: bodyMarginLeft
+		title: Body Left Margin
+		description: Choose an X offset for the settings. If uncarefully applied, will cause it to move offscreen.
+		type: variable-number-slider
+		default: 0
+		min: -10
+		max: 10
+		step: 1
+		format: px
+	-
+		id: bodyExtraHeight
+		title: Body Extra Height
+		description: If you offset the screen, these let you extend the body's size so edges don't appear on the other side.
+		type: variable-number-slider
+		default: 0
+		min: -10
+		max: 10
+		step: 1
+		format: px
+	-
+		id: bodyExtraWidth
+		title: Body Extra Width
+		type: variable-number-slider
+		default: 0
+		min: -10
+		max: 10
+		step: 1
+		format: px
 */
 body {
   --levelLayer: #ffffff18;
@@ -450,12 +546,23 @@ body {
   --bevelBright2: #8B8D9199;
   --bevelDark1: #5A5A5A99;
   --bevelDark2: #7A767299;
+  --settingsGradientBase: #ffffff33;
+  --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
+  --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
+  --bevelStyleContainerOuter: 1px 1px var(--bevelBright1), -1px -1px var(--bevelDark2), -2px -2px var(--bevelDark1), 2px 2px var(--bevelBright2), -2px 0px var(--bevelDark1), 0px -2px var(--bevelDark1), -2px 2px var(--bevelBright2), 2px -2px var(--bevelBright2);
 }
 
 .backlink-pane, .outgoing-link-pane {
   padding: 0px;
   margin: 0px;
   gap: 0px;
+}
+
+body.css-settings-manager {
+  margin-top: var(--bodyMarginTop);
+  margin-left: var(--bodyMarginLeft);
+  width: calc(100% + var(--bodyExtraWidth));
+  height: calc(100% + var(--bodyExtraHeight));
 }
 
 .canvas-wrapper .markdown-preview-view.markdown-rendered.node-insert-event.show-indentation-guide.allow-fold-headings.allow-fold-lists {
@@ -471,6 +578,7 @@ body {
 }
 
 .tree-item-self {
+  height: var(--outlineLevelHeight);
   margin-bottom: 0px;
 }
 
@@ -481,7 +589,7 @@ body {
 }
 .tree-item-self .tree-item-icon.collapse-icon {
   width: var(--outlineLevelWidth);
-  height: calc(var(--outlineLevelFontSize) * var(--line-height-tight));
+  height: var(--outlineLevelHeight);
   align-items: center;
 }
 
@@ -494,7 +602,7 @@ body {
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
-  margin-right: calc(var(--scrollBarSize) + var(--scrollBarSize));
+  margin-right: calc(var(--scrollBarSize) + var(--handleSize));
 }
 
 .nav-file-title, .nav-folder-title {
@@ -516,6 +624,10 @@ body {
 .tree-item-flair-outer .tree-item-flair {
   font-size: var(--outlineLevelFontSize);
   color: var(--text-normal);
+}
+
+body {
+  --header-height: var(--sidebarTabHeight);
 }
 
 .nav-files-container, .tag-container {
@@ -572,6 +684,7 @@ body {
   padding: 0px;
   margin: 0px;
   gap: 0px;
+  height: var(--editorDashboardHeight);
 }
 :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div {
   width: 33%;
@@ -603,10 +716,6 @@ body {
   height: 0px;
   width: 0px;
   display: none;
-}
-
-.stackTabs .workspace:has(.mod-right-split.is-sidedock-collapsed) .workspace-tab-container .workspace-leaf .view-header {
-  margin-right: var(--frame-right-space);
 }
 
 body {
@@ -682,67 +791,62 @@ body {
   background-color: #000000 !important;
 }
 
-.mod-top-right-space .workspace-leaf .view-header {
-  margin-right: var(--windowButtonsOffset);
+body {
+  --nav-item-children-padding-left: 10px;
+  --nav-item-children-margin-left: 9px;
 }
 
 body {
-  --nav-item-children-padding-left: 0px;
-  --nav-item-children-margin-left: 0px;
+  --vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1);
+  --nav-item-children-padding-left: calc(var(--outlineLevelWidth) / 2);
+  --nav-item-children-margin-left: calc(var(--outlineLevelWidth) / 2);
 }
 
-.workspace-tabs .workspace-leaf .workspace-leaf-content[data-type=file-explorer] .node-insert-event {
-  position: static;
-  left: 0px;
-}
-
-.nav-files-container {
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container {
   padding: 0px;
   margin: 0px;
   gap: 0px;
 }
-.nav-files-container .nav-folder-title {
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title {
   padding: 0px;
   margin: 0px;
   gap: 0px;
 }
-.nav-files-container .nav-file-title {
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title {
   padding: 0px;
   margin: 0px;
   gap: 0px;
 }
-.nav-files-container .tree-item-self .tree-item-icon {
-  position: static;
-  margin-left: 0px;
+.workspace-leaf-content[data-type=file-explorer] .mod-root > .nav-folder-children > .nav-folder > .tree-item-self {
+  margin: 0px;
 }
-.nav-files-container .tree-item-self .tree-item-icon.collapse-icon {
-  width: var(--outlineLevelWidth);
+.workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
+  text-align: end;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
 }
-
-.tree-item-icon {
-  width: var(--outlineLevelWidth);
-  margin-left: 0px;
-  position: static;
+.workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self > .tree-item-inner {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
 }
-
-.mod-root .tree-item-children.nav-folder-children {
+.workspace-leaf-content[data-type=file-explorer] .tree-item-children .tree-item-children {
   position: relative;
-  left: var(--outlineLevelWidth);
+  left: -1px;
 }
 
-.mod-root > .tree-item-children.nav-folder-children {
-  position: relative;
-  left: 0px;
+.boldFolders .nav-folder-title .tree-item-inner.nav-folder-title-content {
+  font-weight: 700;
 }
 
-.nav-folder.mod-root .nav-folder > .nav-folder-children {
-  padding-left: 0px;
-  margin: 0px;
-  border-left: 0px;
+.fileBrowserLayeredBackground .tree-item.nav-folder:not(.mod-root) {
+  background-color: var(--levelLayer);
 }
 
 .workspace-leaf-content[data-type=outline] .view-content {
-  padding-left: 48px;
+  padding-left: 20px;
 }
 .workspace-leaf-content[data-type=outline] .view-content .tree-item-self.is-clickable {
   padding: 0px;
@@ -880,6 +984,13 @@ body {
   box-sizing: border-box;
   display: flex;
   z-index: 99;
+  color: transparent;
+}
+
+/* Vertical */
+.mod-left-split > hr:hover,
+.mod-right-split > hr:hover {
+  color: var(--divider-color-hover);
 }
 
 /* Horizontal */
@@ -893,6 +1004,7 @@ body {
 
 .mod-root .workspace-leaf-resize-handle {
   --divider-width: 3px;
+  color: var(--background-secondary-alt);
 }
 
 .workspace-ribbon.mod-left {
@@ -953,19 +1065,11 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
   gap: 0px;
   padding-left: 5px;
 }
-.modal.mod-settings :is(h1, h2, h3, h4, h5, h6) {
-  font-size: 20px;
-  padding-top: 5px;
-  padding-left: calc(10px + var(--settingsLeftColumnLength));
-  padding-bottom: 5px;
-  line-height: 26px;
-  margin-left: -5px;
-  background: linear-gradient(0deg, var(--levelLayer) 0%, rgba(0, 0, 0, 0) 100%);
-}
 .modal.mod-settings .setting-item {
   padding: 0px;
   margin: 0px;
   gap: 0px;
+  border-top: 1px solid var(--levelLayer);
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -982,12 +1086,30 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
   padding-bottom: 5px;
   display: flex;
 }
-.modal.mod-settings .setting-item-heading {
-  margin-left: -5px;
-  background: linear-gradient(0deg, var(--levelLayer) 0%, rgba(0, 0, 0, 0) 100%);
+.modal.mod-settings :is(h1, h2, h3, h4, h5, h6) {
+  padding-left: calc(var(--settingsLeftColumnLength) - 20px);
 }
-.modal.mod-settings .setting-item-heading .setting-item-name {
+.modal.mod-settings :is(h1, h2, h3, h4, h5, h6, .setting-item-heading) {
+  margin-left: -5px;
   font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 26px;
+  background: linear-gradient(90deg, var(--settingsGradientBase) 0%, rgba(0, 0, 0, 0) 55%);
+}
+.modal.mod-settings :is(h1, h2, h3, h4, h5, h6, .setting-item-heading) .setting-item-name {
+  font-size: 20px;
+}
+.modal.mod-settings :is(h1, h2, h3, h4, h5, h6, .setting-item-heading) .setting-item-control {
+  min-width: calc(var(--settingsLeftColumnLength) - 30px) !important;
+}
+
+.modal.mod-settings .modal-close-button {
+  display: none;
+}
+
+body:not(.is-mobile) .modal.mod-settings {
+  min-width: 600px;
 }
 
 body:not(.css-settings-manager):not(.is-mobile) .modal-container:has(.mod-settings) {
@@ -1043,7 +1165,7 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   min-width: unset;
   min-height: var(--settingsHSize);
   max-height: var(--settingsHSize);
-  min-width: var(--settingsWSize);
+  min-width: 800px;
   max-width: var(--settingsWSize);
   margin-left: calc(var(--settingsOffsetX) + 40px);
   margin-bottom: var(--settingsOffsetY) d;
@@ -1121,6 +1243,15 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   min-width: 260px;
 }
 
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+  margin-right: var(--frame-right-space);
+  padding-right: 0px;
+}
+
+:is(.mod-windows, .mod-linux).stackTabs {
+  --frame-right-space: 0px;
+}
+
 html .mod-windows .mod-root,
 html .mod-linux .mod-root {
   --frame-right-space: 160px;
@@ -1136,11 +1267,31 @@ html .mod-linux.disableRightTitlebarOffset .mod-right-split {
   --frame-right-space: 0px;
 }
 
-.workspace-split.mod-horizontal.mod-left-split.is-sidedock-collapsed {
+html .mod-windows:not(.stackTabs) .mod-root,
+html .mod-linux:not(.stackTabs) .mod-root {
+  --frame-right-space: 0px;
+}
+
+html .mod-windows.stackTabs .mod-root,
+html .mod-linux.stackTabs .mod-root {
+  --frame-right-space: 0px;
+}
+
+html .mod-windows:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space,
+html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space {
+  --frame-right-space: 160px;
+}
+
+.stackTabs .workspace:has(.mod-right-split.is-sidedock-collapsed) .workspace-tab-container .workspace-leaf .view-header {
+  --frame-right-space: 160px;
+  margin-right: var(--frame-right-space);
+}
+
+body:not(.disableFastClose) .workspace-split.mod-horizontal.mod-left-split.is-sidedock-collapsed {
   display: none !important;
 }
 
-.workspace-split.mod-horizontal.mod-right-split.is-sidedock-collapsed {
+body:not(.disableFastClose) .workspace-split.mod-horizontal.mod-right-split.is-sidedock-collapsed {
   display: none !important;
 }
 
@@ -1180,6 +1331,14 @@ html .mod-linux.disableRightTitlebarOffset .mod-right-split {
 .is-hidden-frameless:not(.is-fullscreen) .mod-right-split .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
   padding-right: 0px;
   margin-right: var(--frame-right-space);
+}
+
+.mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner {
+  margin-right: 1px;
+}
+
+.mod-right-split .workspace-tab-header-container .workspace-tab-header-container-inner {
+  margin-left: 1px;
 }
 
 .nav-header {
@@ -1227,7 +1386,7 @@ body {
 }
 
 .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
-  height: calc(var(--sidebarTabHeight) + var(--dragSpaceHeight));
+  height: calc(var(--editorTabHeight) + var(--dragSpaceHeight));
 }
 .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container .workspace-tab-header-container-inner {
   margin-top: var(--dragSpaceHeight);
@@ -1236,11 +1395,13 @@ body {
   padding: 0px;
   margin: 0px;
   gap: 0px;
+  border-bottom: 0px;
 }
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner {
   padding: 0px;
   margin: 0px;
   gap: 0px;
+  height: var(--editorTabHeight);
 }
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header {
   padding: 0px;
@@ -1271,8 +1432,12 @@ body {
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-close-button:hover {
   background-color: var(--background-modifier-hover);
 }
+.workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover .workspace-tab-header-inner, .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header.is-active .workspace-tab-header-inner {
+  padding-right: 0px;
+}
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover .workspace-tab-header-inner .workspace-tab-header-inner-close-button, .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header.is-active .workspace-tab-header-inner .workspace-tab-header-inner-close-button {
   display: flex;
+  position: static;
 }
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header::before {
   width: 0px;
@@ -1295,16 +1460,25 @@ body {
   padding: 0px;
   margin: 0px;
   gap: 0px;
-  width: 40px;
-  height: 40px;
+  width: var(--editorTabHeight);
+  height: var(--editorTabHeight);
+}
+
+.disableXButtons .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner {
+  padding-right: 3px;
+}
+.disableXButtons .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-close-button {
+  display: none !important;
 }
 
 .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
   padding-left: 0px;
 }
 
-.stackTabs :is(.mod-windows, .mod-linux) {
-  --frame-right-space: 0px;
+.tabTitleWordWrap .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-title {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .is-hidden-frameless:not(.is-fullscreen):not(.mod-macos) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
@@ -1329,6 +1503,7 @@ body {
 }
 .stackTabs .workspace .mod-root .workspace-tabs .workspace-tab-header-container:nth-of-type(1) .workspace-tab-header-new-tab .clickable-icon {
   width: 100%;
+  height: var(--editorTabHeightStack);
 }
 .stackTabs .workspace .mod-root .workspace-tabs .workspace-tab-header-container:nth-of-type(1) .workspace-tab-header-container-inner {
   --animation-dur: 0ms !important;
@@ -1356,6 +1531,10 @@ body {
   flex-grow: 1;
   flex-basis: 40px;
   flex-shrink: 1;
+}
+
+.disableXButtons.stackTabs .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-close-button {
+  display: none !important;
 }
 
 .body.is-frameless.is-hidden-frameless .titlebar {
@@ -1596,7 +1775,7 @@ body {
 	background-size:26px;
 }
 */
-.enableNewIcons .workspace-leaf-content .view-actions .clickable-icon {
+.enableNewIcons .workspace-leaf-content :is(.view-header-nav-buttons, .view-actions) .clickable-icon {
   background-size: calc(var(--editorDashboardHeight) * 0.8);
 }
 
@@ -1608,6 +1787,10 @@ body {
 .enableNewIcons .workspace-tab-header-tab-list .clickable-icon,
 .enableNewIcons .workspace-tab-header-new-tab .clickable-icon {
   background-size: calc(var(--sidebarTabHeight) * 0.8);
+}
+
+.enableNewIcons.stackTabs .workspace-tab-header-new-tab .clickable-icon {
+  background-size: calc(var(--editorTabHeightStack) * 0.8);
 }
 
 .enableNewIcons .clickable-icon[aria-label=Settings] {
@@ -1950,25 +2133,6 @@ All properties .enableNewIcons .clickable-icon[aria-label=Settings] svg,
   display: none;
 }
 
-body {
-  --levelLayer: #ffffff18;
-  --levelHover: #ffffff11;
-  --separatorColor: #ffffff18;
-  --bevelBright1: #a3a5aa99;
-  --bevelBright2: #8B8D9199;
-  --bevelDark1: #5A5A5A99;
-  --bevelDark2: #7A767299;
-  --collapse-icon-color: var(--icon-color);
-}
-
-body:not(.classicMicroMike):not(.inherit) {
-  --icon-color: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 30%));
-  --icon-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
-  --icon-color-active: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 50%));
-  --icon-color-focused: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
-  --tab-text-color-focused-active-current: var(--icon-color-focused);
-}
-
 body:not(.classicMicroMike):not(.inherit) {
   /* Hierarchical palette */
   --bottom: #000000;
@@ -1989,7 +2153,7 @@ body:not(.classicMicroMike):not(.inherit) {
   --bevelDark2: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 20% + 35% ), 50%);
   --lineColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 40% + 20%), 50%);
   --link-color: hsl(var(--accent-h), var(--accent-s), calc(var(--linkBrightnessAdditive) * 50% ));
-  --link-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--linkBrightnessAdditive) * 50% ));
+  --link-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--linkBrightnessAdditive) * 50% + 10%));
   /*
   */
   /*
@@ -2004,6 +2168,7 @@ body:not(.classicMicroMike):not(.inherit) {
   */
   --levelLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 12%);
   --levelHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
+  --settingsGradientBase: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 48%);
   --buttonLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
   --buttonLayerHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 36%);
   --separatorColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 40%);
@@ -2015,6 +2180,13 @@ body:not(.classicMicroMike):not(.inherit) {
   --icon-color-active: hsl(var(--accent-h), var(--accent-s), 75%);
   --icon-color-focused: hsl(var(--accent-h), var(--accent-s), 60%);
   */
+  --icon-color: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 30%));
+  --icon-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
+  --icon-color-active: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 50%));
+  --icon-color-focused: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
+  --tab-text-color-focused-active-current: var(--icon-color-focused);
+  --collapse-icon-color: var(--icon-color);
+  --nav-indentation-guide-color: var(--separatorColor);
 }
 
 body.classicMicroMike {
@@ -2039,63 +2211,17 @@ body.classicMicroMike {
   --separatorColor: #ffffff18;
 }
 
-body:not(.disableBevels) {
-  /*--lineColor: rgba(255,255,255, 0.2);*/
-  --bevelStyleFile: inset 1px 1px var(--separatorColor);
-  --bevelStyleFileHover: inset 1px 1px var(--separatorColor);
-  --bevelStyleFolder: inset 1px 1px var(--separatorColor);
-  --bevelStyleFolderHover:inset 1px 1px var(--separatorColor);
-  --bevelStyleFolderLabel:inset 0px 1px var(--separatorColor);
-  --bevelStyleFolderLabelHover:inset 0px 1px var(--separatorColor);
-  --bevelStyleTreeItem: inset 1px 1px var(--separatorColor);
-}
-
-body:not(.disableBevels) {
-  --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
-  --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
-  --bevelStyleContainerOuter:
-  1px 1px var(--bevelBright1),
-  -1px -1px var(--bevelDark2),
-  -2px -2px var(--bevelDark1),
-  2px 2px var(--bevelBright2),
-  -2px 0px var(--bevelDark1),
-  0px -2px var(--bevelDark1),
-  -2px 2px var(--bevelBright2),
-  2px -2px var(--bevelBright2);
-}
-
 body:not(.inherit) {
   --background-primary: var(--level1_a);
   --background-primary-alt: var(--level1_b);
   --background-secondary: var(--level1);
+  --background-secondary-alt: var(--level1_a);
   --modal-border-color: var(--level3);
   --divider-color: var(--level3);
   --background-modifier-border: var(--level3);
   --background-modifier-border-hover: var(--level3_a);
   --background-modifier-border-focus: var(--level3_a);
   --text-on-accent-inverted: #ffffff;
-}
-
-body.inherit {
-  --bottom: inherit;
-  --bottom_a:inherit;
-  --bottom_b:inherit;
-  --level1: inherit;
-  --level1_a: inherit;
-  --level1_b: inherit;
-  --level2: inherit;
-  --level2_a: inherit;
-  --level2_b: inherit;
-  --level3: inherit;
-  --level3_a: inherit;
-  --collapseIconColor: inherit;
-  --bevelBright1: #a3a5aa99;
-  --bevelBright2: #8B8D9199;
-  --bevelDark1: #5A5A5A99;
-  --bevelDark2: #0c080599;
-  --levelLayer: #ffffff18;
-  --levelHover: #ffffff11;
-  --separatorColor: #ffffff18;
 }
 
 body:not(.inherit) {
@@ -2110,7 +2236,6 @@ body:not(.inherit) {
   /* Editor Tabs */
   /* Stacked Editor Tabs */
   /* Editor View */
-  /* Editor Dashboard */
   /* Embeds */
   /* File Browser */
   /* Update */
@@ -2183,48 +2308,14 @@ body:not(.inherit) {
   /* Theme Picker */
   /* Titlebar */
 }
-body:not(.inherit) .theme-dark {
-  --input-shadow: var(--bevelStyleButton);
-  --input-shadow-hover: var(--bevelStyleButton);
+body:not(.inherit).theme-dark {
   --interactive-normal: var(--level2);
   --interactive-hover: var(--level2_a);
-}
-body:not(.inherit) .clickable-icon,
-body:not(.inherit) .clickable-icon:hover,
-body:not(.inherit) .workspace-tab-header-inner-close-button,
-body:not(.inherit) button {
-  box-shadow: var(--bevelStyleButton);
 }
 body:not(.inherit) .view-header,
 body:not(.inherit) .mod-left-split .nav-header,
 body:not(.inherit) .mod-right-split .nav-header {
-  padding: 3px;
   background-color: var(--level2);
-  box-shadow: var(--bevelStyleButton);
-  border: 0px;
-}
-body:not(.inherit) textarea, body:not(.inherit) input[type=text], body:not(.inherit) input[type=search], body:not(.inherit) input[type=email], body:not(.inherit) input[type=password], body:not(.inherit) input[type=number] {
-  box-shadow: var(--bevelStyleContainer);
-}
-body:not(.inherit) textarea:active,
-body:not(.inherit) input[type=text]:active,
-body:not(.inherit) input[type=search]:active,
-body:not(.inherit) input[type=email]:active,
-body:not(.inherit) input[type=password]:active,
-body:not(.inherit) input[type=number]:active,
-body:not(.inherit) textarea:focus,
-body:not(.inherit) input[type=text]:focus,
-body:not(.inherit) input[type=search]:focus,
-body:not(.inherit) input[type=email]:focus,
-body:not(.inherit) input[type=password]:focus,
-body:not(.inherit) input[type=number]:focus,
-body:not(.inherit) textarea:focus-visible,
-body:not(.inherit) input[type=text]:focus-visible,
-body:not(.inherit) input[type=search]:focus-visible,
-body:not(.inherit) input[type=email]:focus-visible,
-body:not(.inherit) input[type=password]:focus-visible,
-body:not(.inherit) input[type=number]:focus-visible {
-  box-shadow: var(--bevelStyleContainer);
 }
 body:not(.inherit) textarea, body:not(.inherit) input.metadata-input-text, body:not(.inherit) input[type=date], body:not(.inherit) input[type=datetime-local], body:not(.inherit) input[type=text], body:not(.inherit) input[type=search], body:not(.inherit) input[type=email], body:not(.inherit) input[type=password], body:not(.inherit) input[type=number] {
   background-color: var(--level1);
@@ -2241,8 +2332,6 @@ body:not(.inherit) .workspace-leaf-content[data-type=outgoing-link] .outgoing-li
 body:not(.inherit) .workspace-leaf-content[data-type=starred] .item-list,
 body:not(.inherit) .workspace-leaf-content[data-type=recent-files] {
   background: var(--bottom);
-  box-shadow: var(--bevelStyleContainer);
-  box-shadow: var(--bevelStyleContainerOuter);
 }
 body:not(.inherit) .workspace-leaf.mod-active,
 body:not(.inherit) .workspace-tabs .workspace-leaf {
@@ -2262,7 +2351,6 @@ body:not(.inherit) .tree-item-self {
   color: var(--backgroundDeep);
 }
 body:not(.inherit) .is-clickable .tree-item-icon.collapse-icon {
-  box-shadow: var(--bevelStyleButton);
   background-color: var(--level1);
 }
 body:not(.inherit) .is-clickable .tree-item-icon.collapse-icon:hover {
@@ -2277,21 +2365,17 @@ body:not(.inherit) .workspace-leaf-content[data-type=markdown] .view-header,
 body:not(.inherit) .is-focused .workspace-leaf-content[data-type=markdown] .view-header {
   background-color: var(--level2);
 }
-body:not(.inherit) .document-search-container {
-  box-shadow: var(--bevelStyleButton);
-}
 body:not(.inherit) .document-search-button,
 body:not(.inherit) .document-search-close-button {
   background-color: var(--level2);
 }
-body:not(.inherit) .document-search-close-button {
-  box-shadow: var(--bevelStyleButton);
+body:not(.inherit) .workspace-split.mod-root .workspace-tabs {
+  background-color: var(--bottom);
 }
 body:not(.inherit) .mod-root .workspace-tab-header-container {
   background-color: var(--bottom);
 }
 body:not(.inherit) .workspace .mod-root .workspace-tab-header {
-  box-shadow: var(--bevelStyleButton);
   background-color: var(--level1);
 }
 body:not(.inherit) .workspace .mod-root .workspace-tab-header:hover {
@@ -2324,54 +2408,32 @@ body:not(.inherit) .workspace-tab-header .workspace-tab-header-inner-close-butto
 body:not(.inherit) .stackTabs .mod-root .workspace-tab-header-container-inner {
   background-color: var(--bottom);
 }
-body:not(.inherit) .stackTabs .mod-root .workspace-tab-header-inner-close-button {
-  box-shadow: var(--bevelStyleButton);
-}
 body:not(.inherit) .workspace-split.mod-root .view-content {
   background-color: var(--bottom);
 }
 body:not(.inherit) .workspace-leaf-content[data-mode=preview] .view-content {
   background: linear-gradient(90deg, var(--level1) 0px, #000000 30px);
 }
-body:not(.inherit) .workspace-leaf-content .view-actions, body:not(.inherit) .workspace-leaf-content .view-header-nav-buttons {
-  margin: 3px;
-}
-body:not(.inherit) .workspace-leaf-content .view-actions > *:is(a, button), body:not(.inherit) .workspace-leaf-content .view-header-nav-buttons > *:is(a, button) {
-  height: 100%;
-}
-body:not(.inherit) .markdown-preview-view .markdown-embed,
-body:not(.inherit) .markdown-preview-view .file-embed {
-  box-shadow: var(--bevelStyleContainer);
-}
 body:not(.inherit) .markdown-preview-view .markdown-embed:hover {
   background-color: var(--bottom);
 }
-body:not(.inherit) .boldFolders .nav-folder-title .tree-item-inner.nav-folder-title-content {
-  font-weight: 700;
-}
-body:not(.inherit) .fileBrowserLayeredBackground .tree-item.nav-folder:not(.mod-root) {
-  background-color: var(--levelLayer);
-}
-body:not(.inherit) body:not(.is-grabbing) .nav-file-title:hover {
+body:not(.inherit) .nav-file-title:hover, body:not(.inherit) .nav-file-title.is-active {
   background-color: var(--levelHover);
 }
-body:not(.inherit) body:not(.is-grabbing) .nav-folder-title:hover {
+body:not(.inherit) .nav-file-title:hover .nav-file-title-content, body:not(.inherit) .nav-file-title.is-active .nav-file-title-content {
+  color: white;
+}
+body:not(.inherit) .nav-folder-title:hover, body:not(.inherit) .nav-file-title.is-active {
   background-color: var(--levelHover);
 }
-body:not(.inherit) .nav-folder.mod-root .nav-folder > .nav-folder-children {
-  border-left: 1px solid var(--separatorColor);
+body:not(.inherit) .nav-folder-title:hover .nav-folder-title-content, body:not(.inherit) .nav-file-title.is-active .nav-folder-title-content {
+  color: white;
 }
-body:not(.inherit) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable {
-  box-shadow: var(--bevelStyleTreeItem);
+body:not(.inherit) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
+  background-color: var(--level1);
 }
 body:not(.inherit) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover {
   background-color: var(--bottom_a);
-}
-body:not(.inherit) .workspace-leaf-content[data-type=outline] .tree-item-inner {
-  border-left: 1px solid var(--separatorColor);
-}
-body:not(.inherit) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner {
-  border-left: 1px solid var(--separatorColor);
 }
 body:not(.inherit) .explorable.titlebar-button {
   box-shadow: var(--bevelStyleButton);
@@ -2386,13 +2448,9 @@ body:not(.inherit) .qe-popup-menu .menu-item:not(.is-disabled):not(.is-label).se
 }
 body:not(.inherit) .prompt {
   background-color: var(--level1);
-  box-shadow: var(--bevelStyleButton);
 }
 body:not(.inherit) input.prompt-input {
   background-color: var(--bottom);
-}
-body:not(.inherit) input.prompt-input:hover, body:not(.inherit) input.prompt-input:focus, body:not(.inherit) input.prompt-input:focus-visible {
-  box-shadow: var(--bevelStyleContainer);
 }
 body:not(.inherit) .modal-bg {
   background-color: unset;
@@ -2408,15 +2466,6 @@ body:not(.inherit) .mod-left-split .workspace-tabs {
 }
 body:not(.inherit) .mod-right-split .workspace-tabs {
   background-color: var(--bottom);
-}
-body:not(.inherit) .mod-left-split > hr,
-body:not(.inherit) .mod-right-split > hr {
-  border-left: 1px solid var(--level2);
-  border-right: 1px solid var(--level2);
-}
-body:not(.inherit) .mod-horizontal > div > hr:not(.mod-root hr) {
-  border-top: 1px solid var(--level2);
-  border-bottom: 1px solid var(--level2);
 }
 body:not(.inherit) body {
   --ribbon-background: var(--bottom);
@@ -2438,12 +2487,6 @@ body:not(.inherit) .modal.mod-community-theme,
 body:not(.inherit) .modal.mod-community-plugin {
   background-color: var(--level1);
 }
-body:not(.inherit) .modal-container.mod-dim .modal.mod-settings,
-body:not(.inherit) .modal-container.mod-dim .modal.mod-community-plugin,
-body:not(.inherit) .modal-container.mod-dim .modal.mod-community-theme,
-body:not(.inherit) .modal.mod-community-theme {
-  box-shadow: var(--bevelStyleButton);
-}
 body:not(.inherit) .modal.mod-settings .vertical-tab-header {
   background-color: var(--bottom_b);
 }
@@ -2451,11 +2494,7 @@ body:not(.inherit) .modal.mod-settings .vertical-tab-content-container {
   background-color: var(--level1);
 }
 body:not(.inherit) .modal.mod-settings .vertical-tab-content {
-  box-shadow: var(--bevelStyleButton);
   background-color: var(--level1);
-}
-body:not(.inherit) .setting-item {
-  border-top: 1px solid var(--level3);
 }
 body:not(.inherit) .dropdown,
 body:not(.inherit) .search-results-info .dropdown {
@@ -2463,7 +2502,6 @@ body:not(.inherit) .search-results-info .dropdown {
 }
 body:not(.inherit) .dropdown:hover,
 body:not(.inherit) .search-results-info .dropdown:hover {
-  box-shadow: var(--bevelStyleButton);
   background-color: var(--level1_b);
 }
 body:not(.inherit) .workspace-leaf-content[data-type=search] .search-row {
@@ -2478,11 +2516,9 @@ body:not(.inherit) .workspace-leaf-content[data-type=search] .search-params {
 }
 body:not(.inherit) .workspace-leaf-content[data-type=search] .clickable-icon {
   background-color: var(--level1_a);
-  box-shadow: var(--bevelStyleButton);
 }
 body:not(.inherit) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.inherit) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
   background-color: var(--level1_b);
-  box-shadow: var(--bevelStyleButton);
 }
 body:not(.inherit) .modal .clickable-icon {
   background-color: var(--level1_a);
@@ -2503,7 +2539,6 @@ body:not(.inherit) .mod-right-split .workspace-tab-header-container {
 }
 body:not(.inherit) .mod-left-split .workspace-tab-header,
 body:not(.inherit) .mod-right-split .workspace-tab-header {
-  box-shadow: var(--bevelStyleButton);
   background-color: var(--level1);
 }
 body:not(.inherit) .mod-left-split .workspace-tab-header:hover,
@@ -2576,13 +2611,219 @@ body:not(.inherit) .community-item.is-selected:hover {
 body:not(.inherit) .community-modal-details {
   background-color: transparent;
 }
-body:not(.inherit) .titlebar-button-container .titlebar-button {
-  box-shadow: var(--bevelStyleButton);
-}
 body:not(.inherit) .titlebar-button-container .titlebar-button:hover {
   background-color: var(--level2);
 }
 body:not(.inherit) .is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right,
 body:not(.inherit) .is-hidden-frameless:not(.is-fullscreen).is-focused .titlebar-button-container.mod-right {
   background-color: var(--bottom);
+}
+
+body:not(.disableBevels) {
+  --bevelStyleFile: inset 1px 1px var(--separatorColor);
+  --bevelStyleFileHover: inset 1px 1px var(--separatorColor);
+  --bevelStyleFolder: inset 1px 1px var(--separatorColor);
+  --bevelStyleFolderHover:inset 1px 1px var(--separatorColor);
+  --bevelStyleFolderLabel:inset 0px 1px var(--separatorColor);
+  --bevelStyleFolderLabelHover:inset 0px 1px var(--separatorColor);
+  --bevelStyleTreeItem: inset 1px 1px var(--separatorColor);
+  --bevelStyleTreeItem_invert: inset -1px -1px var(--separatorColor);
+}
+
+body:not(.disableBevels) {
+  --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
+  --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
+  --bevelStyleContainerOuter:
+  1px 1px var(--bevelBright1),
+  -1px -1px var(--bevelDark2),
+  -2px -2px var(--bevelDark1),
+  2px 2px var(--bevelBright2),
+  -2px 0px var(--bevelDark1),
+  0px -2px var(--bevelDark1),
+  -2px 2px var(--bevelBright2),
+  2px -2px var(--bevelBright2);
+}
+
+body:not(.disableBevels) {
+  /* Dashboard Component */
+  /* Input Component */
+  /* Sidebar Container Component*/
+  /* Tree View Component*/
+  /* Find Tool */
+  /* Editor Tabs */
+  /* Stacked Editor Tabs */
+  /* Editor Dashboard */
+  /* File Browser */
+  /*
+  .nav-folder.mod-root .nav-folder > .nav-folder-children
+  {
+  	border-left: 1px solid var(--separatorColor);
+  }*/
+  /*
+  .workspace-leaf-content[data-type=file-explorer] .tree-item-inner
+  {
+  	border-left:1px solid var(--separatorColor);
+  }
+  .workspace-leaf-content[data-type=file-explorer] .tree-item-self.is-clickable:hover .tree-item-inner
+  {
+  	border-left:1px solid var(--separatorColor);
+  }
+  	*/
+  /* Outline */
+  /* Quick Explorer */
+  /* Prompt */
+  /* Resize Bars */
+  /* Settings */
+  /* Search */
+  /* Sidebar Tabs */
+  /* Theme Picker */
+  /* Titlebar */
+}
+body:not(.disableBevels).theme-dark {
+  --input-shadow: var(--bevelStyleButton);
+  --input-shadow-hover: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .clickable-icon,
+body:not(.disableBevels) .clickable-icon:hover,
+body:not(.disableBevels) .workspace-tab-header-inner-close-button,
+body:not(.disableBevels) button {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .view-header,
+body:not(.disableBevels) .mod-left-split .nav-header,
+body:not(.disableBevels) .mod-right-split .nav-header {
+  padding: 3px;
+  box-shadow: var(--bevelStyleButton);
+  border: 0px;
+}
+body:not(.disableBevels) textarea, body:not(.disableBevels) input[type=text], body:not(.disableBevels) input[type=search], body:not(.disableBevels) input[type=email], body:not(.disableBevels) input[type=password], body:not(.disableBevels) input[type=number] {
+  box-shadow: var(--bevelStyleContainer);
+}
+body:not(.disableBevels) textarea:active,
+body:not(.disableBevels) input[type=text]:active,
+body:not(.disableBevels) input[type=search]:active,
+body:not(.disableBevels) input[type=email]:active,
+body:not(.disableBevels) input[type=password]:active,
+body:not(.disableBevels) input[type=number]:active,
+body:not(.disableBevels) textarea:focus,
+body:not(.disableBevels) input[type=text]:focus,
+body:not(.disableBevels) input[type=search]:focus,
+body:not(.disableBevels) input[type=email]:focus,
+body:not(.disableBevels) input[type=password]:focus,
+body:not(.disableBevels) input[type=number]:focus,
+body:not(.disableBevels) textarea:focus-visible,
+body:not(.disableBevels) input[type=text]:focus-visible,
+body:not(.disableBevels) input[type=search]:focus-visible,
+body:not(.disableBevels) input[type=email]:focus-visible,
+body:not(.disableBevels) input[type=password]:focus-visible,
+body:not(.disableBevels) input[type=number]:focus-visible {
+  box-shadow: var(--bevelStyleContainer);
+}
+body:not(.disableBevels) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
+body:not(.disableBevels) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
+body:not(.disableBevels) .workspace-leaf-content[data-type=outline] .view-content,
+body:not(.disableBevels) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
+body:not(.disableBevels) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
+body:not(.disableBevels) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
+body:not(.disableBevels) .workspace-leaf-content[data-type=starred] .item-list,
+body:not(.disableBevels) .workspace-leaf-content[data-type=recent-files] {
+  box-shadow: var(--bevelStyleContainer);
+  box-shadow: var(--bevelStyleContainerOuter);
+}
+body:not(.disableBevels) .is-clickable .tree-item-icon.collapse-icon {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .document-search-container {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .document-search-close-button {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .workspace .mod-root .workspace-tab-header {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .stackTabs .mod-root .workspace-tab-header-inner-close-button {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .workspace-leaf-content .view-actions, body:not(.disableBevels) .workspace-leaf-content .view-header-nav-buttons {
+  margin: 3px;
+}
+body:not(.disableBevels) .workspace-leaf-content .view-actions > *:is(a, button), body:not(.disableBevels) .workspace-leaf-content .view-header-nav-buttons > *:is(a, button) {
+  height: 100%;
+}
+body:not(.disableBevels) .markdown-preview-view .markdown-embed,
+body:not(.disableBevels) .markdown-preview-view .file-embed {
+  box-shadow: var(--bevelStyleContainer);
+}
+body:not(.disableBevels) .workspace-leaf-content[data-type=file-explorer] .tree-item-self.is-clickable {
+  box-shadow: var(--bevelStyleTreeItem);
+}
+body:not(.disableBevels) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
+  box-shadow: var(--bevelStyleTreeItem_invert);
+}
+body:not(.disableBevels) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable {
+  box-shadow: var(--bevelStyleTreeItem);
+}
+body:not(.disableBevels) .workspace-leaf-content[data-type=outline] .tree-item-inner {
+  border-left: 1px solid var(--separatorColor);
+}
+body:not(.disableBevels) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner {
+  border-left: 1px solid var(--separatorColor);
+}
+body:not(.disableBevels) .explorable.titlebar-button {
+  box-shadow: var(--bevelStyleButton);
+  background-color: var(--level2);
+}
+body:not(.disableBevels) .prompt {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) input.prompt-input:hover, body:not(.disableBevels) input.prompt-input:focus, body:not(.disableBevels) input.prompt-input:focus-visible {
+  box-shadow: var(--bevelStyleContainer);
+}
+body:not(.disableBevels) .mod-left-split > hr,
+body:not(.disableBevels) .mod-right-split > hr {
+  border-left: 1px solid var(--level2);
+  border-right: 1px solid var(--level2);
+}
+body:not(.disableBevels) .mod-horizontal > div > hr:not(.mod-root hr) {
+  border-top: 1px solid var(--level2);
+  border-bottom: 1px solid var(--level2);
+}
+body:not(.disableBevels) .modal-container.mod-dim .modal.mod-settings,
+body:not(.disableBevels) .modal-container.mod-dim .modal.mod-community-plugin,
+body:not(.disableBevels) .modal-container.mod-dim .modal.mod-community-theme,
+body:not(.disableBevels) .modal.mod-community-theme {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .modal.mod-settings .vertical-tab-content {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .dropdown:hover,
+body:not(.disableBevels) .search-results-info .dropdown:hover {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .workspace-leaf-content[data-type=search] .clickable-icon {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.disableBevels) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .mod-left-split .workspace-tab-header,
+body:not(.disableBevels) .mod-right-split .workspace-tab-header {
+  box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) .community-item.is-selected,
+body:not(.disableBevels) .community-item.is-selected:hover {
+  border-color: var(--level3_a);
+}
+body:not(.disableBevels) .titlebar-button-container .titlebar-button {
+  box-shadow: var(--bevelStyleButton);
+}
+
+body.inherit .workspace-split.mod-root .workspace-tabs,
+body.inherit .mod-horizontal.mod-right-split .workspace-tabs {
+  background-color: var(--background-secondary-alt);
+}
+body.inherit .sidebar-toggle-button.mod-right {
+  background-color: var(--background-secondary-alt);
 }/*# sourceMappingURL=theme.css.map */
