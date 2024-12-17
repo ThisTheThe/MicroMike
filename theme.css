@@ -210,7 +210,7 @@ settings:
 		title: Drag Space Height
 		type: variable-number-slider
 		default: 20
-		min: 20
+		min: 0
 		max: 80
 		step: 5
 		format: px
@@ -467,7 +467,7 @@ settings:
 		title: Settings Width
 		description: In percentage, choose the width of the settings.
 		type: variable-number-slider
-		default: 75
+		default: 60
 		min: 50
 		max: 100
 		step: 5
@@ -498,6 +498,11 @@ settings:
 		type: heading
 		level: 2
 		collapsed: true
+	-
+		id: allowBodyOffset
+		title: Allow Body Offset
+		description: Don't enable this unless you want to move the body element around.
+		type: class-toggle
 	-
 		id: bodyMarginTop
 		title: Body Top Margin
@@ -550,6 +555,7 @@ body {
   --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
   --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
   --bevelStyleContainerOuter: 1px 1px var(--bevelBright1), -1px -1px var(--bevelDark2), -2px -2px var(--bevelDark1), 2px 2px var(--bevelBright2), -2px 0px var(--bevelDark1), 0px -2px var(--bevelDark1), -2px 2px var(--bevelBright2), 2px -2px var(--bevelBright2);
+  --link-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
 }
 
 .backlink-pane, .outgoing-link-pane {
@@ -890,7 +896,7 @@ body {
   justify-content: flex-start;
 }
 
-body:not(.is-mobile):not(.css-settings-manager) .modal-container .prompt {
+body:not(.is-mobile) .modal-container .prompt {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1114,6 +1120,7 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
 
 body:not(.is-mobile) .modal.mod-settings {
   min-width: 600px;
+  height: 100%;
 }
 
 body:not(.css-settings-manager):not(.is-mobile) .modal-container:has(.mod-settings) {
@@ -1172,7 +1179,7 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   min-width: 800px;
   max-width: var(--settingsWSize);
   margin-left: calc(var(--settingsOffsetX) + 40px);
-  margin-bottom: var(--settingsOffsetY) d;
+  margin-bottom: var(--settingsOffsetY);
 }
 
 :not(.is-mobile).settingsNAlign .modal.mod-settings {
@@ -2196,6 +2203,7 @@ body:not(.classicMicroMike):not(.inherit) {
   --tab-text-color-focused-active-current: var(--icon-color-focused);
   --collapse-icon-color: var(--icon-color);
   --nav-indentation-guide-color: var(--separatorColor);
+  --text-faint: var(--icon-color);
 }
 
 body.classicMicroMike {
