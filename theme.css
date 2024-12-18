@@ -288,6 +288,10 @@ settings:
 		title: Disable Sidebar Fast Close
 		description: Micro Mike uses a hack to make sidebars disappear immediately upon pressing the button. This disables that.
 		type: class-toggle
+	-
+		id: propertiesDisable
+		title: Disable Properties Display in Preview
+		type: class-toggle
 	- 
 		id: this-is-a-heading ---------------------------------------------------------------------------------------
 		title: Tree Elements (File browser, outline, ...)
@@ -556,6 +560,7 @@ body {
   --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
   --bevelStyleContainerOuter: 1px 1px var(--bevelBright1), -1px -1px var(--bevelDark2), -2px -2px var(--bevelDark1), 2px 2px var(--bevelBright2), -2px 0px var(--bevelDark1), 0px -2px var(--bevelDark1), -2px 2px var(--bevelBright2), 2px -2px var(--bevelBright2);
   --link-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+  --textBrighter: #dddddd;
 }
 
 .backlink-pane, .outgoing-link-pane {
@@ -564,9 +569,13 @@ body {
   gap: 0px;
 }
 
-body.css-settings-manager {
+body.css-settings-manager.allowBodyOffset {
   margin-top: var(--bodyMarginTop);
   margin-left: var(--bodyMarginLeft);
+  width: calc(100% + var(--bodyExtraWidth));
+  height: calc(100% + var(--bodyExtraHeight));
+  min-width: 1280px;
+  min-height: 720px;
 }
 
 .canvas-wrapper .markdown-preview-view.markdown-rendered.node-insert-event.show-indentation-guide.allow-fold-headings.allow-fold-lists {
@@ -615,6 +624,10 @@ body {
 
 .tree-item-children {
   margin-bottom: 0px;
+}
+
+.tree-item-self:hover .tree-item-inner, .tree-item-self.is-active .tree-item-inner {
+  color: var(--textBrighter);
 }
 
 .tree-item-flair-outer {
@@ -810,6 +823,8 @@ body {
   --vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1);
   --nav-item-children-padding-left: 0px;
   --nav-item-children-margin-left: calc(var(--outlineLevelWidth) - 1px);
+  --nav-item-children-padding-start: 0px;
+  --nav-item-children-margin-start: calc(var(--outlineLevelWidth) - 1px);
 }
 
 .workspace-leaf-content[data-type=file-explorer] .nav-files-container {
@@ -1368,6 +1383,26 @@ body:not(.disableFastClose) .workspace-split.mod-horizontal.mod-right-split.is-s
   gap: 0px;
   height: var(--sidebarDashboardHeight);
   flex-grow: 1;
+}
+
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  gap: 0px;
+  gap: 0px;
+}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher {
+  padding: 0px;
+  margin: 0px;
+  gap: 0px;
+}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
+  margin-right: calc(var(--handleSize) + 1px);
+}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions span {
+  width: 40px;
+  height: 40px;
 }
 
 body {
@@ -2184,7 +2219,7 @@ body:not(.classicMicroMike):not(.inherit) {
   */
   --levelLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 12%);
   --levelHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
-  --settingsGradientBase: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 48%);
+  --settingsGradientBase: hsla(var(--accent-h), var(--accent-s), 50%, 48%);
   --buttonLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
   --buttonLayerHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 36%);
   --separatorColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 40%);
@@ -2226,8 +2261,9 @@ body.classicMicroMike {
   --levelLayer: #ffffff18;
   --levelHover: #ffffff11;
   --separatorColor: #ffffff18;
-  --collapse-icon-color: var(--icon-color)
-  --collapse-icon-color-collapsed: var(--icon-color) ;
+  --collapse-icon-color: var(--icon-color);
+  --collapse-icon-color-collapsed: var(--icon-color);
+  --icon-color-active: #ffffff;
 }
 
 body:not(.inherit) {
@@ -2380,9 +2416,6 @@ body:not(.inherit) .workspace-leaf-content[data-type=outline] .is-clickable .tre
 }
 body:not(.inherit) .tree-item-self:hover, body:not(.inherit) .tree-item-self.is-active {
   background-color: var(--levelHover);
-}
-body:not(.inherit) .tree-item-self:hover .tree-item-inner, body:not(.inherit) .tree-item-self.is-active .tree-item-inner {
-  color: white;
 }
 body:not(.inherit) .workspace-leaf-content[data-type=empty] .view-header,
 body:not(.inherit) .is-focused .workspace-leaf-content[data-type=empty] .view-header,
@@ -2829,6 +2862,9 @@ body:not(.disableBevels) .workspace-leaf-content[data-type=search] .clickable-ic
 body:not(.disableBevels) .mod-left-split .workspace-tab-header,
 body:not(.disableBevels) .mod-right-split .workspace-tab-header {
   box-shadow: var(--bevelStyleButton);
+}
+body:not(.disableBevels) :is(.mod-left-split, .mod-right-split) .workspace-tab-container .nav-header .nav-buttons-container .clickable-icon {
+  height: calc(var(--sidebarDashboardHeight) - 6px);
 }
 body:not(.disableBevels) .community-item.is-selected,
 body:not(.disableBevels) .community-item.is-selected:hover {
