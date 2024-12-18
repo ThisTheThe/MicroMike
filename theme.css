@@ -118,8 +118,8 @@ settings:
 		title: Link Brightness Intensity Multiplier (Accent Only)
 		description: Determine Micro Mike Palette additive brightness for link.
 		type: variable-number-slider
-		default: 1
-		min: 1
+		default: 0.85
+		min: 0.5
 		max: 2
 		step: 0.05
 		format: 
@@ -561,6 +561,8 @@ body {
   --bevelStyleContainerOuter: 1px 1px var(--bevelBright1), -1px -1px var(--bevelDark2), -2px -2px var(--bevelDark1), 2px 2px var(--bevelBright2), -2px 0px var(--bevelDark1), 0px -2px var(--bevelDark1), -2px 2px var(--bevelBright2), 2px -2px var(--bevelBright2);
   --link-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
   --textBrighter: #dddddd;
+  --disabledOverlay: #00000033;
+  --enabledOverlay: #ffffff11;
 }
 
 .backlink-pane, .outgoing-link-pane {
@@ -1129,8 +1131,20 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
   min-width: calc(var(--settingsLeftColumnLength) - 30px) !important;
 }
 
+.setting-item.mod-toggle:has(.checkbox-container:not(.is-enabled)) {
+  background-color: var(--disabledOverlay);
+}
+
+.setting-item.mod-toggle:has(.checkbox-container.is-enabled) {
+  background-color: var(--enabledOverlay);
+}
+
 .modal.mod-settings .modal-close-button {
   display: none;
+}
+
+body:not(.is-mobile) .modal.mod-settings input.slider {
+  width: calc(var(--settingsLeftColumnLength) - 50px);
 }
 
 body:not(.is-mobile) .modal.mod-settings {
@@ -2239,6 +2253,7 @@ body:not(.classicMicroMike):not(.inherit) {
   --collapse-icon-color: var(--icon-color);
   --nav-indentation-guide-color: var(--separatorColor);
   --text-faint: var(--icon-color);
+  --enabledOverlay: hsla(var(--accent-h), var(--accent-s), 50%, 13%) ;
 }
 
 body.classicMicroMike {
