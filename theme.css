@@ -16,6 +16,10 @@ body {
   --editorDashboardHeight: 40px;
   --outlineLevelHeight: 16px;
   --editorTabHeight: 40px;
+  --editorDashboardButtonsWidth: 20%;
+  --rightFrameSetTo: calc(var(--titlebarButtonWidth) * 4);
+  --titlebarButtonWidth: 40px;
+  --titlebarButtonHeight: 40px;
 }
 
 body {
@@ -169,6 +173,11 @@ settings:
 		max: 80
 		step: 5
 		format: px
+	-
+		id: sidebarLeftButtonHack
+		title: Sidebar Left Button Hack
+		description: If your left sidebar button appears to the right of your left sidebar tabs, enable this to hopefully overwrite the behavior.
+		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Text Editor
@@ -185,6 +194,15 @@ settings:
 		step: 5
 		format: px
 	-
+		id: editorDashboardButtonsWidth
+		title: Editor Dashboard Buttons Width % TODO
+		type: variable-number-slider
+		default: 20
+		min: 5
+		max: 33
+		step: 1
+		format: "%"
+	-
 		id: editorSize
 		title: Text Window Length
 		description: Size of text window in text editor. 
@@ -199,21 +217,16 @@ settings:
 		title: Center Align Readable Line Length
 		description: Undo modified left-aligned readable line length to normal standard.
 		type: class-toggle
+	-
+		id: propertiesDisable
+		title: Disable Properties Display in Preview
+		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Tabs & Sidebars
 		type: heading
 		level: 2
 		collapsed: true
-	- 
-		id: dragSpaceHeight
-		title: Drag Space Height
-		type: variable-number-slider
-		default: 20
-		min: 0
-		max: 80
-		step: 5
-		format: px
 	-
 		id: stackTabs
 		title: Stack the tabs
@@ -279,19 +292,48 @@ settings:
 		step: 5
 		format: px
 	-
-		id: disableRightTitlebarOffset
-		title: Disable Titlebar offset in Right Sidebar Tabs
-		description: If the drag space is sufficiently high, it might not make sense to have the right sidebar tabs offset to make room for the titlebar buttons. This disables that.
-		type: class-toggle
-	-
 		id: disableFastClose
 		title: Disable Sidebar Fast Close
 		description: Micro Mike uses a hack to make sidebars disappear immediately upon pressing the button. This disables that.
 		type: class-toggle
+	- 
+		id: this-is-a-heading ---------------------------------------------------------------------------------------
+		title: Title Bar
+		type: heading
+		level: 2
+		collapsed: true
+	- 
+		id: dragSpaceHeight
+		title: Drag Space Height
+		type: variable-number-slider
+		default: 20
+		min: 0
+		max: 80
+		step: 5
+		format: px
 	-
-		id: propertiesDisable
-		title: Disable Properties Display in Preview
+		id: disableRightTitlebarOffset
+		title: Disable Titlebar Spacing
+		description: Space is made for the titlebar buttons. If the drag space height is high enough, then it doesn't overlap even without this.
 		type: class-toggle
+	-
+		id: titlebarButtonWidth
+		title: Titlebar Button Width
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 80
+		step: 2
+		format: px
+	-
+		id: titlebarButtonHeight
+		title: Titlebar Button Height
+		type: variable-number-slider
+		default: 40
+		min: 20
+		max: 80
+		step: 2
+		format: px
 	- 
 		id: this-is-a-heading ---------------------------------------------------------------------------------------
 		title: Tree Elements (File browser, outline, ...)
@@ -351,7 +393,7 @@ settings:
 		level: 2
 		collapsed: true
 	-
-		id: genericOption
+		id: modalAlignment
 		title: Modal Alignment
 		description: Pick the compass direction that the generic (file seeking, etc...) modal is aligned to.
 		type: class-select
@@ -440,7 +482,7 @@ settings:
 		step: 5
 		format: px	
 	-
-		id: genericOption
+		id: settingsAlignment
 		title: Settings Alignment
 		description: Pick the compass direction that the generic (file seeking, etc...) settings is aligned to.
 		type: class-select
@@ -555,20 +597,24 @@ body {
   --bevelBright2: #8B8D9199;
   --bevelDark1: #5A5A5A99;
   --bevelDark2: #7A767299;
-  --settingsGradientBase: #ffffff33;
   --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
   --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
   --bevelStyleContainerOuter: 1px 1px var(--bevelBright1), -1px -1px var(--bevelDark2), -2px -2px var(--bevelDark1), 2px 2px var(--bevelBright2), -2px 0px var(--bevelDark1), 0px -2px var(--bevelDark1), -2px 2px var(--bevelBright2), 2px -2px var(--bevelBright2);
   --link-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
   --textBrighter: #dddddd;
-  --disabledOverlay: #00000033;
-  --enabledOverlay: #ffffff11;
+  --settingsHeaderGradient: linear-gradient(90deg, #ffffff33 0%, rgba(0,0,0,0) 80%);
+  --disabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(0,0,0,0.50) 100%);
+  --enabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(255,255,255,0.11) 100%);
 }
 
 .backlink-pane, .outgoing-link-pane {
   padding: 0px;
   margin: 0px;
   gap: 0px;
+}
+
+.embedded-backlinks .clickable-icon {
+  width: 40px;
 }
 
 body.css-settings-manager.allowBodyOffset {
@@ -617,7 +663,6 @@ body {
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
-  margin-right: calc(var(--scrollBarSize) + var(--handleSize));
 }
 
 .nav-file-title, .nav-folder-title {
@@ -706,7 +751,7 @@ body {
   height: var(--editorDashboardHeight);
 }
 :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div {
-  width: 33%;
+  width: var(--editorDashboardButtonsWidth);
 }
 :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div > :is(button, a, div) {
   padding: 0px;
@@ -1122,7 +1167,7 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
   padding-top: 5px;
   padding-bottom: 5px;
   line-height: 26px;
-  background: linear-gradient(90deg, var(--settingsGradientBase) 0%, rgba(0, 0, 0, 0) 55%);
+  background: var(--settingsHeaderGradient);
 }
 .modal.mod-settings :is(h1, h2, h3, h4, h5, h6, .setting-item-heading) .setting-item-name {
   font-size: 20px;
@@ -1132,11 +1177,11 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
 }
 
 .setting-item.mod-toggle:has(.checkbox-container:not(.is-enabled)) {
-  background-color: var(--disabledOverlay);
+  background: var(--disabledOverlay);
 }
 
 .setting-item.mod-toggle:has(.checkbox-container.is-enabled) {
-  background-color: var(--enabledOverlay);
+  background: var(--enabledOverlay);
 }
 
 .modal.mod-settings .modal-close-button {
@@ -1267,20 +1312,27 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   margin: 0px;
   gap: 0px;
   position: fixed;
-  right: 120px;
+  right: calc(var(--titlebarButtonWidth) * 3);
   z-index: 20;
   app-region: no-drag;
+  height: var(--titlebarButtonHeight);
+  width: var(--titlebarButtonWidth);
 }
 .workspace-tab-header-container .sidebar-toggle-button.mod-right .clickable-icon {
   padding: 0px;
   margin: 0px;
   gap: 0px;
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: var(--titlebarButtonHeight);
 }
 
 .mod-right-split {
   min-width: 260px;
+}
+
+body.is-frameless:not(.is-hidden-frameless):not(.is-fullscreen) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+  top: calc(0 - var(--titlebar-height) / var(--zoom-factor));
+  top: 0px;
 }
 
 .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
@@ -1294,12 +1346,12 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
 
 html .mod-windows .mod-root,
 html .mod-linux .mod-root {
-  --frame-right-space: 160px;
+  --frame-right-space: var(--rightFrameSetTo);
 }
 
 html .mod-windows:not(.disableRightTitlebarOffset) .mod-right-split,
 html .mod-linux:not(.disableRightTitlebarOffset) .mod-right-split {
-  --frame-right-space: 160px;
+  --frame-right-space: var(--rightFrameSetTo);
 }
 
 html .mod-windows.disableRightTitlebarOffset .mod-right-split,
@@ -1319,12 +1371,51 @@ html .mod-linux.stackTabs .mod-root {
 
 html .mod-windows:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space,
 html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space {
-  --frame-right-space: 160px;
+  --frame-right-space: var(--rightFrameSetTo);
 }
 
 .stackTabs .workspace:has(.mod-right-split.is-sidedock-collapsed) .workspace-tab-container .workspace-leaf .view-header {
-  --frame-right-space: 160px;
+  --frame-right-space: var(--rightFrameSetTo);
   margin-right: var(--frame-right-space);
+}
+
+.sidebarLeftButtonHack .mod-top-left-space .workspace-tab-header-container,
+.sidebarLeftButtonHack .mod-top-left-space .workspace-tab-header-container-inner {
+  padding: 0px;
+  margin: 0px;
+  gap: 0px;
+}
+
+.sidebarLeftButtonHack .sidebar-toggle-button.mod-left,
+.sidebarLeftButtonHack .sidebar-toggle-button.mod-left .clickable-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.sidebarLeftButtonHack .workspace-ribbon {
+  --ribbonButtonTopOffset: 0px;
+}
+.sidebarLeftButtonHack .workspace-ribbon .sidebar-toggle-button.mod-left {
+  padding: 0px;
+  margin: 0px;
+  gap: 0px;
+  position: fixed;
+  z-index: 20;
+  app-region: no-drag;
+  top: var(--ribbonButtonTopOffset);
+  height: var(--ribbonButtonHeight);
+  width: var(--ribbon-width);
+}
+.sidebarLeftButtonHack .workspace-ribbon .sidebar-toggle-button.mod-left .clickable-icon {
+  padding: 0px;
+  margin: 0px;
+  gap: 0px;
+  width: 100%;
+  height: var(--ribbonButtonHeight);
+}
+
+.sidebarLeftButtonHack.is-frameless .workspace-ribbon {
+  --ribbonButtonTopOffset: 30px;
 }
 
 body:not(.disableFastClose) .workspace-split.mod-horizontal.mod-left-split.is-sidedock-collapsed {
@@ -1598,18 +1689,18 @@ body {
 }
 
 .body.is-frameless.is-hidden-frameless .titlebar {
-  height: 40px;
+  height: var(--titlebarButtonHeight);
 }
 
 .titlebar-button-container.mod-right {
-  height: 40px;
+  height: var(--titlebarButtonHeight);
 }
 .titlebar-button-container.mod-right .titlebar-button {
   padding: 0px;
   margin: 0px;
   gap: 0px;
-  width: 40px;
-  height: 40px;
+  width: var(--titlebarButtonWidth);
+  height: var(--titlebarButtonHeight);
 }
 .titlebar-button-container.mod-right .titlebar-button svg {
   margin: auto;
@@ -1617,12 +1708,17 @@ body {
 
 .is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-split.mod-horizontal.mod-right-split .workspace-tab-header-container {
   padding-right: 0px;
-  margin-right: 40px;
+  margin-right: var(--titlebarButtonWidth);
 }
 
 .titlebar-inner,
 .is-focused .titlebar-inner {
   color: var(--icon-color);
+}
+
+body:not(.qe-title-center):not(.qe-title-hide) .titlebar-text.qe-replacement,
+.titlebar-text {
+  padding-right: calc(var(--rightFrameSetTo) + 5px);
 }
 
 body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
@@ -2233,7 +2329,6 @@ body:not(.classicMicroMike):not(.inherit) {
   */
   --levelLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 12%);
   --levelHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
-  --settingsGradientBase: hsla(var(--accent-h), var(--accent-s), 50%, 48%);
   --buttonLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
   --buttonLayerHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 36%);
   --separatorColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 40%);
@@ -2253,7 +2348,8 @@ body:not(.classicMicroMike):not(.inherit) {
   --collapse-icon-color: var(--icon-color);
   --nav-indentation-guide-color: var(--separatorColor);
   --text-faint: var(--icon-color);
-  --enabledOverlay: hsla(var(--accent-h), var(--accent-s), 50%, 13%) ;
+  --settingsHeaderGradient: linear-gradient(90deg, hsla(var(--accent-h), var(--accent-s), 50%, 48%) 0%, rgba(0,0,0,0) 80%);
+  --enabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, hsla(var(--accent-h), var(--accent-s), 50%, 33%) 100%);
 }
 
 body.classicMicroMike {
@@ -2279,6 +2375,7 @@ body.classicMicroMike {
   --collapse-icon-color: var(--icon-color);
   --collapse-icon-color-collapsed: var(--icon-color);
   --icon-color-active: #ffffff;
+  --disabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(0,0,0,0.33) 100%) ;
 }
 
 body:not(.inherit) {
