@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   --scrollBarSize: 20px;
   --handleSize: 20px;
@@ -622,6 +623,55 @@ body {
   width: 40px;
 }
 
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) {
+  display: flex;
+  flex-direction: column;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) {
+  order: -1;
+  min-height: unset !important;
+  margin-top: 0px;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .nav-header {
+  display: none;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane > .tree-item-self {
+  display: none;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children {
+  display: flex;
+  flex-wrap: wrap;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children .search-result {
+  display: flex;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children .search-result .search-result-file-matches {
+  display: none;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children .search-result .search-result-file-title.tree-item-self {
+  height: calc(var(--font-text-size) * 1.5);
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children .search-result .search-result-file-title.tree-item-self .tree-item-icon {
+  display: none;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children .search-result .search-result-file-title.tree-item-self .tree-item-flair-outer {
+  display: none;
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children .search-result .search-result-file-title.tree-item-self .tree-item-inner {
+  line-height: 40px;
+  font-size: var(--font-text-size);
+  white-space: nowrap;
+  color: var(--link-color);
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children .search-result .search-result-file-title.tree-item-self .tree-item-inner::before {
+  content: "႟";
+  color: var(--text-normal);
+}
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-results-children .search-result .search-result-file-title.tree-item-self .tree-item-inner::after {
+  content: "";
+  color: var(--text-normal);
+}
+
 body.css-settings-manager.allowBodyOffset {
   margin-top: var(--bodyMarginTop);
   margin-left: var(--bodyMarginLeft);
@@ -761,11 +811,16 @@ body {
   margin: 2px auto;
 }
 
+body {
+  --header-height: var(--editorDashboardHeight);
+}
+
 :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header {
   padding: 0px;
   margin: 0px;
   gap: 0px;
   height: var(--editorDashboardHeight);
+  min-height: var(--editorDashboardHeight);
 }
 :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div {
   width: var(--editorDashboardButtonsWidth);
@@ -1410,6 +1465,7 @@ html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-
 }
 
 .sidebarLeftButtonHack {
+  --frame-left-space: 40px;
   --ribbonButtonTopOffset: 0px;
 }
 .sidebarLeftButtonHack .sidebar-toggle-button.mod-left {
@@ -2931,10 +2987,11 @@ body:not(.disableBevels) .workspace .mod-root .workspace-tab-header {
 body:not(.disableBevels) .stackTabs .mod-root .workspace-tab-header-inner-close-button {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels) .workspace-leaf-content .view-actions, body:not(.disableBevels) .workspace-leaf-content .view-header-nav-buttons {
+body:not(.disableBevels) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions, body:not(.disableBevels) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons {
   margin: 3px;
+  height: calc(100% - 6px);
 }
-body:not(.disableBevels) .workspace-leaf-content .view-actions > *:is(a, button), body:not(.disableBevels) .workspace-leaf-content .view-header-nav-buttons > *:is(a, button) {
+body:not(.disableBevels) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions > *:is(a, button), body:not(.disableBevels) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons > *:is(a, button) {
   height: 100%;
 }
 body:not(.disableBevels) .markdown-preview-view .markdown-embed,
