@@ -200,7 +200,7 @@ settings:
 		format: px
 	-
 		id: editorDashboardButtonsWidth
-		title: Editor Dashboard Buttons Width % TODO
+		title: Editor Dashboard Buttons Width %
 		type: variable-number-slider
 		default: 20
 		min: 5
@@ -373,7 +373,7 @@ settings:
 	-
 		id: treeWordWrap
 		title: Tree View Word Wrap
-		description: Undo modified left-aligned readable line length to normal standard.
+		description: Enables word wrap in the file browser, ensuring full titles will be displayed.
 		type: class-toggle
 	-
 		id: boldFolders
@@ -389,7 +389,7 @@ settings:
 	-
 		id: oldTreeViewImplementation
 		title: Old Tree View Implementation
-		description: If file browser files not appearing, this may be more functional, but word wrap doesn't work properly.
+		description: If file browser is glitchy, this may be more functional, but word wrap doesn't work this way.
 		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
