@@ -129,7 +129,7 @@ settings:
 		format: 
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
-		title: Supplemental Elements (Scrollbar, Drag bars, Resize bars, Ribbon...)
+		title: Shared UI Components (Scrollbar, Drag bars, Resize bars, Ribbon...)
 		type: heading
 		level: 2
 		collapsed: true
@@ -177,6 +177,11 @@ settings:
 		id: sidebarLeftButtonHack
 		title: Sidebar Left Button Hack
 		description: If your left sidebar button appears to the right of your left sidebar tabs, enable this to hopefully overwrite the behavior.
+		type: class-toggle
+	-
+		id: disableFastClose
+		title: Disable Sidebar Fast Close
+		description: Micro Mike uses a hack to make sidebars disappear immediately upon pressing the button. This disables that.
 		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
@@ -291,11 +296,6 @@ settings:
 		max: 80
 		step: 5
 		format: px
-	-
-		id: disableFastClose
-		title: Disable Sidebar Fast Close
-		description: Micro Mike uses a hack to make sidebars disappear immediately upon pressing the button. This disables that.
-		type: class-toggle
 	- 
 		id: this-is-a-heading ---------------------------------------------------------------------------------------
 		title: Title Bar
@@ -336,7 +336,7 @@ settings:
 		format: px
 	- 
 		id: this-is-a-heading ---------------------------------------------------------------------------------------
-		title: Tree Elements (File browser, outline, ...)
+		title: Tree Elements (File browser, outline, tag, search, backlinks...)
 		type: heading
 		level: 2
 		collapsed: true
@@ -386,6 +386,11 @@ settings:
 		description: Enable layered background in file browser. This helps perceive depth.
 		type: class-toggle
 		default: true	
+	-
+		id: oldTreeViewImplementation
+		title: Old Tree View Implementation
+		description: If file browser files not appearing, this may be more functional, but word wrap doesn't work properly.
+		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Modal Window
@@ -638,8 +643,21 @@ body {
   --nav-item-children-margin-left: 0px;
 }
 
-.tree-item-self {
+:not(.oldTreeViewImplementation) .tree-item-self {
   line-height: var(--outlineLevelHeight);
+}
+:not(.oldTreeViewImplementation) .tree-item-self .tree-item-icon {
+  height: var(--outlineLevelHeight);
+}
+
+.oldTreeViewImplementation .tree-item-self {
+  height: var(--outlineLevelHeight);
+}
+.oldTreeViewImplementation .tree-item-self .tree-item-icon.collapse-icon {
+  height: calc(var(--outlineLevelFontSize) * var(--line-height-tight));
+}
+
+.tree-item-self {
   margin-bottom: 0px;
 }
 
@@ -650,7 +668,6 @@ body {
 }
 .tree-item-self .tree-item-icon.collapse-icon {
   width: var(--outlineLevelWidth);
-  height: var(--outlineLevelHeight);
   align-items: center;
 }
 
@@ -659,7 +676,7 @@ body {
   font-size: var(--outlineLevelFontSize);
 }
 
-.treeWordWrap .workspace-leaf-content[data-type=file-explorer] .tree-item-inner {
+.treeWordWrap:not(.oldTreeViewImplementation) .workspace-leaf-content[data-type=file-explorer] .tree-item-inner {
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
@@ -1300,7 +1317,7 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   opacity: 1;
 }
 :not(.is-mobile).settingsHoverPreview .modal.mod-settings .modal-content {
-  opacity: 0.1;
+  opacity: 0;
 }
 :not(.is-mobile).settingsHoverPreview .modal.mod-settings .modal-content:hover {
   background-color: var(--background);
@@ -1392,10 +1409,10 @@ html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-
   height: 40px;
 }
 
-.sidebarLeftButtonHack .workspace-ribbon {
+.sidebarLeftButtonHack {
   --ribbonButtonTopOffset: 0px;
 }
-.sidebarLeftButtonHack .workspace-ribbon .sidebar-toggle-button.mod-left {
+.sidebarLeftButtonHack .sidebar-toggle-button.mod-left {
   padding: 0px;
   margin: 0px;
   gap: 0px;
@@ -1406,7 +1423,7 @@ html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-
   height: var(--ribbonButtonHeight);
   width: var(--ribbon-width);
 }
-.sidebarLeftButtonHack .workspace-ribbon .sidebar-toggle-button.mod-left .clickable-icon {
+.sidebarLeftButtonHack .sidebar-toggle-button.mod-left .clickable-icon {
   padding: 0px;
   margin: 0px;
   gap: 0px;
@@ -1414,7 +1431,7 @@ html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-
   height: var(--ribbonButtonHeight);
 }
 
-.sidebarLeftButtonHack.is-frameless .workspace-ribbon {
+.sidebarLeftButtonHack.is-frameless:not(.is-hidden-frameless) {
   --ribbonButtonTopOffset: 30px;
 }
 
