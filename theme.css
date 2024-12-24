@@ -26,6 +26,10 @@ body {
   --modalOffsetX: 250px;
 }
 
+.rightSidebarButtonTitlebarAlignDisable {
+  --rightFrameSetTo: calc(var(--titlebarButtonWidth) * 3);
+}
+
 body {
   --tag-size: va(--font-text-size);
   --tag-color: var(--text-accent);
@@ -178,11 +182,6 @@ settings:
 		step: 5
 		format: px
 	-
-		id: sidebarLeftButtonHack
-		title: Sidebar Left Button Hack
-		description: If your left sidebar button appears to the right of your left sidebar tabs, enable this to hopefully overwrite the behavior.
-		type: class-toggle
-	-
 		id: disableFastClose
 		title: Disable Sidebar Fast Close
 		description: Micro Mike uses a hack to make sidebars disappear immediately upon pressing the button. This disables that.
@@ -192,6 +191,7 @@ settings:
 		title: Extend Right Sidebar Minimum Width
 		description: With the right sidebar button now on the task bar, Micro Mike makes the right sidebar longer to compensate - if you want.
 		type: class-toggle
+		default: true
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Text Editor
@@ -273,6 +273,10 @@ settings:
 		description: If there is space and the title is long enough, the text will now overflow onto more lines.
 		type: class-toggle
 	-
+		id: tabTitleCentered
+		title: Center Tab Titles
+		type: class-toggle
+	-
 		id: editorTabHeight
 		title: Editor (Non-Stack) Tab Height
 		description: Tab Height 
@@ -310,6 +314,21 @@ settings:
 		max: 80
 		step: 5
 		format: px
+	-
+		id: cornerDragLocation
+		title: Corner Drag Location
+		description: This creates a space at the left corner where the window can be dragged.
+		type: class-toggle
+	-
+		id: rightSidebarButtonTitlebarAlignDisable
+		title: Disable Right Sidebar Button Corner Alignment
+		description: This allows you to disable the right corner positioning of the right sidebar button.
+		type: class-toggle
+	-
+		id: leftAlignedLeftSidebarButtonDisable
+		title: Disable Left Sidebar Button Corner Alignment
+		description: This allows you to disable the left corner positioning of the left sidebar button.
+		type: class-toggle
 	- 
 		id: this-is-a-heading ---------------------------------------------------------------------------------------
 		title: Title Bar
@@ -629,7 +648,8 @@ body {
   --divider-color-hover: var(--nav-item-background-active);
 }
 
-body:not(.is-phone) .horizontal-tab-nav-item.is-active, body:not(.is-phone) .vertical-tab-nav-item.is-active {
+body:not(.is-phone) .horizontal-tab-nav-item.is-active,
+body:not(.is-phone) .vertical-tab-nav-item.is-active {
   background-color: var(--nav-item-background-active);
 }
 
@@ -798,13 +818,13 @@ body {
 }
 .tree-item-self .tree-item-flair-outer .tree-item-flair {
   font-size: var(--outlineLevelFontSize);
-  color: var(--text-accent);
+  color: var(--text-normal);
 }
 .tree-item-self .tree-item-inner {
   order: 2;
 }
 
-.tree-item-self:has(.tree-item-icon) .tree-item-flair::after {
+.workspace-leaf-content[data-type=search] .tree-item-self:has(.tree-item-icon) .tree-item-flair::after {
   position: relative;
   content: ":";
 }
@@ -1046,6 +1066,23 @@ body {
   top: 0px;
 }
 
+@media only screen and (max-width: 900px) {
+  .mod-right-split {
+    display: none;
+  }
+  .mod-left-split {
+    display: none;
+  }
+  .workspace-ribbon {
+    display: none;
+  }
+  .status-bar {
+    display: none;
+  }
+  .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
+    margin-right: var(--frame-right-space);
+  }
+}
 .workspace-leaf-content[data-type=outline] .view-content .tree-item {
   position: relative;
 }
@@ -1453,18 +1490,20 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   height: var(--titlebarButtonHeight);
 }
 
-.workspace-tab-header-container .sidebar-toggle-button.mod-right {
+body:not(.rightSidebarButtonTitlebarAlignDisable) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
   padding: 0px;
   margin: 0px;
   gap: 0px;
   position: fixed;
   right: calc(var(--titlebarButtonWidth) * 3);
   z-index: 20;
-  app-region: no-drag;
+}
+
+.rightSidebarButtonTitlebarAlignDisable .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+  margin-top: var(--dragSpaceHeight);
 }
 
 body.is-frameless:not(.is-hidden-frameless):not(.is-fullscreen) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
-  top: calc(0 - var(--titlebar-height) / var(--zoom-factor));
   top: 0px;
 }
 
@@ -1512,44 +1551,29 @@ html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-
   margin-right: var(--frame-right-space);
 }
 
-.sidebarLeftButtonHack .mod-top-left-space .workspace-tab-header-container,
-.sidebarLeftButtonHack .mod-top-left-space .workspace-tab-header-container-inner {
+:is(.mod-left-split, .workspace-split.mod-root) .sidebar-toggle-button.mod-left,
+:is(.mod-left-split, .workspace-split.mod-root) .sidebar-toggle-button.mod-left .clickable-icon {
   padding: 0px;
   margin: 0px;
   gap: 0px;
-}
-
-.sidebarLeftButtonHack .sidebar-toggle-button.mod-left,
-.sidebarLeftButtonHack .sidebar-toggle-button.mod-left .clickable-icon {
   width: 40px;
-  height: 40px;
+  height: var(--sidebarTabHeight);
 }
 
-.sidebarLeftButtonHack {
-  --frame-left-space: 40px;
-  --ribbonButtonTopOffset: 0px;
-}
-.sidebarLeftButtonHack .sidebar-toggle-button.mod-left {
-  padding: 0px;
-  margin: 0px;
-  gap: 0px;
-  position: fixed;
-  z-index: 20;
-  app-region: no-drag;
-  top: var(--ribbonButtonTopOffset);
-  height: var(--ribbonButtonHeight);
-  width: var(--ribbon-width);
-}
-.sidebarLeftButtonHack .sidebar-toggle-button.mod-left .clickable-icon {
-  padding: 0px;
-  margin: 0px;
-  gap: 0px;
-  width: 100%;
-  height: var(--ribbonButtonHeight);
+:is(.mod-left-split, .workspace-split.mod-root) .sidebar-toggle-button.mod-left {
+  margin-top: var(--dragSpaceHeight);
 }
 
-.sidebarLeftButtonHack.is-frameless:not(.is-hidden-frameless) {
-  --ribbonButtonTopOffset: 30px;
+body:not(.leftAlignedLeftSidebarButtonDisable) .sidebar-toggle-button.mod-left {
+  order: -1;
+}
+
+body:not(.leftAlignedLeftSidebarButtonDisable).cornerDragLocation .mod-left-split .workspace-tab-header-container-inner {
+  margin-left: 0px;
+}
+body:not(.leftAlignedLeftSidebarButtonDisable).cornerDragLocation .sidebar-toggle-button.mod-left {
+  order: -1;
+  margin-left: 40px;
 }
 
 body:not(.disableFastClose) .workspace-split.mod-horizontal.mod-left-split.is-sidedock-collapsed {
@@ -1565,6 +1589,7 @@ body:not(.disableFastClose) .workspace-split.mod-horizontal.mod-right-split.is-s
   margin: 0px;
   border: 0px;
   gap: 0px;
+  height: var(--sidebarTabHeight);
 }
 :is(.mod-left-split, .mod-right-split) .workspace-tab-header-container .workspace-tab-header-container-inner {
   padding: 0px;
@@ -1593,9 +1618,18 @@ body:not(.disableFastClose) .workspace-split.mod-horizontal.mod-right-split.is-s
   margin-top: var(--dragSpaceHeight);
 }
 
-.is-hidden-frameless:not(.is-fullscreen) .mod-right-split .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+.is-hidden-frameless:not(.is-fullscreen) .mod-right-split .workspace-tabs.mod-top-right-space .workspace-tab-header-container,
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
   padding-right: 0px;
   margin-right: var(--frame-right-space);
+}
+
+.workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
+  display: none;
+}
+
+.cornerDragLocation .mod-left-split .workspace-tab-header-container-inner {
+  margin-left: 40px;
 }
 
 .extendRightSidebarMinimum .mod-right-split {
@@ -1631,9 +1665,14 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-p
   padding: 0px;
   margin: 0px;
   gap: 0px;
+  height: 40px;
+}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher .workspace-drawer-vault-switcher-icon {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
-  margin-right: calc(var(--handleSize) + 1px);
+  margin-right: calc(var(--handleSize));
 }
 body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions span {
   width: 40px;
@@ -1696,7 +1735,7 @@ body {
   background-color: transparent;
 }
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-title {
-  text-align: center;
+  margin-left: 5px;
 }
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-close-button {
   padding: 0px;
@@ -1713,7 +1752,7 @@ body {
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-close-button:hover {
   background-color: var(--background-modifier-hover);
 }
-.workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover .workspace-tab-header-inner, .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header.is-active .workspace-tab-header-inner {
+.workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover .workspace-tab-header-inner:not(:has(.mod-pinned)), .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header.is-active .workspace-tab-header-inner:not(:has(.mod-pinned)) {
   padding-right: 0px;
 }
 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover .workspace-tab-header-inner .workspace-tab-header-inner-close-button, .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header.is-active .workspace-tab-header-inner .workspace-tab-header-inner-close-button {
@@ -1760,6 +1799,11 @@ body {
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
+}
+
+.tabTitleCentered .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-title {
+  margin-left: 0px;
+  text-align: center;
 }
 
 .is-hidden-frameless:not(.is-fullscreen):not(.mod-macos) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
@@ -1849,6 +1893,10 @@ body {
 body:not(.qe-title-center):not(.qe-title-hide) .titlebar-text.qe-replacement,
 .titlebar-text {
   padding-right: calc(var(--rightFrameSetTo) + 5px);
+}
+
+.titlebar-button-container.mod-right {
+  app-region: no-drag;
 }
 
 body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
@@ -2424,6 +2472,10 @@ All properties .enableNewIcons .clickable-icon[aria-label=Settings] svg,
   display: none;
 }
 
+body {
+  --linkBrightnessAdditive: 1 ;
+}
+
 body:not(.classicMicroMike):not(.inherit) {
   /* Hierarchical palette */
   --bottom: #000000;
@@ -2480,6 +2532,7 @@ body:not(.classicMicroMike):not(.inherit) {
   --text-faint: var(--icon-color);
   --settingsHeaderGradient: linear-gradient(90deg, hsla(var(--accent-h), var(--accent-s), 50%, 48%) 0%, rgba(0,0,0,0) 80%);
   --enabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, hsla(var(--accent-h), var(--accent-s), 50%, 33%) 100%);
+  --code-background: var(--bottom_a);
 }
 
 body.classicMicroMike {
@@ -2975,6 +3028,7 @@ body:not(.disableBevels) {
   /* Settings */
   /* Search */
   /* Sidebar Tabs */
+  /* Side Dock Profile */
   /* Theme Picker */
   /* Titlebar */
 }
@@ -3114,6 +3168,9 @@ body:not(.disableBevels) .mod-left-split .workspace-tab-header-container .worksp
 }
 body:not(.disableBevels) .mod-right-split .workspace-tab-header-container .workspace-tab-header-container-inner {
   margin-left: 1px;
+}
+body:not(.disableBevels) .workspace-drawer-vault-actions {
+  margin-right: calc(var(--handleSize) + 1px);
 }
 body:not(.disableBevels) .community-item.is-selected,
 body:not(.disableBevels) .community-item.is-selected:hover {
