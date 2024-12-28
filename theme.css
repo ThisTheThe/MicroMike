@@ -24,9 +24,10 @@ body {
   --settingsWSize: 60%;
   --settingsOffsetX: 0px;
   --modalOffsetX: 250px;
+  --collapseWindowWidth: 900px;
 }
 
-.rightSidebarButtonTitlebarAlignDisable {
+body:is(.outsideSidebar_RBA, .insideSidebar_RBA) {
   --rightFrameSetTo: calc(var(--titlebarButtonWidth) * 3);
 }
 
@@ -320,15 +321,21 @@ settings:
 		description: This creates a space at the left corner where the window can be dragged.
 		type: class-toggle
 	-
-		id: rightSidebarButtonTitlebarAlignDisable
-		title: Disable Right Sidebar Button Corner Alignment
-		description: This allows you to disable the right corner positioning of the right sidebar button.
-		type: class-toggle
-	-
 		id: leftAlignedLeftSidebarButtonDisable
 		title: Disable Left Sidebar Button Corner Alignment
 		description: This allows you to disable the left corner positioning of the left sidebar button.
 		type: class-toggle
+	-
+		id: rightSidebarButtonAlignment
+		title: Right Sidebar Button Alignment
+		description: Colors in window. If you add another theme before this, it will be used in "inherit", or just the usual Obsidian colors.
+		type: class-select
+		allowEmpty: false
+		default: accentMicroMike
+		options:
+			- titlebarAlign_RBA
+			- outsideSidebar_RBA
+			- insideSidebar_RBA
 	- 
 		id: this-is-a-heading ---------------------------------------------------------------------------------------
 		title: Title Bar
@@ -626,6 +633,27 @@ settings:
 		max: 10
 		step: 1
 		format: px
+	- 
+		id: this-is-a-heading------------------------------------------------------------------------------------------------------
+		title: Mini Mode
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: disableMiniMode
+		title: Disable Mini Mode
+		description: When the window is small enough, Micro Mike focuses the window by removing side elements. This disables that.
+		type: class-toggle
+	-
+		id: collapseWindowWidth
+		title: Collapse Window Width
+		description: At this width, the window will collapse into mini-mode.
+		type: variable-number-slider
+		default: 900
+		min: 200
+		max: 1500
+		step: 10
+		format: px
 */
 body {
   --levelLayer: #ffffff18;
@@ -761,9 +789,6 @@ body {
   height: var(--outlineLevelHeight);
 }
 
-.oldTreeViewImplementation .tree-item-self {
-  height: var(--outlineLevelHeight);
-}
 .oldTreeViewImplementation .tree-item-self .tree-item-icon.collapse-icon {
   height: calc(var(--outlineLevelFontSize) * var(--line-height-tight));
 }
@@ -1066,20 +1091,20 @@ body {
   top: 0px;
 }
 
-@media only screen and (max-width: 900px) {
-  .mod-right-split {
+@media only screen and (max-width: var(--collapseWindowWidth)) {
+  body:not(.disableMiniMode) .mod-right-split {
     display: none;
   }
-  .mod-left-split {
+  body:not(.disableMiniMode) .mod-left-split {
     display: none;
   }
-  .workspace-ribbon {
+  body:not(.disableMiniMode) .workspace-ribbon {
     display: none;
   }
-  .status-bar {
+  body:not(.disableMiniMode) .status-bar {
     display: none;
   }
-  .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
+  body:not(.disableMiniMode) .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
     margin-right: var(--frame-right-space);
   }
 }
@@ -1490,7 +1515,7 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   height: var(--titlebarButtonHeight);
 }
 
-body:not(.rightSidebarButtonTitlebarAlignDisable) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+body:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
   padding: 0px;
   margin: 0px;
   gap: 0px;
@@ -1499,8 +1524,32 @@ body:not(.rightSidebarButtonTitlebarAlignDisable) .workspace-tab-header-containe
   z-index: 20;
 }
 
-.rightSidebarButtonTitlebarAlignDisable .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+:is(.outsideSidebar_RBA, .insideSidebar_RBA) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
   margin-top: var(--dragSpaceHeight);
+  height: var(--editorTabHeight);
+  width: var(--editorTabHeight);
+}
+:is(.outsideSidebar_RBA, .insideSidebar_RBA) .workspace-tab-header-container .sidebar-toggle-button.mod-right .clickable-icon {
+  width: var(--editorTabHeight);
+  height: var(--editorTabHeight);
+}
+
+.insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed)) .workspace-tabs {
+  overflow: visible;
+}
+.insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed)) .workspace-tabs .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+  position: absolute;
+  right: calc(0px - var(--handleSize) - var(--sidebarTabHeight));
+  height: var(--sidebarTabHeight);
+  width: var(--sidebarTabHeight);
+  z-index: 10;
+}
+.insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed)) .workspace-tabs .workspace-tab-header-container .sidebar-toggle-button.mod-right .clickable-icon {
+  width: var(--sidebarTabHeight);
+  height: var(--sidebarTabHeight);
+}
+.insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed)) .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+  margin-left: var(--sidebarTabHeight);
 }
 
 body.is-frameless:not(.is-hidden-frameless):not(.is-fullscreen) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
