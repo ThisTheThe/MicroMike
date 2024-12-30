@@ -24,7 +24,8 @@ body {
   --settingsWSize: 60%;
   --settingsOffsetX: 0px;
   --modalOffsetX: 250px;
-  --collapseWindowWidth: 900px;
+  --settingsMinWidth: 800px;
+  --modalMinWidth: 300px;
 }
 
 body:is(.outsideSidebar_RBA, .insideSidebar_RBA) {
@@ -321,6 +322,11 @@ settings:
 		description: This creates a space at the left corner where the window can be dragged.
 		type: class-toggle
 	-
+		id: editorDragSpace
+		title: Editor Drag Space
+		description: This creates a space at the right corner in editor tabs where the window can be dragged.
+		type: class-toggle
+	-
 		id: leftAlignedLeftSidebarButtonDisable
 		title: Disable Left Sidebar Button Corner Alignment
 		description: This allows you to disable the left corner positioning of the left sidebar button.
@@ -433,14 +439,14 @@ settings:
 		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
-		title: Modal Window
+		title: Prompt Window
 		type: heading
 		level: 2
 		collapsed: true
 	-
 		id: modalAlignment
-		title: Modal Alignment
-		description: Pick the compass direction that the generic (file seeking, etc...) modal is aligned to.
+		title: Prompt Alignment
+		description: Pick the compass direction that the generic (file seeking, etc...) prompt is aligned to.
 		type: class-select
 		allowEmpty: false
 		default: modalSAlign
@@ -456,8 +462,8 @@ settings:
 			- modalNWAlign
 	-
 		id: modalHSize
-		title: Modal Height
-		description: In percentage, choose the height of the modal.
+		title: Prompt Height
+		description: In percentage, choose the height of the prompt.
 		type: variable-number-slider
 		default: 50
 		min: 20
@@ -466,8 +472,8 @@ settings:
 		format: "%"
 	-
 		id: modalWSize
-		title: Modal Width
-		description: In percentage, choose the width of the modal.
+		title: Prompt Width
+		description: In percentage, choose the width of the prompt.
 		type: variable-number-slider
 		default: 35
 		min: 20
@@ -476,8 +482,8 @@ settings:
 		format: "%"
 	-
 		id: modalOffsetX
-		title: Modal X Offset
-		description: Choose an X offset for the modal. If uncarefully applied, will cause it to move offscreen.
+		title: Prompt X Offset
+		description: Choose an X offset for the prompt. If uncarefully applied, will cause it to move offscreen.
 		type: variable-number-slider
 		default: 250
 		min: -1000
@@ -486,12 +492,22 @@ settings:
 		format: px
 	-
 		id: modalOffsetY
-		title: Modal Y Offset
-		description: Choose a Y offset for the modal. If uncarefully applied, will cause it to move offscreen.
+		title: Prompt Y Offset
+		description: Choose a Y offset for the prompt. If uncarefully applied, will cause it to move offscreen.
 		type: variable-number-slider
 		default: 0
 		min: -500
 		max: 500
+		step: 10
+		format: px
+	-
+		id: modalMinWidth
+		title: Prompt Min Width
+		description: The prompt window is not allowed to become any smaller than this size. The max size is defined by the above setting.
+		type: variable-number-slider
+		default: 300
+		min: 200
+		max: 1200
 		step: 10
 		format: px
 	- 
@@ -583,55 +599,15 @@ settings:
 		max: 500
 		step: 10
 		format: px
-	- 
-		id: this-is-a-heading------------------------------------------------------------------------------------------------------
-		title: Body Position Offset
-		type: heading
-		level: 2
-		collapsed: true
 	-
-		id: allowBodyOffset
-		title: Allow Body Offset
-		description: Don't enable this unless you want to move the body element around.
-		type: class-toggle
-	-
-		id: bodyMarginTop
-		title: Body Top Margin
-		description: These settings allow for offset adjustments to the "body" element if an undesired edge is appearing.
+		id: settingsMinWidth
+		title: Settings Min Width
+		description: The settings window is not allowed to become any smaller than this size. The max size is defined by the above setting.
 		type: variable-number-slider
-		default: 0
-		min: -10
-		max: 10
-		step: 1
-		format: px
-	-
-		id: bodyMarginLeft
-		title: Body Left Margin
-		description: Choose an X offset for the settings. If uncarefully applied, will cause it to move offscreen.
-		type: variable-number-slider
-		default: 0
-		min: -10
-		max: 10
-		step: 1
-		format: px
-	-
-		id: bodyExtraHeight
-		title: Body Extra Height
-		description: If you offset the screen, these let you extend the body's size so edges don't appear on the other side.
-		type: variable-number-slider
-		default: 0
-		min: -10
-		max: 10
-		step: 1
-		format: px
-	-
-		id: bodyExtraWidth
-		title: Body Extra Width
-		type: variable-number-slider
-		default: 0
-		min: -10
-		max: 10
-		step: 1
+		default: 800
+		min: 500
+		max: 1200
+		step: 10
 		format: px
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
@@ -644,16 +620,6 @@ settings:
 		title: Disable Mini Mode
 		description: When the window is small enough, Micro Mike focuses the window by removing side elements. This disables that.
 		type: class-toggle
-	-
-		id: collapseWindowWidth
-		title: Collapse Window Width
-		description: At this width, the window will collapse into mini-mode.
-		type: variable-number-slider
-		default: 900
-		min: 200
-		max: 1500
-		step: 10
-		format: px
 */
 body {
   --levelLayer: #ffffff18;
@@ -1091,7 +1057,7 @@ body {
   top: 0px;
 }
 
-@media only screen and (max-width: var(--collapseWindowWidth)) {
+@media only screen and (max-width: 900px) {
   body:not(.disableMiniMode) .mod-right-split {
     display: none;
   }
@@ -1105,6 +1071,7 @@ body {
     display: none;
   }
   body:not(.disableMiniMode) .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
+    --frame-right-space: var(--rightFrameSetTo);
     margin-right: var(--frame-right-space);
   }
 }
@@ -1161,10 +1128,10 @@ body:not(.is-mobile) .modal-container .prompt {
   position: absolute;
   top: unset;
   left: unset;
-  min-width: unset;
   min-height: var(--modalHSize);
   max-height: var(--modalHSize);
-  min-width: var(--modalWSize);
+  min-width: var(--modalMinWidth);
+  width: var(--modalWSize);
   max-width: var(--modalWSize);
   margin-left: var(--modalOffsetX);
   margin-bottom: var(--modalOffsetY);
@@ -1264,12 +1231,10 @@ body {
   height: var(--handleSize) !important;
   flex-direction: column-reverse;
   border-bottom: 0px !important;
-  background-color: var(--divider-color);
 }
 
 .mod-root .workspace-leaf-resize-handle {
   --divider-width: 3px;
-  color: var(--background-secondary-alt);
 }
 
 .workspace-ribbon.mod-left {
@@ -1351,8 +1316,11 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
   padding-bottom: 5px;
   display: flex;
 }
-.modal.mod-settings :is(h1, h2, h3, h4, h5, h6) {
+body:not(.disableLeftAlignSettings) .modal.mod-settings :is(h1, h2, h3, h4, h5, h6) {
   padding-left: calc(var(--settingsLeftColumnLength) - 20px);
+}
+body:not(.disableLeftAlignSettings) .modal.mod-settings :is(h1, h2, h3, h4, h5, h6) .setting-item-name {
+  margin-left: 10px;
 }
 .modal.mod-settings :is(h1, h2, h3, h4, h5, h6, .setting-item-heading) {
   margin-left: -5px;
@@ -1364,6 +1332,7 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
 }
 .modal.mod-settings :is(h1, h2, h3, h4, h5, h6, .setting-item-heading) .setting-item-name {
   font-size: 20px;
+  margin-left: 10px;
 }
 .modal.mod-settings :is(h1, h2, h3, h4, h5, h6, .setting-item-heading) .setting-item-control {
   min-width: calc(var(--settingsLeftColumnLength) - 30px) !important;
@@ -1386,7 +1355,7 @@ body:not(.is-mobile) .modal.mod-settings input.slider {
 }
 
 body:not(.is-mobile) .modal.mod-settings {
-  min-width: 600px;
+  min-width: var(--settingsMinWidth);
   height: 100%;
 }
 
@@ -1397,7 +1366,7 @@ body:not(.css-settings-manager):not(.is-mobile) .modal-container:has(.mod-settin
   margin-left: 40px;
   height: 100%;
   width: 90%;
-  min-width: 600px;
+  min-width: var(--settingsMinWidth);
 }
 
 body:not(.is-mobile) .css-settings-manager .modal-container:has(.mod-settings) {
@@ -1443,7 +1412,7 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   min-width: unset;
   min-height: var(--settingsHSize);
   max-height: var(--settingsHSize);
-  min-width: 800px;
+  min-width: var(--settingsMinWidth);
   max-width: var(--settingsWSize);
   margin-left: calc(var(--settingsOffsetX) + 40px);
   margin-bottom: var(--settingsOffsetY);
@@ -1539,17 +1508,17 @@ body:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace-tab-header-cont
 }
 .insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed)) .workspace-tabs .workspace-tab-header-container .sidebar-toggle-button.mod-right {
   position: absolute;
-  right: calc(0px - var(--handleSize) - var(--sidebarTabHeight));
+  right: calc(0px - var(--handleSize) - 40px);
   height: var(--sidebarTabHeight);
-  width: var(--sidebarTabHeight);
+  width: 40px;
   z-index: 10;
 }
 .insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed)) .workspace-tabs .workspace-tab-header-container .sidebar-toggle-button.mod-right .clickable-icon {
-  width: var(--sidebarTabHeight);
+  width: 40px;
   height: var(--sidebarTabHeight);
 }
 .insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed)) .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
-  margin-left: var(--sidebarTabHeight);
+  margin-left: 40px;
 }
 
 body.is-frameless:not(.is-hidden-frameless):not(.is-fullscreen) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
@@ -1853,6 +1822,23 @@ body {
 .tabTitleCentered .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-title {
   margin-left: 0px;
   text-align: center;
+}
+
+.workspace-tabs:not(.mod-top) {
+  --dragSpaceHeight: 0px;
+}
+
+body:not(.stackTabs).editorDragSpace .mod-root .workspace-tabs .workspace-tab-header-container .workspace-tab-header-container-inner {
+  width: 100%;
+  margin-right: 80px;
+}
+body:not(.stackTabs).editorDragSpace .mod-root .workspace-tabs .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header {
+  max-width: 200px;
+}
+body:not(.stackTabs).editorDragSpace .mod-root .workspace-tabs .workspace-tab-header-container .workspace-tab-header-new-tab {
+  position: absolute;
+  right: 40px;
+  top: var(--dragSpaceHeight);
 }
 
 .is-hidden-frameless:not(.is-fullscreen):not(.mod-macos) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
@@ -2857,6 +2843,14 @@ body:not(.inherit) .mod-left-split .workspace-tabs {
 body:not(.inherit) .mod-right-split .workspace-tabs {
   background-color: var(--bottom);
 }
+body:not(.inherit) .workspace-leaf-resize-handle {
+  background-color: var(--level1);
+  border-color: var(--level1);
+}
+body:not(.inherit) .workspace-leaf-resize-handle:hover {
+  background-color: var(--level1_a);
+  border-color: var(--level1_a);
+}
 body:not(.inherit) body {
   --ribbon-background: var(--bottom);
   --ribbon-background-collapsed: var(--bottom);
@@ -3212,13 +3206,13 @@ body:not(.disableBevels) .mod-right-split .workspace-tab-header {
 body:not(.disableBevels) :is(.mod-left-split, .mod-right-split) .workspace-tab-container .nav-header .nav-buttons-container .clickable-icon {
   height: calc(var(--sidebarDashboardHeight) - 6px);
 }
-body:not(.disableBevels) .mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner {
+body:not(.disableBevels):not(.leftAlignedLeftSidebarButtonDisable) .mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner {
   margin-right: 1px;
 }
 body:not(.disableBevels) .mod-right-split .workspace-tab-header-container .workspace-tab-header-container-inner {
   margin-left: 1px;
 }
-body:not(.disableBevels) .workspace-drawer-vault-actions {
+body:not(.disableBevels) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
   margin-right: calc(var(--handleSize) + 1px);
 }
 body:not(.disableBevels) .community-item.is-selected,
@@ -3229,10 +3223,26 @@ body:not(.disableBevels) .titlebar-button-container .titlebar-button {
   box-shadow: var(--bevelStyleButton);
 }
 
+body.inherit {
+  --topBackgroundFocusAbstraction: var(--background-secondary-alt) ;
+}
+
+body:not(.is-focused).inherit {
+  --topBackgroundFocusAbstraction: var(--background-secondary) ;
+}
+
 body.inherit .workspace-split.mod-root .workspace-tabs,
 body.inherit .mod-horizontal.mod-right-split .workspace-tabs {
-  background-color: var(--background-secondary-alt);
+  background-color: var(--topBackgroundFocusAbstraction);
 }
 body.inherit .sidebar-toggle-button.mod-right {
-  background-color: var(--background-secondary-alt);
+  background-color: var(--topBackgroundFocusAbstraction);
+}
+body.inherit .workspace-leaf-resize-handle {
+  background-color: #363636;
+  border-color: #363636;
+}
+body.inherit .workspace-leaf-resize-handle:hover {
+  background-color: #454545;
+  border-color: #454545;
 }/*# sourceMappingURL=theme.css.map */
