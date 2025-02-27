@@ -145,6 +145,16 @@ settings:
 		step: 0.05
 		format: 
 	- 
+		id: this-is-a-heading-a
+		title: DTM08 Specific Settings
+		type: heading
+		level: 3
+		collapsed: true
+	-
+		id: dtm08GradientEditorMode
+		title: Enable Gradient in Editor Mode
+		type: class-toggle
+	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Shared UI Components (Scrollbar, Drag bars, Resize bars, Ribbon...)
 		type: heading
@@ -341,10 +351,10 @@ settings:
 	-
 		id: rightSidebarButtonAlignment
 		title: Right Sidebar Button Alignment
-		description: Colors in window. If you add another theme before this, it will be used in "inherit", or just the usual Obsidian colors.
+		description: "This determines the alignment of the sidebar button.\n **titlebarAlign**: Acts as a fourth button on the titlebar.\n **outsideSidebar**: Creates a button on the outside of the sidebar to the right - this is the default behavior.\n **insideSidebar**: Creates a button inside the sidebar to the left."
 		type: class-select
 		allowEmpty: false
-		default: accentMicroMike
+		default: titlebarAlign_RBA
 		options:
 			- titlebarAlign_RBA
 			- outsideSidebar_RBA
@@ -633,6 +643,10 @@ body {
   --levelHover: #ffffff11;
   --separatorColor: #ffffff18;
   --separatorColorSettings: #ffffff24;
+  --textBrighter: #dddddd;
+  --nav-indentation-guide-color: var(--separatorColor);
+  --divider-color-hover: var(--nav-item-background-active);
+  --collapse-icon-color: var(--icon-color);
   --bevelBright1: #a3a5aa99;
   --bevelBright2: #8B8D9199;
   --bevelDark1: #5A5A5A99;
@@ -641,13 +655,9 @@ body {
   --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
   --bevelStyleContainerOuter: 1px 1px var(--bevelBright1), -1px -1px var(--bevelDark2), -2px -2px var(--bevelDark1), 2px 2px var(--bevelBright2), -2px 0px var(--bevelDark1), 0px -2px var(--bevelDark1), -2px 2px var(--bevelBright2), 2px -2px var(--bevelBright2);
   --link-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
-  --textBrighter: #dddddd;
   --settingsHeaderGradient: linear-gradient(90deg, #ffffff33 0%, rgba(0,0,0,0) 80%);
   --disabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(0,0,0,0.50) 100%);
   --enabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(255,255,255,0.11) 100%);
-  --collapse-icon-color: var(--icon-color);
-  --nav-indentation-guide-color: var(--separatorColor);
-  --divider-color-hover: var(--nav-item-background-active);
 }
 
 body:not(.is-phone) .horizontal-tab-nav-item.is-active,
@@ -1015,6 +1025,10 @@ body {
 
 .workspace-leaf-content[data-mode=source] .view-content {
   background-color: #000000;
+}
+
+.dtm08GradientEditorMode .workspace-leaf-content[data-mode=source] .view-content {
+  background: linear-gradient(90deg, #363636 0px, #000000 30px);
 }
 
 body {
@@ -4114,36 +4128,36 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
   border-top: solid 1px rgba(0, 0, 0, 0.7333333333);
 }
 
-.dtm08 .modal.mod-settings .modal-content .vertical-tab-header .vertical-tab-header-group .vertical-tab-nav-item, .dtm08 .workspace-ribbon .clickable-icon {
+.dtm08 .modal.mod-settings .modal-content .vertical-tab-header .vertical-tab-header-group .vertical-tab-nav-item, .dtm08 .workspace-ribbon :not(.sidebar-toggle-button) .clickable-icon, .dtm08 .modal-container .prompt .suggestion-item {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5333333333);
 }
-.dtm08 .modal.mod-settings .modal-content .vertical-tab-header .vertical-tab-header-group .vertical-tab-nav-item:hover, .dtm08 .workspace-ribbon .clickable-icon:hover {
+.dtm08 .modal.mod-settings .modal-content .vertical-tab-header .vertical-tab-header-group .vertical-tab-nav-item:hover, .dtm08 .workspace-ribbon :not(.sidebar-toggle-button) .clickable-icon:hover, .dtm08 .modal-container .prompt .suggestion-item:hover {
   background: linear-gradient(rgba(55, 59, 66, 0.5333333333), rgba(63, 67, 75, 0.5333333333) 50%, rgba(47, 51, 58, 0.5333333333) 50%, rgba(39, 43, 49, 0.5333333333));
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1333333333), 0 1px 2px rgba(0, 0, 0, 0.5333333333);
 }
-.dtm08 .modal.mod-settings .modal-content .vertical-tab-header .vertical-tab-header-group .vertical-tab-nav-item:active, .dtm08 .workspace-ribbon .clickable-icon:active {
+.dtm08 .modal.mod-settings .modal-content .vertical-tab-header .vertical-tab-header-group .vertical-tab-nav-item:active, .dtm08 .workspace-ribbon :not(.sidebar-toggle-button) .clickable-icon:active, .dtm08 .modal-container .prompt .suggestion-item:active {
   background: linear-gradient(var(--d8dB), var(--d8dC) 50%, var(--d8dB) 50%, var(--d8dA));
   box-shadow: inset 0 1px 4px #000, 0 1px rgba(255, 255, 255, 0.1333333333);
 }
-.dtm08 .modal.mod-settings .modal-content .vertical-tab-header .vertical-tab-header-group .is-active.vertical-tab-nav-item, .dtm08 .workspace-ribbon .is-active.clickable-icon {
+.dtm08 .modal.mod-settings .modal-content .vertical-tab-header .vertical-tab-header-group .is-active.vertical-tab-nav-item, .dtm08 .workspace-ribbon :not(.sidebar-toggle-button) .is-active.clickable-icon, .dtm08 .modal-container .prompt .is-active.suggestion-item {
   background: linear-gradient(var(--d8d8), var(--d8d7) 50%, var(--d8d9) 50%, var(--d8dA));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.0666666667), inset 0 1px rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.7333333333), 0 1px 3px rgba(0, 0, 0, 0.5333333333);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9333333333);
 }
 
-.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button, .dtm08 body:not(.is-mobile).dtm08 .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
-.dtm08 body:not(.is-mobile).dtm08 .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon, .dtm08 .sidebar-toggle-button, .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon, .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header, .dtm08 .workspace-tab-header-new-tab .clickable-icon {
+.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button, .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
+.dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon, .dtm08 .sidebar-toggle-button, .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon, .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header, .dtm08 .workspace-tab-header-new-tab .clickable-icon {
   border: solid 1px #000;
   background: linear-gradient(var(--d8d7), var(--d8d9) 50%, var(--d8dA) 50%, var(--d8d9));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 1px rgba(255, 255, 255, 0.0666666667);
 }
-.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button:hover, .dtm08 body:not(.is-mobile).dtm08 .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:hover,
-.dtm08 body:not(.is-mobile).dtm08 .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:hover, .dtm08 .sidebar-toggle-button:hover, .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon:hover, .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover, .dtm08 .workspace-tab-header-new-tab .clickable-icon:hover {
+.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button:hover, .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:hover,
+.dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:hover, .dtm08 .sidebar-toggle-button:hover, .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon:hover, .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover, .dtm08 .workspace-tab-header-new-tab .clickable-icon:hover {
   background: linear-gradient(var(--d8d6), var(--d8d8) 50%, var(--d8d9) 50%, var(--d8d8));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 1px rgba(255, 255, 255, 0.0666666667);
 }
-.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button:not(:first-of-type), .dtm08 body:not(.is-mobile).dtm08 .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:not(:first-of-type),
-.dtm08 body:not(.is-mobile).dtm08 .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:not(:first-of-type), .dtm08 .sidebar-toggle-button:not(:first-of-type), .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon:not(:first-of-type), .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:not(:first-of-type), .dtm08 .workspace-tab-header-new-tab .clickable-icon:not(:first-of-type) {
+.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button:not(:first-of-type), .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:not(:first-of-type),
+.dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:not(:first-of-type), .dtm08 .sidebar-toggle-button:not(:first-of-type), .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon:not(:first-of-type), .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:not(:first-of-type), .dtm08 .workspace-tab-header-new-tab .clickable-icon:not(:first-of-type) {
   margin-left: -1px;
 }
 
@@ -4158,6 +4172,20 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
 }
 .dtm08 .modal.mod-settings .modal-content button:active {
   background: linear-gradient(to bottom, var(--d8d7) 0%, var(--d8d6) 50%, var(--d8d8) 50%, var(--d8d7) 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7333333333), inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), inset 0 1px rgba(255, 255, 255, 0.1333333333), inset 0 -1px rgba(0, 0, 0, 0.1333333333), 0 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.dtm08 .modal.mod-settings .modal-content button.mod-cta {
+  background: linear-gradient(to bottom, var(--d8br5) 0%, var(--d8br6) 50%, var(--d8br8) 50%, var(--d8brA) 100%);
+  text-shadow: 0 -1px #000, 0 1px 3px rgba(0, 0, 0, 0.2666666667);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7333333333), inset 0 0 0 1px rgba(255, 255, 255, 0.2666666667), inset 0 1px rgba(255, 255, 255, 0.2666666667), inset 0 -1px rgba(0, 0, 0, 0.5333333333), 0 0 1px 2px rgba(255, 255, 255, 0.1333333333);
+}
+.dtm08 .modal.mod-settings .modal-content button.mod-cta:hover {
+  background: linear-gradient(to bottom, var(--d8br3) 0%, var(--d8br4) 50%, var(--d8br7) 50%, var(--d8br9) 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7333333333), inset 0 0 0 1px rgba(255, 255, 255, 0.2666666667), inset 0 1px rgba(255, 255, 255, 0.5333333333), inset 0 -1px rgba(102, 102, 102, 0.1333333333), 0 0 3px 2px rgba(255, 255, 255, 0.4);
+}
+.dtm08 .modal.mod-settings .modal-content button.mod-cta:active {
+  background: linear-gradient(to bottom, var(--d8brA) 0%, var(--d8br9) 50%, var(--d8brB) 50%, var(--d8brA) 100%);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7333333333), inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), inset 0 1px rgba(255, 255, 255, 0.1333333333), inset 0 -1px rgba(0, 0, 0, 0.1333333333), 0 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
@@ -4657,6 +4685,9 @@ body.dtm08 {
 .dtm08 .workspace-leaf-content[data-mode=source] .view-content {
   background-color: #000000;
 }
+.dtm08.dtm08GradientEditorMode .workspace-leaf-content[data-mode=source] .view-content {
+  background: transparent;
+}
 
 .dtm08 .modal-container .prompt {
   background: linear-gradient(rgba(63, 67, 75, 0.8666666667), rgba(32, 35, 41, 0.8666666667));
@@ -4664,6 +4695,14 @@ body.dtm08 {
           backdrop-filter: blur(8px);
   border: solid 1px #000;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 2px 10px 5px rgba(0, 0, 0, 0.7333333333);
+}
+.dtm08 .modal-container .prompt .prompt-input {
+  background: linear-gradient(var(--d8dD) 0%, var(--d8dC) 50%, var(--d8dB) 50%, var(--d8dA) 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), inset 0 1px 4px #000;
+}
+.dtm08 .modal-container .prompt .suggestion-item {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) {
@@ -4739,18 +4778,46 @@ body.dtm08 {
 .dtm08 .modal.mod-settings .modal-content .vertical-tab-content-container .vertical-tab-content {
   background: linear-gradient(var(--d8d9), var(--d8dB)) fixed 0 0/cover;
 }
+.dtm08 .modal.mod-settings .modal-content button {
+  color: var(--textBrighter);
+}
 .dtm08 .sidebar-toggle-button {
   width: 40px;
   height: 40px;
+  border-bottom-width: 0px;
 }
 .dtm08 .sidebar-toggle-button .clickable-icon {
   width: 40px;
   height: 40px;
 }
+.dtm08.leftAlignedLeftSidebarButtonDisable .sidebar-toggle-button.mod-left {
+  border-left: 0px;
+}
+.dtm08:not(.leftAlignedLeftSidebarButtonDisable) .sidebar-toggle-button.mod-left {
+  border-right: 0px;
+}
+.dtm08.titlebarAlign_RBA .sidebar-toggle-button.mod-right {
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom-width: 1px;
+}
+.dtm08.insideSidebar_RBA .sidebar-toggle-button.mod-right {
+  border-right: 0px;
+}
+.dtm08.outsideSidebar_RBA .sidebar-toggle-button.mod-right {
+  border-left: 0px;
+}
+.dtm08 .workspace:not(.is-left-sidedock-open) .sidebar-toggle-button.mod-left {
+  border-right: 0px;
+}
 
-.dtm08 body:not(.is-mobile).dtm08 .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+.dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
   margin-bottom: -1px;
 }
+.dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher {
+  border-right: 0px;
+}
+
 .dtm08 {
   /*
   .workspace-tab-header-container-inner
@@ -4763,6 +4830,11 @@ body.dtm08 {
   	bottom: -1px;
   }
   */
+  /*
+  &:not(.disableRightTitlebarOffset) .mod-top-right-space .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:last-of-type
+  {
+  	border-right: 0px;
+  }*/
 }
 .mod-root .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header {
   border-radius: 6px 6px 0 0;
