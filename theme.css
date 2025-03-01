@@ -826,6 +826,18 @@ body {
   color: var(--textBrighter);
 }
 
+.workspace-leaf-content[data-type=file-explorer] .tree-item-self.is-clickable {
+  box-shadow: var(--bevelStyleTop);
+}
+
+.workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
+  box-shadow: var(--bevelStyleTreeItem_invert);
+}
+
+.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable {
+  box-shadow: var(--bevelStyleTreeItem);
+}
+
 .tree-item-self .tree-item-icon {
   order: 0;
 }
@@ -874,16 +886,6 @@ body {
   padding: 0px;
   margin: 0px;
   gap: 0px;
-}
-
-/* Animation Disabler */
-*, *:after, *:before {
-  /*CSS transitions*/
-  transition-property: none !important;
-  transition: none !important;
-  /*CSS transforms*/
-  /*CSS animations*/
-  animation: none !important;
 }
 
 .blendDropdown .menu {
@@ -1089,26 +1091,24 @@ body {
   background-color: var(--levelLayer);
 }
 
-.nav-files-container > div > .tree-item.nav-folder::before {
-  content: "";
-  position: sticky;
-  top: 0px;
+.workspace-leaf-content {
+  animation: 0.01s fade cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 @media only screen and (max-width: 900px) {
-  body:not(.disableMiniMode) .mod-right-split {
+  body:not(.disableMiniMode):not(.stackTabs) .mod-right-split {
     display: none;
   }
-  body:not(.disableMiniMode) .mod-left-split {
+  body:not(.disableMiniMode):not(.stackTabs) .mod-left-split {
     display: none;
   }
-  body:not(.disableMiniMode) .workspace-ribbon {
+  body:not(.disableMiniMode):not(.stackTabs) .workspace-ribbon {
     display: none;
   }
-  body:not(.disableMiniMode) .status-bar {
+  body:not(.disableMiniMode):not(.stackTabs) .status-bar {
     display: none;
   }
-  body:not(.disableMiniMode) .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
+  body:not(.disableMiniMode):not(.stackTabs) .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
     --frame-right-space: var(--rightFrameSetTo);
     margin-right: var(--frame-right-space);
   }
@@ -3873,7 +3873,7 @@ body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-hidden-frameless:not(.is-ful
   background-color: var(--bottom);
 }
 
-body:not(.disableBevels) {
+body {
   --bevelStyleFile: inset 1px 1px var(--separatorColor);
   --bevelStyleFileHover: inset 1px 1px var(--separatorColor);
   --bevelStyleFolder: inset 1px 1px var(--separatorColor);
@@ -3924,7 +3924,6 @@ body:not(.disableBevels) {
   	border-left:1px solid var(--separatorColor);
   }
   	*/
-  /* Outline */
   /*
   .workspace-leaf-content[data-type=outline] .tree-item-inner
   {
@@ -4021,15 +4020,6 @@ body:not(.disableBevels) :is(.workspace-leaf-content[data-type=markdown], .works
 body:not(.disableBevels) .markdown-preview-view .markdown-embed,
 body:not(.disableBevels) .markdown-preview-view .file-embed {
   box-shadow: var(--bevelStyleContainer);
-}
-body:not(.disableBevels) .workspace-leaf-content[data-type=file-explorer] .tree-item-self.is-clickable {
-  box-shadow: var(--bevelStyleTop);
-}
-body:not(.disableBevels) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
-  box-shadow: var(--bevelStyleTreeItem_invert);
-}
-body:not(.disableBevels) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable {
-  box-shadow: var(--bevelStyleTreeItem);
 }
 body:not(.disableBevels) .explorable.titlebar-button {
   box-shadow: var(--bevelStyleButton);
@@ -4145,7 +4135,7 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9333333333);
 }
 
-.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button, .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
+.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button, .dtm08.stackTabs .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header, .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher,
 .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon, .dtm08 .sidebar-toggle-button, .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon, .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header, .dtm08 .workspace-tab-header-new-tab .clickable-icon {
   border: solid 1px #000;
   background: linear-gradient(var(--d8d7), var(--d8d9) 50%, var(--d8dA) 50%, var(--d8d9));
@@ -4809,6 +4799,7 @@ body.dtm08 {
 }
 .dtm08 .workspace:not(.is-left-sidedock-open) .sidebar-toggle-button.mod-left {
   border-right: 0px;
+  border-bottom-width: 1px;
 }
 
 .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
