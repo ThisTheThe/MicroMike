@@ -12,25 +12,28 @@ Featuring many unique styles accumulated over 2 years of development:
 | ![Image 1](https://i.imgur.com/Rn6q0aS.png) "classicMicroMike"| ![Image 2](https://i.imgur.com/q1O8pEV.png) "inherit"|
 
 Features:
+
 * Zoomed out, high-density view for:
 	* File browser
  	* Outline
  	* Tags
  	* Backlinks/Outlinks
 
-https://i.imgur.com/NXGEkgz.png
+* No more padding gaps! No more missed clicks! Buttons are generally larger, and they take up all the space they can.
+
+![25-03-12_23-40-09-867](https://github.com/user-attachments/assets/30e5f090-0e2a-48e9-9daf-d7069cee1ab7)
 
 * Settings menu boasts many new features:	
 	* Left aligned controls make it clear which control belongs to which
 	* Higher density layout
 	* Fully configurable positioning
+   	* Quickly preview how your changes make obsidian look with "Settings Hover Preview".
 
 <img src="https://i.imgur.com/IWuTIBf.png" alt="Image description" width="300" height="200">
 
 * Prompt menu has higher density.
 
 <img src="https://i.imgur.com/q9MROkd.png" alt="Image description" width="300" height="200">
-
 
 * Automatically generated "toplinks" section (LYT/Ideaverse), modified from the "Show backlinks at the bottom of notes".
 
@@ -44,13 +47,19 @@ https://i.imgur.com/NXGEkgz.png
 
 ![Image 1](https://i.imgur.com/za1tIrI.png)
 
-* Visually distinctive, colorful icons. 
-* Further modified Quick Explorer dropdowns
+* Optional Windows 7 window frame.
+* Also demonstrated: If you resize the window width down enough, Obsidian enters "notepad" mode, shedding the sidebars and status bar for convenient low-scale notetaking.
+
+![Obsidian_25-03-12_11PM-58-09_429](https://github.com/user-attachments/assets/7b91fa49-e90d-43a0-b807-335519775c98)
+
+* File browser supports word wrapping on titles.
+
+![Obsidian_25-03-13_12AM-06-28_091](https://github.com/user-attachments/assets/4327d2f5-db41-4458-a304-412294b79bea)
+
+* Visually distinctive, colorful skeuomorphic icons.
 * Left-aligned readable line length for eye movement convenience. Size can be configured.
 * Consistent line size in editor.
-* Sidebar button panel scales with sidebar width.
 * Larger sidebar resize bars (configurable).
-* Button boundaries are clearly defined.
 * You can click buttons on the edge of the window when fullscreen (with some exceptions).
 * Scroll-free options (unless you have > 25ish plugins).
 * Clear indication of whether you are in preview / editor mode.
