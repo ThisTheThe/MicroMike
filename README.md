@@ -6,7 +6,7 @@ Micro Mike is a high-density retro-style interface with a focus on mouse & eye e
 
 Featuring many unique styles accumulated over 2 years of development: 
 
-| Image 1 | Image 2 |
+|  | |
 |---------|---------|
 | ![Image 3](https://i.imgur.com/4Jx5Atd.png) "accentMicroMike"| ![Image 4](https://i.imgur.com/jSTlpRI.png) "dtm08"|
 | ![Image 1](https://i.imgur.com/Rn6q0aS.png) "classicMicroMike"| ![Image 2](https://i.imgur.com/q1O8pEV.png) "inherit"|
@@ -35,7 +35,7 @@ Features:
 
 <img src="https://i.imgur.com/q9MROkd.png" alt="Image description" width="300" height="200">
 
-* Automatically generated "toplinks" section (LYT/Ideaverse), modified from the "Show backlinks at the bottom of notes".
+* Automatically generated "toplinks" section (re LYT/Ideaverse), modified from the "Show backlinks at the bottom of notes".
 
 ![Image 1](https://i.imgur.com/NXGEkgz.png)
 
@@ -76,7 +76,7 @@ It natively supports:
 
 If you would like support added for another plugin, feel free to file an issue. 
 
-This theme is derived from:
+Older versions of this theme are derived from:
 * https://github.com/SMUsamaShah/Obsidian-Win98-Edition
 * https://github.com/zcysxy/Obsidian-Terminal-Theme
 * https://github.com/chetachiezikeuzor/Yin-and-Yang-Theme
