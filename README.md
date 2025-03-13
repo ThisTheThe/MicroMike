@@ -4,7 +4,7 @@ Micro Mike is a high-density retro-style interface with a focus on mouse & eye e
 
 ![](https://i.imgur.com/jSTlpRI.png)
 
-Featuring many unique styles accumulated over 2 years of development: 
+With many unique styles accumulated over 2 years of development: 
 
 |  | |
 |---------|---------|
