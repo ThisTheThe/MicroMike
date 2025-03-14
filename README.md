@@ -45,7 +45,7 @@ Features:
 ![Image 1](https://i.imgur.com/za1tIrI.png)
 
 * Optional Windows 7 window frame.
-* Also demonstrated: If you resize the window width down enough, Obsidian enters "notepad" mode, shedding the sidebars and status bar for convenient low-scale notetaking.
+* Also demonstrated: If you resize the window width down enough, Obsidian enters "notepad" mode, shedding the sidebars and status bar for convenient space-efficient notetaking.
 
 ![Obsidian_25-03-12_11PM-58-09_429](https://github.com/user-attachments/assets/7b91fa49-e90d-43a0-b807-335519775c98)
 
