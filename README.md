@@ -6,10 +6,7 @@ Micro Mike is a high-density retro-style interface with a focus on mouse & eye e
 
 With many unique styles accumulated over 2 years of development: 
 
-|  | |
-|---------|---------|
-| ![Image 3](https://i.imgur.com/4Jx5Atd.png) "accentMicroMike"| ![Image 4](https://i.imgur.com/jSTlpRI.png) "dtm08"|
-| ![Image 1](https://i.imgur.com/Rn6q0aS.png) "classicMicroMike"| ![Image 2](https://i.imgur.com/q1O8pEV.png) "inherit"|
+![cmoppiledSSet](https://github.com/user-attachments/assets/fbe2e8af-ee70-41ad-b85c-c0a174a41f29)
 
 Features:
 
