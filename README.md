@@ -73,6 +73,10 @@ It natively supports:
 
 If you would like support added for another plugin, feel free to file an issue. 
 
+Portions of the code are derived from:
+* https://khang-nd.github.io/7.css/
+* https://github.com/XYZenix/DTM-08
+
 Older versions of this theme are derived from:
 * https://github.com/SMUsamaShah/Obsidian-Win98-Edition
 * https://github.com/zcysxy/Obsidian-Terminal-Theme
