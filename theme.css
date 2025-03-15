@@ -232,7 +232,21 @@ settings:
 		id: disableToplinks
 		title: Disable Toplinks
 		description: By default, Micro Mike modifies the Backlinks plugin's optional footer display to display at the top a simple set of links leading to your current document. 
+		type: class-toggle	
+	- 
+		id: disableSimpleEditor
+		title: Disable Simple Editor
+		description: This switch disables the line-height focused modifications to the editor.
 		type: class-toggle
+	-
+		id: lineMultiplier
+		title: Line Height Multiplier
+		description: Line height for simple editor. 
+		type: variable-number-slider
+		default: 1.25
+		min: 1
+		max: 2
+		step: 0.05
 	- 
 		id: disableSECodeblock
 		title: Disable Simple Editor Code Block
@@ -1020,7 +1034,7 @@ body {
   display: none;
 }
 
-body {
+body:not(.disableSimpleEditor) {
   --h1-line-height: var(--line-height-normal);
   --h2-line-height: var(--line-height-normal);
   --h3-line-height: var(--line-height-normal);
@@ -1032,8 +1046,9 @@ body {
   --h5-size: 1em;
   --h6-size: 1em;
   --p-spacing: 0px;
-  --line-height-normal: 1.25em;
-  --margin-scale: calc(var(--font-text-size) * 1.25);
+  --lineMultiplier: 1.25;
+  --line-height-normal: calc(1em * var(--lineMultiplier));
+  --margin-scale: calc(var(--font-text-size) * var(--lineMultiplier));
   --anp-font-preview-wt: 200;
   --anp-font-editor-wt: 200;
   --list-spacing: 0px;
@@ -1049,43 +1064,39 @@ body {
   margin-right: auto;
 }
 
-.markdown-rendered div:is(.el-p, .el-pre, .el-table, .el-ul, .el-ol) + div > :is(h1, h2, h3, h4, h5, h6),
-.markdown-rendered :is(p, pre, table, ul, ol) + :is(h1, h2, h3, h4, h5, h6),
-.markdown-rendered .markdown-preview-section :is(p, h1, h2, h3, h4, h5, h6) {
+body:not(.disableSimpleEditor) .markdown-rendered div:is(.el-p, .el-pre, .el-table, .el-ul, .el-ol) + div > :is(h1, h2, h3, h4, h5, h6),
+body:not(.disableSimpleEditor) .markdown-rendered :is(p, pre, table, ul, ol) + :is(h1, h2, h3, h4, h5, h6),
+body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(p, h1, h2, h3, h4, h5, h6) {
   margin-top: var(--margin-scale);
 }
-
-.markdown-rendered .markdown-preview-section blockquote :is(p, h1, h2, h3, h4, h5, h6):first-of-type {
+body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section blockquote :is(p, h1, h2, h3, h4, h5, h6):first-of-type {
   margin-top: 0;
 }
-
-.markdown-rendered .markdown-preview-section :is(h1, h2, h3, h4, h5, h6) {
+body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(h1, h2, h3, h4, h5, h6) {
   margin-bottom: var(--margin-scale);
 }
-
-.markdown-rendered .markdown-preview-section :is(h1, h2, h3, h4, h5, h6) + div p {
+body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(h1, h2, h3, h4, h5, h6) + div p {
   margin-top: 0;
 }
-
-.markdown-rendered .markdown-preview-section .mod-header + div :is(p, h1, h2, h3, h4, h5, h6) {
+body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section .mod-header + div :is(p, h1, h2, h3, h4, h5, h6) {
   margin-top: 0;
 }
-
-.markdown-rendered div:is(.el-ul, .el-ol) {
+body:not(.disableSimpleEditor) .markdown-rendered div:is(.el-ul, .el-ol) {
   margin-top: var(--margin-scale);
 }
-
-.markdown-rendered hr {
+body:not(.disableSimpleEditor) .markdown-rendered hr {
   margin-top: calc(var(--margin-scale) * 1.5);
   height: calc(var(--margin-scale) * 0.5);
   margin-bottom: 0px;
 }
-
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+body:not(.disableSimpleEditor) .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
   padding-left: 5px;
 }
+body:not(.disableSimpleEditor) .footnote-ref {
+  vertical-align: text-bottom;
+}
 
-body:not(.disableSECodeblock) .markdown-rendered pre {
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre {
   padding: 0px;
   margin: 0px;
   padding-left: 5px;
@@ -1094,33 +1105,29 @@ body:not(.disableSECodeblock) .markdown-rendered pre {
   margin-bottom: var(--margin-scale);
 }
 
-body:not(.disableSECodeblock) .markdown-rendered pre:before {
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre:before {
   content: "```";
   display: block;
 }
 
-body:not(.disableSECodeblock) .markdown-rendered pre:after {
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre:after {
   content: "```";
   display: block;
 }
 
-.footnote-ref {
-  vertical-align: text-bottom;
-}
-
-body:not(.disableSECallout) .callout {
+body:not(.disableSECallout):not(.disableSimpleEditor) .callout {
   padding: 0px;
   padding-left: 5px;
   margin-top: var(--margin-scale);
   margin-bottom: var(--margin-scale);
 }
 
-body:not(.disableSECallout) .markdown-rendered .markdown-preview-section :is(.callout-content) > *:first-of-type {
+body:not(.disableSECallout):not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(.callout-content) > *:first-of-type {
   margin-top: 0px;
 }
 
 .cm-sizer, .markdown-preview-sizer {
-  max-width: var(--editorSize);
+  max-width: var(--file-line-width);
 }
 
 .workspace-leaf-content[data-mode=preview] .view-content {
@@ -1445,6 +1452,10 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   background-color: var(--level1_a);
   min-height: 40px;
   width: 40px;
+}
+
+.mod-dim .modal-bg {
+  opacity: 0 !important;
 }
 
 .modal.mod-settings .vertical-tab-header {
@@ -2936,6 +2947,15 @@ body.win7bar {
 body.win7bar:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
   right: 7px;
   margin-top: var(--dragSpaceHeight);
+}
+
+body.win7bar:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+  right: 7px;
+  margin-top: var(--dragSpaceHeight);
+}
+
+body.win7bar:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace:not(.is-right-sidedock-open) .sidebar-toggle-button.mod-right {
+  margin-top: 0px;
 }
 
 /* Config */
