@@ -7,5 +7,14 @@ body.win7bar
 body.win7bar:not(.outsideSidebar_RBA):not(.insideSidebar_RBA)  .workspace-tab-header-container .sidebar-toggle-button.mod-right {
     right: 7px;
 	margin-top: var(--dragSpaceHeight);
+}
 
+body.win7bar:not(.outsideSidebar_RBA):not(.insideSidebar_RBA)  .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+    right: 7px;
+	margin-top: var(--dragSpaceHeight);
+}
+
+body.win7bar:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace:not(.is-right-sidedock-open) .sidebar-toggle-button.mod-right
+{
+	margin-top: 0px;
 }

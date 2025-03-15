@@ -11,4 +11,21 @@
             "savePathReplacementPairs": null
         }
     ]
+	"multiCommand.commands": [
+    {
+        "command": "multiCommand.down3Lines",
+        "sequence": [
+            "cursorDown",
+            "cursorDown",
+            "cursorDown"
+        ]
+    },
+    {
+        "command": "multiCommand.sassComboSave",
+        "sequence": [
+            "liveSass.command.oneTimeCompileSass",
+            "workbench.action.files.save"
+        ]
+    }
+]
 }

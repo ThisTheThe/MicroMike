@@ -1,5 +1,5 @@
 @use 'std'
-body
+body:not(.disableSimpleEditor)
      --h1-line-height: var(--line-height-normal)
      --h2-line-height: var(--line-height-normal)
      --h3-line-height: var(--line-height-normal)
@@ -12,8 +12,10 @@ body
      --h6-size: 1em
      --p-spacing: 0px
 
-     --line-height-normal: 1.25em
-     --margin-scale: calc(var(--font-text-size) * 1.25)
+     --lineMultiplier: 1.25
+
+     --line-height-normal: calc(1em * var(--lineMultiplier))
+     --margin-scale: calc(var(--font-text-size) * var(--lineMultiplier))
 
      --anp-font-preview-wt: 200
      --anp-font-editor-wt: 200
@@ -28,35 +30,39 @@ body
     margin-left: auto
     margin-right: auto
 
-.markdown-rendered div:is(.el-p,.el-pre,.el-table,.el-ul,.el-ol) + div > :is(h1,h2,h3,h4,h5,h6),
-.markdown-rendered :is(p,pre,table,ul,ol) + :is(h1,h2,h3,h4,h5,h6), 
-.markdown-rendered .markdown-preview-section :is(p,h1,h2,h3,h4,h5,h6)
-    margin-top: var(--margin-scale) // calc(var(--font-text-size) * var(--line-height-normal))
+body:not(.disableSimpleEditor)
+    .markdown-rendered div:is(.el-p,.el-pre,.el-table,.el-ul,.el-ol) + div > :is(h1,h2,h3,h4,h5,h6),
+    .markdown-rendered :is(p,pre,table,ul,ol) + :is(h1,h2,h3,h4,h5,h6), 
+    .markdown-rendered .markdown-preview-section :is(p,h1,h2,h3,h4,h5,h6)
+        margin-top: var(--margin-scale) // calc(var(--font-text-size) * var(--line-height-normal))
 
-.markdown-rendered .markdown-preview-section blockquote :is(p,h1,h2,h3,h4,h5,h6):first-of-type
-    margin-top: 0
+    .markdown-rendered .markdown-preview-section blockquote :is(p,h1,h2,h3,h4,h5,h6):first-of-type
+        margin-top: 0
 
-.markdown-rendered .markdown-preview-section :is(h1,h2,h3,h4,h5,h6)
-    margin-bottom: var(--margin-scale)
+    .markdown-rendered .markdown-preview-section :is(h1,h2,h3,h4,h5,h6)
+        margin-bottom: var(--margin-scale)
 
-.markdown-rendered .markdown-preview-section :is(h1,h2,h3,h4,h5,h6)+div p
-    margin-top: 0
+    .markdown-rendered .markdown-preview-section :is(h1,h2,h3,h4,h5,h6)+div p
+        margin-top: 0
 
-.markdown-rendered .markdown-preview-section .mod-header+ div :is(p,h1,h2,h3,h4,h5,h6)
-    margin-top: 0
+    .markdown-rendered .markdown-preview-section .mod-header+ div :is(p,h1,h2,h3,h4,h5,h6)
+        margin-top: 0
 
-.markdown-rendered div:is(.el-ul,.el-ol)
-    margin-top: var(--margin-scale)
+    .markdown-rendered div:is(.el-ul,.el-ol)
+        margin-top: var(--margin-scale)
 
-.markdown-rendered hr
-    margin-top: calc(var(--margin-scale) * 1.5)
-    height: calc(var(--margin-scale) * 0.5)
-    margin-bottom: 0px
+    .markdown-rendered hr
+        margin-top: calc(var(--margin-scale) * 1.5)
+        height: calc(var(--margin-scale) * 0.5)
+        margin-bottom: 0px
 
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock
-    padding-left: 5px
+    .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock
+        padding-left: 5px
 
-body:not(.disableSECodeblock) .markdown-rendered pre
+    .footnote-ref
+        vertical-align: text-bottom
+
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre
     padding: 0px
     margin: 0px
     padding-left: 5px
@@ -66,23 +72,20 @@ body:not(.disableSECodeblock) .markdown-rendered pre
     margin-top: var(--margin-scale)
     margin-bottom: var(--margin-scale)
 
-body:not(.disableSECodeblock) .markdown-rendered pre:before
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre:before
     content: "```"
     display: block
 
-body:not(.disableSECodeblock) .markdown-rendered pre:after
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre:after
     content: "```"
     display: block
 
-.footnote-ref
-    vertical-align: text-bottom
-
-body:not(.disableSECallout) .callout 
+body:not(.disableSECallout):not(.disableSimpleEditor) .callout 
     padding: 0px
     padding-left: 5px
 
     margin-top: var(--margin-scale)
     margin-bottom: var(--margin-scale)
 
-body:not(.disableSECallout) .markdown-rendered .markdown-preview-section :is(.callout-content) > *:first-of-type
+body:not(.disableSECallout):not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(.callout-content) > *:first-of-type
     margin-top: 0px

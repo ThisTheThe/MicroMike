@@ -197,7 +197,21 @@ settings:
 		id: disableToplinks
 		title: Disable Toplinks
 		description: By default, Micro Mike modifies the Backlinks plugin's optional footer display to display at the top a simple set of links leading to your current document. 
+		type: class-toggle	
+	- 
+		id: disableSimpleEditor
+		title: Disable Simple Editor
+		description: This switch disables the line-height focused modifications to the editor.
 		type: class-toggle
+	-
+		id: lineMultiplier
+		title: Line Height Multiplier
+		description: Line height for simple editor. 
+		type: variable-number-slider
+		default: 1.25
+		min: 1
+		max: 2
+		step: 0.05
 	- 
 		id: disableSECodeblock
 		title: Disable Simple Editor Code Block
