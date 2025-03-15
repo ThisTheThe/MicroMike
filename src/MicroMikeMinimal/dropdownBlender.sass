@@ -1,0 +1,24 @@
+@use 'std'
+.blendDropdown .menu
+	word-wrap: none
+	white-space: nowrap
+	text-overflow: clip
+	background-color: #111111
+	padding: 1px
+	border: none
+	.menu-item
+		height: 20px
+		line-height: 1em
+		font-size: 12px
+		padding-left: 2px
+		&.selected:not(.is-disabled):not(.is-label),
+		&:hover:not(.is-disabled):not(.is-label)
+			background: linear-gradient(180deg, #7AA3E5 0%, #5680C1 100%)
+			color: #000
+			svg
+				color: #000
+	.menu-separator
+		position: relative
+		width: 200%
+		left: -1px
+		margin: 2px auto

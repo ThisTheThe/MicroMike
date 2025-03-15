@@ -1,0 +1,35 @@
+body
+{
+	--topBackgroundFocusAbstraction: var(--background-secondary-alt)
+}
+body:not(.is-focused)
+{
+	--topBackgroundFocusAbstraction: var(--background-secondary)
+}
+body:is(.inherit, .dtm08)
+{
+//Tabs
+.workspace-split.mod-root .workspace-tabs,
+.mod-horizontal.mod-right-split .workspace-tabs
+{
+	background-color:var(--topBackgroundFocusAbstraction);
+}
+
+//Right Sidebar Button
+.sidebar-toggle-button.mod-right
+{
+	background-color:var(--topBackgroundFocusAbstraction);
+}
+//Resize Bars
+.workspace-leaf-resize-handle
+{
+	background-color: #363636;
+	border-color: #363636;
+}
+.workspace-leaf-resize-handle:hover
+{
+	background-color: #454545;
+	border-color: #454545;
+}
+
+}

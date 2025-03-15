@@ -1,0 +1,26 @@
+.suggestion-container:not(.mod-search-suggestion)
+  max-width: 33%
+  width: 100%
+  height: calc( var(--font-text-size) * 24 + 2px)
+  border-radius: 0
+  border-width: 1px 0 1px 0
+  padding: 0 10px 0 10px
+  margin-top: -5px
+  box-shadow: none
+  align-content: center
+
+.suggestion 
+  max-height: 100%
+
+.suggestion-item
+  padding: 0 0 0 3px
+  border-width: 0
+  border-bottom:1px solid var(--lineColor)
+
+
+
+body:not(.showSuggestionDirectory) .suggestion-item .suggestion-note
+  display: none
+
+.suggestion-hotkey
+  height:18px

@@ -1,0 +1,31 @@
+body
+	--levelLayer: #ffffff18
+	--levelHover: #ffffff11
+	--separatorColor: #ffffff18
+	--separatorColorSettings: #ffffff24
+
+	--textBrighter: #dddddd
+	--nav-indentation-guide-color: var(--separatorColor)
+	--divider-color-hover: var(--nav-item-background-active)
+
+	--collapse-icon-color: var(--icon-color)
+
+
+	--bevelBright1: #a3a5aa99
+	--bevelBright2: #8B8D9199
+	--bevelDark1: #5A5A5A99
+	--bevelDark2: #7A767299
+
+	--bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1)
+	--bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1)
+	--bevelStyleContainerOuter: 1px 1px var(--bevelBright1), -1px -1px var(--bevelDark2), -2px -2px var(--bevelDark1), 2px 2px var(--bevelBright2), -2px 0px var(--bevelDark1), 0px -2px var(--bevelDark1), -2px 2px var(--bevelBright2), 2px -2px var(--bevelBright2)
+
+	--link-color: hsl(var(--accent-h), var(--accent-s), var(--accent-l))
+
+	--settingsHeaderGradient: linear-gradient(90deg, #ffffff16 0%, rgba(0,0,0,0) 80%)
+	--disabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(0,0,0,0.16) 100%)
+	--enabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(255,255,255,0.04) 100%)
+
+body:not(.is-phone) .horizontal-tab-nav-item.is-active, 
+body:not(.is-phone) .vertical-tab-nav-item.is-active
+	background-color: var(--nav-item-background-active)

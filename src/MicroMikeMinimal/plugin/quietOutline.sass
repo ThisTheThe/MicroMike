@@ -1,0 +1,48 @@
+@use 'std'
+
+.view-content:has(> .quiet-outline)
+	@include std.noPadding
+	.function-bar
+		height: var(--sidebarDashboardHeight)
+		> *
+			height: var(--sidebarDashboardHeight)
+		button
+			@include std.noCover
+			border-radius: 0px
+			display: flex
+			flex-basis: 10%
+		div
+			@include std.noCover
+			border-radius: 0px
+			display: flex
+			flex-basis: 80%
+			.n-input__input 
+				margin-left: 5px
+				.n-input__input-el
+					margin-left: 5px
+					height: var(--sidebarDashboardHeight)
+
+.oz-folder-line
+	height: 15px
+	.oz-folder-block
+		@include std.noPadding
+		.oz-folder-name
+			line-height: 13px
+	.oz-folder-toggle, .oz-folder-element, .oz-icon-div
+		line-height: 13px
+
+.LazyLoad 
+	height: 15px !important
+.oz-nav-file-title
+	@include std.noPadding
+	line-height: 13px
+
+.n-tree-node
+	.n-tree-node-content
+		.n-tree-node-content__text
+			@include std.noCover
+			line-height: 1.2em
+
+.n-input .n-input-wrapper
+	//@include std.noPadding
+	padding-left: 0px

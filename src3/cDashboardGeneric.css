@@ -1,9 +1,0 @@
-/* Component: Dashboard */
-
-.view-header,
-.mod-left-split .nav-header,
-.mod-right-split .nav-header
-{
-	min-height:40px;
-	padding:0px;
-}

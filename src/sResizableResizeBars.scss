@@ -1,0 +1,9 @@
+/* 
+	Resizable Resize Bars
+	This snippet allows for a configurable width on the "resize handles" that determine the width of the sidebars.
+	Why? It's very precise to click the handles normally. If you do that often, you might find it a useful quality-of-life improvement.
+	Width value can be configured with Style Settings.
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/s_resizeBars.scss";
+@use "MicroMikeMinimal/Resizebars.sass";

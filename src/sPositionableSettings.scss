@@ -1,0 +1,13 @@
+/* 
+	Positionable Settings
+	Intended with Style Settings
+	This allows for granular control of the size and position of the settings window.
+	Options: 
+	* Which corner to anchor in, or centered
+	* Height/width in percentages
+	* X/Y offsets in pixels
+	* Minimum width in pixels
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/s_settingsPositioning.scss";
+@use "MicroMikeMinimal/settingsPositioning.sass";

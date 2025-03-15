@@ -1,0 +1,117 @@
+@use 'std'
+
+.modal-container:has(.mod-settings)
+	align-items: flex-start
+	.modal.mod-settings
+		height: 100%
+		width: 90%
+		min-width: 600px
+		.vertical-tab-header-group
+			@include std.noPadding
+			.vertical-tab-header-group-title, .vertical-tab-header-group-items
+				@include std.noPadding
+				font-size: 18px
+				margin-top: 5px
+				color: var(--text-normal)
+				.vertical-tab-nav-item
+					@include std.noPadding
+		.vertical-tab-content
+			@include std.noPadding
+			padding-left: 5px
+		.modal-close-button
+			display: none
+	
+		
+
+.modal.mod-settings
+	:is(h1,h2,h3,h4,h5,h6)
+		font-size: 20px
+		padding-top: 5px
+		padding-left: calc(10px + var(--settingsLeftColumnLength))
+		padding-bottom: 5px
+		line-height: 26px
+		margin-left: -5px
+		background: linear-gradient(0deg, var(--levelLayer) 0%, rgba(0,0,0,0) 100%)
+
+	.setting-item
+		@include std.noPadding
+		
+		padding-top: 5px 
+		padding-bottom: 5px 
+		.setting-item-info
+			.setting-item-description
+				padding-top: 0px
+				
+		.setting-item-control
+			gap: 5px
+			margin-right: 10px
+			.dropdown, .search-input-container
+				text-wrap: wrap
+				padding-top: 5px
+				padding-bottom: 5px
+				display: flex
+		&-heading
+			margin-left: -5px
+			background: linear-gradient(0deg, var(--levelLayer) 0%, rgba(0,0,0,0) 100%)
+			.setting-item-name
+				font-size: 20px
+
+		
+body:not(.disableLeftAlignSettings)
+	.modal.mod-settings
+		.vertical-tab-content:not(.file-explorer-plus)
+			.setting-item-control
+				order: -1
+				flex-grow: 0
+				flex-shrink: 0
+				min-width: var(--settingsLeftColumnLength)
+				margin-right: 10px
+				max-width: var(--settingsLeftColumnLength)
+				flex-wrap: wrap
+				.dropdown, .search-input-container
+					text-wrap: wrap
+					max-width: var(--settingsLeftColumnLength)
+					height: initial
+					padding-top: 5px
+					padding-bottom: 5px
+					display: flex
+				textarea
+					max-width: var(--settingsLeftColumnLength)
+
+.setting-item-control div[aria-label="Open themes folder"] + .dropdown
+	width: 160px
+
+.largeSettingsButtons .modal.mod-settings .clickable-icon
+	background-color: var(--level1_a)
+	min-height: 40px
+	width: 40px
+
+.modal.mod-settings
+	top: unset
+	left: unset
+	height: unset
+	.settingsNAlign &
+		top: 0%
+	.settingsNEAlign &
+		top: 0%
+		right: 0%
+	.settingsEAlign &
+		right: 0%
+	.settingsSEAlign &
+		bottom: 0%
+		right: 0%
+	.settingsSAlign &
+		bottom: 0%
+	.settingsSWAlign &
+		bottom: 0%
+		left: 0%
+	.settingsWAlign &
+		left: 0%
+	.settingsNWAlign &
+		top: 0%
+		left: 0%
+	height: var(--settingsHSize)
+	width: var(--settingsWSize)
+
+	margin-left: var(--settingsOffsetX + 40px)
+	margin-bottom: var(--settingsOffsetY)

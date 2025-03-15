@@ -1,0 +1,39 @@
+@use 'std'
+:is(.mod-left-split, .mod-right-split)
+	.workspace-tab-header-container
+		@include std.noCover
+		height: var(--sidebarTabHeight)
+		
+		.workspace-tab-header-container-inner
+			@include std.noPadding
+			width: 100%
+			.workspace-tab-header
+				flex-grow: 1
+				height: var(--sidebarTabHeight)
+				
+			.workspace-tab-header-inner
+				@include std.noPadding
+				display: flex
+				flex: 1 1 1px
+
+		.workspace-tab-header-tab-list
+			display: none
+
+	.workspace-tabs.mod-top .workspace-tab-header-container
+		height: calc(var(--sidebarTabHeight) + var(--dragSpaceHeight))
+		.workspace-tab-header-container-inner
+			margin-top: var(--dragSpaceHeight)
+
+// This fixes some issues with the clickability of the buttons on the right side of the screen (right sidebar, tabs, right sidebar toggle)
+
+.is-hidden-frameless:not(.is-fullscreen) .mod-right-split .workspace-tabs.mod-top-right-space .workspace-tab-header-container,
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container
+	padding-right: 0px
+	margin-right: var(--frame-right-space)
+
+.workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
+	display: none
+
+.cornerDragLocation .mod-left-split .workspace-tab-header-container-inner
+	margin-left: 40px
+ 

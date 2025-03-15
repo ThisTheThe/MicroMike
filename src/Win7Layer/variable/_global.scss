@@ -1,0 +1,51 @@
+.ref body {
+  font-family: "Segoe UI", "SegoeUI", "Noto Sans", sans-serif;
+  font-size: 9pt;
+  color: #222222;
+}
+
+.ref .surface {
+  background: var(--surface);
+}
+
+.ref h1 {
+  font-size: 5rem;
+}
+
+.ref h2 {
+  font-size: 2.5rem;
+}
+
+.ref h3 {
+  font-size: 2rem;
+}
+
+.ref h4 {
+  font-size: 1.5rem;
+}
+
+.ref u {
+  text-decoration: none;
+  border-bottom: 0.5px solid #222222;
+}
+
+.ref code {
+  &,
+  * {
+    font-family: monospace;
+  }
+}
+
+.ref pre {
+  display: block;
+  margin: 0;
+  padding: 12px 8px;
+  background: #fff;
+  border: 1px solid var(--button-border-color);
+}
+
+.ref summary {
+  &:focus-visible {
+    outline: 1px dotted #000;
+  }
+}

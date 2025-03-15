@@ -1,0 +1,18 @@
+@media only screen and (max-width: 900px)
+	body:not(.disableMiniMode)
+		.mod-right-split 
+			display: none
+		.mod-left-split
+			display: none
+		.workspace-ribbon
+			display: none
+		.status-bar
+			display: none
+		//We need to make titlebar space when the right sidebar disappears.
+		.workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container
+			--frame-right-space: var(--rightFrameSetTo)
+			margin-right: var(--frame-right-space)
+	//But don't do this with stackTabs.
+	body.stackTabs:not(.disableMiniMode)
+		.workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container
+			margin-right: 0px

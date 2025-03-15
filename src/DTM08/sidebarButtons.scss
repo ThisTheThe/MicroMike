@@ -1,0 +1,51 @@
+@use 'components';
+
+.dtm08
+{
+.sidebar-toggle-button
+{
+	@extend %buttonArray;
+	width: 40px;
+	height: 40px;
+	border-bottom-width: 0px;
+	
+	.clickable-icon
+	{
+		width: 40px;
+		height: 40px;
+	}
+}
+
+&.leftAlignedLeftSidebarButtonDisable .sidebar-toggle-button.mod-left
+{
+	border-left: 0px;
+}
+&:not(.leftAlignedLeftSidebarButtonDisable) .sidebar-toggle-button.mod-left
+{
+	border-right: 0px;
+}
+
+&.titlebarAlign_RBA .sidebar-toggle-button.mod-right
+{
+	border-right: 0px;
+	border-left: 0px;
+	border-bottom-width: 1px;
+}
+
+&.insideSidebar_RBA .sidebar-toggle-button.mod-right
+{
+	border-right: 0px;
+}
+
+&.outsideSidebar_RBA .sidebar-toggle-button.mod-right
+{
+	border-left: 0px;
+}
+
+.workspace:not(.is-left-sidedock-open) .sidebar-toggle-button.mod-left
+{
+	border-right: 0px;
+	border-bottom-width: 1px;
+}
+
+}

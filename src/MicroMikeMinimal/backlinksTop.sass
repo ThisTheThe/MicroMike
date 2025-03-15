@@ -1,0 +1,54 @@
+@use 'std'
+// New TopLinks ႟
+
+:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer)
+	display: flex
+	flex-direction: column
+	:is(.embedded-backlinks, .mod-footer)
+		@include std.noCover
+		order: -1
+		min-height: unset !important
+		&:has(> .backlink-pane > .search-result-container > .search-empty-state)
+			display: none
+		.nav-header
+			display: none
+		.backlink-pane
+			> .tree-item-self
+				display: none
+			.search-result-container
+				@include std.noPadding
+				padding-bottom: 10px
+				border-bottom: 2px solid var(--hr-color)
+				margin-bottom: 10px
+				.search-results-children
+					display: flex
+					flex-wrap: wrap
+					.search-result
+						display: flex
+						.search-result-file-matches
+							display: none
+						.search-result-file-title.tree-item-self.is-clickable
+							//height: calc(var(--font-text-size) * 1.50)
+							&:hover 
+								background-color: transparent
+							.tree-item-icon
+								display: none
+							.tree-item-flair-outer
+								display: none
+							.tree-item-inner
+								line-height: 35px
+								font-size: var(--font-text-size)
+								white-space: nowrap
+								color: var(--link-color)
+								&:hover
+									color: var(--link-color-hover)
+									//text-decoration-line: var(--link-decoration-hover)
+									&::before
+										text-decoration-line: none
+										text-decoration: none
+								&::before
+									content: "႟"
+									color: var(--text-normal)
+								&::after 
+									content: ""
+									color: var(--text-normal)

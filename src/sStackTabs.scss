@@ -1,0 +1,10 @@
+/* 
+	THIS IS OBSOLETE. DO NOT RELEASE.
+	Stacked Tabs
+	Unlike other implementations, these stacked tabs are literally just Obsidian's tabs, but stacked vertically to the left. 
+	This can be desirable for users with lots of tabs - you move your eyes less, and the tabs' titles won't be compressed by density.
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/s_stackTabs.scss";
+@use "MicroMikeMinimal/tabs.sass";
+@use "Snippets/ss_tabsStacked.sass";

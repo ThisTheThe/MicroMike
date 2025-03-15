@@ -1,0 +1,7 @@
+/* 
+	Nearer Total Numbers
+	This modifies how the number in the search, tags, backlinks/outlinks, etc works. 
+	It moves it to the left	alongside the text, which makes it easier and less ambiguous which number belongs to which word.
+*/
+@use "Snippets/aPreamble.scss";
+@use "MicroMikeMinimal/cTreeView-tagRightAlign.sass";

@@ -1,0 +1,76 @@
+@use 'components';
+
+.dtm08
+{
+	.modal.mod-settings
+	{
+		.modal-content
+		{
+			background: linear-gradient(var(--d8d9), var(--d8dB)) fixed 0 0 / cover;
+			.vertical-tab-header
+			{
+				margin-left: 5px;	
+				background: linear-gradient(to right, #0003, #0002 5%, #0000 25%);
+				box-shadow: -1px 0 #fff1, inset 1px 0 #0008;
+				background: linear-gradient(var(--d8dA), var(--d8dC)) fixed 0 0 / cover;
+				
+				.vertical-tab-header-group
+				{
+					.vertical-tab-header-group-title
+					{
+						background-image: var(--settingHeaderBG);
+						min-height: 31px;
+						font-weight: 800;
+						font-size: 12px;
+						vertical-align: middle;
+						line-height: 31px;
+						color: #eee;
+						text-shadow: 0 1px 3px #0008;
+						/*
+						&:before
+						{
+							content: "";
+							display: block;
+							position: absolute;
+							top: 0;
+							left: 0;
+							right: 0;
+							bottom: 0;
+							mask: linear-gradient(to right, #000, #0000);
+							-webkit-mask: linear-gradient(to right, #000, #0000);
+
+							background: linear-gradient(var(--d8dA), var(--d8d9) 50%, var(--d8dB) 50%, var(--d8dD));
+							box-shadow: inset 0 -1px #000, 0 -1px #000;
+							z-index: 0;
+						}
+							*/
+					}
+					.vertical-tab-nav-item
+					{
+						@extend %verticalMenuButton;
+						border-bottom: 0px;
+						padding-top: 2px;
+						padding-bottom: 2px;
+					}
+				}
+			}
+			.vertical-tab-content-container 
+			{
+				.vertical-tab-content
+				{
+					background: linear-gradient(var(--d8d9), var(--d8dB)) fixed 0 0 / cover;
+				}
+			}
+			button
+			{
+				@extend %settingsButton;
+				
+				color: var(--textBrighter);
+			}
+			button.mod-cta
+			{
+				@extend %settingsButtonAccent;
+			}
+		}
+	}
+}

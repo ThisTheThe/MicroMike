@@ -1,0 +1,19 @@
+body
+{
+	--settingsLeftColumnLength: 200px;
+}
+/* @settings
+name: Left Aligned Settings Controls
+id: ScrollBar
+settings:
+	-
+		id: settingsLeftColumnLength
+		title: Left Column Width
+		description: The width of the controls' column.
+		type: variable-number-slider
+		default: 200
+		min: 150
+		max: 350
+		step: 2
+		format: px
+*/

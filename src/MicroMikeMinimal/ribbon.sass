@@ -1,0 +1,18 @@
+@use 'std'
+body
+	--ribbon-width: 40px
+
+.workspace-ribbon.mod-left
+	@include std.noPadding
+	flex-basis: var(--ribbon-width)
+	margin-top: var(--ribbonButtonHeight)
+
+	.side-dock-settings, .side-dock-actions
+		gap: 0px
+	
+	.clickable-icon
+		@include std.noPadding
+		width: var(--ribbon-width)
+		height: var(--ribbonButtonHeight)
+	.sidebar-toggle-button.mod-left
+		@include std.noPadding

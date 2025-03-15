@@ -1,0 +1,19 @@
+body
+{
+	--scrollBarSize: 20px;
+}
+/* @settings
+name: Scroll Bar
+id: ScrollBar
+settings:
+	-
+		id: scrollBarSize
+		title: Scroll Bar Size
+		description: The width of the scrollbar on the side. 
+		type: variable-number-slider
+		default: 16
+		min: 4
+		max: 30
+		step: 2
+		format: px
+*/

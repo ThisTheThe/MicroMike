@@ -1,0 +1,622 @@
+//accentMicroMike mode, which is default
+body
+{
+	--linkBrightnessAdditive: 1
+}
+
+body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08)
+{
+	/* Hierarchical palette */
+	--bottom: #000000;
+	--bottom_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 6% ));
+	--bottom_b: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 12% ));
+	--level1: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 18% ));
+	--level1_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 24% ));
+	--level1_b: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 27% ));
+	--level2: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 27% ));
+	--level2_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% ));
+	--level2_b: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 33% ));
+	--level3: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 33% ));
+	--level3_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 36% ));
+	/* Bevels */
+	--bevelBright1: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 35% + 40%), 50%);
+	--bevelBright2: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 25% + 40% ), 50%);
+	--bevelDark1: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 20% + 25% ), 50%);
+	--bevelDark2: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensityBevel) * 20% + 35% ), 50%);
+	--lineColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 40% + 20%), 50%);
+
+	--link-color: hsl(var(--accent-h), var(--accent-s), calc(var(--linkBrightnessAdditive) * 50% ));
+	--link-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--linkBrightnessAdditive) * 50% + 10%));
+	/*
+	*/
+	/*
+	--bevelBright1: red;
+	--bevelBright2: green;
+	--bevelDark1: yellow;
+	--bevelDark2: purple;
+	*/
+	/*
+	--levelLayer: #ffffff18;
+	--levelHover: #ffffff11;
+	*/
+	--levelLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 12%);
+	--levelHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
+	--buttonLayer: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 24%);
+	--buttonLayerHover: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 36%);
+	--separatorColor: hsla(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 45%), 40%);
+	--nav-item-background-hover: var(--levelHover);
+	--nav-item-background-active: var(--levelHover);
+	/*
+	--icon-color: hsl(var(--accent-h), var(--accent-s), 55%);
+	--icon-color-hover: hsl(var(--accent-h), var(--accent-s), 60%);
+	--icon-color-active: hsl(var(--accent-h), var(--accent-s), 75%);
+	--icon-color-focused: hsl(var(--accent-h), var(--accent-s), 60%);
+	*/
+
+	//Specific variable hacks
+
+	--icon-color: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 30%));
+	--icon-color-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
+	--icon-color-active: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 50%));
+	--icon-color-focused: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 30% + 35%));
+	--tab-text-color-focused-active-current: var(--icon-color-focused);
+
+	--collapse-icon-color: var(--icon-color);
+	--nav-indentation-guide-color: var(--separatorColor);
+	--text-faint: var(--icon-color);
+
+	--settingsHeaderGradient: linear-gradient(90deg, hsla(var(--accent-h), var(--accent-s), 50%, 20%) 0%, rgba(0,0,0,0) 80%);
+	
+	--enabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, hsla(var(--accent-h), var(--accent-s), 50%, 20%) 100%);
+	
+	--code-background: var(--bottom_a);
+
+}
+
+
+//classicMicroMike mode 
+body.classicMicroMike {
+	--bottom: #000000;
+	--bottom_a:#111111;
+	--bottom_b:#222222;
+	--level1: #333333;
+	--level1_a: #444444;
+	--level1_b: #4b4b4b;
+	--level2: #4b4b4b;
+	--level2_a: #555555;
+	--level2_b: #5b5b5b;
+	--level3: #555555;
+	--level3_a: #666666;
+	--collapseIconColor: #999999;
+	--bevelBright1: #a3a5aa99;
+	--bevelBright2: #8B8D9199;
+	--bevelDark1: #5A5A5A99;
+	--bevelDark2: #7A767299;
+	--levelLayer: #ffffff18;
+	--levelHover: #ffffff11;
+	--separatorColor: #ffffff18;
+
+	--collapse-icon-color: var(--icon-color);
+	--collapse-icon-color-collapsed: var(--icon-color);
+
+	--icon-color-active: #ffffff;
+
+	--disabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(0,0,0,0.33) 100%)
+}
+
+// Pesudo-support for Micro Mike color in non-themed areas; classic & accent
+body:not(.inherit):not(.oldAndroid):not(.dtm08) {
+	--background-primary: var(--level1_a);
+	--background-primary-alt: var(--level1_b);
+	--background-secondary: var(--level1);
+	--background-secondary-alt: var(--level1_a);
+	--modal-border-color: var(--level3);
+	--divider-color: var(--level3);
+	--background-modifier-border: var(--level3);
+	--background-modifier-border-hover: var(--level3_a);
+	--background-modifier-border-focus: var(--level3_a);
+	--text-on-accent-inverted: #ffffff;
+}
+
+
+
+body:not(.inherit):not(.oldAndroid):not(.dtm08)
+{
+/* Button Component */
+&.theme-dark
+{
+	--interactive-normal: var(--level2);
+	--interactive-hover: var(--level2_a);
+}
+/* Dashboard Component */
+.view-header,
+.mod-left-split .nav-header,
+.mod-right-split .nav-header
+{
+	background-color:var(--level2);
+}
+/* Input Component */
+textarea, input.metadata-input-text, input[type='date'], input[type='datetime-local'], input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']
+{
+	background-color:var(--level1);
+}
+input.slider
+{
+	background-color:var(--level2);
+}
+/* Sidebar Container Component*/
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
+.workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
+.workspace-leaf-content[data-type=outline] .view-content,
+.workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
+.workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
+.workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
+.workspace-leaf-content[data-type=starred] .item-list,
+.workspace-leaf-content[data-type=recent-files]
+{
+	background: var(--bottom);
+}
+.workspace-leaf.mod-active,
+.workspace-tabs .workspace-leaf
+{
+	background: var(--bottom);
+}
+/* Sidebar Dashboard Component*/
+.clickable-icon.nav-action-button
+{
+	opacity:1;
+	background-color: var(--level2);
+}
+.clickable-icon.nav-action-button:hover
+{
+	background-color: var(--level2_a);
+}
+.clickable-icon.nav-action-button.is-active
+{
+	background-color: var(--level2_b);
+}
+/* Tree View Component*/
+.tree-item-self
+{
+	color: var(--backgroundDeep);
+}
+.is-clickable .tree-item-icon.collapse-icon {
+	background-color: var(--level1);
+}
+.is-clickable .tree-item-icon.collapse-icon:hover
+{
+	background-color:var(--level1_a);
+}
+.workspace-leaf-content[data-type=outline] .is-clickable .tree-item-icon.collapse-icon:hover
+{
+	background-color:var(--level2);
+}
+
+.tree-item-self:hover, .tree-item-self.is-active
+{
+	background-color:var(--levelHover);
+}
+/* Dropdown */
+.workspace-leaf-content[data-type=empty] .view-header,
+.is-focused .workspace-leaf-content[data-type=empty] .view-header,
+.workspace-leaf-content[data-type=markdown] .view-header,
+.is-focused .workspace-leaf-content[data-type=markdown] .view-header
+{
+	background-color:var(--level2);
+}
+/* Find Tool */
+.document-search-button,
+.document-search-close-button
+{
+	background-color: var(--level2);
+}
+/* Editor Tabs */
+
+.workspace-split.mod-root .workspace-tabs
+{
+	background-color:var(--bottom);
+}
+.mod-root .workspace-tab-header-container
+{
+	background-color:var(--bottom);
+}
+.workspace .mod-root .workspace-tab-header
+{
+	background-color:var(--level1);
+}
+.workspace .mod-root .workspace-tab-header:hover
+{
+	background-color:var(--level1_a);
+}
+.workspace .mod-root .workspace-tab-header.is-active
+{
+	background-color:var(--level1_b);
+}
+.mod-root .workspace-tab-header-new-tab .clickable-icon,
+.mod-root .workspace-tab-header-tab-list .clickable-icon
+{
+	background-color:var(--level1);
+	opacity:1;
+}
+.mod-root .workspace-tab-header-new-tab .clickable-icon:hover,
+.mod-root .workspace-tab-header-tab-list .clickable-icon:hover
+{
+	background-color:var(--level1_a);
+}
+.workspace-tab-header-inner-close-button
+{
+	background-color:var(--level1);
+}
+.workspace-tab-header:hover .workspace-tab-header-inner-close-button
+{
+	background-color:var(--level1_a);
+}
+.workspace-tab-header.is-active .workspace-tab-header-inner-close-button
+{
+	background-color:var(--level2);
+}
+.workspace-tab-header .workspace-tab-header-inner-close-button:hover
+{
+	background-color:var(--level2_b);
+}
+/* Stacked Editor Tabs */
+.stackTabs .mod-root .workspace-tab-header-container-inner
+{
+	background-color: var(--bottom);
+}
+
+/* Editor View */
+.workspace-split.mod-root .view-content
+{
+	background-color: var(--bottom);
+}
+.workspace-leaf-content[data-mode="preview"] .view-content
+{
+	//background: linear-gradient(90deg, var(--bottom) 0%, var(--level2) 5px, var(--level1) 15px, rgba(0,0,0,1) 30px);
+	background: linear-gradient(90deg, var(--level1) 0px, #000000 30px)
+	
+}
+
+
+/* Embeds */
+.markdown-preview-view .markdown-embed:hover
+{
+	background-color:var(--bottom);
+}
+/* File Browser */
+ // Vault name in f
+.workspace-leaf-content[data-type="file-explorer"] .mod-root>.tree-item-self
+{
+	background-color: var(--level1);
+}
+
+/* Update */
+/*
+body:not(.is-grabbing) .tree-item-self.is-clickable:hover
+{
+	color: var(--nav-item-color);
+	background-color:var(--level1_a);
+}
+body:not(.is-grabbing) .tree-item-self.is-clickable.nav-file-title:hover
+{
+	color: var(--nav-item-color);
+	background-color:var(--bottom_a);
+}
+body:not(.is-grabbing) .nav-file-title.tree-item-self.is-clickable:hover
+body:not(.is-grabbing) .nav-folder-title.tree-item-self.is-clickable:hover
+{
+	background-color:var(--level1_a);
+	color: var(--nav-item-color);
+}
+body:not(.is-grabbing) .tree-item-self.is-clickable.nav-file-title.is-active:hover,
+body:not(.is-grabbing) .tree-item-self.is-clickable.nav-folder-title.is-active:hover,
+.tree-item-self.is-clickable.nav-file-title.is-active,
+.tree-item-self.is-clickable.nav-folder-title.is-active
+{
+	background-color:var(--bottom_b);
+	color: var(--nav-item-color);
+}
+.nav-folder-title.is-active,
+.nav-folder-title.is-selected,
+body:not(.is-grabbing) .nav-folder-title.is-active:hover,
+body:not(.is-grabbing) .nav-folder-title.is-selected:hover
+{
+	background-color:var(--level2);
+}
+body:not(.is-grabbing) .nav-file-title.is-being-dragged,
+body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
+.nav-file-title.is-being-dragged,
+.nav-folder-title.is-being-dragged
+{
+	background-color: var(--interactive-accent);
+}
+.nav-folder-collapse-indicator.collapse-icon svg.svg-icon
+{
+	color:var(--collapseIconColor);
+}
+.nav-folder.mod-root>.nav-folder-title:first-of-type:hover
+{
+	background-color:var(--level1);
+}*/
+/* Outline (specific) */
+
+.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover
+{
+	background-color: var(--levelHover);
+}
+
+/* Quick Explorer */
+.explorable.titlebar-button
+{
+	box-shadow:var(--bevelStyleButton);
+	background-color:var(--level2);
+}
+.explorable.titlebar-button:hover
+{
+	background-color:var(--level2_a);
+}
+#quick-explorer .explorable.selected, #quick-explorer .explorable:hover,
+.qe-popup-menu .menu-item:not(.is-disabled):not(.is-label).selected
+{
+	background-color: var(--level2);
+}
+/* Prompt */
+.prompt
+{
+	background-color:var(--level1);
+}
+input.prompt-input
+{
+	background-color:var(--bottom);
+}
+.modal-bg
+{
+	background-color: unset;
+}
+/* Resize Bars */
+.workspace-split.mod-horizontal.mod-right-split
+{
+	background-color:var(--level1);
+}
+.workspace-split.mod-horizontal.mod-left-split
+{
+	background-color:var(--level1);
+}
+.mod-left-split .workspace-tabs
+{
+	background-color:var(--level1);
+}
+.mod-right-split .workspace-tabs
+{
+	background-color:var(--bottom);
+}
+
+.workspace-leaf-resize-handle
+{
+	background-color: var(--level1);
+	border-color: var(--level1);
+}
+.workspace-leaf-resize-handle:hover
+{
+	background-color: var(--level1_a);
+	border-color: var(--level1_a);
+}
+
+
+/* Ribbon */
+body
+{
+	--ribbon-background: var(--bottom);
+	--ribbon-background-collapsed: var(--bottom);
+}
+.clickable-icon.side-dock-ribbon-action
+{
+	background-color: var(--level1);
+}
+.clickable-icon.side-dock-ribbon-action:hover
+{
+	background-color: var(--level1_a);
+}
+.workspace-ribbon.side-dock-ribbon.mod-left
+{
+	border-right: var(--divider-width) solid var(--line-color);
+}
+/* Settings */
+.modal-bg
+{
+	background-color:transparent;
+}
+.modal.mod-community-theme,
+.modal.mod-community-plugin
+{
+	background-color: var(--level1);
+}
+
+.modal.mod-settings .vertical-tab-header
+{
+	background-color: var(--bottom_b);
+}
+.modal.mod-settings .vertical-tab-content-container
+{
+	background-color: var(--level1);
+}
+.modal.mod-settings .vertical-tab-content
+{
+	background-color: var(--level1);
+}
+
+.dropdown,
+.search-results-info .dropdown
+{
+	background-color:var(--level1_a);
+}
+.dropdown:hover,
+.search-results-info .dropdown:hover
+{
+	background-color:var(--level1_b);
+}
+
+.workspace-leaf-content[data-type="search"]
+{
+	.search-row
+	{
+		background-color: var(--level1);
+		margin: 0px;
+		padding: 6px;
+	}
+	.search-params
+	{
+		margin: 0px;
+		padding: var(--size-4-1) var(--size-4-4);
+		background-color: var(--level1);
+	}
+	.clickable-icon
+	{
+		background-color: var(--level1_a);
+	}
+	.clickable-icon:hover, .clickable-icon.is-active
+	{
+		background-color: var(--level1_b);
+	}
+}
+
+.modal .clickable-icon
+{
+	background-color:var(--level1_a);
+}
+.modal .clickable-icon:hover
+{
+	background-color:var(--level1_b)
+}
+/*
+.checkbox-container
+{
+	background-color:var(--level3);
+}
+.community-modal-details
+{
+	background-color:var(--level1_a);
+}
+*/
+.modal .clickable-icon
+{
+	background-color:var(--level1_a);
+}
+.vertical-tab-nav-item.is-active,
+.vertical-tab-nav-item.is-active:hover
+{
+	background-color: var(--background-modifier-hover);
+}
+/* Sidebar Tabs */
+.mod-left-split .workspace-tab-header-container,
+.mod-right-split .workspace-tab-header-container
+{
+	background-color: var(--bottom);
+}
+.mod-left-split .workspace-tab-header,
+.mod-right-split .workspace-tab-header
+{
+	background-color: var(--level1);
+}
+.mod-left-split .workspace-tab-header:hover,
+.mod-right-split .workspace-tab-header:hover
+{
+	background-color: var(--level1_a);
+}
+.workspace-tab-header:hover
+{
+	background-color: var(--level1_a);
+}
+.workspace-tab-header.is-active
+{
+	background-color: var(--level1_b);
+}
+.workspace-tab-header.is-active:hover,
+.workspace-tab-header.mod-active.is-active:hover
+{
+	background-color: var(--level1_b);
+}
+.mod-left-split .workspace-tab-header.has-active-menu,
+.mod-right-split .workspace-tab-header.has-active-menu,
+.mod-left-split .workspace-tab-header.is-active,
+.mod-right-split .workspace-tab-header.is-active
+{
+	background-color: var(--level1_b);
+}
+@media (hover: hover) {
+	.mod-left-split .workspace-tab-header.has-active-menu:hover,
+	.mod-right-split .workspace-tab-header.has-active-menu:hover,
+	.mod-left-split .workspace-tab-header.is-active:hover,
+	.mod-right-split .workspace-tab-header.is-active:hover {
+		background-color: var(--level1_b);
+	}
+}
+.workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner
+{
+	background-color:transparent;
+}
+/* Sidebar Toggle Left */
+.sidebar-toggle-button.mod-left .clickable-icon
+{
+	background-color:var(--level1);
+}
+	.sidebar-toggle-button.mod-left .clickable-icon:hover
+{
+	background-color:var(--level1_a);
+}
+.is-collapsed .sidebar-toggle-button.mod-left .clickable-icon
+{
+	background-color:var(--level1_b);
+}
+.is-collapsed .sidebar-toggle-button.mod-left .clickable-icon
+{
+	background-color: var(--level2);
+}
+.is-collapsed .sidebar-toggle-button.mod-left .clickable-icon:hover
+{
+	background-color: var(--level2_a);
+}
+/* Sidebar Toggle Right */
+.sidebar-toggle-button.mod-right .clickable-icon
+{
+	background-color:var(--level1);
+}
+.sidebar-toggle-button.mod-right .clickable-icon:hover
+{
+	background-color:var(--level1_a);
+}
+.mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon
+{
+	background-color:var(--level2);
+}
+.mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon:hover
+{
+	background-color:var(--level2_a);
+}
+/* Theme Picker */
+.community-item
+{
+	--background-modifier-border: var(--level3);
+	--background-modifier-border-hover: var(--level3_a);
+}
+.community-item.is-selected,
+.community-item.is-selected:hover
+{
+	border-color: var(--level3_a);
+	background-color: var(--level3);
+}
+.community-modal-details
+{
+	background-color:transparent;
+}
+/* Titlebar */
+.titlebar-button-container .titlebar-button:hover
+{
+	background-color:var(--level2);
+}
+.is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right,
+.is-hidden-frameless:not(.is-fullscreen).is-focused .titlebar-button-container.mod-right
+{
+	background-color:var(--bottom);
+}
+}

@@ -1,0 +1,9 @@
+/* 
+	Resizable Scroll Bar
+	This snippet allows for you to configure the width of the scrollbar.
+	Why? It can be precise to click the scrollbar. If you use it often, you might find adding this makes your workflow more efficient.
+	Width value can be configured with Style Settings.
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/s_scrollbar.scss";
+@use "MicroMikeMinimal/Scrollbar.sass";

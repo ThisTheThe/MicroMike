@@ -1,0 +1,28 @@
+.workspace:not(.is-left-sidedock-open)
+	.workspace-split.mod-horizontal.mod-left-split.is-collapsed
+		display: none !important
+		transition: all 0s !important
+
+.workspace:not(.is-right-sidedock-open)
+	.workspace-split.mod-horizontal.mod-right-split.is-collapsed
+		display: none !important
+		transition: all 0s !important
+
+
+
+.workspace:has(.sidebar-toggle-button.mod-left:active) 
+	.workspace-split.mod-horizontal.mod-left-split
+		display: none !important
+		position: relative
+		left:-9999px
+		.workspace-leaf-resize-handle
+			display: none !important
+
+
+.workspace:not(:has(.sidebar-toggle-button.mod-left:active))
+	.workspace-split.mod-horizontal.mod-left-split
+		transition: left 10s ease !important
+
+
+.workspace-split.mod-horizontal.mod-left-split.is-sidedock-collapsed
+	display: none !important

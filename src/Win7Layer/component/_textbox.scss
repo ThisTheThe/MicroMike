@@ -1,0 +1,28 @@
+.ref input {
+  &[type="text"],
+  &[type="email"],
+  &[type="number"],
+  &[type="password"] {
+    height: 23px;
+  }
+}
+
+.ref input[type="text"],
+.ref input[type="email"],
+.ref input[type="number"],
+.ref input[type="password"],
+.ref textarea {
+  font: var(--font);
+  padding: 3px 4px 5px;
+  border: 1px solid #ccc;
+  border-top-color: var(--button-border-color);
+  border-radius: 2px;
+  background-color: var(--button-highlight);
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: var(--button-shade-light-hovered);
+    border-top-color: var(--button-shade-light-active);
+  }
+}

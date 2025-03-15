@@ -1,0 +1,28 @@
+@use 'std'
+
+
+	
+.setting-item.mod-toggle:has(> .setting-item-control > .checkbox-container:not(.is-enabled))
+	background: var(--disabledOverlay)
+.setting-item.mod-toggle:has(> .setting-item-control > .checkbox-container.is-enabled)
+	background: var(--enabledOverlay)
+
+//Layout changes (cannot be present on mobile)
+
+.modal.mod-settings .modal-close-button
+	display: none
+
+body:not(.is-mobile) .modal.mod-settings input.slider
+	width: calc(var(--settingsLeftColumnLength) - 50px)
+
+body:not(.is-mobile) .modal.mod-settings
+	min-width: var(--settingsMinWidth)
+	height: 100%
+
+body:not(.is-mobile).setting-item-control div[aria-label="Open themes folder"] + .dropdown
+	width: 160px
+
+body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon
+	background-color: var(--level1_a)
+	min-height: 40px
+	width: 40px

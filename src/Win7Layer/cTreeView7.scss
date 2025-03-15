@@ -1,0 +1,70 @@
+
+.workspace-leaf-content[data-type="file-explorer"] .node-insert-event
+{
+    background: #fff;
+    border: 1px solid var(--button-border-color);
+
+	font: var(--font);
+	display: block;
+	margin: 0;
+	padding: 6px 6px 6px var(--treeview-spacing);
+
+	.tree-item
+	{
+    	position: relative;
+
+		.tree-item-icon.collapse-icon 
+		{
+			width: 0px;
+			svg
+			{
+				display: none;
+			}
+		}
+		.tree-item-self.is-clickable
+		{
+			position: relative;
+			left: -20px;
+			width: calc(100% + 20px);
+			.tree-item-inner
+			{
+				margin-left: 20px;
+				text-decoration: none;
+				color: #000;	
+				border: 1px solid transparent;
+			}
+		}
+	}
+	.tree-item-children
+	{
+		border-left:0px;
+	}
+
+}
+.tree-item.nav-folder::before
+{
+	content: "";
+	height: 8px;
+	width: 8px;
+	background-image: var(--icon-tree-minus);
+	position: absolute;
+	z-index: 999;
+	left: -13px;
+	top: 5px;
+}
+.tree-item.nav-folder.is-collapsed::before
+{
+	background-image: var(--icon-tree-plus);
+}
+.tree-item-self.is-clickable:hover .tree-item-inner
+{
+	background: var(--item-hover-background);
+    border: 1px solid #b8d6fb;
+}
+
+.tree-item.nav-folder:not(.is-collapsed) .tree-item-inner,
+.tree-item-self.is-clickable.nav-file-title.is-active .tree-item-inner
+{
+	background: var(--item-hover-background);
+    border: 1px solid #8dc0ff;
+}

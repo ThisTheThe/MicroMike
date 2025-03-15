@@ -1,0 +1,23 @@
+@use 'std'
+
+//Stylistic changes, don't need to disable
+.modal-container .prompt
+	.prompt-input-container
+		margin-top: 5px
+		margin-left: 5px
+		margin-right: 5px
+		input.prompt-input
+			@include std.noPadding
+			padding-left: 5px
+			padding-right: 5px
+			font-size: var(--font-text-size)
+	.prompt-results
+		@include std.noPadding
+		.suggestion-item
+			@include std.noPadding
+			padding-left: 5px
+			padding-top: 3px
+			padding-bottom: 3px
+			&.mod-complex
+				justify-content: flex-start
+

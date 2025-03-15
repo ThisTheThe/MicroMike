@@ -1,0 +1,155 @@
+
+body.oldAndroid
+{
+
+	--brightKeyboardGTop: #BBB7BD;
+	--brightKeyboardGBottom: #88878A;
+	--brightKeyboardGradient: linear-gradient(183deg, var(--brightKeyboardGTop) 0%, var(--brightKeyboardGBottom) 100%);
+	--brightKeyboardHighlight: #D9E5F5;
+
+	--darkKeyboardGTop: #84868a;
+	--darkKeyboardGBottom: #67696b;
+	--darkKeyboardGradient: linear-gradient(183deg, var(--darkKeyboardGTop) 0%, var(--darkKeyboardGBottom) 100%);
+		
+	--keyboardButtonInsetShadow: inset 0px 1px 0px 0px var(--brightKeyboardHighlight);
+	--keyboardButtonOutsideShadow: 0px 0px 0px 1px #000000, 
+	0px 3px 4px 1px #000000;
+
+	--keyboardButtonBoxShadow: var(--keyboardButtonInsetShadow), var(--keyboardButtonOutsideShadow);
+	--keyboardButtonBorderRadius: 6px;
+	--keyboardButtonIconColor: #000;
+	--keyboardButtonIconShadow: 0px 1px var(--brightKeyboardHighlight);
+
+	--dialogGTop: #afafaf;
+	--dialogGBottom: #8d8d8d;
+	--dialogGradient: linear-gradient(183deg, var(--dialogGTop) 0%, var(--dialogGBottom) 100%);
+
+	--buttonSheetLeftSide: inset 1px 0px 0px 0px #bbbbbb;
+	--buttonSheetRightSide: inset -1px 0px 0px 0px #666666;
+	
+	--buttonSheetSeparatorRight: inset 1px 0px 0px 0px #666666, inset 2px 0px 0px 0px #bbbbbb;
+
+	--brightnessLayer1: 1.1;
+	--brightnessLayer2: 1.15;
+}
+
+%styleButtonGeneric
+{
+	background: var(--brightKeyboardGradient);
+	box-shadow: var(--keyboardButtonInsetShadow);
+	border-radius: var(--keyboardButtonBorderRadius);
+
+	svg
+	{
+		color: var(--keyboardButtonIconColor);
+		filter: drop-shadow(var(--keyboardButtonIconShadow));
+	}
+	&:hover
+	{
+		filter: brightness(var(--brightnessLayer1));
+	}
+}
+
+%styleButtonCanActive
+{
+	@extend %styleButtonGeneric;
+	&:hover,
+	&.is-active
+	{
+		filter: brightness(var(--brightnessLayer1));
+	}
+	&.is-active:hover
+	{
+		filter: brightness(var(--brightnessLayer2));
+	}
+}
+
+%styleButtonArray
+{
+	@extend %styleButtonGeneric;
+
+	border-radius: 0px;
+	box-shadow: var(--keyboardButtonInsetShadow), var(--buttonSheetLeftSide), var(--buttonSheetRightSide);
+	
+	&:first-of-type
+	{
+		box-shadow: var(--keyboardButtonInsetShadow), var(--buttonSheetRightSide);
+		border-bottom-left-radius: var(--keyboardButtonBorderRadius);
+		border-top-left-radius: var(--keyboardButtonBorderRadius);
+	}
+	&:last-of-type
+	{
+		box-shadow: var(--keyboardButtonInsetShadow), var(--buttonSheetLeftSide);
+		border-top-right-radius: var(--keyboardButtonBorderRadius);
+		border-bottom-right-radius: var(--keyboardButtonBorderRadius);
+	}
+}
+.oldAndroid
+{
+.workspace-tab-header-new-tab
+{
+	@extend %styleButtonGeneric;
+}
+
+.titlebar-button-container .titlebar-button
+{
+	@extend %styleButtonArray;
+}
+
+.is-focused .mod-active .workspace-tab-header.is-active .workspace-tab-header-inner-title
+{
+	color: var(--keyboardButtonIconColor);
+}
+
+.sidebar-toggle-button:is(.mod-right, .mod-left)
+{
+	.clickable-icon
+	{
+		@extend %styleButtonGeneric;
+	}
+}
+
+.workspace-tab-header-container-inner .workspace-tab-header
+{
+	@extend %styleButtonArray;
+	@extend %styleButtonCanActive;
+
+	.workspace-tab-header-inner-title
+	{
+		color: var(--keyboardButtonIconColor);
+	}
+	.workspace-tab-header-inner-close-button
+	{
+		@extend %styleButtonGeneric;
+		box-shadow: var(--buttonSheetSeparatorRight);
+
+		border-bottom-left-radius: 0px;
+		border-top-left-radius: 0px;
+		&:hover
+		{
+			filter: brightness(var(--brightnessLayer2));
+		}
+	}
+}
+
+.workspace-sidedock-vault-profile
+{
+	.workspace-drawer-vault-switcher
+	{
+		@extend %styleButtonGeneric;
+		.workspace-drawer-vault-name
+		{
+			color: var(--keyboardButtonIconColor);
+		}
+	}
+	.workspace-drawer-vault-actions .clickable-icon
+	{
+		@extend %styleButtonArray;
+	}
+}
+
+.nav-buttons-container .clickable-icon
+{
+	@extend %styleButtonArray;
+}
+}

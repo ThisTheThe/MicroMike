@@ -1,0 +1,16 @@
+@use 'components';
+
+//Resize Bars
+.dtm08 .app-container
+{
+.workspace-leaf-resize-handle
+{
+	background-color: rgba(29,32,37,1);
+	border-color: rgba(29,32,37,1);
+}
+.workspace-leaf-resize-handle:hover
+{
+	background-color: rgba(29,32,37,1);
+	border-color: rgba(29,32,37,1);
+}
+}

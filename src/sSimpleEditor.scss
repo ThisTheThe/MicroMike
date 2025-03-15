@@ -1,0 +1,7 @@
+/* 
+	Simple Editor
+	This snippet enforces a uniform line-height in the editor, no matter what. I find this "pseudo notepad" environment preferable to the more chaotic, jerky formatting shifts that occur switching between modes otherwise.
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/s_simpleEditor.scss";
+@use "MicroMikeMinimal/editorText.sass";

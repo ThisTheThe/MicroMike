@@ -1,0 +1,15 @@
+/* @settings
+name: Simple Editor
+id: SimpleEditor
+settings:
+	- 
+		id: disableSECodeblock
+		title: Disable Simple Editor Code Block
+		description: This switch disables the modified, line-height aligned codeblocks.
+		type: class-toggle
+	- 
+		id: disableSECallout
+		title: Disable Simple Editor Callout
+		description: This switch disables the modified, line-height aligned callout.
+		type: class-toggle
+*/

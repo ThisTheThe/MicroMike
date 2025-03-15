@@ -1,0 +1,56 @@
+/* Resize Bars */
+
+body
+	--divider-width:  var(--handleSize)
+	
+
+//.horizontal-main-container > div:nth-of-type(1) > div:nth-of-type(2)
+
+
+.workspace-split.mod-horizontal.mod-left-split > *:not(hr)
+	padding-right: var(--handleSize)
+
+.workspace-split.mod-horizontal.mod-right-split > *:not(hr)
+	padding-left: var(--handleSize)
+
+.mod-left-split .workspace-tabs
+	padding-bottom: var(--handleSize)
+
+.mod-right-split .workspace-tabs
+	padding-bottom: var(--handleSize)
+
+.workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions 
+	margin-right: calc(var(--handleSize))
+
+.workspace-ribbon.side-dock-ribbon
+	border-right: 0px
+
+.mod-right-split .workspace-tabs:last-of-type,
+.mod-left-split .workspace-tabs:last-of-type
+	padding-bottom: 0
+
+/* Vertical */
+.mod-left-split > hr,
+.mod-right-split > hr
+	width: var(--handleSize) !important
+	right:  calc(0 - var(--handleSize))
+	box-sizing:  border-box
+	display: flex
+	z-index: 99
+	color: transparent
+
+/* Vertical */
+.mod-left-split > hr:hover,
+.mod-right-split > hr:hover
+	color: var(--divider-color-hover)
+
+/* Horizontal */
+.mod-horizontal>div>hr:not(.mod-root hr)
+	display: flex
+	width: 100% !important
+	height: var(--handleSize) !important
+	flex-direction: column-reverse
+	border-bottom: 0px !important
+
+.mod-root .workspace-leaf-resize-handle
+	--divider-width: 3px

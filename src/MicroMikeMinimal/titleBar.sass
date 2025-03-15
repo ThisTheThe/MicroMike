@@ -1,0 +1,28 @@
+@use 'std'
+
+.body.is-frameless.is-hidden-frameless .titlebar
+    height: var(--titlebarButtonHeight)
+
+.titlebar-button-container.mod-right
+    height: var(--titlebarButtonHeight)
+    .titlebar-button
+        @include std.noPadding 
+        width: var(--titlebarButtonWidth)
+        height: var(--titlebarButtonHeight)
+        svg
+            margin: auto
+
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-split.mod-horizontal.mod-right-split .workspace-tab-header-container 
+    padding-right: 0px
+    margin-right: var(--titlebarButtonWidth)
+
+.titlebar-inner,
+.is-focused .titlebar-inner
+    color: var(--icon-color)
+
+body:not(.qe-title-center):not(.qe-title-hide) .titlebar-text.qe-replacement,
+.titlebar-text
+    padding-right: calc(var(--rightFrameSetTo) + 5px)
+
+.titlebar-button-container.mod-right
+    app-region: no-drag

@@ -1,0 +1,40 @@
+@use 'std'
+
+body
+	--nav-item-children-padding-left: 0px
+	--nav-item-children-margin-left: 0px
+
+.workspace-tabs .workspace-leaf .workspace-leaf-content[data-type="file-explorer"] .node-insert-event
+	position: static
+	left: 0px
+
+.nav-files-container
+	@include std.noPadding
+	.nav-folder-title
+		@include std.noPadding
+		//margin-left: var(--outlineLevelWidth)
+	.nav-file-title
+		@include std.noPadding
+	.tree-item-self .tree-item-icon
+		position: static
+		margin-left: 0px
+		&.collapse-icon
+			width: var(--outlineLevelWidth)
+
+.tree-item-icon
+	width: var(--outlineLevelWidth)
+	margin-left: 0px
+	position: static
+
+.mod-root .tree-item-children.nav-folder-children
+	position: relative
+	left: var(--outlineLevelWidth)
+
+.mod-root>.tree-item-children.nav-folder-children
+	position: relative
+	left: 0px
+
+.nav-folder.mod-root .nav-folder > .nav-folder-children
+	padding-left: 0px
+	margin: 0px
+	border-left: 0px

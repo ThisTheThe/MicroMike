@@ -1,0 +1,8 @@
+/* 
+	No Animations
+	This snippet disables animations. It includes a feature to workaround a problem causing the sidebars to close more slowly, and a fix for issues with the file browser display.
+*/
+@use "Snippets/aPreamble.scss";
+@use "MicroMikeMinimal/cNoAnimations.sass";
+@use "MicroMikeMinimal/sidebarFastClose.sass";
+@use "MicroMikeMinimal/cNoAnimations_displayPopFix1.sass";

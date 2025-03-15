@@ -1,0 +1,7 @@
+/* 
+	Dense Settings
+	This makes the settings (both the sidebar and main section) more dense, allowing for more information to be displayed. 
+	Why? It can often be obnoxious navigating the normal Obsidian settings, which give an excess of spacing to the detriment of seeing the full picture.
+*/
+@use "Snippets/aPreamble.scss";
+@use "MicroMikeMinimal/settingsDense.sass";

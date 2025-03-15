@@ -1,0 +1,18 @@
+@use 'std'
+
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile
+	@include std.noCover
+	gap: 0px
+	.workspace-drawer-vault-switcher
+		@include std.noPadding
+		height: 40px
+
+		.workspace-drawer-vault-switcher-icon
+			margin-left: 5px
+			margin-right: 5px
+	.workspace-drawer-vault-actions 
+		span
+			width: 40px
+			height: 40px
+
+

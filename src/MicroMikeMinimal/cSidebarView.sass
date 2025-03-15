@@ -1,0 +1,10 @@
+@use 'std'
+
+body
+	--header-height: var(--sidebarTabHeight)
+
+.nav-files-container, .tag-container
+	@include std.noPadding
+
+.workspace-split.mod-left-split .view-content, .workspace-split.mod-right-split .view-content
+	@include std.noPadding

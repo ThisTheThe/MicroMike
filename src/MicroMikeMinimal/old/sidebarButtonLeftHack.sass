@@ -1,0 +1,30 @@
+@use 'std'
+
+.sidebarLeftButtonHack .mod-top-left-space
+    .workspace-tab-header-container,
+    .workspace-tab-header-container-inner
+        @include std.noPadding
+
+.sidebarLeftButtonHack .sidebar-toggle-button.mod-left,
+.sidebarLeftButtonHack .sidebar-toggle-button.mod-left .clickable-icon
+    width: 40px
+    height: 40px
+
+.sidebarLeftButtonHack
+    --frame-left-space: 40px
+    --ribbonButtonTopOffset: 0px
+    .sidebar-toggle-button.mod-left
+        @include std.noPadding
+        position: fixed
+        z-index: 20
+        app-region: no-drag
+        top: var(--ribbonButtonTopOffset)
+        height: var(--ribbonButtonHeight)
+        width: var(--ribbon-width)
+        .clickable-icon
+            @include std.noPadding
+            width: 100%
+            height: var(--ribbonButtonHeight)
+
+.sidebarLeftButtonHack.is-frameless:not(.is-hidden-frameless)
+    --ribbonButtonTopOffset: 30px

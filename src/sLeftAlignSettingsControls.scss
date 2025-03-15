@@ -1,0 +1,8 @@
+/* 
+	Left Aligned Settings Controls
+	This makes interactable elements in the settings menu left-aligned, pushing against the text. 
+	It makes it much clearer which interactable belongs to which setting, and elegantly sectionally divides the window.
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/s_leftAlignSettings.scss";
+@use "MicroMikeMinimal/settingsLeftAlignSettings.sass";

@@ -1,0 +1,7 @@
+/* 
+	Left Aligned Readable Line Length
+	This snippet will cause the sidebars, title bar, and status bar to disappear when the window is a certain width.
+	It is advised the user change the minimum width that the "mini mode" activates to their preference manually - this can't be changed in GUI due to CSS limitations.
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/ss_leftAlignReadable.scss";

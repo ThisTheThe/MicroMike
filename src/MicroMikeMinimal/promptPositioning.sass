@@ -1,0 +1,41 @@
+
+
+body:not(.is-mobile) .modal-container .prompt
+	position: absolute
+	top: 50%
+	left: 50%
+	height: 50%
+
+.css-settings-manager:not(.is-mobile) .modal-container .prompt
+	position: absolute
+	top: unset
+	left: unset
+
+	min-height: var(--modalHSize)
+	max-height: var(--modalHSize)
+	min-width: var(--modalMinWidth)
+	width: var(--modalWSize)
+	max-width: var(--modalWSize)
+	margin-left: var(--modalOffsetX)
+	margin-bottom: var(--modalOffsetY)
+
+:not(.is-mobile).modalNAlign .modal-container .prompt
+	top: 0%
+:not(.is-mobile).modalNEAlign .modal-container .prompt
+	top: 0%
+	right: 0%
+:not(.is-mobile).modalEAlign .modal-container .prompt
+	right: 0%
+:not(.is-mobile).modalSEAlign .modal-container .prompt
+	bottom: 0%
+	right: 0%
+:not(.is-mobile).modalSAlign .modal-container .prompt
+	bottom: 0%
+:not(.is-mobile).modalSWAlign .modal-container .prompt
+	bottom: 0%
+	left: 0%
+:not(.is-mobile).modalWAlign .modal-container .prompt
+	left: 0%
+:not(.is-mobile).modalNWAlign .modal-container .prompt
+	top: 0%
+	left: 0%

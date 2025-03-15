@@ -1,0 +1,361 @@
+/* Adjustments if obsidian frame enabled */
+body.win7bar.is-frameless:not(.is-hidden-frameless) 
+{
+  padding-top: 27px;
+  .titlebar
+  {
+    --titlebar-height:27px;
+  }
+}
+/* Adjustments if frameless */
+body.win7bar.is-frameless.is-hidden-frameless
+{
+  padding-top: 27px !important;
+  .titlebar
+  {
+    -webkit-app-region: drag;
+    background: var(--window-background);
+    height: 27px;
+  }
+}
+.win7bar.is-hidden-frameless:not(.is-fullscreen).is-focused .titlebar-button-container.mod-right
+{
+  background: rgba(255, 255, 255, 0.2);
+}
+/* hack to fix annoying black dots left-right */
+html:has(> .win7bar)::before
+{
+  content: "";
+  position: absolute;
+  background-color: #f0f0f0;
+  height: 1px;
+  width: calc(100% - 12px);
+  top: 27px;
+  left: 6px;
+  z-index: 30;
+
+}
+html:has(> .win7bar) {
+  box-shadow: 2px 2px 10px 1px var(--window-border-color), inset 0 0 0 1px #fffa;
+  border: var(--window-border) var(--window-border-color);
+  border-radius: var(--window-border-radius);
+  position: relative;
+  z-index: 0;
+  background-color: #000;
+  border:0px;
+  
+  body.obsidian-app
+  {
+    
+    margin: var(--window-spacing);
+    margin-top: 0;
+    border: var(--window-border) var(--window-border-color);
+    background: var(--surface);
+    box-shadow: 0 0 0 1px #fff9;
+    border: var(--window-border) var(--window-border-color);
+    box-shadow: 0 0 0 1px #fff9;
+
+    height: calc(100% - var(--window-spacing));
+    width: calc(100% - var(--window-spacing)*2);
+    .titlebar {
+      font: var(--font);
+      box-shadow: inset 0 0 0 1px #fff9;
+      border: var(--window-border) var(--window-border-color);
+      border-radius: var(--window-border-radius) var(--window-border-radius) 0 0;
+      padding: var(--window-spacing);
+      padding-top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--window-background);
+      background-color: var(--window-background-color);
+      border: 0;
+      box-shadow: inset 0 1px 0 #fffd, inset 1px 0 0 #fffd, inset -1px 0 0 #fffd;
+
+      height:27px;
+      .titlebar-text
+      {
+        color: #000;
+        letter-spacing: 0;
+        padding: 0px;
+        padding-top: var(--window-spacing);
+        text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff,
+          0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff;  
+
+        position: fixed;
+        font-weight: 400;
+        right: 50%;
+      }
+      .titlebar-button-container.mod-right
+      {
+        
+        box-sizing:content-box;
+        display: flex;
+        background: #fff3;
+        border: var(--window-border) var(--control-border-color);
+        border-top: 0;
+        border-radius: 0 0 var(--control-border-radius) var(--control-border-radius);
+        box-shadow: 0 1px 0 #fffa, 1px 0 0 #fffa, -1px 0 0 #fffa;
+
+        margin-right: var(--window-spacing);
+        height:19px;
+        .titlebar-button
+        {
+          position: relative;
+          min-width: 29px;
+          min-height: 19px;
+          padding: 0;
+          border: 0;
+          border-right: var(--window-border) var(--control-border-color);
+          border-radius: 0;
+          box-shadow: none;
+          box-sizing: border-box;
+          background: none;
+    
+          height: 0px;
+          width: 0px;
+
+          &.mod-minimize {
+            &::before {
+              background: var(--icon-minimize) no-repeat center 10px;
+            }
+          }
+    
+          &.mod-maximize {
+            &::before {
+              background: var(--icon-maximize) no-repeat center;
+            }
+          }
+    
+          &.mod-close {
+            min-width: 48px;
+            &::before {
+              background: var(--icon-close) no-repeat center;
+            }
+          }
+
+          &::after {
+            content: none;
+          }
+    
+          &:hover,
+          &:active {
+            /* resolve the conflict with button styles */
+            background: none;
+          }
+    
+          &:disabled {
+            svg {
+              opacity: 0.4;
+            }
+          }
+          svg {
+            color: transparent;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 0;
+            box-shadow: inset 0 0 0 1px #fff5;
+            opacity: 1;
+          }
+    
+          &:not(:hover)::before {
+            transition: none;
+            opacity: 1;
+          }
+        
+          &:first-child,
+          &:first-child::before {
+            border-bottom-left-radius: var(--control-border-radius);
+          }
+    
+          &:last-child,
+          &:last-child::before {
+            border: 0;
+            border-bottom-right-radius: var(--control-border-radius);
+          }
+    
+          &:focus {
+            outline: none;
+            animation: none;
+          }
+        }
+
+
+      }
+
+    }
+    
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--window-border-radius);
+      background: linear-gradient(transparent 20%, #ffffffb3 40%, transparent 41%),
+        var(--window-background);
+      background-color: var(--window-background-color);
+      box-shadow: inset 0 0 0 1px #fffd;
+    }  
+  }
+}
+
+body.win7bar.obsidian-app.is-focused .titlebar
+{
+  .titlebar-button-container.mod-right {
+    border-color: var(--window-border-color);
+
+    .titlebar-button {
+      border-color: var(--window-border-color);
+      box-shadow: var(--control-inset-shadow);
+
+      &::after {
+        content: none;
+      }
+
+      &[aria-label="Minimize"],
+      &.mod-minimize {
+        background: var(--icon-minimize) no-repeat center 10px,
+          var(--control-background);
+        &::before {
+          content: "";
+          box-shadow: 0 0 7px 3px #5dc4f0, var(--control-inset-shadow);
+          background: var(--icon-minimize) no-repeat center 10px,
+            var(--control-background-hovered);
+          border-bottom-left-radius: var(--control-border-radius);
+          opacity: 0;
+          transition: opacity 0.3s linear;
+        }
+
+        &:hover::before,
+        &:focus-visible::before {
+          opacity: 1;
+          transition: opacity 0.1s linear;
+        }
+
+        &:active::before {
+          background: var(--icon-minimize) no-repeat center 10px,
+            var(--control-background-active);
+        }
+      }
+
+      &[aria-label="Maximize"],
+      &.mod-maximize {
+        background: var(--icon-maximize) no-repeat center,
+          var(--control-background);
+        &::before {
+          content: "";
+          box-shadow: 0 0 7px 3px #5dc4f0, var(--control-inset-shadow);
+          background: var(--icon-maximize) no-repeat center,
+            var(--control-background-hovered);
+          opacity: 0;
+          transition: opacity 0.3s linear;
+        }
+
+        &:hover::before,
+        &:focus-visible::before {
+          opacity: 1;
+          transition: opacity 0.1s linear;
+        }
+
+        &:active::before {
+          background: var(--icon-maximize) no-repeat center,
+            var(--control-background-active);
+        }
+      }
+
+
+      &[aria-label="Close"],
+      &.mod-close {
+        background: var(--icon-close) no-repeat center,
+          var(--control-background), var(--control-background-close);
+        box-shadow: var(--control-inset-shadow);
+
+        &::before {
+          content: "";
+          background: var(--icon-close) no-repeat center,
+            var(--control-background), var(--control-background-close-hovered);
+          box-shadow: 0 0 7px 3px #e68e75, var(--control-inset-shadow);
+          border-bottom-right-radius: var(--control-border-radius);
+          opacity: 0;
+          transition: opacity 0.3s linear;
+        }
+
+        &:hover::before,
+        &:focus-visible::before {
+          opacity: 1;
+          transition: opacity 0.1s linear;
+        }
+
+        &:active::before {
+          background: var(--icon-close) no-repeat center,
+            var(--control-background), var(--control-background-close-active);
+        }
+      }
+    }
+  }
+}
+
+/* This part is for changing maximize icon when maximized */
+
+body.win7bar.obsidian-app.is-maximized .titlebar .titlebar-button-container.mod-right 
+{
+  .titlebar-button
+  {
+    &.mod-maximize {
+      &::before {
+        background: var(--icon-maximized) no-repeat center;
+      }
+    }
+  }
+}
+
+body.win7bar.obsidian-app.is-focused.is-maximized .titlebar .titlebar-button-container.mod-right
+{
+  .titlebar-button
+  {
+    &[aria-label="Maximize"],
+    &.mod-maximize {
+      background: var(--icon-maximized) no-repeat center,
+        var(--control-background);
+      &::before {
+        content: "";
+        box-shadow: 0 0 7px 3px #5dc4f0, var(--control-inset-shadow);
+        background: var(--icon-maximized) no-repeat center,
+          var(--control-background-hovered);
+        opacity: 0;
+        transition: opacity 0.3s linear;
+      }
+
+      &:hover::before,
+      &:focus-visible::before {
+        opacity: 1;
+        transition: opacity 0.1s linear;
+      }
+
+      &:active::before {
+        background: var(--icon-maximized) no-repeat center,
+          var(--control-background-active);
+      }
+    }
+  }
+}
+
+.is-hidden-frameless:is(.mod-windows, .mod-linux).win7bar :is(.titlebar-button.mod-back, .titlebar-button.mod-forward, .titlebar-text)
+{
+  display:block;
+}
+
+body.win7bar:not(.qe-title-center):not(.qe-title-hide) .titlebar-text.qe-replacement
+{
+  text-align: center;
+}

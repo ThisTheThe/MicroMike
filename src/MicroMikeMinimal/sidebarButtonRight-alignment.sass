@@ -1,0 +1,93 @@
+@use 'std'
+
+//Position button statically to the right of title bar box
+body:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace-tab-header-container
+    .sidebar-toggle-button.mod-right
+        @include std.noPadding
+        position: fixed
+        right: calc(var(--titlebarButtonWidth) * 3)
+        z-index: 20
+        //Inside the editor tabs, editor tab settigns take precedence
+
+:is(.outsideSidebar_RBA, .insideSidebar_RBA) .workspace-tab-header-container .sidebar-toggle-button.mod-right
+    margin-top: var(--dragSpaceHeight)
+    height: var(--editorTabHeight)
+    width: var(--editorTabHeight)
+    .clickable-icon
+        width: var(--editorTabHeight)
+        height: var(--editorTabHeight)
+
+//Does :has perf better if you're more specific about where to search?
+.insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed))
+    .workspace-tabs
+        overflow: visible
+        .workspace-tab-header-container .sidebar-toggle-button.mod-right
+            position: absolute
+            right: calc(0px - var(--handleSize) - 40px)
+            //Inside the sidebar tabs, sidebar tab settings take precedence
+            height: var(--sidebarTabHeight)
+            width: 40px
+            z-index: 10
+            .clickable-icon
+                width: 40px
+                height: var(--sidebarTabHeight)
+        &.mod-top-right-space .workspace-tab-header-container
+            margin-left: 40px
+
+
+body.is-frameless:not(.is-hidden-frameless):not(.is-fullscreen) .workspace-tab-header-container .sidebar-toggle-button.mod-right
+    top: 0px
+//Sidebar:
+//If offsets disabled, disable.
+//Editor tabs (when offsets not disabled)
+//If Sidebar is present:
+// - disable
+//If stack tabs are enabled:
+// - always disable
+//If both stack tabs are not enabled, and the right sidebar is closed
+// - enable
+
+
+//Title bar buttons will not work unless frame right space offset is a margin
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container
+    margin-right: var(--frame-right-space)
+    padding-right: 0px
+
+//prevent stacktabs from being offset...
+:is(.mod-windows, .mod-linux).stackTabs 
+    --frame-right-space: 0px
+
+//1. Frame right space by default.
+html .mod-windows .mod-root,
+html .mod-linux .mod-root
+    --frame-right-space: var(--rightFrameSetTo)
+
+//1->
+html .mod-windows:not(.disableRightTitlebarOffset) .mod-right-split,
+html .mod-linux:not(.disableRightTitlebarOffset) .mod-right-split
+    --frame-right-space: var(--rightFrameSetTo)
+
+//2. But if it's disabled, don't have it.
+html .mod-windows.disableRightTitlebarOffset .mod-right-split,
+html .mod-linux.disableRightTitlebarOffset .mod-right-split
+    --frame-right-space: 0px
+
+html .mod-windows:not(.stackTabs) .mod-root,
+html .mod-linux:not(.stackTabs) .mod-root
+    --frame-right-space: 0px
+
+//No offset when stacktabs.
+html .mod-windows.stackTabs .mod-root,
+html .mod-linux.stackTabs .mod-root
+    --frame-right-space: 0px
+
+//Neither stacktabs or disabled offset? -> Enable offset
+html .mod-windows:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space,
+html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space 
+    --frame-right-space: var(--rightFrameSetTo)
+
+//editor Dashboard must be offset if StackTabs enabled + right sidebar collapsed
+
+.stackTabs .workspace:has(.mod-right-split.is-sidedock-collapsed) .workspace-tab-container .workspace-leaf .view-header
+    --frame-right-space: var(--rightFrameSetTo)
+    margin-right: var(--frame-right-space)

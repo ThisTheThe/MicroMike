@@ -1,0 +1,56 @@
+@use 'std'
+
+.is-hidden-frameless:not(.is-fullscreen):not(.mod-macos) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after
+	--frame-right-space: 0px
+	width: 0px
+
+.workspace .mod-root
+	.workspace-tabs
+		flex-direction: row
+		.workspace-tab-header-spacer
+			flex-grow: 0
+
+		.workspace-tab-header-container:nth-of-type(1)
+			height: 100%
+			flex-direction: column
+			background-color: var(--background-secondary)
+			padding-right: 0px
+			.workspace-tab-header-new-tab 
+				margin-left: 0px
+				.clickable-icon
+					width: 100%
+					height: var(--editorTabHeightStack)
+			.workspace-tab-header-container-inner
+				--animation-dur: 0ms !important
+				flex-direction: column
+				flex-grow: 1
+				justify-content: left
+				align-items: flex-start
+				margin-top: 0px
+				.workspace-tab-header
+					flex-basis: 0px
+					height: 0px
+					max-height: var(--editorTabHeightStack)
+					max-width: var(--editorStackWidth)
+					flex-grow: 1
+					min-width: 0px
+					.workspace-tab-header-inner
+						flex-grow: 1
+						height: 100%
+						.workspace-tab-header-inner-title
+							margin-left: 5%
+							display: flex
+							flex-grow: 1
+							flex-basis: 40px
+							flex-shrink: 1
+
+.disableXButtons.stackTabs .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-close-button
+	display: none !important
+
+.workspace:has(.mod-right-split.is-sidedock-collapsed) .workspace-tab-container .workspace-leaf .view-header
+	--frame-right-space: var(--rightFrameSetTo)
+	margin-right: var(--frame-right-space)
+
+body.stackTabs:not(.tabTooltips)
+	.tooltip
+		display: none !important

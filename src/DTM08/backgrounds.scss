@@ -1,0 +1,36 @@
+.dtm08
+{
+.workspace-split
+{
+	background-color: none;
+	background: var(--bgGradient1);
+}
+
+.workspace-fake-target-overlay:not(.is-in-sidebar) .workspace-tabs .workspace-leaf, 
+.mod-root .workspace-tabs .workspace-leaf,
+.workspace-tabs .workspace-leaf
+{
+	background: var(--bgGradient1);
+}
+
+.workspace-tab-header-container,
+.mod-top-right-space,
+.mod-top
+{
+	background: var(--bgGradient2);
+}
+
+.workspace-leaf-content[data-mode="preview"] .view-content
+{
+    background: transparent;
+}
+
+.workspace-leaf-content[data-mode="source"] .view-content
+{
+    background-color: #000000
+}
+&.dtm08GradientEditorMode .workspace-leaf-content[data-mode="source"] .view-content
+{
+	background: transparent;
+}
+}

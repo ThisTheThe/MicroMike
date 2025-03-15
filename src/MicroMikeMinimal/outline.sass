@@ -1,0 +1,19 @@
+@use 'std'
+.workspace-leaf-content[data-type="outline"]
+	.view-content
+		.tree-item
+
+			.tree-item-self.is-clickable
+				@include std.noPadding
+				position: relative
+				height: unset
+				min-height: unset
+
+
+.workspace-leaf-content[data-type="outline"]
+	.view-content
+		.tree-item
+			.tree-item-self:not(.mod-collapsible)
+				position: relative
+				padding-left: var(--outlineLevelWidth)
+			

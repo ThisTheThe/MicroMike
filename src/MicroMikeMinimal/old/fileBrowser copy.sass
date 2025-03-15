@@ -1,0 +1,29 @@
+@use 'std'
+
+body
+	--nav-item-children-padding-left: 0px
+	--nav-item-children-margin-left: 0px
+
+.nav-files-container
+	@include std.noPadding
+	.nav-folder-title
+		@include std.noPadding
+		margin-left: 24px
+	.nav-file-title
+		@include std.noPadding
+
+
+
+.mod-root>.nav-folder-children>.nav-file
+	margin-left: -24px
+
+.mod-root>.nav-folder-children>.nav-folder>.nav-folder-children
+	margin-left: 36px
+
+.mod-root>.tree-item-children.nav-folder-children
+	position: relative
+	left: var(--fileBrowserOffset)
+
+.mod-root>.tree-item-children.nav-folder-children>.nav-folder>.tree-item-children.nav-folder-children
+	position: relative
+	left: var(--fileBrowserOffset2)

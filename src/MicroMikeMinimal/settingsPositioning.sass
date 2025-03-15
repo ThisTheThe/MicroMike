@@ -1,0 +1,45 @@
+body:not(.css-settings-manager):not(.is-mobile) .modal-container:has(> .mod-settings)
+	align-items: flex-start
+	.modal.mod-settings
+		margin-left: 40px
+		height: 100%
+		width: 90%
+		min-width: var(--settingsMinWidth)
+
+body:not(.is-mobile) .css-settings-manager .modal-container:has(> .mod-settings)
+	align-items: center
+	justify-content: center
+
+.css-settings-manager:not(.is-mobile) .modal.mod-settings
+	position: absolute
+	top: unset
+	left: unset
+	min-width: unset
+
+	min-height: var(--settingsHSize)
+	max-height: var(--settingsHSize)
+	min-width: var(--settingsMinWidth)
+	max-width: var(--settingsWSize)
+	margin-left: calc(var(--settingsOffsetX) + 40px)
+	margin-bottom: var(--settingsOffsetY)
+
+:not(.is-mobile).settingsNAlign .modal.mod-settings
+	top: 0%
+:not(.is-mobile).settingsNEAlign .modal.mod-settings
+	top: 0%
+	right: 0%
+:not(.is-mobile).settingsEAlign .modal.mod-settings
+	right: 0%
+:not(.is-mobile).settingsSEAlign .modal.mod-settings
+	bottom: 0%
+	right: 0%
+:not(.is-mobile).settingsSAlign .modal.mod-settings
+	bottom: 0%
+:not(.is-mobile).settingsSWAlign .modal.mod-settings
+	bottom: 0%
+	left: 0%
+:not(.is-mobile).settingsWAlign .modal.mod-settings
+	left: 0%
+:not(.is-mobile).settingsNWAlign .modal.mod-settings
+	top: 0%
+	left: 0%

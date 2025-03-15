@@ -2,7 +2,7 @@
 body {
   --scrollBarSize: 20px;
   --handleSize: 20px;
-  --editorSize: 800px;
+  --file-line-width: 800px;
   --sidebarTabHeight: 40px;
   --sidebarDashboardHeight: 40px;
   --editorTabHeight: 40px;
@@ -49,12 +49,11 @@ settings:
 		description: Colors in window. If you add another theme before this, it will be used in "inherit", or just the usual Obsidian colors.
 		type: class-select
 		allowEmpty: false
-		default: accentMicroMike
+		default: dtm08
 		options:
 			- inherit
 			- accentMicroMike
 			- classicMicroMike
-			- oldAndroid
 			- dtm08
 	-
 		id: disableBevels
@@ -71,7 +70,7 @@ settings:
 	-
 		id: enableNewIcons
 		title: Enable XP-style Icons
-		description: Enable colorful XP-style icons to replace flat SVG icons. This is only done where the icons are supported.
+		description: Enable colorful XP-style icons to replace flat SVG icons. This is only done where the icons are supported. (Not supported with dtm08)
 		type: class-toggle
 	-
 		id: blendDropdown
@@ -83,7 +82,6 @@ settings:
 		title: Windows 7 Title Bar
 		description: Enable Windows 7 Title Bar and Frame.
 		type: class-toggle
-
 	- 
 		id: this-is-a-heading
 		title: Accent Palette Specific Settings
@@ -212,7 +210,7 @@ settings:
 		step: 1
 		format: "%"
 	-
-		id: editorSize
+		id: file-line-width
 		title: Text Window Length
 		description: Size of text window in text editor. 
 		type: variable-number-slider
@@ -234,6 +232,16 @@ settings:
 		id: disableToplinks
 		title: Disable Toplinks
 		description: By default, Micro Mike modifies the Backlinks plugin's optional footer display to display at the top a simple set of links leading to your current document. 
+		type: class-toggle
+	- 
+		id: disableSECodeblock
+		title: Disable Simple Editor Code Block
+		description: This switch disables the modified, line-height aligned codeblocks.
+		type: class-toggle
+	- 
+		id: disableSECallout
+		title: Disable Simple Editor Callout
+		description: This switch disables the modified, line-height aligned callout.
 		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
@@ -1024,9 +1032,8 @@ body {
   --h5-size: 1em;
   --h6-size: 1em;
   --p-spacing: 0px;
-  --font-text-size: 20px;
   --line-height-normal: 1.25em;
-  --margin-scale: 25px;
+  --margin-scale: calc(var(--font-text-size) * 1.25);
   --anp-font-preview-wt: 200;
   --anp-font-editor-wt: 200;
   --list-spacing: 0px;
@@ -1064,6 +1071,10 @@ body {
   margin-top: 0;
 }
 
+.markdown-rendered div:is(.el-ul, .el-ol) {
+  margin-top: var(--margin-scale);
+}
+
 .markdown-rendered hr {
   margin-top: calc(var(--margin-scale) * 1.5);
   height: calc(var(--margin-scale) * 0.5);
@@ -1074,19 +1085,21 @@ body {
   padding-left: 5px;
 }
 
-.markdown-rendered pre {
+body:not(.disableSECodeblock) .markdown-rendered pre {
   padding: 0px;
   margin: 0px;
   padding-left: 5px;
   min-height: 0px;
+  margin-top: var(--margin-scale);
+  margin-bottom: var(--margin-scale);
 }
 
-.markdown-rendered pre:before {
+body:not(.disableSECodeblock) .markdown-rendered pre:before {
   content: "```";
   display: block;
 }
 
-.markdown-rendered pre:after {
+body:not(.disableSECodeblock) .markdown-rendered pre:after {
   content: "```";
   display: block;
 }
@@ -1095,14 +1108,14 @@ body {
   vertical-align: text-bottom;
 }
 
-.callout {
+body:not(.disableSECallout) .callout {
   padding: 0px;
   padding-left: 5px;
   margin-top: var(--margin-scale);
   margin-bottom: var(--margin-scale);
 }
 
-.markdown-rendered .markdown-preview-section :is(.callout-content) > *:first-of-type {
+body:not(.disableSECallout) .markdown-rendered .markdown-preview-section :is(.callout-content) > *:first-of-type {
   margin-top: 0px;
 }
 
@@ -1177,21 +1190,24 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-  body:not(.disableMiniMode):not(.stackTabs) .mod-right-split {
+  body:not(.disableMiniMode) .mod-right-split {
     display: none;
   }
-  body:not(.disableMiniMode):not(.stackTabs) .mod-left-split {
+  body:not(.disableMiniMode) .mod-left-split {
     display: none;
   }
-  body:not(.disableMiniMode):not(.stackTabs) .workspace-ribbon {
+  body:not(.disableMiniMode) .workspace-ribbon {
     display: none;
   }
-  body:not(.disableMiniMode):not(.stackTabs) .status-bar {
+  body:not(.disableMiniMode) .status-bar {
     display: none;
   }
-  body:not(.disableMiniMode):not(.stackTabs) .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
+  body:not(.disableMiniMode) .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
     --frame-right-space: var(--rightFrameSetTo);
     margin-right: var(--frame-right-space);
+  }
+  body.stackTabs:not(.disableMiniMode) .workspace .mod-root .workspace-tabs.mod-top .workspace-tab-header-container {
+    margin-right: 0px;
   }
 }
 .workspace-leaf-content[data-type=outline] .view-content .tree-item .tree-item-self.is-clickable {
@@ -1205,7 +1221,7 @@ body {
 
 .workspace-leaf-content[data-type=outline] .view-content .tree-item .tree-item-self:not(.mod-collapsible) {
   position: relative;
-  margin-left: var(--outlineLevelWidth);
+  padding-left: var(--outlineLevelWidth);
 }
 
 .modal-container .prompt .prompt-input-container {
@@ -2719,9 +2735,12 @@ html:has(> .win7bar) body.obsidian-app .titlebar {
 html:has(> .win7bar) body.obsidian-app .titlebar .titlebar-text {
   color: #000;
   letter-spacing: 0;
+  padding: 0px;
   padding-top: var(--window-spacing);
   text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff;
+  position: fixed;
   font-weight: 400;
+  right: 50%;
 }
 html:has(> .win7bar) body.obsidian-app .titlebar .titlebar-button-container.mod-right {
   box-sizing: content-box;
@@ -2907,6 +2926,16 @@ body.win7bar.obsidian-app.is-focused.is-maximized .titlebar .titlebar-button-con
 
 body.win7bar:not(.qe-title-center):not(.qe-title-hide) .titlebar-text.qe-replacement {
   text-align: center;
+}
+
+body.win7bar {
+  --rightFrameSetTo: var(--titlebarButtonWidth);
+  --frame-right-space:var(--titlebarButtonWidth);
+}
+
+body.win7bar:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+  right: 7px;
+  margin-top: var(--dragSpaceHeight);
 }
 
 /* Config */
@@ -3529,8 +3558,8 @@ body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08) {
   --collapse-icon-color: var(--icon-color);
   --nav-indentation-guide-color: var(--separatorColor);
   --text-faint: var(--icon-color);
-  --settingsHeaderGradient: linear-gradient(90deg, hsla(var(--accent-h), var(--accent-s), 50%, 48%) 0%, rgba(0,0,0,0) 80%);
-  --enabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, hsla(var(--accent-h), var(--accent-s), 50%, 33%) 100%);
+  --settingsHeaderGradient: linear-gradient(90deg, hsla(var(--accent-h), var(--accent-s), 50%, 20%) 0%, rgba(0,0,0,0) 80%);
+  --enabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, hsla(var(--accent-h), var(--accent-s), 50%, 20%) 100%);
   --code-background: var(--bottom_a);
 }
 
@@ -4048,7 +4077,10 @@ body:not(.disableBevels):not(.dtm08) .workspace-tab-header-inner-close-button,
 body:not(.disableBevels):not(.dtm08) button {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .view-header,
+body:not(.disableBevels):not(.dtm08) .view-header {
+  box-shadow: var(--bevelStyleButton);
+  border: 0px;
+}
 body:not(.disableBevels):not(.dtm08) .mod-left-split .nav-header,
 body:not(.disableBevels):not(.dtm08) .mod-right-split .nav-header {
   padding: 3px;
@@ -4240,9 +4272,9 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
   background: linear-gradient(var(--d8d6), var(--d8d8) 50%, var(--d8d9) 50%, var(--d8d8));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 1px rgba(255, 255, 255, 0.0666666667);
 }
-.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button:not(:first-of-type), .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:not(:first-of-type),
-.dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:not(:first-of-type), .dtm08 .sidebar-toggle-button:not(:first-of-type), .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon:not(:first-of-type), .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:not(:first-of-type), .dtm08 .workspace-tab-header-new-tab .clickable-icon:not(:first-of-type) {
-  margin-left: -1px;
+.dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button:not(:last-of-type), .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:not(:last-of-type),
+.dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:not(:last-of-type), .dtm08 .sidebar-toggle-button:not(:last-of-type), .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon:not(:last-of-type), .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:not(:last-of-type), .dtm08 .workspace-tab-header-new-tab .clickable-icon:not(:last-of-type) {
+  border-right: 0px;
 }
 
 .dtm08 .modal.mod-settings .modal-content button {
@@ -4744,6 +4776,7 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
 }
 
 body.dtm08 {
+  --text-on-accent: var(--textBrighter) !important;
   --bgGradient1: linear-gradient(0deg, rgba(29,32,37,1) 0%, rgba(8,8,8,1) 100%);
   --bgGradient2: linear-gradient(180deg, rgba(29,32,37,1) 0%, rgba(8,8,8,1) 100%);
   --levelLayer: #D3E2FF18;
@@ -4925,14 +4958,14 @@ body.dtm08 {
   	border-right: 0px;
   }*/
 }
+.dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header {
+  border-bottom: 0px;
+}
 .mod-root .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header {
   border-radius: 6px 6px 0 0;
 }
-.dtm08 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:not(:first-of-type) {
-  margin-left: -1px;
-}
-.dtm08 .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:last-of-type {
-  margin-right: -1px;
+.dtm08:not(.stackTabs) .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:last-of-type {
+  border-right: 0px;
 }
 .dtm08:not(.win7bar) .titlebar-button-container.mod-right {
   width: 120px;

@@ -1,0 +1,276 @@
+//Bevels, inheriting color values either from Classic or Accent
+body
+{
+	--bevelStyleFile: inset 1px 1px var(--separatorColor);
+    --bevelStyleFileHover: inset 1px 1px var(--separatorColor);
+    --bevelStyleFolder: inset 1px 1px var(--separatorColor);
+    --bevelStyleFolderHover:inset 1px 1px var(--separatorColor);
+    --bevelStyleFolderLabel:inset 0px 1px var(--separatorColor);
+    --bevelStyleFolderLabelHover:inset 0px 1px var(--separatorColor);
+    --bevelStyleTreeItem: inset 1px 1px var(--separatorColor);
+	--bevelStyleTop: inset 0px 1px var(--separatorColor);
+    --bevelStyleTreeItem_invert: inset -1px -1px var(--separatorColor);
+}
+
+body:not(.disableBevels):not(.dtm08) {
+	--bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
+	--bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
+	--bevelStyleContainerOuter:
+	1px 1px var(--bevelBright1),
+	-1px -1px var(--bevelDark2),
+	-2px -2px var(--bevelDark1),
+	2px 2px var(--bevelBright2),
+	-2px 0px var(--bevelDark1),
+	0px -2px var(--bevelDark1),
+	-2px 2px var(--bevelBright2),
+	2px -2px var(--bevelBright2);
+}
+body:not(.disableBevels):not(.dtm08)
+{
+&.theme-dark
+{
+	--input-shadow: var(--bevelStyleButton);
+	--input-shadow-hover: var(--bevelStyleButton);
+}
+.clickable-icon,
+.clickable-icon:hover,
+.workspace-tab-header-inner-close-button,
+button
+{
+	box-shadow:var(--bevelStyleButton);
+}
+/* Dashboard Component */
+.view-header
+{
+	box-shadow:var(--bevelStyleButton);
+	border:0px;
+}
+
+.mod-left-split .nav-header,
+.mod-right-split .nav-header
+{
+	padding:3px;
+	box-shadow:var(--bevelStyleButton);
+	border:0px;
+}
+/* Input Component */
+textarea, input[type='text'], input[type='search'], input[type='email'], input[type='password'], input[type='number']
+{
+	box-shadow:var(--bevelStyleContainer);
+}
+textarea:active,
+input[type='text']:active,
+input[type='search']:active,
+input[type='email']:active,
+input[type='password']:active,
+input[type='number']:active,
+textarea:focus,
+input[type='text']:focus,
+input[type='search']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+textarea:focus-visible,
+input[type='text']:focus-visible,
+input[type='search']:focus-visible,
+input[type='email']:focus-visible,
+input[type='password']:focus-visible,
+input[type='number']:focus-visible
+{
+	box-shadow:var(--bevelStyleContainer);
+}
+/* Sidebar Container Component*/
+.workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
+.workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
+.workspace-leaf-content[data-type=outline] .view-content,
+.workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
+.workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
+.workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
+.workspace-leaf-content[data-type=starred] .item-list,
+.workspace-leaf-content[data-type=recent-files]
+{
+	box-shadow:var(--bevelStyleContainer);
+	box-shadow:var(--bevelStyleContainerOuter);
+}
+/* Tree View Component*/
+.is-clickable .tree-item-icon.collapse-icon {
+	box-shadow: var(--bevelStyleButton);
+}
+/* Find Tool */
+.document-search-container
+{
+	box-shadow:var(--bevelStyleButton);
+}
+.document-search-close-button
+{
+	box-shadow:var(--bevelStyleButton);
+}
+
+
+/* Editor Tabs */
+.workspace .mod-root .workspace-tab-header
+{
+	box-shadow:var(--bevelStyleButton);
+}
+
+/* Stacked Editor Tabs */
+.stackTabs .mod-root .workspace-tab-header-inner-close-button
+{
+	box-shadow: var(--bevelStyleButton);
+}
+
+/* Editor Dashboard */
+:is(.workspace-leaf-content[data-type="markdown"], .workspace-leaf-content[data-type="empty"]) .view-header
+{
+	.view-actions, .view-header-nav-buttons
+	{
+		> *:is(a, button)
+		{
+			height: calc(100%);
+		}
+		margin: 3px;
+		height: calc(100% - 6px);
+	}
+}
+
+.markdown-preview-view .markdown-embed,
+.markdown-preview-view .file-embed {
+	box-shadow: var(--bevelStyleContainer);
+}
+/* File Browser */
+/*
+.nav-folder.mod-root .nav-folder > .nav-folder-children
+{
+	border-left: 1px solid var(--separatorColor);
+}*/
+
+	/*
+.workspace-leaf-content[data-type=file-explorer] .tree-item-inner
+{
+	border-left:1px solid var(--separatorColor);
+}
+.workspace-leaf-content[data-type=file-explorer] .tree-item-self.is-clickable:hover .tree-item-inner
+{
+	border-left:1px solid var(--separatorColor);
+}
+	*/
+
+/*
+.workspace-leaf-content[data-type=outline] .tree-item-inner
+{
+	border-left:1px solid var(--separatorColor);
+}
+.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover .tree-item-inner
+{
+	border-left:1px solid var(--separatorColor);
+}
+*/
+/* Quick Explorer */
+.explorable.titlebar-button
+{
+	box-shadow:var(--bevelStyleButton);
+	background-color:var(--level2);
+}
+
+/* Prompt */
+.prompt
+{
+	box-shadow:var(--bevelStyleButton);
+}
+input.prompt-input:hover, input.prompt-input:focus, input.prompt-input:focus-visible
+{
+	box-shadow:var(--bevelStyleContainer);
+}
+/* Resize Bars */
+.mod-left-split > hr,
+.mod-right-split > hr
+/*.mod-vertical>div>hr*/
+{
+	border-left:1px solid var(--level2);
+	border-right:1px solid var(--level2);
+}
+.mod-horizontal>div>hr:not(.mod-root hr)
+{
+	border-top:1px solid var(--level2);
+	border-bottom:1px solid var(--level2);
+}
+
+/* Settings */
+
+.modal-container.mod-dim .modal.mod-settings,
+.modal-container.mod-dim .modal.mod-community-plugin,
+.modal-container.mod-dim .modal.mod-community-theme,
+.modal.mod-community-theme
+{
+	box-shadow:var(--bevelStyleButton);
+}
+.modal.mod-settings .vertical-tab-content
+{
+	box-shadow:var(--bevelStyleButton);
+}
+.dropdown:hover,
+.search-results-info .dropdown:hover
+{
+	box-shadow:var(--bevelStyleButton);
+}
+
+
+/* Search */
+
+.workspace-leaf-content[data-type="search"]
+{
+	.clickable-icon
+	{
+		box-shadow:var(--bevelStyleButton);
+	}
+	.clickable-icon:hover, .clickable-icon.is-active
+	{
+		box-shadow:var(--bevelStyleButton);
+	}
+}
+
+/* Sidebar Tabs */
+
+.mod-left-split .workspace-tab-header,
+.mod-right-split .workspace-tab-header
+{
+	box-shadow: var(--bevelStyleButton);
+
+}
+:is(.mod-left-split, .mod-right-split) .workspace-tab-container .nav-header .nav-buttons-container .clickable-icon
+{
+	height: calc(var(--sidebarDashboardHeight) - 6px);
+}
+//mostly for bevelled modes - partly eaten by resize bar if not done here
+
+&:not(.leftAlignedLeftSidebarButtonDisable) .mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner
+{
+	margin-right: 1px
+}
+.mod-right-split .workspace-tab-header-container .workspace-tab-header-container-inner
+{
+	margin-left: 1px
+}
+
+/* Side Dock Profile */
+
+.workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions 
+{
+	margin-right: calc(var(--handleSize) + 1px)
+}
+
+/* Theme Picker */
+
+.community-item.is-selected,
+.community-item.is-selected:hover
+{
+	border-color: var(--level3_a);
+}
+
+/* Titlebar */
+.titlebar-button-container .titlebar-button
+{
+	box-shadow: var(--bevelStyleButton);
+}
+
+}

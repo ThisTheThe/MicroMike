@@ -1,0 +1,96 @@
+body
+{
+	--modalOffsetX: 250px;
+	--modalMinWidth: 600px;
+}
+
+/* @settings
+name: Prompt Positioning
+id: PromptPositioning
+settings:
+	-
+		id: modalAlignment
+		title: Prompt Alignment
+		description: Pick the compass direction that the generic (file seeking, etc...) prompt is aligned to.
+		type: class-select
+		allowEmpty: false
+		default: modalSAlign
+		options:
+			- 
+                label: Centered
+                value: modalCAlign
+            - 
+                label: North
+                value: modalNAlign
+			- 
+                label: Northeast
+                value: modalNEAlign
+            - 
+                label: East
+                value: modalEAlign
+			- 
+                label: Southeast
+                value: modalSEAlign
+            - 
+                label: South
+                value: modalSAlign
+			- 
+                label: Southwest
+                value: modalSWAlign
+            - 
+                label: West
+                value: modalWAlign
+			- 
+                label: Northwest
+                value: modalNWAlign
+	-
+		id: modalHSize
+		title: Prompt Height
+		description: In percentage, choose the height of the prompt.
+		type: variable-number-slider
+		default: 50
+		min: 20
+		max: 100
+		step: 5
+		format: "%"
+	-
+		id: modalWSize
+		title: Prompt Width
+		description: In percentage, choose the width of the prompt.
+		type: variable-number-slider
+		default: 35
+		min: 20
+		max: 100
+		step: 5
+		format: "%"
+	-
+		id: modalOffsetX
+		title: Prompt X Offset
+		description: Choose an X offset for the prompt. If uncarefully applied, will cause it to move offscreen.
+		type: variable-number-slider
+		default: 250
+		min: -1000
+		max: 1000
+		step: 25
+		format: px
+	-
+		id: modalOffsetY
+		title: Prompt Y Offset
+		description: Choose a Y offset for the prompt. If uncarefully applied, will cause it to move offscreen.
+		type: variable-number-slider
+		default: 0
+		min: -500
+		max: 500
+		step: 10
+		format: px
+	-
+		id: modalMinWidth
+		title: Prompt Min Width
+		description: The prompt window is not allowed to become any smaller than this size. The max size is defined by the above setting.
+		type: variable-number-slider
+		default: 300
+		min: 200
+		max: 1200
+		step: 10
+		format: px
+*/

@@ -1,0 +1,11 @@
+body.win7bar 
+{
+	--rightFrameSetTo: var(--titlebarButtonWidth);
+	--frame-right-space:var(--titlebarButtonWidth);
+}
+
+body.win7bar:not(.outsideSidebar_RBA):not(.insideSidebar_RBA)  .workspace-tab-header-container .sidebar-toggle-button.mod-right {
+    right: 7px;
+	margin-top: var(--dragSpaceHeight);
+
+}

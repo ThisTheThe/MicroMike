@@ -1,0 +1,82 @@
+@use 'std'
+
+.workspace .mod-root 
+    .workspace-tabs.mod-top .workspace-tab-header-container
+        height: calc(var(--editorTabHeight) + var(--dragSpaceHeight))
+        .workspace-tab-header-container-inner
+            margin-top: var(--dragSpaceHeight)
+        
+    .workspace-tab-header-container
+        @include std.noPadding
+        border-bottom: 0px
+        .workspace-tab-header-container-inner
+            @include std.noPadding
+            height: var(--editorTabHeight)
+            .workspace-tab-header
+                @include std.noPadding
+                height: var(--editorTabHeight)
+
+                .workspace-tab-header-inner
+                    &::after
+                        width: 0px
+                        height: 0px
+                        background-color: transparent
+                    .workspace-tab-header-inner-title
+                        margin-left: 5px
+                    .workspace-tab-header-inner-close-button
+                        @include std.noPadding
+                        min-width: 40px
+                        height: 100%
+                        display: none
+                        position: absolute
+                        svg
+                            margin: auto
+                        &:hover
+                            background-color: var(--background-modifier-hover)
+                &:hover .workspace-tab-header-inner:not(:has(.mod-pinned)),
+                &.is-active .workspace-tab-header-inner:not(:has(.mod-pinned))
+                    padding-right: 0px
+                &:hover .workspace-tab-header-inner .workspace-tab-header-inner-close-button,
+                &.is-active .workspace-tab-header-inner .workspace-tab-header-inner-close-button
+                    display: flex
+                    position: static
+                &::before
+                    width: 0px
+                    height: 0px
+                &::after
+                    width: 0px
+                    height: 0px
+        .workspace-tab-header-tab-list
+            display: none
+        .workspace-tab-header-new-tab
+            @include std.noPadding
+            align-items: flex-end
+            .clickable-icon
+                @include std.noPadding
+                width: var(--editorTabHeight)
+                height: var(--editorTabHeight)
+
+.disableXButtons .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner 
+    padding-right: 3px
+    .workspace-tab-header-inner-close-button
+        display: none !important
+
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container
+    padding-left:0px
+
+.tabTitleWordWrap .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-title
+    overflow-wrap: break-word
+    word-break: break-word
+    white-space: normal
+
+.tabTitleCentered .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header .workspace-tab-header-inner .workspace-tab-header-inner-title
+    margin-left: 0px
+    text-align: center
+
+.workspace-tabs:not(.mod-top)
+    --dragSpaceHeight: 0px
+
+
+body:not(.stackTabs).editorDragSpace .mod-root .workspace-tabs .workspace-tab-header-container 
+    .workspace-tab-header-new-tab
+        margin-right: 40px

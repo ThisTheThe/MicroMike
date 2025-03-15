@@ -1,0 +1,35 @@
+/* Config */
+
+.theme-dark
+{
+	--ribbonWidth:40px;
+	--ribbonButtonHeight:40px;
+	--dragHeight:10px;
+	--handleSize:16px;
+	--tabHeightSidebar:30px;
+	--tabHeightEditor:30px;
+	--tabHeightEditorStack:40px;
+	--dashboardHeight:40px;
+	--fileHeight: 14px;
+	--outlineHeight:16px;
+	--outlineLevelWidth:40px;
+	--editorSize:700px;
+	--titlebarOffset:160px;
+	--editorStackWidth:200px;
+	--outlineDashPos:8px;
+    --scrollBarSize: 24px;
+	--colorIntensity: 1;
+	--colorIntensityBevel: 1;
+	--text-normal: #a3a5aa;
+	--text-on-accent: white;
+	
+	/*
+	tabFlexbox
+	dashboardFlexbox
+	bevels
+	stackTabs
+	Filebrowser hierarchical whatever wordwrap
+Tab wordwrap
+	gradient based on whether stacktabs or not
+	*/
+}

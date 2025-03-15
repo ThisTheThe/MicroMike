@@ -1,0 +1,15 @@
+@use 'std'
+
+#quick-explorer
+	@include std.noPadding
+	span
+		font-size: 24px
+		padding-bottom: 3px
+		padding-top: 3px
+		padding-left: 3px
+		padding-right: 3px
+		&:not(.explorable-separator)
+			min-width: 50px
+
+.status-bar
+	border-left: 0px

@@ -1,0 +1,19 @@
+@use 'components';
+
+.dtm08
+{
+	:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile
+	{
+		margin-bottom: -1px;
+		
+		.workspace-drawer-vault-switcher,
+		.workspace-drawer-vault-actions .clickable-icon
+		{
+			@extend %buttonArray;
+		}
+		.workspace-drawer-vault-switcher
+		{
+			border-right: 0px;
+		}
+	}
+}

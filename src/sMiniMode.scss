@@ -1,0 +1,8 @@
+/* 
+	Mini Mode
+	Turn Obsidian into a convenient little notepad - just by resizing it.
+	This snippet will cause the sidebars, title bar, and status bar to disappear when the window below a certain width.
+	You'll have to change the minimum width that the "mini mode" activates at to your preference manually - this can't be changed in Style Settings due to CSS limitations.
+*/
+@use "Snippets/aPreamble.scss";
+@use "MicroMikeMinimal/miniMode.sass";

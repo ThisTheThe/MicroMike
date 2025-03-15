@@ -1,0 +1,30 @@
+/* 
+	Square UI
+	This modified UI focuses on ergonomics and space-usage.
+	Style Settings can be used to precisely control the size of elements.
+	Features:
+	- No more padding dead-zones. Anywhere. 
+	- Sidebar tabs, and the buttons on the sidebars, fill the full space given.
+	- Right sidebar button functions as a fourth titlebar button. (Modifiable)
+	- Left sidebar button always anchored to top-left. (Modifiable)
+	- Much easier to interact with note title; and buttons there are also larger.
+	- Optional "Stack Tabs" mode - this literally stacks the tabs vertically on the window.
+		- This can be desirable for users with lots of tabs - you move your eyes less, and the tabs' titles won't be compressed by their density.
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/squareUI.scss";
+@use "MicroMikeMinimal/_v_noRadius.sass";
+@use "MicroMikeMinimal/cSidebarView.sass";
+@use "MicroMikeMinimal/editorDashboard.sass";
+@use "MicroMikeMinimal/ribbon.sass";
+@use "MicroMikeMinimal/sidebarButtonLeft-ribbonOff.sass";
+@use "MicroMikeMinimal/sidebarButtonRight-base.sass";
+@use "MicroMikeMinimal/sidebarButtonRight-alignment.sass";
+@use "MicroMikeMinimal/sidebarDashboard.sass";
+@use "MicroMikeMinimal/sidebarFastClose.sass";
+@use "MicroMikeMinimal/sidebarTabs.sass";
+@use "MicroMikeMinimal/sidebarRightMinWidth.sass";
+@use "MicroMikeMinimal/sideDockProfile.sass";
+@use "MicroMikeMinimal/titleBar.sass";
+@use "MicroMikeMinimal/tabs.sass";
+@use "MicroMikeMinimal/tabsStacked.sass";

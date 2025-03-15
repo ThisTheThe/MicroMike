@@ -1,0 +1,35 @@
+.status-bar
+{
+	/*margin: var(--window-spacing);
+	margin-top: calc(var(--window-spacing) * -1);*/
+	background: var(--surface);
+	border: var(--window-border) var(--window-border-color);
+	border-top: 0;
+	box-shadow: 0 1px 0 #fff9, 1px 0 0 #fff9, -1px 0 0 #fff9;
+	display: flex;
+	
+	position:static;
+	margin:-1px;
+	margin-top:0px;
+	color: #222;
+	.status-bar-item {
+		border-right: var(--window-border) #cfcfcf;
+		padding: 2px 3px;
+		margin: 0;
+		/*flex-grow: 1;*/
+	
+		&:last-child {
+		border-right: 0;
+		}
+	}
+	.plugin-editor-status.mod-clickable:hover,
+	.status-bar-item.mod-clickable:hover
+	{
+		background-color: #2a90ff;
+        color: #fff;
+	}
+	.plugin-editor-status.mod-clickable
+	{
+		max-width: 22px;
+	}
+}

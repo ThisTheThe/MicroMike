@@ -1,0 +1,14 @@
+@use 'components';
+
+.dtm08:not(.win7bar)
+{
+.titlebar-button-container.mod-right
+{
+	width: 120px;
+	.titlebar-button
+	{
+		@extend %buttonArray;
+		width: 41px;
+	}
+}
+}

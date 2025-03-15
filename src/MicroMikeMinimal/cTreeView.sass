@@ -1,0 +1,58 @@
+@use 'std'
+
+body
+	--nav-item-padding: 0px 0px 0px 0px 
+	--nav-item-parent-padding: 0px 0px 0px 0px
+	--nav-item-children-padding-left: 0px
+	--nav-item-children-margin-left: 0px
+
+:not(.oldTreeViewImplementation)
+	.tree-item-self
+		line-height: var(--outlineLevelHeight)
+	.tree-item-self .tree-item-icon
+		height: var(--outlineLevelHeight)
+
+.oldTreeViewImplementation
+	.tree-item-self .tree-item-icon.collapse-icon
+		height: calc(var(--outlineLevelFontSize) * var(--line-height-tight))
+
+.tree-item-self
+	margin-bottom: 0px
+	//height: 100%
+
+.tree-item-self .tree-item-icon
+	position: static
+	margin-left: 0px
+	align-items: unset
+	&.collapse-icon
+		width: var(--outlineLevelWidth)
+		align-items: center
+
+.tree-item-inner
+	padding-left: 3px
+	font-size: var(--outlineLevelFontSize)
+
+.treeWordWrap:not(.oldTreeViewImplementation) .workspace-leaf-content[data-type="file-explorer"] .tree-item-inner 
+	overflow-wrap: break-word
+	word-break: break-word
+	white-space: normal
+	//margin-right: calc(var(--scrollBarSize) + var(--handleSize))
+
+.nav-file-title, .nav-folder-title
+	margin-bottom: 0px
+
+.tree-item-children
+	margin-bottom: 0px
+
+.tree-item-self:hover, .tree-item-self.is-active
+	.tree-item-inner
+		color: var(--textBrighter)
+
+.workspace-leaf-content[data-type=file-explorer] .tree-item-self.is-clickable
+	box-shadow: var(--bevelStyleTop)
+
+.workspace-leaf-content[data-type="file-explorer"] .mod-root>.tree-item-self
+	box-shadow: var(--bevelStyleTreeItem_invert)
+
+.workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable
+	box-shadow: var(--bevelStyleTreeItem)

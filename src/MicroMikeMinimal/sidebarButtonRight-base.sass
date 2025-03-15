@@ -1,0 +1,11 @@
+@use 'std'
+
+.workspace-tab-header-container
+    .sidebar-toggle-button.mod-right
+        @include std.noPadding
+        height: var(--titlebarButtonHeight)
+        width: var(--titlebarButtonWidth)
+        .clickable-icon
+            @include std.noPadding
+            width: var(--titlebarButtonWidth)
+            height: var(--titlebarButtonHeight)

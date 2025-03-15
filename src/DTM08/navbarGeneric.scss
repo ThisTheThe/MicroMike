@@ -1,0 +1,35 @@
+@use 'components';
+
+.dtm08
+{
+	:is(.view-header, .nav-header)
+	{
+		@extend %styleNavBar;
+		:is(.view-header-nav-buttons, .nav-buttons-container, .view-actions)
+		{
+			/* I like the "down then up" style button array, but this does not produce it and it needs to be manually recreated later.
+			padding: 4px;
+			background: linear-gradient(var(--d8dA), var(--d8d9));
+			border-radius: 8px;
+			box-shadow: inset 0 1px 3px 1px, 0 0 0 1px #fff2;
+			*/
+
+			//height: calc(var(--editorDashboardHeight) - (4px * 2));
+			//margin: 4px !important;
+			//background: linear-gradient(var(--d8dA), var(--d8d9));
+			.clickable-icon
+			{
+				@extend %buttonArray;
+			}
+		}
+	}
+	:is(.view-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) :is(.clickable-icon)
+	{
+		height: calc(var(--editorDashboardHeight) - (2px * 2));
+	}
+	.mod-root .view-header
+	{
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+}

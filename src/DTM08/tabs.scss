@@ -1,0 +1,46 @@
+@use 'components';
+
+.dtm08
+{
+	.workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header
+	{
+		border-bottom: 0px;
+
+		@extend %buttonArrayTabs;
+
+		.mod-root &
+		{
+			border-radius: 6px 6px 0 0;
+		}
+		
+	}
+	&.stackTabs .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header
+	{
+		@extend %buttonArray;
+	}
+	&:not(.stackTabs) .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:last-of-type
+	{
+		border-right: 0px;
+	}
+	/*
+	.workspace-tab-header-container-inner
+	{
+		border-radius: 3px 3px 0 0;
+		border: solid 1px #000;
+		background: linear-gradient(var(--d8d7), var(--d8d9) 50%, var(--d8dA) 50%, var(--d8dC));
+		box-shadow: inset 0 0 0 1px #fff1, 0 0 0 1px #fff1;
+		position: relative;
+		bottom: -1px;
+	}
+	*/
+
+	.workspace-tab-header-new-tab .clickable-icon
+	{
+		@extend %buttonArrayTabs;
+	}
+	/*
+	&:not(.disableRightTitlebarOffset) .mod-top-right-space .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:last-of-type
+	{
+		border-right: 0px;
+	}*/
+}

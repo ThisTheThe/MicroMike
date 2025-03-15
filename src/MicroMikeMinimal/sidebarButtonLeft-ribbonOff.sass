@@ -1,0 +1,21 @@
+@use 'std'
+
+:is(.mod-left-split, .workspace-split.mod-root) .sidebar-toggle-button.mod-left,
+:is(.mod-left-split, .workspace-split.mod-root) .sidebar-toggle-button.mod-left .clickable-icon
+	@include std.noPadding
+	width: 40px
+	height: var(--sidebarTabHeight)
+	
+:is(.mod-left-split, .workspace-split.mod-root) .sidebar-toggle-button.mod-left
+	margin-top: var(--dragSpaceHeight)
+
+body:not(.leftAlignedLeftSidebarButtonDisable)
+	.sidebar-toggle-button.mod-left
+		order: -1
+
+body:not(.leftAlignedLeftSidebarButtonDisable).cornerDragLocation
+	.mod-left-split .workspace-tab-header-container-inner
+		margin-left: 0px
+	.sidebar-toggle-button.mod-left
+		order: -1
+		margin-left: 40px

@@ -1,0 +1,53 @@
+@use 'std'
+
+
+
+body
+	--nav-item-children-padding-left: 10px
+	--nav-item-children-margin-left: 9px
+
+body
+	--vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1)
+	--nav-item-children-padding-left: calc(var(--outlineLevelWidth) / 2)
+	--nav-item-children-margin-left: calc(var(--outlineLevelWidth) / 2)
+
+body
+	--vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1)
+	--nav-item-children-padding-left: 0px
+	--nav-item-children-margin-left: calc(var(--outlineLevelWidth) - 1px)
+
+	--nav-item-children-padding-start: 0px
+	--nav-item-children-margin-start: calc(var(--outlineLevelWidth) - 1px) 
+
+.workspace-leaf-content[data-type="file-explorer"] 
+	.nav-files-container
+		@include std.noPadding
+		.nav-folder-title
+			@include std.noPadding
+			//margin-left: 24px
+		.nav-file-title
+			@include std.noPadding
+
+	.mod-root>.nav-folder-children>.nav-folder>.tree-item-self
+		//margin: 0px
+
+	.mod-root>.tree-item-self
+		text-align: end
+		text-align: center
+		align-items: center
+		justify-content: center
+		height: 30px
+		> .tree-item-inner
+			font-weight: 500
+			font-size: 20px
+			text-align: center
+	.tree-item-children .tree-item-children
+		position: relative
+		//left: -1px
+		//top: -1px
+
+.boldFolders .nav-folder-title .tree-item-inner.nav-folder-title-content
+	font-weight: 700
+
+.fileBrowserLayeredBackground .tree-item.nav-folder:not(.mod-root)
+	background-color: var(--levelLayer)
