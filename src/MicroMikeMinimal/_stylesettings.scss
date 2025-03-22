@@ -2,6 +2,12 @@
 name: Micro Mike
 id: MicroMike
 settings:
+	-
+		id: settingsHoverPreview
+		title: Settings Hover Preview
+		description: With this on, you can preview your Obsidian appearance by simply putting the cursor outside of the settings window. 
+		type: class-toggle
+		default: true
 	- 
 		id: this-is-a-heading
 		title: Colors & Style
@@ -411,12 +417,7 @@ settings:
 		title: Layered Background in File Browser Folders
 		description: Enable layered background in file browser. This helps perceive depth.
 		type: class-toggle
-		default: true	
-	-
-		id: oldTreeViewImplementation
-		title: Old Tree View Implementation
-		description: If file browser is glitchy, this may be more functional, but word wrap doesn't work this way.
-		type: class-toggle
+		default: true
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Prompt Window
@@ -514,12 +515,6 @@ settings:
 		type: heading
 		level: 2
 		collapsed: true
-	-
-		id: settingsHoverPreview
-		title: Settings Hover Preview
-		description: With this on, you can preview your Obsidian appearance by simply putting the cursor outside of the settings window. 
-		type: class-toggle
-		default: true
 	-
 		id: disableLeftAlignSettings
 		title: Disable Alternate Settings Alignment

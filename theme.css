@@ -37,6 +37,12 @@ body:is(.outsideSidebar_RBA, .insideSidebar_RBA) {
 name: Micro Mike
 id: MicroMike
 settings:
+	-
+		id: settingsHoverPreview
+		title: Settings Hover Preview
+		description: With this on, you can preview your Obsidian appearance by simply putting the cursor outside of the settings window. 
+		type: class-toggle
+		default: true
 	- 
 		id: this-is-a-heading
 		title: Colors & Style
@@ -446,12 +452,7 @@ settings:
 		title: Layered Background in File Browser Folders
 		description: Enable layered background in file browser. This helps perceive depth.
 		type: class-toggle
-		default: true	
-	-
-		id: oldTreeViewImplementation
-		title: Old Tree View Implementation
-		description: If file browser is glitchy, this may be more functional, but word wrap doesn't work this way.
-		type: class-toggle
+		default: true
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Prompt Window
@@ -549,12 +550,6 @@ settings:
 		type: heading
 		level: 2
 		collapsed: true
-	-
-		id: settingsHoverPreview
-		title: Settings Hover Preview
-		description: With this on, you can preview your Obsidian appearance by simply putting the cursor outside of the settings window. 
-		type: class-toggle
-		default: true
 	-
 		id: disableLeftAlignSettings
 		title: Disable Alternate Settings Alignment
@@ -959,10 +954,6 @@ body {
   animation: none !important;
 }
 
-.workspace-leaf-content {
-  animation: 0.03s fade cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-}
-
 .blendDropdown .menu {
   word-wrap: none;
   white-space: nowrap;
@@ -1034,7 +1025,7 @@ body {
   display: none;
 }
 
-body:not(.disableSimpleEditor) {
+body:not(.disableSimpleEditor) :is(.markdown-rendered:not(.community-modal-readme), .cm-scroller) {
   --h1-line-height: var(--line-height-normal);
   --h2-line-height: var(--line-height-normal);
   --h3-line-height: var(--line-height-normal);
@@ -1064,39 +1055,39 @@ body:not(.disableSimpleEditor) {
   margin-right: auto;
 }
 
-body:not(.disableSimpleEditor) .markdown-rendered div:is(.el-p, .el-pre, .el-table, .el-ul, .el-ol) + div > :is(h1, h2, h3, h4, h5, h6),
-body:not(.disableSimpleEditor) .markdown-rendered :is(p, pre, table, ul, ol) + :is(h1, h2, h3, h4, h5, h6),
-body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(p, h1, h2, h3, h4, h5, h6) {
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) div:is(.el-p, .el-pre, .el-table, .el-ul, .el-ol) + div > :is(h1, h2, h3, h4, h5, h6),
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) :is(p, pre, table, ul, ol) + :is(h1, h2, h3, h4, h5, h6),
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) .markdown-preview-section :is(p, h1, h2, h3, h4, h5, h6) {
   margin-top: var(--margin-scale);
 }
-body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section blockquote :is(p, h1, h2, h3, h4, h5, h6):first-of-type {
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) .markdown-preview-section blockquote :is(p, h1, h2, h3, h4, h5, h6):first-of-type {
   margin-top: 0;
 }
-body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(h1, h2, h3, h4, h5, h6) {
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) .markdown-preview-section :is(h1, h2, h3, h4, h5, h6) {
   margin-bottom: var(--margin-scale);
 }
-body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(h1, h2, h3, h4, h5, h6) + div p {
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) .markdown-preview-section :is(h1, h2, h3, h4, h5, h6) + div p {
   margin-top: 0;
 }
-body:not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section .mod-header + div :is(p, h1, h2, h3, h4, h5, h6) {
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) .markdown-preview-section .mod-header + div :is(p, h1, h2, h3, h4, h5, h6) {
   margin-top: 0;
 }
-body:not(.disableSimpleEditor) .markdown-rendered div:is(.el-ul, .el-ol) {
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) div:is(.el-ul, .el-ol) {
   margin-top: var(--margin-scale);
 }
-body:not(.disableSimpleEditor) .markdown-rendered hr {
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) hr {
   margin-top: calc(var(--margin-scale) * 1.5);
   height: calc(var(--margin-scale) * 0.5);
   margin-bottom: 0px;
 }
+body:not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) .footnote-ref {
+  vertical-align: text-bottom;
+}
 body:not(.disableSimpleEditor) .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
   padding-left: 5px;
 }
-body:not(.disableSimpleEditor) .footnote-ref {
-  vertical-align: text-bottom;
-}
 
-body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre {
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) pre {
   padding: 0px;
   margin: 0px;
   padding-left: 5px;
@@ -1105,12 +1096,12 @@ body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre {
   margin-bottom: var(--margin-scale);
 }
 
-body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre:before {
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) pre:before {
   content: "```";
   display: block;
 }
 
-body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered pre:after {
+body:not(.disableSECodeblock):not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) pre:after {
   content: "```";
   display: block;
 }
@@ -1122,7 +1113,7 @@ body:not(.disableSECallout):not(.disableSimpleEditor) .callout {
   margin-bottom: var(--margin-scale);
 }
 
-body:not(.disableSECallout):not(.disableSimpleEditor) .markdown-rendered .markdown-preview-section :is(.callout-content) > *:first-of-type {
+body:not(.disableSECallout):not(.disableSimpleEditor) .markdown-rendered:not(.community-modal-readme) .markdown-preview-section :is(.callout-content) > *:first-of-type {
   margin-top: 0px;
 }
 
@@ -1139,52 +1130,42 @@ body:not(.disableSECallout):not(.disableSimpleEditor) .markdown-rendered .markdo
 }
 
 body {
-  --nav-item-children-padding-left: 10px;
-  --nav-item-children-margin-left: 9px;
-}
-
-body {
-  --vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1);
-  --nav-item-children-padding-left: calc(var(--outlineLevelWidth) / 2);
-  --nav-item-children-margin-left: calc(var(--outlineLevelWidth) / 2);
-}
-
-body {
-  --vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1);
   --nav-item-children-padding-left: 0px;
   --nav-item-children-margin-left: calc(var(--outlineLevelWidth) - 1px);
+  --nav-item-children-padding-start: calc(var(--outlineLevelWidth) / 2);
+  --nav-item-children-margin-start: calc(var(--outlineLevelWidth) / 2 - 1px);
   --nav-item-children-padding-start: 0px;
-  --nav-item-children-margin-start: calc(var(--outlineLevelWidth) - 1px);
+  --nav-item-children-margin-start: var(--outlineLevelWidth);
 }
 
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container {
+body .workspace-leaf-content[data-type=file-explorer] .nav-files-container {
   padding: 0px;
   margin: 0px;
   gap: 0px;
 }
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title {
+body .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-folder-title {
   padding: 0px;
   margin: 0px;
   gap: 0px;
 }
-.workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title {
+body .workspace-leaf-content[data-type=file-explorer] .nav-files-container .nav-file-title {
   padding: 0px;
   margin: 0px;
   gap: 0px;
 }
-.workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
+body .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
   text-align: end;
   text-align: center;
   align-items: center;
   justify-content: center;
   height: 30px;
 }
-.workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self > .tree-item-inner {
+body .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self > .tree-item-inner {
   font-weight: 500;
   font-size: 20px;
   text-align: center;
 }
-.workspace-leaf-content[data-type=file-explorer] .tree-item-children .tree-item-children {
+body .workspace-leaf-content[data-type=file-explorer] .tree-item-children .tree-item-children {
   position: relative;
 }
 
@@ -1229,6 +1210,17 @@ body {
 .workspace-leaf-content[data-type=outline] .view-content .tree-item .tree-item-self:not(.mod-collapsible) {
   position: relative;
   padding-left: var(--outlineLevelWidth);
+}
+.workspace-leaf-content[data-type=outline] .view-content .tree-item .tree-item-self:not(.mod-collapsible) .tree-item-inner {
+  position: relative;
+  overflow: visible;
+}
+.workspace-leaf-content[data-type=outline] .view-content .tree-item .tree-item-self:not(.mod-collapsible) .tree-item-inner:before {
+  content: "–";
+  position: absolute;
+  left: calc(0px - var(--outlineLevelWidth) / 2 - 3px);
+  top: -1px;
+  z-index: 99;
 }
 
 .modal-container .prompt .prompt-input-container {
@@ -1448,6 +1440,13 @@ body:not(.is-mobile).setting-item-control div[aria-label="Open themes folder"] +
   width: 160px;
 }
 
+body:not(.is-mobile).largeSettingsButtons {
+  --toggle-thumb-radius: 4px;
+  --toggle-thumb-height: 36px;
+  --toggle-thumb-width: 36px;
+  --toggle-width: 80px;
+  --toggle-radius: 4px;
+}
 body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   background-color: var(--level1_a);
   min-height: 40px;
@@ -1867,6 +1866,7 @@ body {
   padding: 0px;
   margin: 0px;
   gap: 0px;
+  min-height: 30px;
 }
 .status-bar .status-bar-item {
   padding: 0px;

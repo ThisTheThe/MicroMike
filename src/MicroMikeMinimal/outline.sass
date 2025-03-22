@@ -16,4 +16,12 @@
 			.tree-item-self:not(.mod-collapsible)
 				position: relative
 				padding-left: var(--outlineLevelWidth)
-			
+				.tree-item-inner
+					position: relative
+					overflow: visible
+					&:before
+						content: "–"
+						position: absolute
+						left: calc(0px - var(--outlineLevelWidth) / 2 - 3px)
+						top: -1px
+						z-index: 99

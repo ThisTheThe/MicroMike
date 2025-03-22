@@ -3,23 +3,16 @@
 
 
 body
-	--nav-item-children-padding-left: 10px
-	--nav-item-children-margin-left: 9px
-
-body
-	--vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1)
-	--nav-item-children-padding-left: calc(var(--outlineLevelWidth) / 2)
-	--nav-item-children-margin-left: calc(var(--outlineLevelWidth) / 2)
-
-body
-	--vartest: calc(calc(var(--outlineLevelWidth) / 2) - 1)
 	--nav-item-children-padding-left: 0px
 	--nav-item-children-margin-left: calc(var(--outlineLevelWidth) - 1px)
 
-	--nav-item-children-padding-start: 0px
-	--nav-item-children-margin-start: calc(var(--outlineLevelWidth) - 1px) 
+	--nav-item-children-padding-start: calc(var(--outlineLevelWidth) / 2) 
+	--nav-item-children-margin-start: calc(var(--outlineLevelWidth) / 2 - 1px) 
 
-.workspace-leaf-content[data-type="file-explorer"] 
+	--nav-item-children-padding-start: 0px
+	--nav-item-children-margin-start: var(--outlineLevelWidth)
+
+body .workspace-leaf-content[data-type="file-explorer"] 
 	.nav-files-container
 		@include std.noPadding
 		.nav-folder-title

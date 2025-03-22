@@ -24,7 +24,8 @@
         "command": "multiCommand.sassComboSave",
         "sequence": [
             "liveSass.command.oneTimeCompileSass",
-            "workbench.action.files.save"
+            "workbench.action.files.save",
+			{ "command": "workbench.action.tasks.runTask", "args": "RunCopyFileMicroMike" }
         ]
     }
 ]
