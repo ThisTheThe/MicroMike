@@ -26,3 +26,6 @@ dist-ssr
 *.css.map
 *.css
 *.lnk
+
+# But don't ignore CSS files in the Snippets/ folder
+!Snippets/*.css
