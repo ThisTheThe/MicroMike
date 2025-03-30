@@ -36,7 +36,7 @@
 		* Height/width in percentages
 		* X/Y offsets in pixels
 		* Minimum width in pixels
-  		* <img src="https://github.com/user-attachments/assets/87c6e15e-fee5-43f2-a7bd-0d94b5cc3e27" alt="Description" width="300" height="300">
+  		* <img src="https://github.com/user-attachments/assets/87c6e15e-fee5-43f2-a7bd-0d94b5cc3e27" alt="Description" width="300" height="200">
 * sPositionableSettings
 	* Intended with Style Settings
 	* This allows for granular control of the size and position of the settings window.
@@ -45,7 +45,7 @@
 		* Height/width in percentages
 		* X/Y offsets in pixels
 		* Minimum width in pixels
-		* <img src="https://github.com/user-attachments/assets/1f681019-de77-45f2-8b06-b98b73ce5cb1" alt="Description" width="300" height="300">
+		* <img src="https://github.com/user-attachments/assets/1f681019-de77-45f2-8b06-b98b73ce5cb1" alt="Description" width="300" height="200">
 * sResizableResizeBars
 	* This snippet allows for a configurable width on the "resize handles" that determine the width of the sidebars.
 	* Why? It's very precise to click the handles normally. If you do that often, you might find it a useful quality-of-life improvement.
