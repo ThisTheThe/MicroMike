@@ -22,9 +22,16 @@
     },
     {
         "command": "multiCommand.sassComboSave",
+		"interval": 1500,
         "sequence": [
             "liveSass.command.oneTimeCompileSass",
             "workbench.action.files.save",
+			{ "command": "workbench.action.tasks.runTask", "args": "RunCopyFileMicroMike" }
+        ]
+    },
+    {
+        "command": "multiCommand.runBuildScript",
+        "sequence": [
 			{ "command": "workbench.action.tasks.runTask", "args": "RunCopyFileMicroMike" }
         ]
     }

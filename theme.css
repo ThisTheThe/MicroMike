@@ -61,6 +61,7 @@ settings:
 			- accentMicroMike
 			- classicMicroMike
 			- dtm08
+			- factorio
 	-
 		id: disableBevels
 		title: Disable Bevels 
@@ -731,11 +732,11 @@ body {
   width: 40px;
 }
 
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) {
   display: flex;
   flex-direction: column;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) {
   padding: 0px;
   margin: 0px;
   border: 0px;
@@ -743,16 +744,16 @@ body {
   order: -1;
   min-height: unset !important;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer):has(> .backlink-pane > .search-result-container > .search-empty-state) {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer):has(> .backlink-pane > .search-result-container > .search-empty-state) {
   display: none;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .nav-header {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .nav-header {
   display: none;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane > .tree-item-self {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane > .tree-item-self {
   display: none;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container {
   padding: 0px;
   margin: 0px;
   gap: 0px;
@@ -760,43 +761,43 @@ body {
   border-bottom: 2px solid var(--hr-color);
   margin-bottom: 10px;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children {
   display: flex;
   flex-wrap: wrap;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result {
   display: flex;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-matches {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-matches {
   display: none;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable:hover {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable:hover {
   background-color: transparent;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-icon {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-icon {
   display: none;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-flair-outer {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-flair-outer {
   display: none;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner {
   line-height: 35px;
   font-size: var(--font-text-size);
   white-space: nowrap;
   color: var(--link-color);
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner:hover {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner:hover {
   color: var(--link-color-hover);
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner:hover::before {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner:hover::before {
   text-decoration-line: none;
   text-decoration: none;
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner::before {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner::before {
   content: "႟";
   color: var(--text-normal);
 }
-:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner::after {
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable .tree-item-inner::after {
   content: "";
   color: var(--text-normal);
 }
@@ -3524,7 +3525,7 @@ body {
   --linkBrightnessAdditive: 1 ;
 }
 
-body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08) {
+body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
   /* Hierarchical palette */
   --bottom: #000000;
   --bottom_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 6% ));
@@ -3609,7 +3610,7 @@ body.classicMicroMike {
   --disabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(0,0,0,0.33) 100%) ;
 }
 
-body:not(.inherit):not(.oldAndroid):not(.dtm08) {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
   --background-primary: var(--level1_a);
   --background-primary-alt: var(--level1_b);
   --background-secondary: var(--level1);
@@ -3622,7 +3623,7 @@ body:not(.inherit):not(.oldAndroid):not(.dtm08) {
   --text-on-accent-inverted: #ffffff;
 }
 
-body:not(.inherit):not(.oldAndroid):not(.dtm08) {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
   /* Button Component */
   /* Dashboard Component */
   /* Input Component */
@@ -3706,313 +3707,313 @@ body:not(.inherit):not(.oldAndroid):not(.dtm08) {
   /* Theme Picker */
   /* Titlebar */
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08).theme-dark {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio).theme-dark {
   --interactive-normal: var(--level2);
   --interactive-hover: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .view-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .nav-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .nav-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .view-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .nav-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .nav-header {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) textarea, body:not(.inherit):not(.oldAndroid):not(.dtm08) input.metadata-input-text, body:not(.inherit):not(.oldAndroid):not(.dtm08) input[type=date], body:not(.inherit):not(.oldAndroid):not(.dtm08) input[type=datetime-local], body:not(.inherit):not(.oldAndroid):not(.dtm08) input[type=text], body:not(.inherit):not(.oldAndroid):not(.dtm08) input[type=search], body:not(.inherit):not(.oldAndroid):not(.dtm08) input[type=email], body:not(.inherit):not(.oldAndroid):not(.dtm08) input[type=password], body:not(.inherit):not(.oldAndroid):not(.dtm08) input[type=number] {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) textarea, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input.metadata-input-text, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=date], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=datetime-local], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=text], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=search], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=email], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=password], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=number] {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) input.slider {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input.slider {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=outline] .view-content,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=starred] .item-list,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=recent-files] {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outline] .view-content,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=starred] .item-list,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=recent-files] {
   background: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf.mod-active,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tabs .workspace-leaf {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf.mod-active,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tabs .workspace-leaf {
   background: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .clickable-icon.nav-action-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.nav-action-button {
   opacity: 1;
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .clickable-icon.nav-action-button:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.nav-action-button:hover {
   background-color: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .clickable-icon.nav-action-button.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.nav-action-button.is-active {
   background-color: var(--level2_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .tree-item-self {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .tree-item-self {
   color: var(--backgroundDeep);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-clickable .tree-item-icon.collapse-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-clickable .tree-item-icon.collapse-icon {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-clickable .tree-item-icon.collapse-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-clickable .tree-item-icon.collapse-icon:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=outline] .is-clickable .tree-item-icon.collapse-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outline] .is-clickable .tree-item-icon.collapse-icon:hover {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .tree-item-self:hover, body:not(.inherit):not(.oldAndroid):not(.dtm08) .tree-item-self.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .tree-item-self:hover, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .tree-item-self.is-active {
   background-color: var(--levelHover);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=empty] .view-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-focused .workspace-leaf-content[data-type=empty] .view-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=markdown] .view-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-focused .workspace-leaf-content[data-type=markdown] .view-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=empty] .view-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-focused .workspace-leaf-content[data-type=empty] .view-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=markdown] .view-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-focused .workspace-leaf-content[data-type=markdown] .view-header {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .document-search-button,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .document-search-close-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .document-search-button,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .document-search-close-button {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-split.mod-root .workspace-tabs {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-split.mod-root .workspace-tabs {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-root .workspace-tab-header-container {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-container {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace .mod-root .workspace-tab-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace .mod-root .workspace-tab-header {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace .mod-root .workspace-tab-header:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace .mod-root .workspace-tab-header:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace .mod-root .workspace-tab-header.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace .mod-root .workspace-tab-header.is-active {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-root .workspace-tab-header-new-tab .clickable-icon,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-root .workspace-tab-header-tab-list .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-new-tab .clickable-icon,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-tab-list .clickable-icon {
   background-color: var(--level1);
   opacity: 1;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-root .workspace-tab-header-new-tab .clickable-icon:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-root .workspace-tab-header-tab-list .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-new-tab .clickable-icon:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-tab-list .clickable-icon:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header-inner-close-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header-inner-close-button {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header:hover .workspace-tab-header-inner-close-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header:hover .workspace-tab-header-inner-close-button {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header .workspace-tab-header-inner-close-button:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header .workspace-tab-header-inner-close-button:hover {
   background-color: var(--level2_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .stackTabs .mod-root .workspace-tab-header-container-inner {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .stackTabs .mod-root .workspace-tab-header-container-inner {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-split.mod-root .view-content {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-split.mod-root .view-content {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-mode=preview] .view-content {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-mode=preview] .view-content {
   background: linear-gradient(90deg, var(--level1) 0px, #000000 30px);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .markdown-preview-view .markdown-embed:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .markdown-preview-view .markdown-embed:hover {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover {
   background-color: var(--levelHover);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .explorable.titlebar-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .explorable.titlebar-button {
   box-shadow: var(--bevelStyleButton);
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .explorable.titlebar-button:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .explorable.titlebar-button:hover {
   background-color: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) #quick-explorer .explorable.selected, body:not(.inherit):not(.oldAndroid):not(.dtm08) #quick-explorer .explorable:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .qe-popup-menu .menu-item:not(.is-disabled):not(.is-label).selected {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) #quick-explorer .explorable.selected, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) #quick-explorer .explorable:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .qe-popup-menu .menu-item:not(.is-disabled):not(.is-label).selected {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .prompt {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .prompt {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) input.prompt-input {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input.prompt-input {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal-bg {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal-bg {
   background-color: unset;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-split.mod-horizontal.mod-right-split {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-split.mod-horizontal.mod-right-split {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-split.mod-horizontal.mod-left-split {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-split.mod-horizontal.mod-left-split {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .workspace-tabs {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tabs {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .workspace-tabs {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tabs {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-resize-handle {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-resize-handle {
   background-color: var(--level1);
   border-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-resize-handle:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-resize-handle:hover {
   background-color: var(--level1_a);
   border-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) body {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) body {
   --ribbon-background: var(--bottom);
   --ribbon-background-collapsed: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .clickable-icon.side-dock-ribbon-action {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.side-dock-ribbon-action {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .clickable-icon.side-dock-ribbon-action:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.side-dock-ribbon-action:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-ribbon.side-dock-ribbon.mod-left {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-ribbon.side-dock-ribbon.mod-left {
   border-right: var(--divider-width) solid var(--line-color);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal-bg {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal-bg {
   background-color: transparent;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal.mod-community-theme,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal.mod-community-plugin {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-community-theme,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-community-plugin {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal.mod-settings .vertical-tab-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-settings .vertical-tab-header {
   background-color: var(--bottom_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal.mod-settings .vertical-tab-content-container {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-settings .vertical-tab-content-container {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal.mod-settings .vertical-tab-content {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-settings .vertical-tab-content {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .dropdown,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .search-results-info .dropdown {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .dropdown,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .search-results-info .dropdown {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .dropdown:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .search-results-info .dropdown:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .dropdown:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .search-results-info .dropdown:hover {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=search] .search-row {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .search-row {
   background-color: var(--level1);
   margin: 0px;
   padding: 6px;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=search] .search-params {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .search-params {
   margin: 0px;
   padding: var(--size-4-1) var(--size-4-4);
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=search] .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal .clickable-icon {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal .clickable-icon:hover {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .modal .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal .clickable-icon {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .vertical-tab-nav-item.is-active,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .vertical-tab-nav-item.is-active:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .vertical-tab-nav-item.is-active,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .vertical-tab-nav-item.is-active:hover {
   background-color: var(--background-modifier-hover);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .workspace-tab-header-container,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .workspace-tab-header-container {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header-container,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header-container {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .workspace-tab-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .workspace-tab-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .workspace-tab-header:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .workspace-tab-header:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header.is-active {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header.is-active:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header.mod-active.is-active:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header.is-active:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header.mod-active.is-active:hover {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .workspace-tab-header.has-active-menu,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .workspace-tab-header.has-active-menu,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .workspace-tab-header.is-active,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .workspace-tab-header.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header.has-active-menu,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header.has-active-menu,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header.is-active,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header.is-active {
   background-color: var(--level1_b);
 }
 @media (hover: hover) {
-  body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .workspace-tab-header.has-active-menu:hover,
-  body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .workspace-tab-header.has-active-menu:hover,
-  body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-left-split .workspace-tab-header.is-active:hover,
-  body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-right-split .workspace-tab-header.is-active:hover {
+  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header.has-active-menu:hover,
+  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header.has-active-menu:hover,
+  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header.is-active:hover,
+  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header.is-active:hover {
     background-color: var(--level1_b);
   }
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
   background-color: transparent;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .sidebar-toggle-button.mod-left .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .sidebar-toggle-button.mod-left .clickable-icon {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .sidebar-toggle-button.mod-left .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .sidebar-toggle-button.mod-left .clickable-icon:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon:hover {
   background-color: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .sidebar-toggle-button.mod-right .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .sidebar-toggle-button.mod-right .clickable-icon {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .sidebar-toggle-button.mod-right .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .sidebar-toggle-button.mod-right .clickable-icon:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon:hover {
   background-color: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .community-item {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .community-item {
   --background-modifier-border: var(--level3);
   --background-modifier-border-hover: var(--level3_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .community-item.is-selected,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .community-item.is-selected:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .community-item.is-selected,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .community-item.is-selected:hover {
   border-color: var(--level3_a);
   background-color: var(--level3);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .community-modal-details {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .community-modal-details {
   background-color: transparent;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .titlebar-button-container .titlebar-button:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .titlebar-button-container .titlebar-button:hover {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right,
-body:not(.inherit):not(.oldAndroid):not(.dtm08) .is-hidden-frameless:not(.is-fullscreen).is-focused .titlebar-button-container.mod-right {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-hidden-frameless:not(.is-fullscreen).is-focused .titlebar-button-container.mod-right {
   background-color: var(--bottom);
 }
 
@@ -4028,7 +4029,7 @@ body {
   --bevelStyleTreeItem_invert: inset -1px -1px var(--separatorColor);
 }
 
-body:not(.disableBevels):not(.dtm08) {
+body:not(.disableBevels):not(.dtm08):not(.factorio) {
   --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
   --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
   --bevelStyleContainerOuter:
@@ -4042,7 +4043,7 @@ body:not(.disableBevels):not(.dtm08) {
   2px -2px var(--bevelBright2);
 }
 
-body:not(.disableBevels):not(.dtm08) {
+body:not(.disableBevels):not(.dtm08):not(.factorio) {
   /* Dashboard Component */
   /* Input Component */
   /* Sidebar Container Component*/
@@ -4087,145 +4088,145 @@ body:not(.disableBevels):not(.dtm08) {
   /* Theme Picker */
   /* Titlebar */
 }
-body:not(.disableBevels):not(.dtm08).theme-dark {
+body:not(.disableBevels):not(.dtm08):not(.factorio).theme-dark {
   --input-shadow: var(--bevelStyleButton);
   --input-shadow-hover: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .clickable-icon,
-body:not(.disableBevels):not(.dtm08) .clickable-icon:hover,
-body:not(.disableBevels):not(.dtm08) .workspace-tab-header-inner-close-button,
-body:not(.disableBevels):not(.dtm08) button {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .clickable-icon,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .clickable-icon:hover,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-tab-header-inner-close-button,
+body:not(.disableBevels):not(.dtm08):not(.factorio) button {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .view-header {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .view-header {
   box-shadow: var(--bevelStyleButton);
   border: 0px;
 }
-body:not(.disableBevels):not(.dtm08) .mod-left-split .nav-header,
-body:not(.disableBevels):not(.dtm08) .mod-right-split .nav-header {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-left-split .nav-header,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-right-split .nav-header {
   padding: 3px;
   box-shadow: var(--bevelStyleButton);
   border: 0px;
 }
-body:not(.disableBevels):not(.dtm08) textarea, body:not(.disableBevels):not(.dtm08) input[type=text], body:not(.disableBevels):not(.dtm08) input[type=search], body:not(.disableBevels):not(.dtm08) input[type=email], body:not(.disableBevels):not(.dtm08) input[type=password], body:not(.disableBevels):not(.dtm08) input[type=number] {
+body:not(.disableBevels):not(.dtm08):not(.factorio) textarea, body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=text], body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=search], body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=email], body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=password], body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=number] {
   box-shadow: var(--bevelStyleContainer);
 }
-body:not(.disableBevels):not(.dtm08) textarea:active,
-body:not(.disableBevels):not(.dtm08) input[type=text]:active,
-body:not(.disableBevels):not(.dtm08) input[type=search]:active,
-body:not(.disableBevels):not(.dtm08) input[type=email]:active,
-body:not(.disableBevels):not(.dtm08) input[type=password]:active,
-body:not(.disableBevels):not(.dtm08) input[type=number]:active,
-body:not(.disableBevels):not(.dtm08) textarea:focus,
-body:not(.disableBevels):not(.dtm08) input[type=text]:focus,
-body:not(.disableBevels):not(.dtm08) input[type=search]:focus,
-body:not(.disableBevels):not(.dtm08) input[type=email]:focus,
-body:not(.disableBevels):not(.dtm08) input[type=password]:focus,
-body:not(.disableBevels):not(.dtm08) input[type=number]:focus,
-body:not(.disableBevels):not(.dtm08) textarea:focus-visible,
-body:not(.disableBevels):not(.dtm08) input[type=text]:focus-visible,
-body:not(.disableBevels):not(.dtm08) input[type=search]:focus-visible,
-body:not(.disableBevels):not(.dtm08) input[type=email]:focus-visible,
-body:not(.disableBevels):not(.dtm08) input[type=password]:focus-visible,
-body:not(.disableBevels):not(.dtm08) input[type=number]:focus-visible {
+body:not(.disableBevels):not(.dtm08):not(.factorio) textarea:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=text]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=search]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=email]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=password]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=number]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio) textarea:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=text]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=search]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=email]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=password]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=number]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio) textarea:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=text]:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=search]:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=email]:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=password]:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=number]:focus-visible {
   box-shadow: var(--bevelStyleContainer);
 }
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=outline] .view-content,
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=starred] .item-list,
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=recent-files] {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outline] .view-content,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=starred] .item-list,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=recent-files] {
   box-shadow: var(--bevelStyleContainer);
   box-shadow: var(--bevelStyleContainerOuter);
 }
-body:not(.disableBevels):not(.dtm08) .is-clickable .tree-item-icon.collapse-icon {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .is-clickable .tree-item-icon.collapse-icon {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .document-search-container {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .document-search-container {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .document-search-close-button {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .document-search-close-button {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .workspace .mod-root .workspace-tab-header {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace .mod-root .workspace-tab-header {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .stackTabs .mod-root .workspace-tab-header-inner-close-button {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .stackTabs .mod-root .workspace-tab-header-inner-close-button {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions, body:not(.disableBevels):not(.dtm08) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons {
+body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions, body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons {
   margin: 3px;
   height: calc(100% - 6px);
 }
-body:not(.disableBevels):not(.dtm08) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions > *:is(a, button), body:not(.disableBevels):not(.dtm08) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons > *:is(a, button) {
+body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions > *:is(a, button), body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons > *:is(a, button) {
   height: 100%;
 }
-body:not(.disableBevels):not(.dtm08) .markdown-preview-view .markdown-embed,
-body:not(.disableBevels):not(.dtm08) .markdown-preview-view .file-embed {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .markdown-preview-view .markdown-embed,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .markdown-preview-view .file-embed {
   box-shadow: var(--bevelStyleContainer);
 }
-body:not(.disableBevels):not(.dtm08) .explorable.titlebar-button {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .explorable.titlebar-button {
   box-shadow: var(--bevelStyleButton);
   background-color: var(--level2);
 }
-body:not(.disableBevels):not(.dtm08) .prompt {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .prompt {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) input.prompt-input:hover, body:not(.disableBevels):not(.dtm08) input.prompt-input:focus, body:not(.disableBevels):not(.dtm08) input.prompt-input:focus-visible {
+body:not(.disableBevels):not(.dtm08):not(.factorio) input.prompt-input:hover, body:not(.disableBevels):not(.dtm08):not(.factorio) input.prompt-input:focus, body:not(.disableBevels):not(.dtm08):not(.factorio) input.prompt-input:focus-visible {
   box-shadow: var(--bevelStyleContainer);
 }
-body:not(.disableBevels):not(.dtm08) .mod-left-split > hr,
-body:not(.disableBevels):not(.dtm08) .mod-right-split > hr {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-left-split > hr,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-right-split > hr {
   border-left: 1px solid var(--level2);
   border-right: 1px solid var(--level2);
 }
-body:not(.disableBevels):not(.dtm08) .mod-horizontal > div > hr:not(.mod-root hr) {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-horizontal > div > hr:not(.mod-root hr) {
   border-top: 1px solid var(--level2);
   border-bottom: 1px solid var(--level2);
 }
-body:not(.disableBevels):not(.dtm08) .modal-container.mod-dim .modal.mod-settings,
-body:not(.disableBevels):not(.dtm08) .modal-container.mod-dim .modal.mod-community-plugin,
-body:not(.disableBevels):not(.dtm08) .modal-container.mod-dim .modal.mod-community-theme,
-body:not(.disableBevels):not(.dtm08) .modal.mod-community-theme {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .modal-container.mod-dim .modal.mod-settings,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .modal-container.mod-dim .modal.mod-community-plugin,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .modal-container.mod-dim .modal.mod-community-theme,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .modal.mod-community-theme {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .modal.mod-settings .vertical-tab-content {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .modal.mod-settings .vertical-tab-content {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .dropdown:hover,
-body:not(.disableBevels):not(.dtm08) .search-results-info .dropdown:hover {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .dropdown:hover,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .search-results-info .dropdown:hover {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=search] .clickable-icon {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.disableBevels):not(.dtm08) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) .mod-left-split .workspace-tab-header,
-body:not(.disableBevels):not(.dtm08) .mod-right-split .workspace-tab-header {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08) :is(.mod-left-split, .mod-right-split) .workspace-tab-container .nav-header .nav-buttons-container .clickable-icon {
+body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.mod-left-split, .mod-right-split) .workspace-tab-container .nav-header .nav-buttons-container .clickable-icon {
   height: calc(var(--sidebarDashboardHeight) - 6px);
 }
-body:not(.disableBevels):not(.dtm08):not(.leftAlignedLeftSidebarButtonDisable) .mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.leftAlignedLeftSidebarButtonDisable) .mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner {
   margin-right: 1px;
 }
-body:not(.disableBevels):not(.dtm08) .mod-right-split .workspace-tab-header-container .workspace-tab-header-container-inner {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header-container .workspace-tab-header-container-inner {
   margin-left: 1px;
 }
-body:not(.disableBevels):not(.dtm08) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
   margin-right: calc(var(--handleSize) + 1px);
 }
-body:not(.disableBevels):not(.dtm08) .community-item.is-selected,
-body:not(.disableBevels):not(.dtm08) .community-item.is-selected:hover {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .community-item.is-selected,
+body:not(.disableBevels):not(.dtm08):not(.factorio) .community-item.is-selected:hover {
   border-color: var(--level3_a);
 }
-body:not(.disableBevels):not(.dtm08) .titlebar-button-container .titlebar-button {
+body:not(.disableBevels):not(.dtm08):not(.factorio) .titlebar-button-container .titlebar-button {
   box-shadow: var(--bevelStyleButton);
 }
 
@@ -4832,10 +4833,7 @@ body.dtm08 {
 
 .dtm08 .modal-container .prompt {
   background: linear-gradient(rgba(63, 67, 75, 0.8666666667), rgba(32, 35, 41, 0.8666666667));
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
   border: solid 1px #000;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 2px 10px 5px rgba(0, 0, 0, 0.7333333333);
 }
 .dtm08 .modal-container .prompt .prompt-input {
   background: linear-gradient(var(--d8dD) 0%, var(--d8dC) 50%, var(--d8dB) 50%, var(--d8dA) 100%);
@@ -4992,4 +4990,54 @@ body.dtm08 {
 }
 .dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button {
   width: 41px;
+}
+
+.factorio .workspace-tab-header-container-inner {
+  overflow: visible;
+}
+.factorio .workspace-leaf-content {
+  background-color: #313031;
+  padding: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 4px solid #2e2623;
+  background-color: #414040;
+  -o-border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kTtIw1AUhv+miiIVBzuICEaoThbEF45ahSJUCLVCqw4mN31Bk4YkxcVRcC04+FisOrg46+rgKgiCDxBHJydFFynx3KTQIsYDl/vx3/P/3HsuINRKTLPaxgBNt81kPCamM6tixysCGEQIQ5iSmWXMSVICvvV1T91Ud1Ge5d/3Z3WrWYsBAZF4lhmmTbxBPL1pG5z3icOsIKvE58SjJl2Q+JHrisdvnPMuCzwzbKaS88RhYjHfwkoLs4KpEU8SR1RNp3wh7bHKeYuzVqqwxj35C0NZfWWZ67QGEMciliBBhIIKiijBRpR2nRQLSTqP+fj7Xb9ELoVcRTByLKAMDbLrB/+D37O1chPjXlIoBrS/OM7HMNCxC9SrjvN97Dj1EyD4DFzpTX+5Bsx8kl5tapEjoGcbuLhuasoecLkD9D0Zsim7UpCWkMsB72f0TRmg9xboWvPm1jjH6QOQolklboCDQ2AkT9nrPu/ubJ3bvz2N+f0As9tywbHNoQUAAAAGYktHRAD+AP4A+5tyIA0AAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmAgMMDCIUc1k9AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAV1JREFUOMutk8Fu4zAMRN/I2nRzWOx+VoHe9v//IV4nbWJZJPcgO3bS5tCiAgxJBjkczlD6+/Icv37/4Wm/p+sykkDi4YogIjCrjOczx389eegPSAn34Mduh1ICaGDv8qPt7kyl8HY6MvQH8nHoUZcxN3Y/90jpMZuZRYRTLmdeTyeOQ08eS2U4HChlYvf0hlLX2EiIFSiIBuJOuFHGkcvribFUsgdMHnC5UM1R133MZsMizKhTYfLAA7IkJKGU2qd1vwchHBxIMce03MwCMldu5wTprh2BPIGCuMvJa6n151WPDRNFA1oKsSmQ+Ib1LSCbdpr6itlKtRbuLV5cgtiAXK3bBIQjT02DG4v9Jm455+XShsibmD4r+WhO5tglN1dzUMUJJrM2sRu7b97NtaDhbng1qjl5qpViRoxbS/Xo6axaRCCahrmYUT0wj0+70iWRk8iTOV/IB8C8tfcfVY4Z65JAVxwAAAAASUVORK5CYII=) 8/4px repeat;
+     border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kTtIw1AUhv+miiIVBzuICEaoThbEF45ahSJUCLVCqw4mN31Bk4YkxcVRcC04+FisOrg46+rgKgiCDxBHJydFFynx3KTQIsYDl/vx3/P/3HsuINRKTLPaxgBNt81kPCamM6tixysCGEQIQ5iSmWXMSVICvvV1T91Ud1Ge5d/3Z3WrWYsBAZF4lhmmTbxBPL1pG5z3icOsIKvE58SjJl2Q+JHrisdvnPMuCzwzbKaS88RhYjHfwkoLs4KpEU8SR1RNp3wh7bHKeYuzVqqwxj35C0NZfWWZ67QGEMciliBBhIIKiijBRpR2nRQLSTqP+fj7Xb9ELoVcRTByLKAMDbLrB/+D37O1chPjXlIoBrS/OM7HMNCxC9SrjvN97Dj1EyD4DFzpTX+5Bsx8kl5tapEjoGcbuLhuasoecLkD9D0Zsim7UpCWkMsB72f0TRmg9xboWvPm1jjH6QOQolklboCDQ2AkT9nrPu/ubJ3bvz2N+f0As9tywbHNoQUAAAAGYktHRAD+AP4A+5tyIA0AAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmAgMMDCIUc1k9AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAV1JREFUOMutk8Fu4zAMRN/I2nRzWOx+VoHe9v//IV4nbWJZJPcgO3bS5tCiAgxJBjkczlD6+/Icv37/4Wm/p+sykkDi4YogIjCrjOczx389eegPSAn34Mduh1ICaGDv8qPt7kyl8HY6MvQH8nHoUZcxN3Y/90jpMZuZRYRTLmdeTyeOQ08eS2U4HChlYvf0hlLX2EiIFSiIBuJOuFHGkcvribFUsgdMHnC5UM1R133MZsMizKhTYfLAA7IkJKGU2qd1vwchHBxIMce03MwCMldu5wTprh2BPIGCuMvJa6n151WPDRNFA1oKsSmQ+Ib1LSCbdpr6itlKtRbuLV5cgtiAXK3bBIQjT02DG4v9Jm455+XShsibmD4r+WhO5tglN1dzUMUJJrM2sRu7b97NtaDhbng1qjl5qpViRoxbS/Xo6axaRCCahrmYUT0wj0+70iWRk8iTOV/IB8C8tfcfVY4Z65JAVxwAAAAASUVORK5CYII=) 8/4px repeat;
+}
+.factorio .workspace-tab-header {
+  z-index: 1;
+  display: block;
+  padding: 10px 18px 10px 18px;
+  border-radius: 4px 4px 0 0;
+  font-weight: 600;
+  background-color: #8e8e8e;
+  color: #1d1c1d;
+  box-shadow: inset 0px 4px 1px -2px #c5c5c5, inset 0px 4px 1px -2px #888888, inset 0px -4px 1px -2px #2d2d2d, inset 4px 0px 1px -2px #7a7a7a, inset -4px 0px 1px -2px #372f2a;
+}
+.factorio .workspace-tab-header.is-active {
+  background-color: #313031;
+  box-shadow: inset 0px 4px 1px -2px #686665, inset 4px 0px 1px -2px #201815, inset -4px 0px 1px -2px #262220, 0px 6px 4px #313031, 0px 0px 4px #101010;
+}
+.factorio .nav-buttons-container {
+  -o-border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAMAAABgOjJdAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kTtIw1AUhv+miiIVBzuICEaoThbEF45ahSJUCLVCqw4mN31Bk4YkxcVRcC04+FisOrg46+rgKgiCDxBHJydFFynx3KTQIsYDl/vx3/P/3HsuINRKTLPaxgBNt81kPCamM6tixysCGEQIQ5iSmWXMSVICvvV1T91Ud1Ge5d/3Z3WrWYsBAZF4lhmmTbxBPL1pG5z3icOsIKvE58SjJl2Q+JHrisdvnPMuCzwzbKaS88RhYjHfwkoLs4KpEU8SR1RNp3wh7bHKeYuzVqqwxj35C0NZfWWZ67QGEMciliBBhIIKiijBRpR2nRQLSTqP+fj7Xb9ELoVcRTByLKAMDbLrB/+D37O1chPjXlIoBrS/OM7HMNCxC9SrjvN97Dj1EyD4DFzpTX+5Bsx8kl5tapEjoGcbuLhuasoecLkD9D0Zsim7UpCWkMsB72f0TRmg9xboWvPm1jjH6QOQolklboCDQ2AkT9nrPu/ubJ3bvz2N+f0As9tywbHNoQUAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmAgMLNBNXffN5AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAQtQTFRFAAAAAAAAMTAAYQABMQABAAAA/9y6AAAAAAAA/7F+SjAAMRgAMQABGQABAAAA/9nH/9m0MQ8AIQ8AAAAAAAAA/8GqGQsAAAAAAAAAAAAAOxwAMRMAJwkAFAkAMQ8AKQ8AEQABAAAAAAAAAAAA/+/pBwYA//fq//HkAAAAJQsAAAAAIQoABQQA//nwIgkADwQAAAAA//XsAAAAAAAAAAAAHQsA//rzAAAAAAAAAAAACgIAAAAAAAAADAUABgIAAAAAAAAAAAAAGQcADwcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAcAAAAACgMAAAAAAAAAAAAACgIAAAAAAAAAAwIAAAAAdNLDhQAAAFh0Uk5TAAIFBQUFBwgJCgoKCwsMDg4QEBASFRUVGBkaGhoaHx8gICEiIyQlJiYqLi8vMjQ0NDY2Nzo+P0BBTE5PUVNTVFpcXmNjZG9wcXJzdHh5fYCChIuMl5utu+r6V5gAAAABYktHRFmasvQYAAABUklEQVR4nLXUyU7DMBAG4PHEaewsbWihUg9IIPH+T4QEEodKhZa0Wew0jo2SLlD74BM+WZpP8nj5TcA3yGWCdkXfCsTIFq3WvwIRYGqLA8BoyAg4jx9t8dEIMZBBUJ7P5itbrHf7QqhRIE4XD0tmC7n53B60HgSF+er+jtpCfX+td6CAAPIoW2YpM1pp3RsAEiBSJLIqN2Ur9FVESnbKnAShIaOtLaiQUvdD84gBMsaVLUhTdY3uBhFiHKaxsYWu5EEK3QMEyNmUpWgLVddV0XVHgEkY5mmSUFscK1FUoh1WiXia83RiC1nX+7LqFQAN0myWJOw/hL8P/1785+E/U/+9+O/W/z7cKF0F0CzOg7UDnt9WfdGUahRJ9v7iCKpen8r6JKKFigNHGNI3dNuqMVEkUtwRxAjaGn1KZUJg4nYKRzD1n2Q79egcbeJULgPP38MP9ZBIMci5WIsAAAAASUVORK5CYII=) 16/8px repeat;
+     border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAMAAABgOjJdAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kTtIw1AUhv+miiIVBzuICEaoThbEF45ahSJUCLVCqw4mN31Bk4YkxcVRcC04+FisOrg46+rgKgiCDxBHJydFFynx3KTQIsYDl/vx3/P/3HsuINRKTLPaxgBNt81kPCamM6tixysCGEQIQ5iSmWXMSVICvvV1T91Ud1Ge5d/3Z3WrWYsBAZF4lhmmTbxBPL1pG5z3icOsIKvE58SjJl2Q+JHrisdvnPMuCzwzbKaS88RhYjHfwkoLs4KpEU8SR1RNp3wh7bHKeYuzVqqwxj35C0NZfWWZ67QGEMciliBBhIIKiijBRpR2nRQLSTqP+fj7Xb9ELoVcRTByLKAMDbLrB/+D37O1chPjXlIoBrS/OM7HMNCxC9SrjvN97Dj1EyD4DFzpTX+5Bsx8kl5tapEjoGcbuLhuasoecLkD9D0Zsim7UpCWkMsB72f0TRmg9xboWvPm1jjH6QOQolklboCDQ2AkT9nrPu/ubJ3bvz2N+f0As9tywbHNoQUAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmAgMLNBNXffN5AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAQtQTFRFAAAAAAAAMTAAYQABMQABAAAA/9y6AAAAAAAA/7F+SjAAMRgAMQABGQABAAAA/9nH/9m0MQ8AIQ8AAAAAAAAA/8GqGQsAAAAAAAAAAAAAOxwAMRMAJwkAFAkAMQ8AKQ8AEQABAAAAAAAAAAAA/+/pBwYA//fq//HkAAAAJQsAAAAAIQoABQQA//nwIgkADwQAAAAA//XsAAAAAAAAAAAAHQsA//rzAAAAAAAAAAAACgIAAAAAAAAADAUABgIAAAAAAAAAAAAAGQcADwcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAcAAAAACgMAAAAAAAAAAAAACgIAAAAAAAAAAwIAAAAAdNLDhQAAAFh0Uk5TAAIFBQUFBwgJCgoKCwsMDg4QEBASFRUVGBkaGhoaHx8gICEiIyQlJiYqLi8vMjQ0NDY2Nzo+P0BBTE5PUVNTVFpcXmNjZG9wcXJzdHh5fYCChIuMl5utu+r6V5gAAAABYktHRFmasvQYAAABUklEQVR4nLXUyU7DMBAG4PHEaewsbWihUg9IIPH+T4QEEodKhZa0Wew0jo2SLlD74BM+WZpP8nj5TcA3yGWCdkXfCsTIFq3WvwIRYGqLA8BoyAg4jx9t8dEIMZBBUJ7P5itbrHf7QqhRIE4XD0tmC7n53B60HgSF+er+jtpCfX+td6CAAPIoW2YpM1pp3RsAEiBSJLIqN2Ur9FVESnbKnAShIaOtLaiQUvdD84gBMsaVLUhTdY3uBhFiHKaxsYWu5EEK3QMEyNmUpWgLVddV0XVHgEkY5mmSUFscK1FUoh1WiXia83RiC1nX+7LqFQAN0myWJOw/hL8P/1785+E/U/+9+O/W/z7cKF0F0CzOg7UDnt9WfdGUahRJ9v7iCKpen8r6JKKFigNHGNI3dNuqMVEkUtwRxAjaGn1KZUJg4nYKRzD1n2Q79egcbeJULgPP38MP9ZBIMci5WIsAAAAASUVORK5CYII=) 16/8px repeat;
+  border-image-outset: 4px;
+  background-color: #242324;
+  box-shadow: none;
+}
+.factorio .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
+  background-color: transparent;
+}
+.factorio .node-insert-event {
+  padding: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 4px solid #2e2623;
+  -o-border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAMAAABgOjJdAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kTtIw1AUhv+miiIVBzuICEaoThbEF45ahSJUCLVCqw4mN31Bk4YkxcVRcC04+FisOrg46+rgKgiCDxBHJydFFynx3KTQIsYDl/vx3/P/3HsuINRKTLPaxgBNt81kPCamM6tixysCGEQIQ5iSmWXMSVICvvV1T91Ud1Ge5d/3Z3WrWYsBAZF4lhmmTbxBPL1pG5z3icOsIKvE58SjJl2Q+JHrisdvnPMuCzwzbKaS88RhYjHfwkoLs4KpEU8SR1RNp3wh7bHKeYuzVqqwxj35C0NZfWWZ67QGEMciliBBhIIKiijBRpR2nRQLSTqP+fj7Xb9ELoVcRTByLKAMDbLrB/+D37O1chPjXlIoBrS/OM7HMNCxC9SrjvN97Dj1EyD4DFzpTX+5Bsx8kl5tapEjoGcbuLhuasoecLkD9D0Zsim7UpCWkMsB72f0TRmg9xboWvPm1jjH6QOQolklboCDQ2AkT9nrPu/ubJ3bvz2N+f0As9tywbHNoQUAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmAgMLNBNXffN5AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAQtQTFRFAAAAAAAAMTAAYQABMQABAAAA/9y6AAAAAAAA/7F+SjAAMRgAMQABGQABAAAA/9nH/9m0MQ8AIQ8AAAAAAAAA/8GqGQsAAAAAAAAAAAAAOxwAMRMAJwkAFAkAMQ8AKQ8AEQABAAAAAAAAAAAA/+/pBwYA//fq//HkAAAAJQsAAAAAIQoABQQA//nwIgkADwQAAAAA//XsAAAAAAAAAAAAHQsA//rzAAAAAAAAAAAACgIAAAAAAAAADAUABgIAAAAAAAAAAAAAGQcADwcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAcAAAAACgMAAAAAAAAAAAAACgIAAAAAAAAAAwIAAAAAdNLDhQAAAFh0Uk5TAAIFBQUFBwgJCgoKCwsMDg4QEBASFRUVGBkaGhoaHx8gICEiIyQlJiYqLi8vMjQ0NDY2Nzo+P0BBTE5PUVNTVFpcXmNjZG9wcXJzdHh5fYCChIuMl5utu+r6V5gAAAABYktHRFmasvQYAAABUklEQVR4nLXUyU7DMBAG4PHEaewsbWihUg9IIPH+T4QEEodKhZa0Wew0jo2SLlD74BM+WZpP8nj5TcA3yGWCdkXfCsTIFq3WvwIRYGqLA8BoyAg4jx9t8dEIMZBBUJ7P5itbrHf7QqhRIE4XD0tmC7n53B60HgSF+er+jtpCfX+td6CAAPIoW2YpM1pp3RsAEiBSJLIqN2Ur9FVESnbKnAShIaOtLaiQUvdD84gBMsaVLUhTdY3uBhFiHKaxsYWu5EEK3QMEyNmUpWgLVddV0XVHgEkY5mmSUFscK1FUoh1WiXia83RiC1nX+7LqFQAN0myWJOw/hL8P/1785+E/U/+9+O/W/z7cKF0F0CzOg7UDnt9WfdGUahRJ9v7iCKpen8r6JKKFigNHGNI3dNuqMVEkUtwRxAjaGn1KZUJg4nYKRzD1n2Q79egcbeJULgPP38MP9ZBIMci5WIsAAAAASUVORK5CYII=) 16/8px repeat;
+     border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAMAAABgOjJdAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kTtIw1AUhv+miiIVBzuICEaoThbEF45ahSJUCLVCqw4mN31Bk4YkxcVRcC04+FisOrg46+rgKgiCDxBHJydFFynx3KTQIsYDl/vx3/P/3HsuINRKTLPaxgBNt81kPCamM6tixysCGEQIQ5iSmWXMSVICvvV1T91Ud1Ge5d/3Z3WrWYsBAZF4lhmmTbxBPL1pG5z3icOsIKvE58SjJl2Q+JHrisdvnPMuCzwzbKaS88RhYjHfwkoLs4KpEU8SR1RNp3wh7bHKeYuzVqqwxj35C0NZfWWZ67QGEMciliBBhIIKiijBRpR2nRQLSTqP+fj7Xb9ELoVcRTByLKAMDbLrB/+D37O1chPjXlIoBrS/OM7HMNCxC9SrjvN97Dj1EyD4DFzpTX+5Bsx8kl5tapEjoGcbuLhuasoecLkD9D0Zsim7UpCWkMsB72f0TRmg9xboWvPm1jjH6QOQolklboCDQ2AkT9nrPu/ubJ3bvz2N+f0As9tywbHNoQUAAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmAgMLNBNXffN5AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAQtQTFRFAAAAAAAAMTAAYQABMQABAAAA/9y6AAAAAAAA/7F+SjAAMRgAMQABGQABAAAA/9nH/9m0MQ8AIQ8AAAAAAAAA/8GqGQsAAAAAAAAAAAAAOxwAMRMAJwkAFAkAMQ8AKQ8AEQABAAAAAAAAAAAA/+/pBwYA//fq//HkAAAAJQsAAAAAIQoABQQA//nwIgkADwQAAAAA//XsAAAAAAAAAAAAHQsA//rzAAAAAAAAAAAACgIAAAAAAAAADAUABgIAAAAAAAAAAAAAGQcADwcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAcAAAAACgMAAAAAAAAAAAAACgIAAAAAAAAAAwIAAAAAdNLDhQAAAFh0Uk5TAAIFBQUFBwgJCgoKCwsMDg4QEBASFRUVGBkaGhoaHx8gICEiIyQlJiYqLi8vMjQ0NDY2Nzo+P0BBTE5PUVNTVFpcXmNjZG9wcXJzdHh5fYCChIuMl5utu+r6V5gAAAABYktHRFmasvQYAAABUklEQVR4nLXUyU7DMBAG4PHEaewsbWihUg9IIPH+T4QEEodKhZa0Wew0jo2SLlD74BM+WZpP8nj5TcA3yGWCdkXfCsTIFq3WvwIRYGqLA8BoyAg4jx9t8dEIMZBBUJ7P5itbrHf7QqhRIE4XD0tmC7n53B60HgSF+er+jtpCfX+td6CAAPIoW2YpM1pp3RsAEiBSJLIqN2Ur9FVESnbKnAShIaOtLaiQUvdD84gBMsaVLUhTdY3uBhFiHKaxsYWu5EEK3QMEyNmUpWgLVddV0XVHgEkY5mmSUFscK1FUoh1WiXia83RiC1nX+7LqFQAN0myWJOw/hL8P/1785+E/U/+9+O/W/z7cKF0F0CzOg7UDnt9WfdGUahRJ9v7iCKpen8r6JKKFigNHGNI3dNuqMVEkUtwRxAjaGn1KZUJg4nYKRzD1n2Q79egcbeJULgPP38MP9ZBIMci5WIsAAAAASUVORK5CYII=) 16/8px repeat;
+  border-image-outset: 4px;
+  background-color: #242324;
+  box-shadow: none;
 }/*# sourceMappingURL=theme.css.map */

@@ -4,7 +4,7 @@ body
 	--linkBrightnessAdditive: 1
 }
 
-body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08)
+body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio)
 {
 	/* Hierarchical palette */
 	--bottom: #000000;
@@ -105,7 +105,7 @@ body.classicMicroMike {
 }
 
 // Pesudo-support for Micro Mike color in non-themed areas; classic & accent
-body:not(.inherit):not(.oldAndroid):not(.dtm08) {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
 	--background-primary: var(--level1_a);
 	--background-primary-alt: var(--level1_b);
 	--background-secondary: var(--level1);
@@ -120,7 +120,7 @@ body:not(.inherit):not(.oldAndroid):not(.dtm08) {
 
 
 
-body:not(.inherit):not(.oldAndroid):not(.dtm08)
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio)
 {
 /* Button Component */
 &.theme-dark

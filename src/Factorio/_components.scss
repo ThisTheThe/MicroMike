@@ -1,0 +1,20 @@
+%verticalMenuButton
+{
+	text-shadow: 0 1px 3px #0008;
+	&:hover
+	{
+		background: linear-gradient(#373B4288, #3F434B88 50%, #2F333A88 50%, #272B3188);
+    	box-shadow: inset 0 1px #fff2, 0 1px 2px #0008;
+	}
+	&:active
+	{
+		background: linear-gradient(var(--d8dB), var(--d8dC) 50%, var(--d8dB) 50%, var(--d8dA));
+ 	    box-shadow: inset 0 1px 4px #000, 0 1px #fff2;
+	}
+	&.is-active
+	{
+		background: linear-gradient(var(--d8d8), var(--d8d7) 50%, var(--d8d9) 50%, var(--d8dA));
+		box-shadow: inset 0 0 0 1px #fff1, inset 0 1px #fff3, 0 0 0 1px #000b, 0 1px 3px #0008;
+		text-shadow: 0 1px 3px #000e;
+	}
+}
