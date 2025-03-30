@@ -19,7 +19,7 @@
   * Turn Obsidian into a convenient little notepad - just by resizing it.
   * This snippet will cause the sidebars, title bar, and status bar to disappear when the window below a certain width.
   * You'll have to change the minimum width that the "mini mode" activates at to your preference manually - this can't be changed in Style Settings due to CSS limitations.
-    * <img src="(https://github.com/user-attachments/assets/1a2c8b9a-994e-439f-9367-2849a34ef72b" alt="Description" height="300">
+    * <img src="https://github.com/user-attachments/assets/1a2c8b9a-994e-439f-9367-2849a34ef72b" alt="Description" height="300">
 * sNearerTotalNumbers
   * This modifies how the number in the search, tags, backlinks/outlinks, etc works.
   * It moves it to the left alongside the text, which makes it easier and less ambiguous which number belongs to which entry.
