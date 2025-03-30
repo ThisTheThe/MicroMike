@@ -771,6 +771,11 @@ body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :i
 body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-matches {
   display: none;
 }
+body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable {
+  padding: 0px;
+  margin: 0px;
+  gap: 0px;
+}
 body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :is(.markdown-preview-sizer, .cm-sizer) :is(.embedded-backlinks, .mod-footer) .backlink-pane .search-result-container .search-results-children .search-result .search-result-file-title.tree-item-self.is-clickable:hover {
   background-color: transparent;
 }

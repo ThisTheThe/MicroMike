@@ -1,12 +1,12 @@
 /* 
 	Nearer Total Numbers
 	This modifies how the number in the search, tags, backlinks/outlinks, etc works. 
-	It moves it to the left	alongside the text, which makes it easier and less ambiguous which number belongs to which word.
+	It moves it to the left	alongside the text, which makes it easier and less ambiguous which number belongs to which entry.
 */
 /*
 	Author: ThisTheThe
 	Source: github.com/ThisTheThe/MicroMike
-	Version: 03/11/2025
+	Version: 03/30/2025
 	This is a componentized version of a portion of Micro Mike. 
 	If you like what you see here, you might like the theme.
 

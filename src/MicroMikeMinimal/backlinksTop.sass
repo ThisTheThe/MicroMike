@@ -28,6 +28,7 @@ body:not(.disableToplinks) :is(.markdown-reading-view, .markdown-source-view) :i
 						.search-result-file-matches
 							display: none
 						.search-result-file-title.tree-item-self.is-clickable
+							@include std.noPadding
 							//height: calc(var(--font-text-size) * 1.50)
 							&:hover 
 								background-color: transparent

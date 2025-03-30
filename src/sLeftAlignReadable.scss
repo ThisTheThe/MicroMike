@@ -1,7 +1,8 @@
 /* 
 	Left Aligned Readable Line Length
-	This snippet will cause the sidebars, title bar, and status bar to disappear when the window is a certain width.
-	It is advised the user change the minimum width that the "mini mode" activates to their preference manually - this can't be changed in GUI due to CSS limitations.
+	When using readable line length, this will make the text align against the left side rather than center itself. 
+	This can reduce necessary eye movement if you work heavily on the left side of the screen.
+	Style settings allows for disabling left alignment, and a general use function for configuring the line length.
 */
 @use "Snippets/aPreamble.scss";
 @use "Snippets/ss_leftAlignReadable.scss";

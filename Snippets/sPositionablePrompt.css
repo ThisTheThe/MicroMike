@@ -106,7 +106,7 @@ settings:
 		title: Prompt Min Width
 		description: The prompt window is not allowed to become any smaller than this size. The max size is defined by the above setting.
 		type: variable-number-slider
-		default: 300
+		default: 600
 		min: 200
 		max: 1200
 		step: 10
