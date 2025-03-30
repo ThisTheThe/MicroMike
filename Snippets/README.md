@@ -50,17 +50,17 @@
 	* This snippet allows for a configurable width on the "resize handles" that determine the width of the sidebars.
 	* Why? It's very precise to click the handles normally. If you do that often, you might find it a useful quality-of-life improvement.
 	* Width value can be configured with Style Settings.
-		* <img src="https://github.com/user-attachments/assets/1e01d7ac-98c5-446f-8a88-f54be5547380" alt="Description" width="300" height="200">
+		* <img src="https://github.com/user-attachments/assets/1e01d7ac-98c5-446f-8a88-f54be5547380" alt="Description" width="300" height="300">
 * sResizableScrollbar
 	* This snippet allows for you to configure the width of the scrollbar.
 	* Why? It can be precise to click the scrollbar. If you use it often, you might find adding this makes your workflow more efficient.
 	* Width value can be configured with Style Settings.
-		* <img src="https://github.com/user-attachments/assets/1e1d2391-3806-473e-8f20-1e9d955ce0c8" alt="Description" width="300" height="200">
+		* <img src="https://github.com/user-attachments/assets/1e1d2391-3806-473e-8f20-1e9d955ce0c8" alt="Description" width="300" height="300">
 * sSimpleEditor
 	* This snippet enforces a uniform line-height in the editor, no matter what.
 	* I find this "pseudo notepad" environment preferable to the more chaotic, jerky formatting shifts that occur switching between modes otherwise.
 	* Due to fundamental HTML layout differences, I have to enforce a particular "pretty" note formatting style for this consistency.
-		* <img src="https://github.com/user-attachments/assets/922f3667-9517-4ff9-abea-ca81f0156a56" alt="Description" width="300" height="200">
+		* <img src="https://github.com/user-attachments/assets/922f3667-9517-4ff9-abea-ca81f0156a56" alt="Description" width="150" height="300">
 * sSimpleTag
 	* This simplifies the appearance of tags - they now are just text colored with the selected accent.
 		 * ![Obsidian_25-03-30_01PM-18-01_931](https://github.com/user-attachments/assets/47c01010-020f-45a7-8a68-398599d597bd)
