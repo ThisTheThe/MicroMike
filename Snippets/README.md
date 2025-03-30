@@ -75,7 +75,7 @@
 		- Much easier to interact with note title; and buttons there are also larger.
 		- Optional "Stack Tabs" mode - this literally stacks the tabs vertically on the window.
 			- This can be desirable for users with lots of tabs - you move your eyes less, and the tabs' titles won't be compressed by their density.
-	* <img src="https://github.com/user-attachments/assets/c9cd2eee-f286-4b0f-8aec-ff6c14e8771b" alt="Description" width="300" height="200"> 
+		* <img src="https://github.com/user-attachments/assets/c9cd2eee-f286-4b0f-8aec-ff6c14e8771b" alt="Description" width="300" height="200"> 
  * sTopBacklinks
 	* Toplinks (I.E. LYT/Ideaverse) are obnoxious to manually maintain. This snippet turns the backlinks's panel at the bottom into an automatic "Toplinks" section.
 	* To adjust the characters before/after toplinks, go to the bottom.
