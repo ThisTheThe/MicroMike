@@ -4,6 +4,7 @@
 
     ],
     "liveSassCompile.settings.formats": [
+
         {
             "format": "expanded",
             "extensionName": ".css",
@@ -11,29 +12,4 @@
             "savePathReplacementPairs": null
         }
     ]
-	"multiCommand.commands": [
-    {
-        "command": "multiCommand.down3Lines",
-        "sequence": [
-            "cursorDown",
-            "cursorDown",
-            "cursorDown"
-        ]
-    },
-    {
-        "command": "multiCommand.sassComboSave",
-		"interval": 1500,
-        "sequence": [
-            "liveSass.command.oneTimeCompileSass",
-            "workbench.action.files.save",
-			{ "command": "workbench.action.tasks.runTask", "args": "RunCopyFileMicroMike" }
-        ]
-    },
-    {
-        "command": "multiCommand.runBuildScript",
-        "sequence": [
-			{ "command": "workbench.action.tasks.runTask", "args": "RunCopyFileMicroMike" }
-        ]
-    }
-]
 }
