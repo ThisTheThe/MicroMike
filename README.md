@@ -1,8 +1,10 @@
 ![](microMike.png)
 
-Micro Mike: The *smoothest* Obsidian Theme. Intended to be used with [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) (found in Community Plugins).
+Micro Mike: The *smoothest* Obsidian Theme. 
 
 Micro Mike is a high-density retro-style interface with a focus on mouse & eye ergonomics. Try it out and see if you like any of the changes I've made. Only dark mode is supported.
+
+Intended to be used with [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) (found in Community Plugins).
 
 ![](https://i.imgur.com/jSTlpRI.png)
 
