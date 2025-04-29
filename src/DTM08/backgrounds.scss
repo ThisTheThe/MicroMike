@@ -20,6 +20,28 @@
 	background: var(--bgGradient2);
 }
 
+.titlebar-inner
+{
+	justify-content: space-between;
+	.titlebar-button-container.mod-right
+	{
+		position: fixed;
+		right: 0px;
+		top: 0px;
+		align-self: flex-end;
+		&::before
+		{
+			left:-40px;
+			z-index: -1;
+			content: "";
+			position: absolute;
+			height: 60px;
+			width: 160px;
+			background: var(--bgGradient2);
+		}
+	}
+}
+
 .workspace-leaf-content[data-mode="preview"] .view-content
 {
     background: transparent;

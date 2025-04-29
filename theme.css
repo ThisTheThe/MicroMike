@@ -1667,7 +1667,7 @@ body:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace-tab-header-cont
   gap: 0px;
   position: fixed;
   right: calc(var(--titlebarButtonWidth) * 3);
-  z-index: 20;
+  z-index: 30;
 }
 
 :is(.outsideSidebar_RBA, .insideSidebar_RBA) .workspace-tab-header-container .sidebar-toggle-button.mod-right {
@@ -4842,6 +4842,24 @@ body.dtm08 {
 .dtm08 .workspace-tab-header-container,
 .dtm08 .mod-top-right-space,
 .dtm08 .mod-top {
+  background: var(--bgGradient2);
+}
+.dtm08 .titlebar-inner {
+  justify-content: space-between;
+}
+.dtm08 .titlebar-inner .titlebar-button-container.mod-right {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  align-self: flex-end;
+}
+.dtm08 .titlebar-inner .titlebar-button-container.mod-right::before {
+  left: -40px;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  height: 60px;
+  width: 160px;
   background: var(--bgGradient2);
 }
 .dtm08 .workspace-leaf-content[data-mode=preview] .view-content {
