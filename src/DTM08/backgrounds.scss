@@ -19,7 +19,7 @@
 {
 	background: var(--bgGradient2);
 }
-
+/* This needs to be variabled before it goes to public 
 .titlebar-inner
 {
 	justify-content: space-between;
@@ -41,7 +41,7 @@
 		}
 	}
 }
-
+*/
 .workspace-leaf-content[data-mode="preview"] .view-content
 {
     background: transparent;
