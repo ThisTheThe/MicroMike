@@ -1,0 +1,20 @@
+
+:is(.mod-left-split, .workspace-ribbon) .sidebar-toggle-button.mod-left
+	position: absolute
+	position-anchor: --leftSidebarButtonAnchor
+	top: anchor(top)
+	left: anchor(right)
+	z-level: 30
+
+.mod-left-split
+	anchor-name: --leftSidebarButtonAnchor
+
+.workspace-split.mod-vertical.mod-root .workspace-tabs.mod-top:first-of-type .workspace-tab-header-container
+	margin-left: 40px
+
+	& .workspace-tab-header-container-inner
+		padding-left: 0px
+	
+.sidebar-toggle-button.mod-left
+	max-width: 40px
+	background-color: var(--tab-container-background)

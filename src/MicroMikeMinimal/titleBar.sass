@@ -26,3 +26,13 @@ body:not(.qe-title-center):not(.qe-title-hide) .titlebar-text.qe-replacement,
 
 .titlebar-button-container.mod-right
     app-region: no-drag
+
+/* Managing Obsidian Frame */
+body.is-frameless:not(.is-hidden-frameless, .is-fullscreen)
+    .titlebar-button
+        height: var(--titlebar-height)
+    &.titlebarAlign_RBA
+        .sidebar-toggle-button.mod-right
+            .clickable-icon
+                height: var(--titlebar-height)
+            height: var(--titlebar-height)

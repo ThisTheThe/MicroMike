@@ -1,18 +1,20 @@
 @use 'std'
 
-.tree-item-self
-    .tree-item-icon
-        order: 0
-    .tree-item-flair-outer
-        @include std.noPadding
-        order: 1
-        padding-right: 5px
-        padding-left: 5px
-        .tree-item-flair
-            font-size: var(--outlineLevelFontSize)
-            color: var(--text-normal)
-    .tree-item-inner
-        order: 2
+//Order shifts cause nasty behavior in unanticipated treeviews
+:is(.backlink-pane, .outgoing-link-pane .workspace-leaf-content[data-type="search"], .workspace-leaf-content[data-type="tag"])
+    .tree-item-self
+        .tree-item-icon
+            order: 0
+        .tree-item-flair-outer
+            @include std.noPadding
+            order: 1
+            padding-right: 5px
+            padding-left: 5px
+            .tree-item-flair
+                font-size: var(--outlineLevelFontSize)
+                color: var(--text-normal)
+        .tree-item-inner
+            order: 2
 
 .workspace-leaf-content[data-type="search"] .tree-item-self:has(.tree-item-icon)
     .tree-item-flair::after

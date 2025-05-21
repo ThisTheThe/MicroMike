@@ -81,6 +81,15 @@ html .mod-windows.stackTabs .mod-root,
 html .mod-linux.stackTabs .mod-root
     --frame-right-space: 0px
 
+//Position titlebarAlign fixup for fullscreen
+html body.is-fullscreen:is(.mod-windows, .mod-linux):not(.outsideSidebar_RBA):not(.insideSidebar_RBA)
+    .mod-root
+        --frame-right-space: var(--titlebarButtonWidth)
+    .mod-top-right-space .workspace-tab-header-container-inner /* I'm not sure if frame-right-space is effective in this situation. */
+        margin-right: var(--titlebarButtonWidth)
+    .sidebar-toggle-button.mod-right
+        right: 0px
+
 //Neither stacktabs or disabled offset? -> Enable offset
 html .mod-windows:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space,
 html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space 

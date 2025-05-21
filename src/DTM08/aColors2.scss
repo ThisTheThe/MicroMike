@@ -1,3 +1,20 @@
+body.dtm08 //Remapping default color variables
+{
+	--color-base-00: var(--d8dG);
+    --color-base-05: var(--d8dE);
+    --color-base-10: var(--d8dD);
+    --color-base-20: var(--d8dB);
+    --color-base-25: var(--d8dA);
+    --color-base-30: var(--d8d8);
+    --color-base-35: var(--d8d7);
+    --color-base-40: var(--d8d5);
+    --color-base-50: var(--d8d3);
+    //--color-base-60: var(--d8d5);
+    //--color-base-70: var(--d8d3);
+    //--color-base-100: var(--d8d1);
+}
+
+
 body.dtm08
 {
 	--text-on-accent: var(--textBrighter) !important;

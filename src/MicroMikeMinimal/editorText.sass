@@ -35,7 +35,7 @@ body:not(.disableSimpleEditor)
     .markdown-rendered:not(.community-modal-readme)
         div:is(.el-p,.el-pre,.el-table,.el-ul,.el-ol) + div > :is(h1,h2,h3,h4,h5,h6),
         :is(p,pre,table,ul,ol) + :is(h1,h2,h3,h4,h5,h6), 
-        .markdown-preview-section :is(p,h1,h2,h3,h4,h5,h6)
+        .markdown-preview-section :not(:is(li,ul,ol)) > :is(p,h1,h2,h3,h4,h5,h6)
             margin-top: var(--margin-scale) // calc(var(--font-text-size) * var(--line-height-normal))
 
         .markdown-preview-section blockquote :is(p,h1,h2,h3,h4,h5,h6):first-of-type

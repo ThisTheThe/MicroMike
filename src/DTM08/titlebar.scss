@@ -11,4 +11,9 @@
 		width: 41px;
 	}
 }
+&.is-frameless:not(.is-hidden-frameless, .is-fullscreen) .titlebar-inner
+{
+	background: linear-gradient(var(--d8dE), var(--d8d9));
+    box-shadow: inset 0 -1px var(--d8dA), inset 0 -2px var(--d8d8);
+}
 }
