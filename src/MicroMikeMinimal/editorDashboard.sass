@@ -3,7 +3,7 @@
 body
 	--header-height: var(--editorDashboardHeight)
 
-:is(.workspace-leaf-content[data-type="markdown"], .workspace-leaf-content[data-type="empty"]) .view-header 
+.workspace-leaf-content .view-header 
 	@include std.noPadding
 	height: var(--editorDashboardHeight)
 	min-height: var(--editorDashboardHeight)
@@ -21,10 +21,15 @@ body
 			text-align: center
 			vertical-align: middle
 			font-size: 20px
+			font-weight: 100
+
+			position: relative
+			top: 2px
 			&::before
 				content: ''
 				display: inline-block
 				height: 100%
 				vertical-align: middle
+				
 	.view-header-title-container::after
 		@include std.die

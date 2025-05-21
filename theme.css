@@ -999,40 +999,43 @@ body {
   --header-height: var(--editorDashboardHeight);
 }
 
-:is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header {
+.workspace-leaf-content .view-header {
   padding: 0px;
   margin: 0px;
   gap: 0px;
   height: var(--editorDashboardHeight);
   min-height: var(--editorDashboardHeight);
 }
-:is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div {
+.workspace-leaf-content .view-header div {
   width: var(--editorDashboardButtonsWidth);
 }
-:is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div > :is(button, a, div) {
+.workspace-leaf-content .view-header div > :is(button, a, div) {
   padding: 0px;
   margin: 0px;
   gap: 0px;
   flex-grow: 1;
   height: var(--editorDashboardHeight);
 }
-:is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div .view-header-title-parent {
+.workspace-leaf-content .view-header div .view-header-title-parent {
   display: none;
 }
-:is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div .view-header-title {
+.workspace-leaf-content .view-header div .view-header-title {
   display: inline-block;
   min-width: 100%;
   text-align: center;
   vertical-align: middle;
   font-size: 20px;
+  font-weight: 100;
+  position: relative;
+  top: 2px;
 }
-:is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header div .view-header-title::before {
+.workspace-leaf-content .view-header div .view-header-title::before {
   content: "";
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
-:is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-title-container::after {
+.workspace-leaf-content .view-header .view-header-title-container::after {
   height: 0px;
   width: 0px;
   display: none;
@@ -1190,12 +1193,10 @@ body .workspace-leaf-content[data-type=file-explorer] .tree-item-children .tree-
   background-color: var(--levelLayer);
 }
 
-.nav-files-container {
-  overflow-y: visible;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
-}
-
+/* .nav-files-container
+ * overflow-y: visible
+ * min-height: fit-content
+ * */
 @media only screen and (max-width: 900px) {
   body:not(.disableMiniMode) .mod-right-split {
     display: none;
