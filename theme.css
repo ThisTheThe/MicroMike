@@ -2527,6 +2527,10 @@ body:not(.pane-relief-disable-counts) .view-header-nav-buttons :is(button.clicka
   padding-right: 5px;
 }
 
+.w-3.h-3 {
+  height: 0.75rem !important;
+}
+
 .style-settings-heading[data-level="0"] + .style-settings-container {
   padding-left: 32px;
 }
