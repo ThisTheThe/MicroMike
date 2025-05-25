@@ -1,13 +1,22 @@
 @use 'std'
 
 #quick-explorer
+	height: 100%
 	@include std.noPadding
 	span
-		font-size: 24px
+		//font-size: 24px
+		//font-weight: 200
+		height: 100%
 		padding-bottom: 3px
 		padding-top: 3px
 		padding-left: 3px
 		padding-right: 3px
+		vertical-align: middle
+		&::before
+				content: ''
+				display: inline-block
+				height: 100%
+				vertical-align: middle
 		&:not(.explorable-separator)
 			min-width: 50px
 

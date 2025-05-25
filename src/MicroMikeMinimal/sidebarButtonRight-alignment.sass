@@ -81,11 +81,16 @@ html .mod-windows.stackTabs .mod-root,
 html .mod-linux.stackTabs .mod-root
     --frame-right-space: 0px
 
+html body.is-fullscreen:not(.outsideSidebar_RBA):not(.insideSidebar_RBA)
+    --rightFrameSetTo: var(--titlebarButtonWidth)
+
 //Position titlebarAlign fixup for fullscreen
 html body.is-fullscreen:is(.mod-windows, .mod-linux):not(.outsideSidebar_RBA):not(.insideSidebar_RBA)
     .mod-root
         --frame-right-space: var(--titlebarButtonWidth)
-    .mod-top-right-space .workspace-tab-header-container-inner /* I'm not sure if frame-right-space is effective in this situation. */
+    .mod-root .mod-top-right-space .workspace-tab-header-new-tab
+        margin-right: var(--titlebarButtonWidth)
+    .workspace-split:not(.mod-root) .mod-top-right-space .workspace-tab-header-container-inner /* I'm not sure if frame-right-space is effective in this situation. */
         margin-right: var(--titlebarButtonWidth)
     .sidebar-toggle-button.mod-right
         right: 0px

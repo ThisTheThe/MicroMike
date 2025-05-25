@@ -14,9 +14,9 @@
 		}
 		
 	}
-	&.stackTabs .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header
+	&.stackTabs .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header
 	{
-		@extend %buttonArray;
+		@extend %buttonArrayVert;
 	}
 	&:not(.stackTabs) .workspace .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:last-of-type
 	{
