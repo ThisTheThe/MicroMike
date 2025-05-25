@@ -2546,8 +2546,8 @@ body:not(.pane-relief-disable-counts) .view-header-nav-buttons :is(button.clicka
   height: 0.75rem !important;
 }
 
-.smtcmp-apply-view .view-header div {
-  flex: 1;
+.workspace-leaf-content .smtcmp-apply-view .view-header .view-header-title-container .view-header-title {
+  min-width: 50%;
 }
 
 .style-settings-heading[data-level="0"] + .style-settings-container {
@@ -4636,6 +4636,11 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
   background: linear-gradient(var(--d8d6), var(--d8d8) 50%, var(--d8d9) 50%, var(--d8d8));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 1px rgba(255, 255, 255, 0.0666666667);
 }
+.dtm08:not(.win7bar) .titlebar-button-container.mod-right .is-active.titlebar-button, .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .is-active.workspace-drawer-vault-switcher,
+.dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .is-active.clickable-icon, .dtm08 .is-active.sidebar-toggle-button, .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .is-active.clickable-icon, .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .is-active.workspace-tab-header, .dtm08 .workspace-tab-header-new-tab .is-active.clickable-icon {
+  background: linear-gradient(var(--d8d5), var(--d8d7) 50%, var(--d8d8) 50%, var(--d8d7));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 1px rgba(255, 255, 255, 0.0666666667);
+}
 .dtm08:not(.win7bar) .titlebar-button-container.mod-right .titlebar-button:not(:last-of-type), .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher:not(:last-of-type),
 .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions .clickable-icon:not(:last-of-type), .dtm08 .sidebar-toggle-button:not(:last-of-type), .dtm08 :is(.view-header, .nav-header) :is(.view-header-nav-buttons, .nav-buttons-container, .view-actions) .clickable-icon:not(:last-of-type), .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:not(:last-of-type), .dtm08 .workspace-tab-header-new-tab .clickable-icon:not(:last-of-type) {
   border-right: 0px;
@@ -4648,6 +4653,10 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
 }
 .dtm08.stackTabs .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover {
   background: linear-gradient(var(--d8d6), var(--d8d8) 50%, var(--d8d9) 50%, var(--d8d8));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 1px rgba(255, 255, 255, 0.0666666667);
+}
+.dtm08.stackTabs .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .is-active.workspace-tab-header {
+  background: linear-gradient(var(--d8d5), var(--d8d7) 50%, var(--d8d8) 50%, var(--d8d7));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1333333333), 0 1px rgba(255, 255, 255, 0.0666666667);
 }
 .dtm08.stackTabs .mod-root .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:not(:last-of-type) {
@@ -4687,6 +4696,15 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
   border-bottom: 0px;
   background: linear-gradient(var(--d8d7), var(--d8d9) 50%, var(--d8dA) 50%, var(--d8dC));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.0666666667), 0 0 0 1px rgba(255, 255, 255, 0.0666666667);
+}
+.dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .workspace-tab-header:hover, .dtm08 .workspace-tab-header-new-tab .clickable-icon:hover {
+  background: linear-gradient(var(--d8d5), var(--d8d7) 50%, var(--d8d9) 50%, var(--d8dB));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.0666666667), 0 0 0 1px rgba(255, 255, 255, 0.0666666667);
+}
+.dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .is-active.workspace-tab-header, .dtm08 .workspace-tab-header-new-tab .is-active.clickable-icon {
+  background: linear-gradient(var(--d8d4), var(--d8d6) 50%, var(--d8dA) 50%, var(--d8dC));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.0666666667), 0 0 0 1px rgba(255, 255, 255, 0.0666666667);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9333333333);
 }
 
 :root {
@@ -5342,7 +5360,6 @@ body.dtm08 {
 }
 .dtm08 .workspace:not(.is-left-sidedock-open) .sidebar-toggle-button.mod-left {
   border-right: 0px;
-  border-bottom-width: 1px;
 }
 
 .dtm08 :not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
