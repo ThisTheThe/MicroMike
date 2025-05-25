@@ -2546,7 +2546,7 @@ body:not(.pane-relief-disable-counts) .view-header-nav-buttons :is(button.clicka
   height: 0.75rem !important;
 }
 
-.workspace-leaf-content .smtcmp-apply-view .view-header .view-header-title-container .view-header-title {
+.workspace-leaf-content #smtcmp-apply-view .view-header .view-header-title-container .view-header-title {
   min-width: 50%;
 }
 
