@@ -28,7 +28,7 @@
   * This snippet disables animations. It includes a feature to workaround a problem causing the sidebars to close more slowly.
   * This is borrowed from https://github.com/SMUsamaShah/Obsidian-Win98-Edition
     * <img src="https://github.com/user-attachments/assets/e607cc01-576e-4e43-912a-5df30bb76ffc" alt="Description" height="300">
-*sNoDynamicUnloading
+* sNoDynamicUnloading
 	* This snippet disables dynamic unloading on the text editor preview mode and sidebars. 
 	* Why? The optimization has many problems.
 		* Notes with a lot of image embeds tend to get stuck jumping backwards while scrolling.
