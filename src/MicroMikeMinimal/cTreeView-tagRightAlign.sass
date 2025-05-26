@@ -1,7 +1,10 @@
 @use 'std'
 
 //Order shifts cause nasty behavior in unanticipated treeviews
-:is(.backlink-pane, .outgoing-link-pane .workspace-leaf-content[data-type="search"], .workspace-leaf-content[data-type="tag"])
+:is(.backlink-pane, 
+.outgoing-link-pane,
+.workspace-leaf-content[data-type="search"], 
+.workspace-leaf-content[data-type="tag"])
     .tree-item-self
         .tree-item-icon
             order: 0

@@ -1,0 +1,10 @@
+body:not(.enablePreviewCulling)
+	.markdown-reading-view
+		overflow-y: scroll
+	.markdown-preview-view
+		overflow-y: visible
+		min-height: fit-content
+	:not(.markdown-embed-content) > .markdown-preview-view > .markdown-preview-sizer
+		padding-bottom: 500px !important	
+	.markdown-preview-view > .markdown-preview-sizer
+		min-height: 0px !important

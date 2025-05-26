@@ -264,6 +264,10 @@ settings:
 		title: Disable Simple Editor Callout
 		description: This switch disables the modified, line-height aligned callout.
 		type: class-toggle
+	-
+		id: enablePreviewCulling
+		title: Re-Enable Dynamic Unloading in Text Preview
+		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Tabs & Sidebars
@@ -454,6 +458,10 @@ settings:
 		description: Enable layered background in file browser. This helps perceive depth.
 		type: class-toggle
 		default: true
+	-
+		id: enableSidebarCulling
+		title: Re-Enable Dynamic Unloading for Sidebars
+		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Prompt Window
@@ -900,10 +908,16 @@ body {
   box-shadow: var(--bevelStyleTreeItem);
 }
 
-:is(.backlink-pane, .outgoing-link-pane .workspace-leaf-content[data-type=search], .workspace-leaf-content[data-type=tag]) .tree-item-self .tree-item-icon {
+:is(.backlink-pane,
+.outgoing-link-pane,
+.workspace-leaf-content[data-type=search],
+.workspace-leaf-content[data-type=tag]) .tree-item-self .tree-item-icon {
   order: 0;
 }
-:is(.backlink-pane, .outgoing-link-pane .workspace-leaf-content[data-type=search], .workspace-leaf-content[data-type=tag]) .tree-item-self .tree-item-flair-outer {
+:is(.backlink-pane,
+.outgoing-link-pane,
+.workspace-leaf-content[data-type=search],
+.workspace-leaf-content[data-type=tag]) .tree-item-self .tree-item-flair-outer {
   padding: 0px;
   margin: 0px;
   gap: 0px;
@@ -911,11 +925,17 @@ body {
   padding-right: 5px;
   padding-left: 5px;
 }
-:is(.backlink-pane, .outgoing-link-pane .workspace-leaf-content[data-type=search], .workspace-leaf-content[data-type=tag]) .tree-item-self .tree-item-flair-outer .tree-item-flair {
+:is(.backlink-pane,
+.outgoing-link-pane,
+.workspace-leaf-content[data-type=search],
+.workspace-leaf-content[data-type=tag]) .tree-item-self .tree-item-flair-outer .tree-item-flair {
   font-size: var(--outlineLevelFontSize);
   color: var(--text-normal);
 }
-:is(.backlink-pane, .outgoing-link-pane .workspace-leaf-content[data-type=search], .workspace-leaf-content[data-type=tag]) .tree-item-self .tree-item-inner {
+:is(.backlink-pane,
+.outgoing-link-pane,
+.workspace-leaf-content[data-type=search],
+.workspace-leaf-content[data-type=tag]) .tree-item-self .tree-item-inner {
   order: 2;
 }
 
@@ -958,6 +978,26 @@ body {
   /*CSS transforms*/
   /*CSS animations*/
   animation: none !important;
+}
+
+body:not(.enableTreeViewCulling) :is(.mod-left-split, .mod-right-split) .workspace-leaf-content:has(> .nav-header) {
+  margin-top: var(--sidebarDashboardHeight);
+  position: static;
+}
+body:not(.enableTreeViewCulling) :is(.mod-left-split, .mod-right-split) .workspace-leaf-content:has(> .nav-header) .nav-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  margin-right: calc(0px - var(--scrollBarSize));
+}
+body:not(.enableTreeViewCulling) :is(.mod-left-split, .mod-right-split) .workspace-leaf-content {
+  overflow-y: scroll;
+}
+body:not(.enableTreeViewCulling) :is(.mod-left-split, .mod-right-split) .workspace-leaf-content .node-insert-event {
+  overflow-y: visible;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
 }
 
 .menu .menu-item .menu-item-icon.mod-checked {
@@ -1133,8 +1173,28 @@ body:not(.disableSECallout):not(.disableSimpleEditor) .markdown-rendered:not(.co
   margin-top: 0px;
 }
 
-.cm-sizer, .markdown-preview-sizer {
+.markdown-preview-sizer {
   max-width: var(--file-line-width);
+}
+
+.markdown-source-view.mod-cm6 .cm-line {
+  min-width: 100%;
+  padding-right: calc(100% - var(--file-line-width));
+}
+
+body:not(.enablePreviewCulling) .markdown-reading-view {
+  overflow-y: scroll;
+}
+body:not(.enablePreviewCulling) .markdown-preview-view {
+  overflow-y: visible;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+body:not(.enablePreviewCulling) :not(.markdown-embed-content) > .markdown-preview-view > .markdown-preview-sizer {
+  padding-bottom: 500px !important;
+}
+body:not(.enablePreviewCulling) .markdown-preview-view > .markdown-preview-sizer {
+  min-height: 0px !important;
 }
 
 .workspace-leaf-content[data-mode=preview] .view-content {
@@ -1193,10 +1253,6 @@ body .workspace-leaf-content[data-type=file-explorer] .tree-item-children .tree-
   background-color: var(--levelLayer);
 }
 
-/* .nav-files-container
- * overflow-y: visible
- * min-height: fit-content
- * */
 @media only screen and (max-width: 900px) {
   body:not(.disableMiniMode) .mod-right-split {
     display: none;
@@ -2533,8 +2589,15 @@ body:not(.pane-relief-disable-counts) .view-header-nav-buttons :is(button.clicka
 .workspace-leaf-content[data-type=recent-files] .tree-item-spacer {
   display: none;
 }
+.workspace-leaf-content[data-type=recent-files] .tree-item-inner {
+  order: 2;
+}
+.workspace-leaf-content[data-type=recent-files] .nav-file-tag {
+  order: 1;
+}
 .workspace-leaf-content[data-type=recent-files] .recent-files-file-delete {
   position: absolute;
+  order: 0;
 }
 
 .sg-mounted-collection-decoration {
@@ -4702,7 +4765,7 @@ body:is(.inherit, .dtm08) .workspace-leaf-resize-handle:hover {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.0666666667), 0 0 0 1px rgba(255, 255, 255, 0.0666666667);
 }
 .dtm08 .workspace-tab-header-container .workspace-tab-header-container-inner .is-active.workspace-tab-header, .dtm08 .workspace-tab-header-new-tab .is-active.clickable-icon {
-  background: linear-gradient(var(--d8d4), var(--d8d6) 50%, var(--d8dA) 50%, var(--d8dC));
+  background: linear-gradient(var(--d8d5), var(--d8d7) 50%, var(--d8d9) 50%, var(--d8dB));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.0666666667), 0 0 0 1px rgba(255, 255, 255, 0.0666666667);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9333333333);
 }

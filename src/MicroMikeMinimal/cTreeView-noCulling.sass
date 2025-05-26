@@ -1,0 +1,16 @@
+body:not(.enableTreeViewCulling)
+	:is(.mod-left-split, .mod-right-split)
+		.workspace-leaf-content:has(> .nav-header) //Hack for removing nav header from scrolling container. All of these lines are load-bearing, and I don't understand how it works.
+			margin-top: var(--sidebarDashboardHeight)
+			position: static
+			.nav-header
+				width: 100%
+				position: fixed
+				top: 0
+				z-index: 10
+				margin-right: calc(0px - var(--scrollBarSize))
+		.workspace-leaf-content
+			overflow-y: scroll
+			.node-insert-event
+				overflow-y: visible
+				min-height: fit-content

@@ -1,0 +1,15 @@
+/* 
+	No Dynamic Unloading
+	This snippet disables dynamic unloading on the text editor preview mode and sidebars. 
+	Why? The optimization has many problems.
+	* Twitchy, unpredictable scrolling.
+	* Trouble reaching the end of image-heavy files in preview mode.
+	* If elements of tree view are too small, the bottom of them won't render.
+	If you're having trouble with things like this, it might make things easier to disable the optimization.
+
+	I'd like to extend support to the Codemirror source / live editor, but I haven't figured out how to circumvent it yet.
+*/
+@use "Snippets/aPreamble.scss";
+@use "Snippets/s_noDynamicUnloading.scss";
+@use "MicroMikeMinimal/editorText-noCulling.sass";
+@use "MicroMikeMinimal/cTreeView-noCulling.sass";

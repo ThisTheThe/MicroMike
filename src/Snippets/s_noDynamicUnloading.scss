@@ -1,0 +1,19 @@
+html //Defaults for snippet variables.
+{
+	--sidebarDashboardHeight: 42px;
+	--scrollBarSize: 7px
+}
+
+/* @settings
+name: No Dynamic Unloading
+id: noDynamicUnloading
+settings:
+	-
+		id: enablePreviewCulling
+		title: Re-Enable Dynamic Unloading in Text Preview
+		type: class-toggle
+	-
+		id: enableSidebarCulling
+		title: Re-Enable Dynamic Unloading for Sidebars
+		type: class-toggle
+*/

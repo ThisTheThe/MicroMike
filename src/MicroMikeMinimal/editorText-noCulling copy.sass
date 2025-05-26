@@ -1,0 +1,21 @@
+body:not(.enableCulling)
+	.markdown-source-view.cm-s-obsidian,
+	.markdown-reading-view
+		overflow-y: scroll
+	.ͼ1 .cm-scroller,
+	.markdown-preview-view,
+	.cm-editor.ͼ1
+		overflow-y: visible
+		min-height: fit-content
+	:not(.markdown-embed-content) > .markdown-preview-view > .markdown-preview-sizer
+		padding-bottom: 500px !important	
+	.markdown-preview-view > .markdown-preview-sizer
+		min-height: 0px !important
+	
+	.cm-contentContainer
+		position: relative 
+		.cm-line:before
+			height: 1px
+			content: ""
+			width: 1px
+			position: fixed

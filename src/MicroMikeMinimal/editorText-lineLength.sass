@@ -1,2 +1,8 @@
-.cm-sizer, .markdown-preview-sizer
+//.cm-sizer, 
+.markdown-preview-sizer
     max-width: var(--file-line-width)
+
+//Select lines from anywhere in the editor even with Readable Line Length
+.markdown-source-view.mod-cm6 .cm-line
+    min-width: 100%
+    padding-right: calc(100% - var(--file-line-width))

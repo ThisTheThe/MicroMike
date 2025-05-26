@@ -1,0 +1,26 @@
+
+.workspace-leaf
+	//display: grid
+	//grid-template-rows: auto auto /* or use specific heights like 100px 200px */
+	//grid-template-columns: 1fr    /* one column */
+	//overflow: visible
+	.workspace-leaf-content[data-type="file-explorer"]
+		overflow-y: scroll
+		margin-top: var(--sidebarDashboardHeight)
+		position: static
+		//transform: translateZ(0)
+		//grid-row: 2
+		//display: grid
+		.nav-header
+			width: 100%
+			//grid-row: 1
+			position: fixed
+			top: 0
+			z-index: 10
+			//top: -40px
+			//z-index: 999
+			margin-right: calc(0px - var(--scrollBarSize))
+			//margin-top: calc(0px - var(--sidebarDashboardHeight))
+.nav-files-container
+	overflow-y: visible
+	min-height: fit-content

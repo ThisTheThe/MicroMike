@@ -229,6 +229,10 @@ settings:
 		title: Disable Simple Editor Callout
 		description: This switch disables the modified, line-height aligned callout.
 		type: class-toggle
+	-
+		id: enablePreviewCulling
+		title: Re-Enable Dynamic Unloading in Text Preview
+		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Tabs & Sidebars
@@ -419,6 +423,10 @@ settings:
 		description: Enable layered background in file browser. This helps perceive depth.
 		type: class-toggle
 		default: true
+	-
+		id: enableSidebarCulling
+		title: Re-Enable Dynamic Unloading for Sidebars
+		type: class-toggle
 	- 
 		id: this-is-a-heading------------------------------------------------------------------------------------------------------
 		title: Prompt Window

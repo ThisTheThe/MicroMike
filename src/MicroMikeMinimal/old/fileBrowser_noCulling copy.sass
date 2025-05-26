@@ -1,0 +1,19 @@
+
+.workspace-leaf
+	position: relative
+	overflow: visible
+	.workspace-leaf-content[data-type="file-explorer"]
+		overflow-y: scroll
+		margin-top: var(--sidebarDashboardHeight)
+		position: static
+		transform: translateZ(0)
+		.nav-header
+			position: relative
+			//top: -40px
+			z-index: 999
+			//margin-right: calc(0px - var(--scrollBarSize))
+			margin-top: calc(0px - var(--sidebarDashboardHeight))
+.nav-files-container
+	overflow-y: visible
+	min-height: fit-content
+  
