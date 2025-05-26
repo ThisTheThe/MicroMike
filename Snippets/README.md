@@ -28,6 +28,14 @@
   * This snippet disables animations. It includes a feature to workaround a problem causing the sidebars to close more slowly.
   * This is borrowed from https://github.com/SMUsamaShah/Obsidian-Win98-Edition
     * <img src="https://github.com/user-attachments/assets/e607cc01-576e-4e43-912a-5df30bb76ffc" alt="Description" height="300">
+*sNoDynamicUnloading
+	* This snippet disables dynamic unloading on the text editor preview mode and sidebars. 
+	* Why? The optimization has many problems.
+		* Notes with a lot of image embeds tend to get stuck jumping backwards while scrolling.
+		* If you make tree elements unusually small, it's bad at adapting and tends to leave gaps like this.
+		* Twitchy, unpredictable scrolling, and micro-lag caused when loading/unloading elements.
+	* If you're having trouble with things like this, it might make things easier to disable the optimization.
+		* Prevents: <img src="https://github.com/user-attachments/assets/00444ccc-1dbb-4244-9b63-80fa9c90a071" alt="Description" height="300">
 * sPositionablePrompt
 	* Intended with Style Settings
 	* This allows for granular control of the size and position of the prompt (Ctrl+P) window.
