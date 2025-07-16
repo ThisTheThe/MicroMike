@@ -3,7 +3,7 @@
 	This snippet disables dynamic unloading on the text editor preview mode and sidebars. 
 	Why? The optimization has many problems.
 	* Notes with a lot of image embeds tend to get stuck jumping backwards while scrolling.
-	* If you make tree elements unusually small, it's bad at adapting and tends to leave gaps like this.
+	* If you make tree elements unusually small, it's bad at adapting and tends to leave part of the potential space unloaded.
 	* Twitchy, unpredictable scrolling, and micro-lag caused when loading/unloading elements.
 	If you're having trouble with things like this, it might make things easier to disable the optimization.
 

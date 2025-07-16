@@ -1,0 +1,13 @@
+.prismic .app-container
+{
+.workspace-leaf-resize-handle
+{
+	background-color: var(--level1);
+	border-color: var(--borderSuperior);
+}
+.workspace-leaf-resize-handle:hover
+{
+	background-color: var(--level2);
+	border-color: var(--borderSuperior);
+}
+}

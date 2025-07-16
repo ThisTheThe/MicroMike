@@ -62,6 +62,7 @@ settings:
 			- classicMicroMike
 			- dtm08
 			- factorio
+			- prismic
 	-
 		id: disableBevels
 		title: Disable Bevels 
@@ -835,6 +836,15 @@ body {
 .canvas-wrapper .markdown-preview-view.markdown-rendered.node-insert-event p {
   font-size: 20px;
 }
+.canvas-wrapper .markdown-preview-view.markdown-rendered.node-insert-event::before, .canvas-wrapper .markdown-preview-view.markdown-rendered.node-insert-event::after {
+  display: none;
+}
+.canvas-wrapper .markdown-preview-view.markdown-rendered.node-insert-event .markdown-preview-sizer {
+  flex-direction: column;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 
 .markdown-source-view.mod-inside-iframe > .cm-editor > .cm-scroller {
   padding-left: 5px !important;
@@ -994,7 +1004,7 @@ body:not(.enableTreeViewCulling) :is(.mod-left-split, .mod-right-split) .workspa
 body:not(.enableTreeViewCulling) :is(.mod-left-split, .mod-right-split) .workspace-leaf-content {
   overflow-y: scroll;
 }
-body:not(.enableTreeViewCulling) :is(.mod-left-split, .mod-right-split) .workspace-leaf-content .node-insert-event {
+body:not(.enableTreeViewCulling) :is(.mod-left-split, .mod-right-split) .workspace-leaf-content :is(.node-insert-event, .view-content) {
   overflow-y: visible;
   min-height: -moz-fit-content;
   min-height: fit-content;
@@ -1243,6 +1253,9 @@ body .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-sel
 }
 body .workspace-leaf-content[data-type=file-explorer] .tree-item-children .tree-item-children {
   position: relative;
+}
+body .workspace-leaf-content[data-type=file-explorer] .tree-item.nav-folder.is-collapsed > .tree-item-children {
+  display: none;
 }
 
 .boldFolders .nav-folder-title .tree-item-inner.nav-folder-title-content {
@@ -1565,12 +1578,12 @@ body:not(.is-mobile).largeSettingsButtons .modal.mod-settings .clickable-icon {
   padding: 0px;
   margin: 0px;
   gap: 0px;
-  padding-left: 5px;
 }
 .modal.mod-settings .setting-item {
   padding: 0px;
   margin: 0px;
   gap: 0px;
+  padding-left: 5px;
   border-top: 1px solid var(--levelLayer);
   padding-top: 5px;
   padding-bottom: 5px;
@@ -3931,7 +3944,7 @@ body {
   --linkBrightnessAdditive: 1 ;
 }
 
-body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
+body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) {
   /* Hierarchical palette */
   --bottom: #000000;
   --bottom_a: hsl(var(--accent-h), var(--accent-s), calc(var(--colorIntensity) * 6% ));
@@ -4016,7 +4029,7 @@ body.classicMicroMike {
   --disabledOverlay: linear-gradient(90deg, rgba(0,0,0,0) 75%, rgba(0,0,0,0.33) 100%) ;
 }
 
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) {
   --background-primary: var(--level1_a);
   --background-primary-alt: var(--level1_b);
   --background-secondary: var(--level1);
@@ -4029,7 +4042,7 @@ body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
   --text-on-accent-inverted: #ffffff;
 }
 
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) {
   /* Button Component */
   /* Dashboard Component */
   /* Input Component */
@@ -4113,313 +4126,313 @@ body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) {
   /* Theme Picker */
   /* Titlebar */
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio).theme-dark {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic).theme-dark {
   --interactive-normal: var(--level2);
   --interactive-hover: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .view-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .nav-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .nav-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .view-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .nav-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .nav-header {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) textarea, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input.metadata-input-text, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=date], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=datetime-local], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=text], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=search], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=email], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=password], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input[type=number] {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) textarea, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input.metadata-input-text, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input[type=date], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input[type=datetime-local], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input[type=text], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input[type=search], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input[type=email], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input[type=password], body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input[type=number] {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input.slider {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input.slider {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outline] .view-content,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=starred] .item-list,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=recent-files] {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=outline] .view-content,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=starred] .item-list,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=recent-files] {
   background: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf.mod-active,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tabs .workspace-leaf {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf.mod-active,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tabs .workspace-leaf {
   background: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.nav-action-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .clickable-icon.nav-action-button {
   opacity: 1;
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.nav-action-button:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .clickable-icon.nav-action-button:hover {
   background-color: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.nav-action-button.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .clickable-icon.nav-action-button.is-active {
   background-color: var(--level2_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .tree-item-self {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .tree-item-self {
   color: var(--backgroundDeep);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-clickable .tree-item-icon.collapse-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-clickable .tree-item-icon.collapse-icon {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-clickable .tree-item-icon.collapse-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-clickable .tree-item-icon.collapse-icon:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outline] .is-clickable .tree-item-icon.collapse-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=outline] .is-clickable .tree-item-icon.collapse-icon:hover {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .tree-item-self:hover, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .tree-item-self.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .tree-item-self:hover, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .tree-item-self.is-active {
   background-color: var(--levelHover);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=empty] .view-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-focused .workspace-leaf-content[data-type=empty] .view-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=markdown] .view-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-focused .workspace-leaf-content[data-type=markdown] .view-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=empty] .view-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-focused .workspace-leaf-content[data-type=empty] .view-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=markdown] .view-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-focused .workspace-leaf-content[data-type=markdown] .view-header {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .document-search-button,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .document-search-close-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .document-search-button,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .document-search-close-button {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-split.mod-root .workspace-tabs {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-split.mod-root .workspace-tabs {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-container {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-root .workspace-tab-header-container {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace .mod-root .workspace-tab-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace .mod-root .workspace-tab-header {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace .mod-root .workspace-tab-header:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace .mod-root .workspace-tab-header:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace .mod-root .workspace-tab-header.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace .mod-root .workspace-tab-header.is-active {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-new-tab .clickable-icon,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-tab-list .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-root .workspace-tab-header-new-tab .clickable-icon,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-root .workspace-tab-header-tab-list .clickable-icon {
   background-color: var(--level1);
   opacity: 1;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-new-tab .clickable-icon:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-root .workspace-tab-header-tab-list .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-root .workspace-tab-header-new-tab .clickable-icon:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-root .workspace-tab-header-tab-list .clickable-icon:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header-inner-close-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header-inner-close-button {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header:hover .workspace-tab-header-inner-close-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header:hover .workspace-tab-header-inner-close-button {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header .workspace-tab-header-inner-close-button:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header .workspace-tab-header-inner-close-button:hover {
   background-color: var(--level2_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .stackTabs .mod-root .workspace-tab-header-container-inner {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .stackTabs .mod-root .workspace-tab-header-container-inner {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-split.mod-root .view-content {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-split.mod-root .view-content {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-mode=preview] .view-content {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-mode=preview] .view-content {
   background: linear-gradient(90deg, var(--level1) 0px, #000000 30px);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .markdown-preview-view .markdown-embed:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .markdown-preview-view .markdown-embed:hover {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=file-explorer] .mod-root > .tree-item-self {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=outline] .tree-item-self.is-clickable:hover {
   background-color: var(--levelHover);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .explorable.titlebar-button {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .explorable.titlebar-button {
   box-shadow: var(--bevelStyleButton);
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .explorable.titlebar-button:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .explorable.titlebar-button:hover {
   background-color: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) #quick-explorer .explorable.selected, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) #quick-explorer .explorable:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .qe-popup-menu .menu-item:not(.is-disabled):not(.is-label).selected {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) #quick-explorer .explorable.selected, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) #quick-explorer .explorable:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .qe-popup-menu .menu-item:not(.is-disabled):not(.is-label).selected {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .prompt {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .prompt {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) input.prompt-input {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) input.prompt-input {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal-bg {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal-bg {
   background-color: unset;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-split.mod-horizontal.mod-right-split {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-split.mod-horizontal.mod-right-split {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-split.mod-horizontal.mod-left-split {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-split.mod-horizontal.mod-left-split {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tabs {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tabs {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tabs {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tabs {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-resize-handle {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-resize-handle {
   background-color: var(--level1);
   border-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-resize-handle:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-resize-handle:hover {
   background-color: var(--level1_a);
   border-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) body {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) body {
   --ribbon-background: var(--bottom);
   --ribbon-background-collapsed: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.side-dock-ribbon-action {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .clickable-icon.side-dock-ribbon-action {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .clickable-icon.side-dock-ribbon-action:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .clickable-icon.side-dock-ribbon-action:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-ribbon.side-dock-ribbon.mod-left {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-ribbon.side-dock-ribbon.mod-left {
   border-right: var(--divider-width) solid var(--line-color);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal-bg {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal-bg {
   background-color: transparent;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-community-theme,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-community-plugin {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal.mod-community-theme,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal.mod-community-plugin {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-settings .vertical-tab-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal.mod-settings .vertical-tab-header {
   background-color: var(--bottom_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-settings .vertical-tab-content-container {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal.mod-settings .vertical-tab-content-container {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal.mod-settings .vertical-tab-content {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal.mod-settings .vertical-tab-content {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .dropdown,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .search-results-info .dropdown {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .dropdown,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .search-results-info .dropdown {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .dropdown:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .search-results-info .dropdown:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .dropdown:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .search-results-info .dropdown:hover {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .search-row {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .search-row {
   background-color: var(--level1);
   margin: 0px;
   padding: 6px;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .search-params {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .search-params {
   margin: 0px;
   padding: var(--size-4-1) var(--size-4-4);
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .clickable-icon {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal .clickable-icon {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal .clickable-icon:hover {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .modal .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .modal .clickable-icon {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .vertical-tab-nav-item.is-active,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .vertical-tab-nav-item.is-active:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .vertical-tab-nav-item.is-active,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .vertical-tab-nav-item.is-active:hover {
   background-color: var(--background-modifier-hover);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header-container,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header-container {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tab-header-container,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header-container {
   background-color: var(--bottom);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tab-header,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tab-header:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header.is-active {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header.is-active:hover,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header.mod-active.is-active:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header.is-active:hover,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header.mod-active.is-active:hover {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header.has-active-menu,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header.has-active-menu,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header.is-active,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header.is-active {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tab-header.has-active-menu,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header.has-active-menu,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tab-header.is-active,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header.is-active {
   background-color: var(--level1_b);
 }
 @media (hover: hover) {
-  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header.has-active-menu:hover,
-  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header.has-active-menu:hover,
-  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header.is-active:hover,
-  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header.is-active:hover {
+  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tab-header.has-active-menu:hover,
+  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header.has-active-menu:hover,
+  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tab-header.is-active:hover,
+  body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header.is-active:hover {
     background-color: var(--level1_b);
   }
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
   background-color: transparent;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .sidebar-toggle-button.mod-left .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .sidebar-toggle-button.mod-left .clickable-icon {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .sidebar-toggle-button.mod-left .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .sidebar-toggle-button.mod-left .clickable-icon:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
   background-color: var(--level1_b);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-collapsed .sidebar-toggle-button.mod-left .clickable-icon:hover {
   background-color: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .sidebar-toggle-button.mod-right .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .sidebar-toggle-button.mod-right .clickable-icon {
   background-color: var(--level1);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .sidebar-toggle-button.mod-right .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .sidebar-toggle-button.mod-right .clickable-icon:hover {
   background-color: var(--level1_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .mod-top-right-space .sidebar-toggle-button.mod-right .clickable-icon:hover {
   background-color: var(--level2_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .community-item {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .community-item {
   --background-modifier-border: var(--level3);
   --background-modifier-border-hover: var(--level3_a);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .community-item.is-selected,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .community-item.is-selected:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .community-item.is-selected,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .community-item.is-selected:hover {
   border-color: var(--level3_a);
   background-color: var(--level3);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .community-modal-details {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .community-modal-details {
   background-color: transparent;
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .titlebar-button-container .titlebar-button:hover {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .titlebar-button-container .titlebar-button:hover {
   background-color: var(--level2);
 }
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right,
-body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio) .is-hidden-frameless:not(.is-fullscreen).is-focused .titlebar-button-container.mod-right {
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right,
+body:not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic) .is-hidden-frameless:not(.is-fullscreen).is-focused .titlebar-button-container.mod-right {
   background-color: var(--bottom);
 }
 
@@ -4435,7 +4448,7 @@ body {
   --bevelStyleTreeItem_invert: inset -1px -1px var(--separatorColor);
 }
 
-body:not(.disableBevels):not(.dtm08):not(.factorio) {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) {
   --bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
   --bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
   --bevelStyleContainerOuter:
@@ -4449,7 +4462,7 @@ body:not(.disableBevels):not(.dtm08):not(.factorio) {
   2px -2px var(--bevelBright2);
 }
 
-body:not(.disableBevels):not(.dtm08):not(.factorio) {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) {
   /* Dashboard Component */
   /* Input Component */
   /* Sidebar Container Component*/
@@ -4494,145 +4507,145 @@ body:not(.disableBevels):not(.dtm08):not(.factorio) {
   /* Theme Picker */
   /* Titlebar */
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio).theme-dark {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic).theme-dark {
   --input-shadow: var(--bevelStyleButton);
   --input-shadow-hover: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .clickable-icon,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .clickable-icon:hover,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-tab-header-inner-close-button,
-body:not(.disableBevels):not(.dtm08):not(.factorio) button {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .clickable-icon,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .clickable-icon:hover,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-tab-header-inner-close-button,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) button {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .view-header {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .view-header {
   box-shadow: var(--bevelStyleButton);
   border: 0px;
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-left-split .nav-header,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-right-split .nav-header {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .nav-header,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .nav-header {
   padding: 3px;
   box-shadow: var(--bevelStyleButton);
   border: 0px;
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) textarea, body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=text], body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=search], body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=email], body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=password], body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=number] {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) textarea, body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=text], body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=search], body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=email], body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=password], body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=number] {
   box-shadow: var(--bevelStyleContainer);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) textarea:active,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=text]:active,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=search]:active,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=email]:active,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=password]:active,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=number]:active,
-body:not(.disableBevels):not(.dtm08):not(.factorio) textarea:focus,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=text]:focus,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=search]:focus,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=email]:focus,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=password]:focus,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=number]:focus,
-body:not(.disableBevels):not(.dtm08):not(.factorio) textarea:focus-visible,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=text]:focus-visible,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=search]:focus-visible,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=email]:focus-visible,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=password]:focus-visible,
-body:not(.disableBevels):not(.dtm08):not(.factorio) input[type=number]:focus-visible {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) textarea:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=text]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=search]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=email]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=password]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=number]:active,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) textarea:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=text]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=search]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=email]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=password]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=number]:focus,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) textarea:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=text]:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=search]:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=email]:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=password]:focus-visible,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input[type=number]:focus-visible {
   box-shadow: var(--bevelStyleContainer);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outline] .view-content,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=starred] .item-list,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=recent-files] {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=file-explorer] .nav-files-container.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .search-result-container.mod-global-search.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=outline] .view-content,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=tag] .tag-container.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=backlink] .backlink-pane.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=outgoing-link] .outgoing-link-pane.node-insert-event,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=starred] .item-list,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=recent-files] {
   box-shadow: var(--bevelStyleContainer);
   box-shadow: var(--bevelStyleContainerOuter);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .is-clickable .tree-item-icon.collapse-icon {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .is-clickable .tree-item-icon.collapse-icon {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .document-search-container {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .document-search-container {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .document-search-close-button {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .document-search-close-button {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace .mod-root .workspace-tab-header {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace .mod-root .workspace-tab-header {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .stackTabs .mod-root .workspace-tab-header-inner-close-button {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .stackTabs .mod-root .workspace-tab-header-inner-close-button {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions, body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions, body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons {
   margin: 3px;
   height: calc(100% - 6px);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions > *:is(a, button), body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons > *:is(a, button) {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-actions > *:is(a, button), body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) :is(.workspace-leaf-content[data-type=markdown], .workspace-leaf-content[data-type=empty]) .view-header .view-header-nav-buttons > *:is(a, button) {
   height: 100%;
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .markdown-preview-view .markdown-embed,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .markdown-preview-view .file-embed {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .markdown-preview-view .markdown-embed,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .markdown-preview-view .file-embed {
   box-shadow: var(--bevelStyleContainer);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .explorable.titlebar-button {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .explorable.titlebar-button {
   box-shadow: var(--bevelStyleButton);
   background-color: var(--level2);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .prompt {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .prompt {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) input.prompt-input:hover, body:not(.disableBevels):not(.dtm08):not(.factorio) input.prompt-input:focus, body:not(.disableBevels):not(.dtm08):not(.factorio) input.prompt-input:focus-visible {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input.prompt-input:hover, body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input.prompt-input:focus, body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) input.prompt-input:focus-visible {
   box-shadow: var(--bevelStyleContainer);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-left-split > hr,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-right-split > hr {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split > hr,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split > hr {
   border-left: 1px solid var(--level2);
   border-right: 1px solid var(--level2);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-horizontal > div > hr:not(.mod-root hr) {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .mod-horizontal > div > hr:not(.mod-root hr) {
   border-top: 1px solid var(--level2);
   border-bottom: 1px solid var(--level2);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .modal-container.mod-dim .modal.mod-settings,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .modal-container.mod-dim .modal.mod-community-plugin,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .modal-container.mod-dim .modal.mod-community-theme,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .modal.mod-community-theme {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .modal-container.mod-dim .modal.mod-settings,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .modal-container.mod-dim .modal.mod-community-plugin,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .modal-container.mod-dim .modal.mod-community-theme,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .modal.mod-community-theme {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .modal.mod-settings .vertical-tab-content {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .modal.mod-settings .vertical-tab-content {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .dropdown:hover,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .search-results-info .dropdown:hover {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .dropdown:hover,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .search-results-info .dropdown:hover {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .clickable-icon {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .clickable-icon:hover, body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-leaf-content[data-type=search] .clickable-icon.is-active {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-left-split .workspace-tab-header,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .mod-left-split .workspace-tab-header,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header {
   box-shadow: var(--bevelStyleButton);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) :is(.mod-left-split, .mod-right-split) .workspace-tab-container .nav-header .nav-buttons-container .clickable-icon {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) :is(.mod-left-split, .mod-right-split) .workspace-tab-container .nav-header .nav-buttons-container .clickable-icon {
   height: calc(var(--sidebarDashboardHeight) - 6px);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio):not(.leftAlignedLeftSidebarButtonDisable) .mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic):not(.leftAlignedLeftSidebarButtonDisable) .mod-left-split .workspace-tab-header-container .workspace-tab-header-container-inner {
   margin-right: 1px;
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .mod-right-split .workspace-tab-header-container .workspace-tab-header-container-inner {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .mod-right-split .workspace-tab-header-container .workspace-tab-header-container-inner {
   margin-left: 1px;
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions {
   margin-right: calc(var(--handleSize) + 1px);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .community-item.is-selected,
-body:not(.disableBevels):not(.dtm08):not(.factorio) .community-item.is-selected:hover {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .community-item.is-selected,
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .community-item.is-selected:hover {
   border-color: var(--level3_a);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio) .titlebar-button-container .titlebar-button {
+body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic) .titlebar-button-container .titlebar-button {
   box-shadow: var(--bevelStyleButton);
 }
 

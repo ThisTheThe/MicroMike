@@ -11,6 +11,6 @@ body:not(.enableTreeViewCulling)
 				margin-right: calc(0px - var(--scrollBarSize))
 		.workspace-leaf-content
 			overflow-y: scroll
-			.node-insert-event
+			:is(.node-insert-event, .view-content)
 				overflow-y: visible
 				min-height: fit-content

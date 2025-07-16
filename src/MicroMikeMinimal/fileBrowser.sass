@@ -1,7 +1,5 @@
 @use 'std'
 
-
-
 body
 	--nav-item-children-padding-left: 0px
 	--nav-item-children-margin-left: calc(var(--outlineLevelWidth) - 1px)
@@ -37,7 +35,10 @@ body .workspace-leaf-content[data-type="file-explorer"]
 	.tree-item-children .tree-item-children
 		position: relative
 		//left: -1px
-		//top: -1px
+		//top: -10px
+	// Large folders closing tend to flicker. Does this fix it?
+	.tree-item.nav-folder.is-collapsed > .tree-item-children
+		display: none
 
 .boldFolders .nav-folder-title .tree-item-inner.nav-folder-title-content
 	font-weight: 700
