@@ -1,12 +1,14 @@
 body
 {
+	--resizeBarsColor: #363636;
+	--resizeBarsColorHover: #454545;
 	--topBackgroundFocusAbstraction: var(--background-secondary-alt)
 }
 body:not(.is-focused)
 {
 	--topBackgroundFocusAbstraction: var(--background-secondary)
 }
-body:is(.inherit, .dtm08)
+body:is(.inherit, .dtm08, .twilight)
 {
 //Tabs
 .workspace-split.mod-root .workspace-tabs,
@@ -23,13 +25,13 @@ body:is(.inherit, .dtm08)
 //Resize Bars
 .workspace-leaf-resize-handle
 {
-	background-color: #363636;
-	border-color: #363636;
+	background-color: var(--resizeBarsColor);
+	border-color: var(--resizeBarsColor);
 }
 .workspace-leaf-resize-handle:hover
 {
-	background-color: #454545;
-	border-color: #454545;
+	background-color: var(--resizeBarsColorHover);
+	border-color: var(--resizeBarsColorHover);
 }
 
 }

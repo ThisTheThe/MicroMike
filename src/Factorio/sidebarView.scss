@@ -1,8 +1,5 @@
 .factorio
 {
-	.workspace-tabs
-	{
-	}
 	.workspace-tab-header-container-inner
 	{
 		overflow: visible;
@@ -18,6 +15,12 @@
 		background-color: #414040;
 		border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kTtIw1AUhv+miiIVBzuICEaoThbEF45ahSJUCLVCqw4mN31Bk4YkxcVRcC04+FisOrg46+rgKgiCDxBHJydFFynx3KTQIsYDl/vx3/P/3HsuINRKTLPaxgBNt81kPCamM6tixysCGEQIQ5iSmWXMSVICvvV1T91Ud1Ge5d/3Z3WrWYsBAZF4lhmmTbxBPL1pG5z3icOsIKvE58SjJl2Q+JHrisdvnPMuCzwzbKaS88RhYjHfwkoLs4KpEU8SR1RNp3wh7bHKeYuzVqqwxj35C0NZfWWZ67QGEMciliBBhIIKiijBRpR2nRQLSTqP+fj7Xb9ELoVcRTByLKAMDbLrB/+D37O1chPjXlIoBrS/OM7HMNCxC9SrjvN97Dj1EyD4DFzpTX+5Bsx8kl5tapEjoGcbuLhuasoecLkD9D0Zsim7UpCWkMsB72f0TRmg9xboWvPm1jjH6QOQolklboCDQ2AkT9nrPu/ubJ3bvz2N+f0As9tywbHNoQUAAAAGYktHRAD+AP4A+5tyIA0AAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfmAgMMDCIUc1k9AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAV1JREFUOMutk8Fu4zAMRN/I2nRzWOx+VoHe9v//IV4nbWJZJPcgO3bS5tCiAgxJBjkczlD6+/Icv37/4Wm/p+sykkDi4YogIjCrjOczx389eegPSAn34Mduh1ICaGDv8qPt7kyl8HY6MvQH8nHoUZcxN3Y/90jpMZuZRYRTLmdeTyeOQ08eS2U4HChlYvf0hlLX2EiIFSiIBuJOuFHGkcvribFUsgdMHnC5UM1R133MZsMizKhTYfLAA7IkJKGU2qd1vwchHBxIMce03MwCMldu5wTprh2BPIGCuMvJa6n151WPDRNFA1oKsSmQ+Ib1LSCbdpr6itlKtRbuLV5cgtiAXK3bBIQjT02DG4v9Jm455+XShsibmD4r+WhO5tglN1dzUMUJJrM2sRu7b97NtaDhbng1qjl5qpViRoxbS/Xo6axaRCCahrmYUT0wj0+70iWRk8iTOV/IB8C8tfcfVY4Z65JAVxwAAAAASUVORK5CYII=) 8 / 4px repeat;
 
+	}
+	.workspace-tab-header-inner-title
+	{
+		font-weight: 600;
+		background-color: #8e8e8e;
+		color: #1d1c1d;
 	}
 	.workspace-tab-header
 	{

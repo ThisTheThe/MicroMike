@@ -119,6 +119,8 @@
 	border: solid 1px #000;
 	border-bottom: 0px;
 	background: linear-gradient(var(--d8d7), var(--d8d9) 50%, var(--d8dA) 50%, var(--d8dC));
+	//old linear-gradient(var(--d8d7), var(--d8d9) 50%, var(--d8dA) 50%, var(--d8dC));
+	// new linear-gradient(var(--d8d7), var(--d8dB) 50%, var(--d8d9) 50%, var(--d8d8));
 	box-shadow: inset 0 0 0 1px #fff1, 0 0 0 1px #fff1;
 	&:hover
 	{

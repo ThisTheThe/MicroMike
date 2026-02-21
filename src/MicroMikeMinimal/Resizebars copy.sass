@@ -6,23 +6,31 @@ body
 
 //.horizontal-main-container > div:nth-of-type(1) > div:nth-of-type(2)
 
-.workspace-split.mod-horizontal.mod-left-split, .workspace-split.mod-horizontal.mod-right-split
-	overflow: hidden
 
 .workspace-split.mod-horizontal.mod-left-split > *:not(hr)
-	padding-right: var(--handleSize)
-	
+	position: relative
+	left: var(--handleSize)
+	width: calc(100% - var(--handleSize))
+
 .workspace-split.mod-horizontal.mod-right-split > *:not(hr)
-	padding-left: var(--handleSize)
+	position: relative
+	right: var(--handleSize)
+	width: calc(100% - var(--handleSize))
 
 .mod-left-split .workspace-tabs
-	padding-bottom: var(--handleSize)
+	position: relative
+	top: var(--handleSize)
+	width: calc(100% - var(--handleSize))
 
 .mod-right-split .workspace-tabs
-	padding-bottom: var(--handleSize)
+	position: relative
+	bottom: var(--handleSize)
+	width: calc(100% - var(--handleSize))
 
 .workspace-split.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-actions 
-	margin-right: calc(var(--handleSize))
+	position: relative
+	left: calc(var(--handleSize))
+	width: calc(100% - var(--handleSize))
 
 .workspace-ribbon.side-dock-ribbon
 	border-right: 0px

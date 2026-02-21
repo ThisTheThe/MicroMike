@@ -1,0 +1,26 @@
+.twilight
+{
+    --background-primary: rgba(255,255,255,0.0);
+    --background-primary-alt: rgba(255,255,255,0.0);
+    --background-secondary: rgba(255,255,255,0.0);
+    --background-secondary-alt: rgba(255,255,255,0.0);
+    --background-modifier-hover: rgba(var(--mono-rgb-100), 0.067);
+    --background-modifier-active-hover: hsla(var(--interactive-accent-hsl), 0.1);
+    --background-modifier-border: var(--color-base-30);
+    --background-modifier-border-hover: var(--color-base-35);
+    --background-modifier-border-focus: var(--color-base-40);
+    --background-modifier-error-rgb: var(--color-red-rgb);
+    --background-modifier-error: var(--color-red);
+    --background-modifier-error-hover: var(--color-red);
+    --background-modifier-success-rgb: var(--color-green-rgb);
+    --background-modifier-success: var(--color-green);
+    --background-modifier-message: rgba(0, 0, 0, 0.9);
+    --background-modifier-form-field: var(--color-base-00);
+    --background-modifier-form-field-hover: var(--background-modifier-form-field);
+    --tab-container-background: rgba(255,255,255,0.0);
+    --titlebar-background: var(--background-secondary);
+    --titlebar-background-focused: var(--background-secondary-alt);
+
+	--resizeBarsColor: transparent;
+	--resizeBarsColorHover: transparent;
+}

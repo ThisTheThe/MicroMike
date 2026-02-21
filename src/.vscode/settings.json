@@ -11,5 +11,9 @@
             "savePath": null,
             "savePathReplacementPairs": null
         }
-    ]
+    ],
+    "files.exclude": {
+        "**/*.css": true,
+        "**/*.css.map": true
+    }
 }
