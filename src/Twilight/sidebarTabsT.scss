@@ -1,0 +1,48 @@
+.twilight
+{
+    :is(.mod-left-split, .mod-right-split) .workspace-tab-header-container .workspace-tab-header-container-inner
+    {
+        gap:8px;
+        .workspace-tab-header
+        {
+            border-top: 1px solid #606583;
+            border-left: 1px solid #606583;
+            border-right: 1px solid #606583;
+            background-image: linear-gradient(to top, #07173899, #00000099);
+            position:relative;
+            &.is-active
+            {
+                border-top: 1px solid #979CBC;
+                border-left: 1px solid #979CBC;
+                border-right: 1px solid #979CBC;
+                background-image: linear-gradient(to top, #11388EAA, #000000AA);
+                z-index: 1;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                left: -4px;
+                top: 0;        // add this
+                height: 100%;
+                width: 4px;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                right: -4px;
+                top: 0;        // add this
+                height: 100%;
+                width: 4px;
+            }
+        }
+    }
+    .mod-left-split .workspace-tab-header-container .workspace-tab-header
+    {
+        border-radius: 13px 0 0 0;
+    }
+    .mod-right-split .workspace-tab-header-container .workspace-tab-header
+    {
+        border-radius: 0 13px 0 0;
+    }
+    
+}

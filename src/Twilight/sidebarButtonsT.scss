@@ -1,0 +1,10 @@
+:is(.mod-left-split, .workspace-split.mod-root) .sidebar-toggle-button.mod-left
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    margin-top: 0px;
+    z-index: 10;
+    height: var(--sidebarTabHeight);
+    width: var(--sidebarWidth);
+}

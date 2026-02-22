@@ -7,7 +7,22 @@
 			"label" : "RunCopyFileMicroMike",
 			"type" : "shell",
 			"command" : "./copyResult.ps1"
+		},
+		{
+		  "label": "Sass Watch",
+		  "type": "shell",
+		  "command": "C:\\Users\\Tim\\AppData\\Roaming\\npm\\sass.cmd --watch theme.sass:theme.css",
+		  "isBackground": true,
+		  "runOptions": { "runOn": "folderOpen" },
+		  "problemMatcher": []
+		},
+		{
+		  "label": "Asset Watch",
+		  "type": "shell",
+		  "command": "python ${workspaceFolder}/twilight/watch_assets.py",
+		  "isBackground": true,
+		  "runOptions": { "runOn": "folderOpen" },
+		  "problemMatcher": []
 		}
-		
 	]
 }
