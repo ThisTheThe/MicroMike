@@ -1,0 +1,21 @@
+.twilight
+{
+    .mod-sidedock 
+    {
+        .workspace-tab-container
+        {
+            border: 1px solid #76789B;
+            background-color: #050D29BB;
+            box-shadow: 2px 5px 3px 3px #00000099, inset 0 0 3px 3px #00000099;
+            z-index: 0;
+        }
+    }
+    .mod-right-split
+    {
+        margin-right: 20px;
+    }
+    .mod-left-split
+    {
+        margin-left: 20px;
+    }
+}

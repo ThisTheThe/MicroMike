@@ -1,0 +1,147 @@
+// [Plugins - Core] File Explorer
+.workspace-leaf-content[data-type="file-explorer"] {
+	.nav-files-container {
+		padding-top: var(--size-4-1);
+		padding-right: var(--size-4-1);
+		padding-bottom: unset;
+		padding-left: var(--size-4-1);
+	}
+
+	.nav-folder.mod-root > .nav-folder-children {
+		padding: var(--size-4-1);
+	}
+
+	.tree-item-children.nav-folder-children {
+		.tree-item.nav-folder {
+			margin-left: 3px;
+		}
+
+		.tree-item.nav-file {
+			margin-left: -17px;
+		}
+	}
+
+	.tree-item.nav-file {
+		margin-left: -20px;
+	}
+}
+
+.tree-item-children:empty {
+	display: none;
+}
+
+.tree-item-self {
+	padding-inline-start: none !important;
+	margin-inline-start: none !important;
+	border: 2px solid transparent;
+}
+
+.nav-file-tag {
+	height: 15px;
+	background-color: var(--background-secondary);
+	border: 1px solid var(--window-border-color);
+}
+
+.nav-folder:not(.is-collapsed) > .nav-folder-title {
+	color: var(--text-normal);
+}
+
+body:not(.is-grabbing) {
+	.nav-folder-title:hover .collapse-icon svg.svg-icon {
+		color: var(--nav-item-color-hover);
+	}
+
+	.item-list .nav-file-title:hover .nav-file-icon {
+		color: var(--interactive-accent-text);
+	}
+
+	.nav-file-title.is-active:hover,
+	.nav-folder-title.is-active:hover {
+		color: var(--interactive-accent-hover);
+	}
+}
+
+.mod-active .workspace-tab-header.is-active:hover {
+	.workspace-tab-header-inner-icon,
+	.workspace-tab-header-inner-title {
+		color: var(--interactive-accent-hover);
+	}
+}
+
+.workspace-leaf.mod-active {
+	.nav-folder.has-focus > .nav-folder-title {
+		background-color: var(--interactive-accent-base);
+		border: var(--accent-border-width) solid transparent;
+		border-radius: var(--radius-s);
+	}
+
+	.nav-file.has-focus {
+		background-color: var(--interactive-accent-base);
+		border: unset;
+		border-radius: var(--radius-s);
+	}
+}
+
+body:not(.is-grabbing) .nav-file-title.is-being-dragged,
+body:not(.is-grabbing) .nav-folder-title.is-being-dragged,
+.nav-file-title.is-being-dragged,
+.nav-folder-title.is-being-dragged {
+	color: var(--highlight-text-normal);
+	background-color: var(--interactive-accent-base);
+}
+
+// Style Setting for Folder Icons instead of dropdown icon
+.pt-file-explorer-folder-icon {
+	.nav-folder:not(.is-collapsed) .collapse-icon svg.svg-icon {
+		display: inline-flex;
+		width: 17px;
+		height: -webkit-fill-available;
+		height: fill-available;
+		content: " ";
+		-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2'%3E%3C/path%3E%3C/svg%3E");
+		-webkit-mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		-webkit-mask-size: 17px;
+		stroke-width: unset;
+	}
+
+	&.pt-file-explorer-folder-icon-default .nav-folder:not(.is-collapsed) .collapse-icon svg.svg-icon {
+		background-color: var(--text-muted);
+	}
+
+	&.pt-file-explorer-folder-icon-active .nav-folder:not(.is-collapsed) .collapse-icon svg.svg-icon,
+	&.pt-file-explorer-folder-icon-accent .nav-folder:not(.is-collapsed) .collapse-icon svg.svg-icon {
+		background-color: var(--interactive-accent-text);
+	}
+
+	.nav-folder.is-collapsed .collapse-icon svg.svg-icon {
+		display: inline-flex;
+		width: 17px;
+		height: -webkit-fill-available;
+		height: fill-available;
+		content: " ";
+		-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z'%3E%3C/path%3E%3C/svg%3E");
+		-webkit-mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		-webkit-mask-size: 17px;
+		stroke-width: unset;
+		transform: rotate(0);
+	}
+
+	&.pt-file-explorer-folder-icon-active,
+	&.pt-file-explorer-folder-icon-default {
+		.nav-folder.is-collapsed {
+			.collapse-icon svg.svg-icon {
+				background-color: var(--text-muted);
+			}
+
+			&:hover .collapse-icon svg.svg-icon {
+				background-color: var(--interactive-accent-text);
+			}
+		}
+	}
+
+	&.pt-file-explorer-folder-icon-accent .nav-folder.is-collapsed .collapse-icon svg.svg-icon {
+		background-color: var(--interactive-accent-text);
+	}
+}

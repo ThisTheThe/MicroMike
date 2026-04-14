@@ -4,9 +4,9 @@
     {
         .workspace-tab-container
         {
-            border: 1px solid #76789B;
-            background-color: #050D29BB;
-            box-shadow: 2px 5px 3px 3px #00000099, inset 0 0 3px 3px #00000099;
+            border: 1px solid oklch(0.584 0.0535 282.05);
+            background-color: oklch(0.1718 0.0588 266.61 / 0.7333);
+            box-shadow: 2px 5px 3px 3px oklch(0 0 0 / 0.6), inset 0 0 3px 3px oklch(0 0 0 / 0.6);
             z-index: 0;
         }
     }

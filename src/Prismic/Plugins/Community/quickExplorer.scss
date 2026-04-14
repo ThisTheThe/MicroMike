@@ -1,0 +1,28 @@
+// [Plugins - Community] Quick Explorer
+.status-bar-item.left-region {
+	padding: unset;
+}
+
+#quick-explorer {
+	padding: 0 var(--size-4-2);
+}
+
+body.is-frameless.is-hidden-frameless:not(.qe-hide-breadcrumbs) .status-bar,
+body:not(.is-frameless):not(.qe-hide-breadcrumbs) .status-bar {
+	position: var(--status-bar-position);
+}
+
+#quick-explorer .explorable.selected,
+#quick-explorer .explorable:hover,
+.qe-popup-menu .menu-item:not(.is-disabled):not(.is-label).selected {
+	background-color: var(--background-modifier-hover);
+}
+
+.view-header-breadcrumb.is-exploring,
+.view-header-title-parent.is-exploring::before {
+	color: var(--highlight-accent-text);
+}
+
+.view-header-title-parent::before {
+	display: none;
+}

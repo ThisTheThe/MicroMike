@@ -1,0 +1,58 @@
+// [Plugins - Core] Slash Commands
+.suggestion-container {
+	max-width: 700px;
+	border: 1px solid var(--window-border-color);
+	box-shadow: var(--shadow-l);
+
+	.suggestion {
+		padding: var(--size-4-2);
+
+		&::-webkit-scrollbar-track {
+			border-radius: var(--radius-s);
+			box-shadow: var(--shadow-s);
+		}
+	}
+
+	.theme-light & {
+		background-color: var(--background-primary);
+	}
+
+	.theme-dark & {
+		background-color: var(--background-secondary-alt);
+	}
+
+	.suggestion-item {
+		padding: var(--size-4-2);
+	}
+}
+
+.suggestion-item {
+	&.mod-complex {
+		align-items: center;
+
+		.suggestion-content {
+			overflow: visible;
+		}
+	}
+
+	&.is-selected,
+	&.mobile-tap {
+		color: var(--highlight-text-normal);
+		background-color: var(--interactive-accent-base);
+	}
+}
+
+.suggestion-prefix {
+	padding: 0 var(--size-4-1);
+	margin-right: var(--size-4-2);
+	font-size: 0.9em;
+	font-weight: 600;
+	color: var(--interactive-accent-text);
+	background-color: var(--background-secondary);
+	border: 1px solid var(--window-border-color);
+	border-radius: var(--radius-s);
+
+	&::after {
+		display: none;
+	}
+}

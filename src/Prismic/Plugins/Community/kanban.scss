@@ -1,0 +1,185 @@
+// [Plugins - Community] Kanban Base
+.kanban-plugin {
+	background-color: unset;
+}
+
+.kanban-plugin__lane-header-wrapper {
+	gap: var(--size-4-1);
+	padding: var(--size-4-1) var(--size-4-2);
+}
+
+.kanban-plugin__lane-wrapper {
+	margin-right: var(--size-4-4);
+}
+
+.kanban-plugin__item-title-wrapper {
+	.theme-dark & {
+		background: var(--background-secondary-alt);
+	}
+}
+
+button.kanban-plugin__new-item-button {
+	border: var(--window-border);
+
+	&:hover {
+		background-color: var(--background-modifier-hover);
+	}
+}
+
+.kanban-plugin__item-form .kanban-plugin__item-input-wrapper {
+	.theme-dark & {
+		background-color: var(--background-secondary-alt);
+	}
+}
+
+.kanban-plugin__lane-items {
+	gap: var(--size-4-1);
+	padding: var(--size-4-2);
+	margin: unset;
+
+	> div {
+		margin-top: unset;
+	}
+}
+
+.kanban-plugin__scroll-container.kanban-plugin__vertical {
+	.theme-light & {
+		background-color: var(--background-primary);
+	}
+
+	.theme-dark & {
+		background-color: var(--background-secondary-alt);
+	}
+}
+
+:is(
+		.kanban-plugin__lane-grip,
+		div.kanban-plugin__lane-title-count,
+		.kanban-plugin__lane button.kanban-plugin__lane-settings-button
+	) {
+	margin: unset;
+}
+
+.kanban-plugin__lane button.kanban-plugin__lane-settings-button {
+	height: unset;
+	box-shadow: unset;
+}
+
+.modal.kanban-plugin__board-settings-modal {
+	width: var(--modal-width);
+	max-width: var(--modal-max-width);
+	height: var(--modal-height);
+	max-height: var(--modal-max-height);
+
+	.modal-title:empty {
+		display: block;
+		width: -webkit-fill-available;
+		width: fill-available;
+		height: 42px;
+		margin-bottom: unset;
+		content: "";
+		border-bottom: var(--window-border);
+	}
+
+	.modal-content {
+		padding: var(--size-4-8);
+	}
+
+	:is(h3, h4) {
+		margin: var(--size-4-2) 0;
+		border-bottom: var(--window-border);
+	}
+}
+
+.kanban-plugin__board > div {
+	padding: var(--size-4-4);
+}
+
+.kanban-plugin__markdown-preview-view > div > * {
+	overflow-x: unset;
+}
+
+// [Plugins - Community] Kanban Item Counter
+div.kanban-plugin__lane-title-count {
+	display: block;
+	height: fit-content;
+	padding: 0 4px;
+	font-size: 0.75em;
+	font-weight: 600;
+	line-height: 1.5em;
+	color: var(--text-normal);
+	background-color: unset;
+	border-radius: var(--radius-s);
+}
+
+.kanban-plugin__lane-grip,
+.kanban-plugin__lane-settings-button-wrapper {
+	border-radius: var(--radius-s);
+
+	&:hover {
+		color: var(--interactive-accent-hover);
+		background-color: var(--interactive-accent-base);
+	}
+}
+
+.kanban-plugin__lane-grip {
+	padding: var(--size-4-1) 0;
+}
+
+.pt-center-kanban-title-text {
+	.kanban-plugin__lane-title {
+		align-items: center;
+	}
+
+	.kanban-plugin__lane-input {
+		width: -webkit-fill-available;
+		width: fill-available;
+	}
+}
+
+.pt-disable-kanban-title-count div.kanban-plugin__lane-title-count {
+	display: none;
+}
+
+// [Plugins - Community] Kanban Background Styles
+.theme-light.pt-kanban-background-dots-lt {
+	.kanban-plugin__board {
+		background-image: radial-gradient(
+			circle,
+			hsla(var(--background-secondary-hsl), 90%) 1px,
+			rgba(0, 0, 0, 0%) 1px
+		);
+		background-attachment: local;
+		background-size: 8px 8px;
+	}
+}
+
+.theme-dark.pt-kanban-background-dots-dt {
+	.kanban-plugin__board {
+		background-image: radial-gradient(
+			circle,
+			hsla(var(--background-secondary-hsl), 90%) 1px,
+			rgba(0, 0, 0, 0%) 1px
+		);
+		background-attachment: local;
+		background-size: 8px 8px;
+	}
+}
+
+.theme-light.pt-kanban-background-grid-lt {
+	.kanban-plugin__board {
+		background-image: linear-gradient(to right, hsla(var(--background-secondary-hsl), 90%) 1px, transparent 1px),
+			linear-gradient(to bottom, hsla(var(--background-secondary-hsl), 90%) 1px, transparent 1px);
+		background-attachment: local;
+		background-size: 8px 8px;
+	}
+}
+
+.theme-dark.pt-kanban-background-grid-dt {
+	.kanban-plugin__board {
+		background-image: linear-gradient(to right, hsla(var(--background-secondary-hsl), 90%) 1px, transparent 1px),
+			linear-gradient(to bottom, hsla(var(--background-secondary-hsl), 90%) 1px, transparent 1px);
+		background-attachment: local;
+		background-size: 8px 8px;
+	}
+}

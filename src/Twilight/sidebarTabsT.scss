@@ -5,17 +5,17 @@
         gap:8px;
         .workspace-tab-header
         {
-            border-top: 1px solid #606583;
-            border-left: 1px solid #606583;
-            border-right: 1px solid #606583;
-            background-image: linear-gradient(to top, #07173899, #00000099);
+            border-top: 1px solid oklch(0.514 0.0479 277.21);
+            border-left: 1px solid oklch(0.514 0.0479 277.21);
+            border-right: 1px solid oklch(0.514 0.0479 277.21);
+            background-image: linear-gradient(to top, oklch(0.2139 0.0681 262.41 / 0.4), oklch(0 0 0 / 0.4));
             position:relative;
             &.is-active
             {
-                border-top: 1px solid #979CBC;
-                border-left: 1px solid #979CBC;
-                border-right: 1px solid #979CBC;
-                background-image: linear-gradient(to top, #11388EAA, #000000AA);
+                border-top: 1px solid oklch(0.6997 0.0471 278.13);
+                border-left: 1px solid oklch(0.6997 0.0471 278.13);
+                border-right: 1px solid oklch(0.6997 0.0471 278.13);
+                background-image: linear-gradient(to top, oklch(0.3238 0.1093 262.91 / 0.6667), oklch(0.2139 0.0681 262.41 / 0.6667));
                 z-index: 1;
             }
             &::before {

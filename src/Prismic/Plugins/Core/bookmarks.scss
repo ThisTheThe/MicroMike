@@ -1,0 +1,25 @@
+// [Plugins - Core] Bookmarks
+.workspace-leaf-content[data-type="bookmarks"] {
+	.tree-item-icon {
+		width: 20px;
+		padding-right: var(--size-4-1);
+	}
+
+	.view-content {
+		padding: var(--size-4-1);
+	}
+}
+
+body:not(.is-grabbing) .workspace-leaf-content[data-type="bookmarks"] .tree-item-self.is-active {
+	.tree-item-icon {
+		color: var(--interactive-accent-text);
+	}
+
+	&:hover {
+		color: var(--interactive-accent-hover);
+	}
+
+	&.is-clickable:hover svg {
+		color: var(--interactive-accent-hover);
+	}
+}

@@ -1,0 +1,364 @@
+// [Editor] Edit View
+.workspace-split.mod-root .view-content {
+	.theme-light & {
+		background-color: var(--background-primary);
+	}
+
+	.theme-dark & {
+		background-color: var(--background-secondary-alt);
+	}
+}
+
+.cm-s-obsidian span.cm-formatting-highlight,
+.cm-s-obsidian span.cm-highlight,
+.cm-s-obsidian span.cm-quote {
+	&.cm-em:not(.cm-strong) {
+		color: var(--italic-color);
+	}
+
+	&.cm-strong:not(.cm-em) {
+		color: var(--bold-color);
+	}
+}
+
+:is(em strong, strong em, .cm-em.cm-strong) {
+	.theme-light & {
+		color: var(--text-italic-bold-color-lt);
+	}
+
+	.theme-dark & {
+		color: var(--text-italic-bold-color-dt);
+	}
+}
+
+.cm-strikethrough,
+.cm-s-obsidian span.cm-formatting-highlight.cm-strikethrough,
+.cm-s-obsidian span.cm-highlight.cm-strikethrough,
+del {
+	text-decoration-thickness: 2px;
+
+	.theme-light & {
+		color: var(--strikethrough-text-color-lt);
+		text-decoration-color: var(--strikethrough-line-color-lt);
+	}
+
+	.theme-dark & {
+		color: var(--strikethrough-text-color-dt);
+		text-decoration-color: var(--strikethrough-line-color-dt);
+	}
+}
+
+u {
+	text-decoration-thickness: 2px;
+
+	.theme-light & {
+		color: var(--underline-text-color-lt);
+		text-decoration-color: var(--underline-line-color-lt);
+	}
+
+	.theme-dark & {
+		color: var(--underline-text-color-dt);
+		text-decoration-color: var(--underline-line-color-dt);
+	}
+}
+
+hr {
+	margin: 1.5em 0;
+}
+
+.markdown-source-view.mod-cm6 {
+	.cm-embed-block:hover .edit-block-button {
+		background-color: var(--background-secondary);
+	}
+
+	.edit-block-button {
+		top: 9px;
+		inset-inline-end: var(--size-4-2);
+	}
+}
+
+.cm-inline-code:not(.cm-formatting-code),
+.cm-s-obsidian .cm-inline-code.cm-formatting ~ .cm-inline-code:not(.cm-formatting) {
+	padding: 0 var(--size-4-1);
+	border: 1px solid var(--window-border-color);
+	border-radius: var(--radius-s);
+}
+
+.cm-s-obsidian .cm-inline-code.cm-formatting {
+	border: unset;
+}
+
+.cm-s-obsidian .cm-formatting-code.cm-inline-code {
+	font-family: var(--font-text);
+	font-size: var(--font-text-size);
+}
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
+	padding: 0 var(--size-4-1);
+}
+
+.cm-s-obsidian span.cm-formatting-highlight.cm-inline-code,
+.cm-s-obsidian span.cm-highlight.cm-inline-code {
+	color: var(--code-normal);
+}
+
+// Borders for Codeblocks
+:is(.HyperMD-codeblock.HyperMD-codeblock-begin, .cm-s-obsidian div.HyperMD-codeblock-begin-bg) {
+	border-top: 1px solid var(--window-border-color);
+}
+
+.cm-s-obsidian div.HyperMD-codeblock {
+	border-right: 1px solid var(--window-border-color);
+	border-left: 1px solid var(--window-border-color);
+}
+
+:is(.HyperMD-codeblock.HyperMD-codeblock-end, .cm-s-obsidian div.HyperMD-codeblock-end-bg) {
+	border-bottom: 1px solid var(--window-border-color);
+}
+
+.cm-s-obsidian .cm-hashtag {
+	font-weight: 600;
+	vertical-align: middle;
+}
+
+.cm-line {
+	.cm-hashtag-begin {
+		background-color: var(--background-secondary);
+		border: 2px solid var(--window-border-color);
+		border-inline-end: unset;
+	}
+
+	.cm-hashtag-end {
+		background-color: var(--background-secondary);
+		border: 2px solid var(--window-border-color);
+		border-inline-start: unset;
+	}
+
+	.cm-hashtag.cm-meta:not(.cm-hashtag-begin, .cm-hashtag-end) {
+		background-color: var(--background-secondary);
+		border: 2px solid var(--window-border-color);
+		border-inline-start: unset;
+		border-inline-end: unset;
+	}
+}
+
+.cm-s-obsidian span.cm-hmd-escape-backslash {
+	color: var(--color-red-text);
+}
+
+:is(code[class*="language-"], pre[class*="language-"]) {
+	line-height: var(--line-height-tight);
+}
+
+.markdown-preview-view th,
+.table-view-table > thead > tr > th,
+.markdown-source-view.mod-cm6 .dataview.table-view-table thead.table-view-thead tr th {
+	padding: var(--size-2-2) var(--size-4-2);
+}
+
+.markdown-rendered thead tr:first-child > th {
+	font-weight: var(--font-semibold);
+}
+
+.cm-s-obsidian span.cm-formatting-task {
+	font-family: var(--font-text);
+}
+
+// Reading Specific
+input[type="checkbox"] {
+	border-width: 2px;
+
+	&:checked {
+		border-color: var(--interactive-accent-tint);
+
+		&::after {
+			inset-inline-start: -2px;
+			top: -2px;
+		}
+	}
+}
+
+a.tag {
+	font-weight: 600;
+	background-color: var(--background-secondary);
+	border-color: var(--window-border-color);
+	border-radius: var(--radius-s);
+
+	&:hover {
+		color: var(--interactive-accent-text);
+		background-color: var(--background-primary);
+		border-color: var(--interactive-accent-tint);
+		transition: all ease 200ms;
+	}
+}
+
+:is(.markdown-preview-view, .markdown-rendered) {
+	:is(code, kbd) {
+		padding: 0 var(--size-4-1);
+		font-family: var(--font-monospace);
+		font-size: var(--code-size);
+		border: var(--window-border);
+		border-radius: var(--radius-s);
+	}
+}
+
+.code-block-flair {
+	font-weight: 600;
+	border: var(--window-border);
+
+	.theme-light & {
+		background-color: var(--background-primary-alt);
+	}
+
+	.theme-dark & {
+		background-color: var(--background-secondary);
+	}
+
+	.markdown-source-view.mod-cm6 & {
+		padding: var(--size-4-1) var(--size-4-2);
+		display: flex;
+	}
+}
+
+:is(.theme-light.pt-highlight-text-color-lt, .theme-dark.pt-highlight-text-color-dt) {
+	span.cm-link {
+		color: var(--link-external-color);
+	}
+
+	span.cm-hmd-internal-link {
+		color: var(--link-color);
+
+		&:hover {
+			color: var(--link-color-hover);
+		}
+	}
+}
+
+.markdown-source-view.mod-cm6 {
+	.cm-table-widget .table-row-drag-handle:hover,
+	.cm-table-widget .table-col-drag-handle:hover {
+		color: var(--interactive-accent-text);
+	}
+}
+
+.markdown-rendered {
+	&.show-indentation-guide li > {
+		ol::before,
+		ul::before {
+			inset-inline-start: -0.75em;
+		}
+	}
+
+	mark .internal-link {
+		.theme-light & {
+			color: hsl(var(--link-internal-color-lt));
+		}
+
+		.theme-dark & {
+			color: hsl(var(--link-internal-color-dt));
+		}
+
+		&:hover {
+			color: var(--link-color-hover);
+		}
+	}
+
+	pre {
+		border: 1px solid var(--window-border-color);
+	}
+
+	button.copy-code-button {
+		padding: var(--size-2-1) var(--size-4-1);
+		margin: var(--size-4-1);
+	}
+
+	:is(h1, h2, h3, h4, h5, h6) {
+		margin: 0;
+	}
+
+	blockquote {
+		padding: 0 15px;
+	}
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+	padding-right: 15px;
+}
+
+.embed-title {
+	top: 0;
+	z-index: var(--layer-cover);
+	width: 100%;
+	padding: var(--size-4-2) var(--size-4-4);
+	background-color: var(--background-secondary);
+	border-bottom: var(--window-border);
+}
+
+.internal-embed {
+	&.internal-embed.canvas-embed,
+	&.pdf-embed {
+		border: 1px solid var(--window-border-color);
+	}
+
+	.markdown-embed-content {
+		padding: var(--size-4-4);
+		margin-right: -1px;
+	}
+}
+
+.file-embed.mod-empty {
+	border: var(--window-border);
+	border-radius: var(--radius-s);
+}
+
+:is(.markdown-embed-link, .file-embed-link) {
+	inset-inline-end: var(--size-4-2);
+	top: var(--size-4-2);
+	z-index: var(--layer-cover);
+}
+
+.view-content .collapse-indicator:not(.is-collapsed) {
+	svg.svg-icon {
+		color: var(--interactive-accent-text);
+	}
+}
+
+/* --- */
+
+/* Alignment of the collapse indicator */
+
+/* Source mode */
+.markdown-source-view.mod-cm6 .HyperMD-list-line .cm-fold-indicator .collapse-indicator {
+	padding-inline-end: 0;
+}
+
+/* Live Preview */
+.markdown-source-view.mod-cm6.is-live-preview
+	.cm-line.HyperMD-list-line:not(.cm-active):not(.HyperMD-task-line)
+	.cm-fold-indicator
+	.collapse-indicator {
+	inset-inline-end: calc(var(--list-bullet-end-padding) * -1);
+}
+
+/* Reading mode */
+.markdown-rendered .list-collapse-indicator {
+	margin-inline-start: -1.75em;
+}
+
+/* --- */
+
+/* Reading mode - Initial indent distance to align with Source and Live Preview */
+.markdown-rendered div > ul > li,
+.markdown-rendered div > ol > li {
+	margin-inline-start: 1.5em;
+}
+
+/* Reading mode - Alignment of the list bullet */
+.markdown-rendered .list-bullet {
+	margin-inline-start: -0.7em;
+}
+
+/* Reading mode - Alignment of the checkbox list item */
+/* (If the checkbox border width is changed from original 1px, you have to change the end value to align correctly again) */
+ul > li.task-list-item .task-list-item-checkbox {
+	margin-inline-start: calc(var(--checkbox-size) * -1.15);
+}

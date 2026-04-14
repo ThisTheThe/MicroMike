@@ -1,0 +1,211 @@
+// [Plugins - Community] File Tree Alternative Plugin
+.workspace-leaf div.workspace-leaf-content[data-type="file-tree-view"] {
+	> div.view-content {
+		padding: 0;
+	}
+
+	.oz-folder-pane {
+		resize: unset;
+	}
+
+	.oz-folders-tree-wrapper {
+		padding: unset;
+
+		> .oz-folder-contents {
+			margin-right: var(--size-4-1);
+			margin-bottom: var(--size-4-1);
+			margin-left: 14px !important;
+		}
+
+		> .treeview {
+			padding: 0 var(--size-4-1) 0 0;
+		}
+	}
+
+	.oz-folder-contents {
+		padding-left: 0;
+		margin-left: 15px !important;
+		border-left: var(--window-border);
+	}
+
+	.oz-folder-element {
+		margin-left: var(--size-4-1);
+	}
+
+	.oz-icon-div {
+		padding-left: var(--size-4-1);
+	}
+
+	.oz-folders-action-items,
+	.oz-flex-container {
+		height: var(--header-height);
+		margin-bottom: unset;
+		background-color: var(--background-secondary-blur);
+		border: unset;
+		border-bottom: var(--window-border);
+		border-radius: unset;
+		-webkit-backdrop-filter: blur(var(--blur-intensity));
+		backdrop-filter: blur(var(--blur-intensity));
+	}
+
+	.oz-folders-action-items {
+		display: flex;
+		gap: var(--size-4-2);
+		align-items: center;
+		justify-content: center;
+		padding: unset;
+		margin-bottom: var(--size-4-1);
+	}
+
+	.oz-nav-action-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 26px;
+		height: 26px;
+		margin-left: unset;
+		color: var(--text-faint);
+
+		&:hover {
+			color: var(--highlight-text-normal);
+			background-color: var(--background-modifier-hover);
+		}
+	}
+
+	.oz-file-tree-header {
+		margin-top: unset;
+		font-weight: var(--font-medium);
+		background-color: var(--background-secondary-blur);
+		border-bottom: var(--window-border);
+		border-radius: unset;
+		-webkit-backdrop-filter: blur(var(--blur-intensity));
+		backdrop-filter: blur(var(--blur-intensity));
+	}
+
+	.oz-file-tree-header-wrapper .oz-flex-container {
+		display: flex;
+		gap: var(--size-4-2);
+		align-items: center;
+		justify-content: center;
+
+		.oz-nav-action-button {
+			display: inline-flex;
+			order: 2;
+		}
+
+		.oz-nav-buttons-right-block {
+			gap: var(--size-4-2);
+		}
+	}
+
+	.file-tree-header-fixed {
+		padding-right: unset;
+		padding-left: unset;
+	}
+
+	#file-tree-divider {
+		height: 1px;
+		margin-bottom: unset;
+		background-color: var(--window-border-color);
+		border-bottom: unset;
+		opacity: 1;
+
+		.pt-color-scheme-style-minimal-lt &,
+		.pt-color-scheme-style-minimal-dt & {
+			background-color: transparent;
+		}
+
+		&:hover {
+			height: 3px;
+			background-color: var(--divider-color-hover);
+		}
+	}
+
+	#file-tree-divider-horizontal {
+		width: 1px;
+		margin-right: unset;
+		margin-left: unset;
+		border-right: 1px solid var(--window-border-color);
+		opacity: unset;
+
+		&:hover {
+			width: 3px;
+			background-color: var(--divider-color-hover);
+		}
+	}
+
+	.oz-file-tree-files {
+		padding: var(--size-4-1) !important;
+	}
+
+	.oz-nav-file {
+		margin-bottom: var(--size-2-1);
+		margin-left: unset;
+		border: 2px solid transparent;
+		border-radius: var(--radius-s);
+	}
+
+	.oz-nav-file-title {
+		font-size: var(--font-ui-small);
+	}
+
+	div.oz-nav-file.is-active div.oz-nav-file-title,
+	div.oz-nav-file.is-active div.oz-nav-file-title-content {
+		font-weight: var(--font-normal);
+		color: unset;
+		background-color: unset;
+
+		.oz-nav-file-tag {
+			color: var(--highlight-text-normal);
+		}
+	}
+
+	.oz-nav-file-tag {
+		background-color: unset;
+	}
+
+	.oz-folder-block {
+		padding-top: unset;
+	}
+
+	.treeview {
+		padding: 1px;
+		margin-bottom: var(--size-2-1);
+	}
+
+	.oz-explorer-container {
+		padding-right: unset !important;
+		padding-left: unset !important;
+	}
+
+	.is-folder-active {
+		color: var(--interactive-accent-text);
+	}
+
+	.drag-entered,
+	.oz-folder-element:hover,
+	.oz-nav-file:hover {
+		background-color: var(--background-modifier-hover);
+		border-radius: var(--radius-s);
+
+		.oz-folder-name,
+		.oz-nav-file-title,
+		.oz-nav-file-tag {
+			color: var(--highlight-text-normal);
+		}
+	}
+}
+
+.is-mobile .workspace-leaf div.workspace-leaf-content[data-type="file-tree-view"] {
+	.oz-folders-action-items {
+		gap: var(--size-4-4);
+	}
+
+	.oz-file-tree-header-wrapper .oz-flex-container {
+		gap: var(--size-4-4);
+
+		.oz-nav-buttons-right-block {
+			gap: var(--size-4-4);
+		}
+	}
+}

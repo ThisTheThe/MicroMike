@@ -1,0 +1,55 @@
+// [Plugins - Community] Advanced Tables
+:is(.workspace-split.mod-left-split, .workspace-split.mod-right-split, .workspace-drawer.mod-right) {
+	.workspace-leaf-content[data-type="advanced-tables-toolbar"] {
+		.nav-header {
+			bottom: unset;
+			flex-wrap: wrap;
+			gap: var(--size-4-1);
+			justify-content: flex-start;
+			height: unset;
+			padding: var(--size-4-1);
+
+			.is-phone & {
+				gap: var(--size-4-4);
+			}
+		}
+
+		.advanced-tables-buttons > div:first-child {
+			display: none;
+		}
+
+		.advanced-tables-row-label {
+			width: fit-content;
+		}
+
+		.view-content {
+			height: fit-content;
+			padding: unset;
+
+			> div {
+				min-height: -webkit-fill-available;
+			}
+		}
+
+		.nav-buttons-container {
+			margin: unset;
+			background: unset;
+			backdrop-filter: unset;
+			border: unset;
+			box-shadow: unset;
+		}
+
+		.widget-icon {
+			width: var(--icon-size);
+			height: var(--icon-size);
+		}
+
+		.nav-action-button:hover {
+			background-color: var(--background-modifier-hover);
+
+			.widget-icon {
+				fill: var(--highlight-text-normal);
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+// [Plugins - Community] cMenu
+div#cMenuModalBar {
+	background-color: var(--background-secondary);
+	border: 1px solid var(--window-border-color);
+	border-radius: var(--radius-m);
+	box-shadow: var(--shadow-l);
+
+	.cMenuCommandItem {
+		color: var(--text-muted);
+		background-color: transparent;
+	}
+
+	button.cMenuCommandItem:hover {
+		color: var(--highlight-text-normal);
+		background-color: var(--background-modifier-hover);
+	}
+
+	&.cMenuGlassAesthetic {
+		background: var(--background-secondary-blur);
+		-webkit-backdrop-filter: blur(var(--blur-intensity));
+		backdrop-filter: blur(var(--blur-intensity));
+	}
+
+	.pt-status-bar-position-floating & {
+		bottom: calc(var(--size-4-3) + 33px + var(--scroll-bar-size)) !important;
+	}
+
+	.pt-status-bar-position-fixed & {
+		bottom: calc(var(--size-2-3) + 26px + var(--scroll-bar-size)) !important;
+	}
+}

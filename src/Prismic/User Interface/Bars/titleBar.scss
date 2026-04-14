@@ -1,0 +1,18 @@
+// [Titlebar] Base
+body.pt-titlebar-hide-text .titlebar .titlebar-text {
+	display: none;
+}
+
+.mod-windows .titlebar-button.mod-close:hover {
+	color: hsl(0 100% 100%);
+	background-color: #c42b1c;
+}
+
+.is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right {
+	background-color: unset;
+}
+
+.mod-windows.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container,
+.mod-linux.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
+	padding-left: var(--frame-left-space);
+}

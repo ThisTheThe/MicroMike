@@ -1,0 +1,141 @@
+@use 'std'
+
+// ============================================================
+// Right Sidebar Button Positioning
+//
+// Four independent switches determine button position:
+//   1. Position config: titlebarAlign_RBA (default) | outsideSidebar_RBA | insideSidebar_RBA
+//   2. Stack tabs:      .stackTabs on/off
+//   3. Fullscreen:      .is-fullscreen on/off
+//   4. Sidebar:         .is-sidedock-collapsed on/off
+//
+// Outcomes:
+//   A - Fixed to titlebar: right edge inset by titlebar button width
+//   B - Fixed to titlebar: right edge, no inset (fullscreen or stacktabs override)
+//   C - Inside sidebar: floats left of sidebar's right edge when open
+//   D - Outside sidebar: positioned to the right of the sidebar
+//   ? - Undefined/bugged combinations stubbed with fallback + TODO
+// ============================================================
+
+
+// ============================================================
+// === titlebarAlign_RBA (default) ===
+// Button behaves as a 4th titlebar button on Windows/Linux.
+// ============================================================
+
+// Base case (Outcome A): fixed right, inset from OS titlebar buttons
+body:not(.outsideSidebar_RBA):not(.insideSidebar_RBA) .workspace-tab-header-container
+    .sidebar-toggle-button.mod-right
+        @include std.noPadding
+        position: fixed
+        right: calc(var(--titlebarButtonWidth) * 3)
+        z-index: 30
+
+// Fullscreen (Outcome B): no titlebar buttons present, remove inset
+html body.is-fullscreen:not(.outsideSidebar_RBA):not(.insideSidebar_RBA)
+    .sidebar-toggle-button.mod-right
+        right: 0px
+    .mod-root
+        --frame-right-space: var(--titlebarButtonWidth)
+    .mod-root .mod-top-right-space .workspace-tab-header-new-tab
+        margin-right: var(--titlebarButtonWidth)
+    .workspace-split:not(.mod-root) .mod-top-right-space .workspace-tab-header-container-inner
+        margin-right: var(--titlebarButtonWidth)
+
+// Stack tabs (Outcome B): stack tabs own the top-right space, remove inset
+// TODO: verify this is correct when sidebar is also open
+:is(.mod-windows, .mod-linux).stackTabs:not(.outsideSidebar_RBA):not(.insideSidebar_RBA)
+    --frame-right-space: 0px
+
+// Offset disabled (Outcome B): user explicitly opted out
+html .mod-windows.disableRightTitlebarOffset .mod-right-split,
+html .mod-linux.disableRightTitlebarOffset .mod-right-split
+    --frame-right-space: 0px
+
+// titlebarAlign: frame-right-space on mod-root (Windows/Linux base)
+html .mod-windows:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space,
+html .mod-linux:not(.stackTabs):not(.disableRightTitlebarOffset) .mod-root .mod-top-right-space
+    --frame-right-space: var(--titlebarButtonWidth)
+
+// titlebarAlign: frame-right-space on mod-right-split
+html .mod-windows:not(.disableRightTitlebarOffset) .mod-right-split,
+html .mod-linux:not(.disableRightTitlebarOffset) .mod-right-split
+    --frame-right-space: var(--titlebarButtonWidth)
+
+// Frameless: pin button flush to top
+body.is-frameless:not(.is-hidden-frameless):not(.is-fullscreen) .workspace-tab-header-container
+    .sidebar-toggle-button.mod-right
+        top: 0px
+
+// Hidden frameless: title bar buttons use margin not padding
+.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-right-space .workspace-tab-header-container
+    margin-right: var(--frame-right-space)
+    padding-right: 0px
+
+// Stack tabs + sidebar collapsed: editor view needs offset
+// (stack tabs suppress frame-right-space globally, but leaf view-header still needs it)
+.stackTabs .workspace:has(.mod-right-split.is-sidedock-collapsed) .workspace-tab-container
+    .workspace-leaf .view-header
+        --frame-right-space: var(--titlebarButtonWidth)
+        margin-right: var(--frame-right-space)
+
+
+// ============================================================
+// === outsideSidebar_RBA ===
+// Button sits outside the sidebar to the right.
+// ============================================================
+
+// Base case (Outcome D)
+.outsideSidebar_RBA .workspace-tab-header-container
+    .sidebar-toggle-button.mod-right
+        @include std.noPadding
+        margin-top: var(--dragSpaceHeight)
+        height: var(--editorTabHeight)
+        width: var(--editorTabHeight)
+        .clickable-icon
+            width: var(--editorTabHeight)
+            height: var(--editorTabHeight)
+
+// TODO: outsideSidebar + stackTabs — currently bugged, needs defined behavior
+
+// TODO: outsideSidebar + fullscreen — verify behavior
+
+
+// ============================================================
+// === insideSidebar_RBA ===
+// Button sits inside the sidebar tab bar, to the left.
+// ============================================================
+
+// Base case (Outcome C): sidebar open, button floats left of right edge
+.insideSidebar_RBA .workspace-tab-header-container
+    .sidebar-toggle-button.mod-right
+        @include std.noPadding
+        margin-top: var(--dragSpaceHeight)
+        height: var(--editorTabHeight)
+        width: var(--editorTabHeight)
+        .clickable-icon
+            width: var(--editorTabHeight)
+            height: var(--editorTabHeight)
+
+// Sidebar open: overflow visible so button can escape tab container,
+// position absolute left of the resize handle
+// NOTE: 40px here is the button width; --handleSize is the resize grip.
+// TODO: confirm whether 40px should derive from a variable
+.insideSidebar_RBA:has(> * > * > * > .mod-right-split:not(.is-sidedock-collapsed))
+    .workspace-tabs
+        overflow: visible
+        .workspace-tab-header-container .sidebar-toggle-button.mod-right
+            position: absolute
+            right: calc(0px - var(--handleSize) - 40px)
+            height: var(--sidebarTabHeight)
+            width: 40px
+            z-index: 10
+            .clickable-icon
+                width: 40px
+                height: var(--sidebarTabHeight)
+        &.mod-top-right-space .workspace-tab-header-container
+            margin-left: 40px
+
+// TODO: insideSidebar + stackTabs — currently bugged, needs defined behavior
+
+// TODO: insideSidebar + fullscreen — verify behavior

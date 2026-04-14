@@ -1,0 +1,101 @@
+// [Plugins - Core] Search
+.search-result-container {
+	padding: var(--size-4-1);
+}
+
+.search-row {
+	padding: var(--size-4-1);
+	margin: unset;
+	background-color: var(--background-secondary);
+	border-bottom: var(--window-border);
+}
+
+.search-info-container {
+	background-color: var(--background-secondary);
+}
+
+.search-params {
+	padding: var(--size-4-1) var(--size-4-4);
+	margin: unset;
+	margin-top: -1px;
+	background-color: var(--background-secondary);
+	border-bottom: var(--window-border);
+}
+
+.search-results-info {
+	padding: var(--size-4-1) var(--size-4-2) var(--size-4-2) var(--size-4-2);
+	margin: unset;
+	margin-top: -1px;
+	background-color: var(--background-secondary);
+	border-bottom: var(--window-border);
+
+	.dropdown {
+		background-color: var(--dropdown-background);
+	}
+}
+
+.search-result-file-matched-text {
+	padding: 0 4px;
+	font-weight: 600;
+	color: var(--interactive-accent-text);
+	background-color: var(--interactive-accent-base);
+}
+
+.search-result {
+	margin-bottom: var(--size-4-1);
+}
+
+.search-result-file-matches {
+	margin: var(--size-4-2);
+
+	.theme-dark & {
+		background-color: var(--background-secondary-alt);
+	}
+}
+
+.internal-query .search-result-container {
+	padding: var(--size-4-2) var(--size-4-1);
+	background-color: unset;
+	border-radius: unset;
+}
+
+.suggestion-container.mod-search-suggestion {
+	background-color: unset;
+	border-radius: unset;
+
+	.suggestion {
+		padding: unset;
+		border-radius: unset;
+
+		.theme-light & {
+			background-color: var(--background-primary);
+		}
+
+		.theme-dark & {
+			background-color: var(--background-secondary-alt);
+		}
+
+		.suggestion-item:not(.mod-group) {
+			margin: 0 var(--size-4-1) var(--size-2-1);
+
+			&:last-of-type {
+				margin-bottom: var(--size-4-1);
+			}
+		}
+
+		.suggestion-item.mod-group {
+			padding: var(--size-4-1) var(--size-4-1) var(--size-4-1) var(--size-4-2);
+			margin-bottom: var(--size-4-1);
+			background-color: var(--background-secondary);
+			border-bottom: var(--window-border);
+		}
+
+		.search-suggest-item.mod-group:not(:first-child) {
+			margin: var(--size-4-1) 0;
+		}
+	}
+}
+
+.input-right-decorator.clickable-icon {
+	border-color: transparent;
+}

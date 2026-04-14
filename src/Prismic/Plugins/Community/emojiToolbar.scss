@@ -1,0 +1,65 @@
+// [Plugins - Community] Emoji Toolbar
+.emoji-mart-bar {
+	background-color: var(--background-secondary);
+	border-bottom-color: var(--window-border-color);
+
+	&:last-child {
+		border-top-color: var(--window-border-color);
+	}
+}
+
+.emoji-mart-dark {
+	background-color: var(--background-secondary);
+
+	.emoji-mart-category-label span {
+		background-color: var(--background-secondary);
+	}
+}
+
+.emoji-mart-search {
+	display: flex;
+	padding: var(--size-4-1);
+	margin-top: unset;
+	background-color: var(--background-secondary);
+	border-bottom: var(--window-border);
+}
+
+.emoji-mart-search-icon {
+	top: unset;
+}
+
+.emoji-mart-scroll {
+	padding: unset;
+}
+
+.emoji-mart-category-label {
+	background-color: var(--background-secondary-blur);
+	border-bottom: var(--window-border);
+	-webkit-backdrop-filter: blur(var(--blur-intensity));
+	backdrop-filter: blur(var(--blur-intensity));
+
+	span {
+		background-color: unset;
+	}
+}
+
+.modal#emoji-modal .emoji-mart-emoji {
+	display: unset;
+}
+
+.emoji-mart-anchor svg {
+	color: var(--text-muted);
+}
+
+.emoji-mart-anchor-selected svg {
+	color: var(--interactive-accent-text);
+}
+
+.emoji-mart-anchor-bar {
+	background-color: var(--interactive-accent-tint) !important;
+}
+
+.emoji-mart-category .emoji-mart-emoji:hover::before,
+.emoji-mart-category .emoji-mart-emoji:focus::before {
+	background-color: var(--background-modifier-hover);
+}

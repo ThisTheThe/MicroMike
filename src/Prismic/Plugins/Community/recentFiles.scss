@@ -1,0 +1,33 @@
+// [Plugins - Community] Recent Files
+.workspace-leaf-content[data-type="recent-files"] {
+	.view-content {
+		padding: unset;
+	}
+
+	.nav-folder.mod-root {
+		padding: var(--size-4-1);
+
+		.theme-light & {
+			background-color: var(--background-primary);
+		}
+
+		.theme-dark & {
+			background-color: var(--background-secondary-alt);
+		}
+	}
+
+	.nav-file-tag {
+		margin-inline-start: auto;
+		&:empty::before {
+			content: "md";
+		}
+	}
+
+	.tree-item-spacer {
+		display: none;
+	}
+
+	.recent-files-file-delete {
+		margin-left: var(--size-4-1);
+	}
+}

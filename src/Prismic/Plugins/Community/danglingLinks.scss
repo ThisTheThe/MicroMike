@@ -1,0 +1,129 @@
+// [Plugins - Community] Dangling Links
+.workspace-leaf-content[data-type="dangling-links"] .view-content {
+	padding: unset;
+
+	.container {
+		h3:first-of-type {
+			display: none;
+		}
+
+		details {
+			&:first-of-type summary {
+				border-bottom: var(--window-border);
+			}
+
+			&:not(:first-of-type) summary {
+				border-top: var(--window-border);
+				border-bottom: var(--window-border);
+			}
+
+			// Rotates the image to match
+			&[open] summary::before {
+				-webkit-transform: rotate(90deg);
+				transform: rotate(90deg);
+			}
+
+			&:not([open]) {
+				color: var(--text-faint);
+			}
+
+			&:hover summary {
+				color: var(--nav-item-color-hover);
+				background-color: var(--nav-item-background-hover);
+				font-weight: var(--nav-item-weight-hover);
+
+				&::before {
+					background-color: var(--nav-item-color-hover);
+				}
+			}
+
+			summary {
+				position: relative;
+				display: flex;
+				padding: var(--size-4-1) var(--size-4-2);
+				margin-bottom: -1px;
+				font-size: var(--font-ui-small);
+				background-color: var(--background-secondary);
+				// Disables the default marker which was used as a dropdown icon
+				list-style-type: none;
+
+				// Replaces the dropdown icon with one that matches others in Obsidian
+				&::before {
+					content: "";
+					display: inline-block;
+					width: 15px;
+					height: 15px;
+					background-color: var(--text-muted);
+					-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-right'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+					mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-right'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+					-webkit-mask-size: 15px;
+					-webkit-mask-position: center;
+					-webkit-mask-repeat: no-repeat;
+					margin-right: var(--size-4-1);
+				}
+			}
+
+			ul {
+				padding-inline-start: 0;
+				margin: 8px;
+				font-family: var(--font-text);
+				font-size: 14px;
+				border: 1px solid var(--window-border-color);
+				border-radius: var(--radius-m);
+
+				li {
+					width: 100%;
+					padding: var(--size-4-2) var(--size-4-5) var(--size-4-2) var(--size-4-3);
+					color: var(--text-normal);
+					color: var(--text-muted);
+					box-shadow: var(--shadow-s);
+
+					&:not(:last-of-type) {
+						border-bottom: 1px solid var(--window-border-color);
+					}
+
+					&:hover {
+						color: var(--text-normal);
+						background-color: var(--text-selection);
+					}
+
+					::marker {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.nav-header {
+		gap: var(--size-4-1);
+		color: var(--icon-color);
+
+		:is(
+				.pt-nav-header-left-sidebar-position-top .workspace-split.mod-left-split &,
+				.pt-nav-header-right-sidebar-position-top .workspace-split.mod-right-split &
+			) {
+			position: sticky;
+			top: 0;
+			z-index: var(--layer-popover);
+		}
+	}
+
+	.nav-action-button {
+		&:hover {
+			color: var(--icon-color-hover);
+			background-color: var(--background-modifier-hover);
+			opacity: var(--icon-opacity-hover);
+		}
+
+		svg {
+			width: var(--icon-size);
+			height: var(--icon-size);
+		}
+
+		// Might be able to address the border and background in the future for consistency
+		path[stroke-width] {
+			color: var(--interactive-accent-text);
+		}
+	}
+}

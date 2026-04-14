@@ -1,0 +1,133 @@
+// [Plugins - Core] PDF Viewer
+.pdf-toolbar {
+	padding: var(--size-4-1) var(--size-4-2);
+	background-color: var(--background-secondary);
+	border-bottom: var(--window-border);
+}
+
+.pdf-viewer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-4-4);
+	margin-top: var(--size-4-4);
+	margin-bottom: var(--size-4-4);
+
+	.page {
+		overflow: hidden;
+		border: 1px solid var(--window-border-color);
+		border-radius: var(--radius-m);
+	}
+}
+
+.pdf-sidebar-container {
+	border-right: var(--window-border);
+
+	.pdf-thumbnail-view {
+		gap: var(--size-4-2);
+		padding: var(--size-4-2);
+	}
+
+	.thumbnailSelectionRing {
+		display: flex;
+		padding: unset;
+		border: var(--window-border);
+	}
+
+	.thumbnail {
+		padding: var(--size-4-1);
+		border: 2px solid transparent;
+		border-radius: var(--radius-s);
+
+		// Page counter
+		&::after {
+			right: var(--size-4-3);
+			bottom: var(--size-4-3);
+			z-index: 99;
+			border: 1px solid var(--window-border-color);
+		}
+
+		// Cutout around the page to prevent issues when using the filter
+		&::before {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			padding: 5px;
+			content: "";
+			background: transparent;
+			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			-webkit-mask-composite: xor;
+			mask-composite: exclude;
+		}
+
+		&:hover {
+			border-color: var(--interactive-accent-base);
+
+			&::before {
+				background: var(--interactive-accent-base);
+			}
+
+			&::after {
+				color: var(--highlight-text-normal);
+			}
+
+			> .thumbnailSelectionRing {
+				background-color: unset;
+			}
+		}
+
+		&.selected {
+			border-color: var(--interactive-accent-tint);
+
+			&::before {
+				background: var(--interactive-accent-base);
+			}
+
+			&::after {
+				color: var(--interactive-accent-text);
+			}
+
+			&:hover {
+				&::before {
+					background: var(--background-modifier-hover);
+				}
+			}
+
+			> .thumbnailSelectionRing {
+				background-color: unset;
+			}
+		}
+	}
+}
+
+.pdf-toolbar-left .clickable-icon[aria-label="Toggle sidebar"] {
+	border: 2px solid transparent;
+}
+
+.pdf-outline-view .tree-item-self:not(.mod-collapsible) {
+	padding-left: var(--size-4-1);
+}
+
+.pdf-findbar-settings {
+	background-color: var(--background-secondary);
+}
+
+.annotationLayer .linkAnnotation > a:hover,
+.annotationLayer .buttonWidgetAnnotation.pushButton > a:hover {
+	background: var(--interactive-accent-tint);
+	box-shadow: unset;
+	opacity: 0.4;
+}
+
+// https://mwichary.medium.com/dark-theme-in-a-day-3518dde2955a
+.pt-pdf-dark-theme.theme-dark {
+	.pdfViewer .canvasWrapper,
+	.pdf-sidebar-container img.thumbnailImage {
+		filter: invert(1) hue-rotate(180deg) saturate(100%);
+		mix-blend-mode: screen;
+	}
+}
+
+.pdf-container .pdfViewer .canvasWrapper {
+	box-shadow: unset;
+}

@@ -1,0 +1,98 @@
+// [Accent Style] Base
+.modal button:not(.mod-cta):not(.mod-warning) {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.workspace-tab-header-container .workspace-tab-header.is-active,
+.workspace-tab-header.is-active,
+.nav-action-button.is-active,
+.vertical-tab-nav-item.is-active,
+.nav-file-title.is-active,
+.tree-item-self.is-active,
+.suggestion-hotkey,
+.workspace-leaf div.workspace-leaf-content[data-type="file-tree-view"] div.oz-nav-file.is-active,
+.workspace-drawer.is-pinned .workspace-drawer-header-icon.mod-pin,
+.pdf-outline-view .tree-item-self.mod-active,
+.text-icon-button.is-active {
+	color: var(--highlight-text-normal);
+	border: var(--accent-border-width) solid;
+	box-shadow: unset;
+}
+
+.is-mobile.is-phone .modal.mod-settings .vertical-tab-nav-item:last-child {
+	border-bottom: var(--accent-border-width) solid;
+}
+
+.nav-action-button.is-active:hover {
+	color: var(--interactive-accent-hover);
+}
+
+:is(.search-result-file-match-destination-file, .search-result-file-match-replace-button) {
+	color: var(--text-normal);
+	border: var(--accent-border-width) solid;
+	border-radius: var(--radius-s);
+}
+
+button.mod-cta {
+	color: var(--highlight-text-normal);
+}
+
+:is(
+		.pcr-button,
+		button.mod-cta,
+		button.mod-warning,
+		.modal button:not(.mod-cta):not(.mod-warning),
+		.graph-control-content button,
+		.setting-hotkey,
+		.flair.mod-pop,
+		.community-item .flair,
+		button.copy-code-button,
+		.modal-setting-nav-bar .clickable-icon,
+		.document-search-button,
+		.side-dock-ribbon-action.is-active[aria-label="Start/stop recording"],
+		.empty-state-action
+	),
+.clickable-icon[aria-label="Search settings"],
+.pdf-toolbar-button,
+.input-right-decorator.clickable-icon {
+	border: var(--accent-border-width) solid;
+	border-radius: var(--radius-s);
+}
+
+.side-dock-ribbon-action.is-active[aria-label="Start/stop recording"] {
+	padding: var(--size-2-1) var(--size-2-2);
+}
+
+:is(
+		.workspace.is-right-sidedock-open .sidebar-toggle-button.mod-right,
+		.workspace.is-left-sidedock-open .sidebar-toggle-button.mod-left,
+		.popover-action.is-active,
+		.mod-pin-popover.is-active
+	),
+.pdf-toolbar-left .clickable-icon[aria-label="Toggle sidebar"].is-active {
+	color: var(--highlight-text-normal);
+	border: var(--accent-border-width) solid;
+	border-radius: var(--radius-m);
+
+	svg.svg-icon {
+		color: var(--highlight-text-normal);
+	}
+
+	.clickable-icon:hover {
+		background-color: unset;
+	}
+
+	&:hover {
+		svg.svg-icon {
+			color: var(--interactive-accent-hover);
+		}
+	}
+}
+
+.clickable-icon[aria-label="Search settings"],
+.pdf-toolbar-left .clickable-icon[aria-label="Toggle sidebar"] {
+	border-color: transparent;
+}

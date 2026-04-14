@@ -23,6 +23,14 @@
 		  "isBackground": true,
 		  "runOptions": { "runOn": "folderOpen" },
 		  "problemMatcher": []
+		},
+		{
+		  "label": "Copy Watch",
+		  "type": "shell",
+		  "command": "python ${workspaceFolder}/copyWatcher2.py",
+		  "isBackground": true,
+		  "runOptions": { "runOn": "folderOpen" },
+		  "problemMatcher": []
 		}
 	]
 }

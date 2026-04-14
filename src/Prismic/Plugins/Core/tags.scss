@@ -1,0 +1,9 @@
+// [Plugins - Core] Tags
+.tag-container {
+	padding: var(--size-4-1);
+
+	// Removes the dot that appears when the heading has no children. Same in Outline.
+	.tree-item-children > div:first-child {
+		display: none;
+	}
+}

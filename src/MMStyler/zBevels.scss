@@ -11,8 +11,8 @@ body
 	--bevelStyleTop: inset 0px 1px var(--separatorColor);
     --bevelStyleTreeItem_invert: inset -1px -1px var(--separatorColor);
 }
-
-body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic):not(.twilight) {
+body:not(.css-settings-manager),
+body:is(.classicMicroMike, .accentMicroMike) {
 	--bevelStyleButton: inset -1px -1px var(--bevelDark1), inset 1px 1px var(--bevelBright2), inset -2px -2px var(--bevelDark2), inset 2px 2px var(--bevelBright1);
 	--bevelStyleContainer: inset -1px -1px var(--bevelBright1), inset 1px 1px var(--bevelDark2), inset -2px -2px var(--bevelBright2), inset 2px 2px var(--bevelDark1);
 	--bevelStyleContainerOuter:
@@ -25,7 +25,8 @@ body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic):not(.twilight)
 	-2px 2px var(--bevelBright2),
 	2px -2px var(--bevelBright2);
 }
-body:not(.disableBevels):not(.dtm08):not(.factorio):not(.prismic):not(.twilight)
+body:not(.css-settings-manager),
+body:is(.classicMicroMike, .accentMicroMike) 
 {
 &.theme-dark
 {

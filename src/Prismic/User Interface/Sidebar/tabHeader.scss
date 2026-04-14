@@ -1,0 +1,144 @@
+// [Sidebar] Tab Header - Base
+.workspace-tab-header {
+	padding: 0 var(--size-4-2);
+	border: var(--accent-border-width) solid transparent;
+
+	.workspace-tab-header-inner-close-button:hover svg {
+		color: var(--interactive-accent-hover);
+	}
+
+	&.is-active {
+		&:hover .workspace-tab-header-inner-icon svg {
+			color: var(--interactive-accent-hover);
+		}
+
+		.workspace-tab-header-inner-icon {
+			color: var(--icon-color-focused);
+		}
+	}
+
+	&::before,
+	&::after {
+		display: none;
+	}
+}
+
+.mod-left-split .workspace-tab-header-container,
+.mod-right-split .workspace-tab-header-container {
+	.workspace-tab-header {
+		border-radius: var(--radius-m);
+	}
+
+	.workspace-tab-header-container-inner {
+		padding: unset;
+		margin: 4px;
+	}
+}
+
+.mod-root .workspace-tab-header-status-icon,
+.mod-root .workspace-tab-header-inner-icon {
+	--icon-size: var(--icon-s);
+	--icon-stroke: var(--icon-s-stroke-width);
+}
+
+.workspace-tab-header-container {
+	padding-right: unset;
+	padding-left: 1px;
+	border-bottom: var(--window-border);
+}
+
+.workspace .mod-root .workspace-tab-header {
+	padding: unset;
+}
+
+.mod-root .workspace-tab-header-inner {
+	gap: var(--size-4-1);
+	padding: 0 var(--size-4-1) 0 var(--size-4-2);
+}
+
+.workspace .mod-root .workspace-tab-header-inner::after,
+.workspace-tab-header-inner-close-button::after {
+	display: none;
+}
+
+.workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-title {
+	color: var(--highlight-text-normal);
+}
+
+.workspace-tabs .workspace-tab-header-container-inner {
+	gap: var(--size-4-1);
+	padding: unset;
+	margin: var(--size-4-1);
+}
+
+:is(.workspace-tab-header-tab-list, .workspace-tab-header-new-tab) {
+	margin-left: unset;
+
+	.clickable-icon {
+		padding: var(--size-4-1);
+	}
+}
+
+.workspace-tab-header-new-tab {
+	padding: var(--size-4-1) 0;
+}
+
+.workspace-tab-header-tab-list {
+	padding: var(--size-4-1);
+	margin-right: unset;
+}
+
+// [Sidebar] Tab Header - Fade Inactive Tabs
+.pt-fade-inactive-tabs :not(.mod-active) .workspace-tab-header.is-active:not(.mod-active) {
+	opacity: 0.55;
+}
+
+// [Sidebar] Tab Header - Stacked Tabs
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
+	.workspace-tab-header {
+		background-color: var(--background-secondary);
+		border: unset;
+		border-right: var(--window-border);
+
+		&:not(.is-active) .workspace-tab-header-inner {
+			padding-top: 10px;
+			margin-left: -1px;
+			border-left: var(--window-border);
+		}
+	}
+}
+
+// [Main Workspace] Tab Header - Tab Alignment
+
+// Left
+.mod-root {
+	.workspace-tab-header-container-inner {
+		margin-left: var(--size-4-1);
+	}
+
+	.workspace-tab-header-new-tab {
+		margin-right: auto;
+	}
+}
+
+// Center
+.pt-tab-header-center .mod-root {
+	.workspace-tab-header-container-inner {
+		margin-left: auto;
+	}
+
+	.workspace-tab-header-new-tab {
+		margin-right: auto;
+	}
+}
+
+// Right
+.pt-tab-header-right .mod-root {
+	.workspace-tab-header-container-inner {
+		margin-left: auto;
+	}
+
+	.workspace-tab-header-new-tab {
+		margin-right: var(--size-4-1);
+	}
+}

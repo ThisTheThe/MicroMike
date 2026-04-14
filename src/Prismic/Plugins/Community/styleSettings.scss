@@ -1,0 +1,257 @@
+// [Plugins - Community] Style Settings Base
+div.workspace-leaf-content[data-type="style-settings"] {
+	div.view-content {
+		padding: var(--size-4-2) var(--size-4-2) var(--size-4-6) var(--size-4-2);
+	}
+
+	.view-content .style-settings-container .setting-item:not(.setting-item-heading) {
+		.setting-item-control {
+			width: -webkit-fill-available;
+			width: fill-available;
+		}
+
+		&:has(.setting-item-control .checkbox-container, .setting-item-control .pickr) {
+			flex-direction: row;
+			width: inherit;
+		}
+	}
+}
+
+.setting-item.setting-item-heading.style-settings-heading {
+	padding: var(--size-4-2);
+
+	&:hover {
+		background-color: var(--interactive-accent-base);
+		border-radius: var(--radius-m);
+
+		.setting-item-name {
+			color: var(--interactive-accent-text) !important;
+		}
+	}
+}
+
+.style-settings-container {
+	padding-bottom: unset;
+
+	.setting-item {
+		padding: var(--size-4-2) var(--size-4-2) var(--size-4-2) var(--size-4-4);
+
+		.is-phone & {
+			margin-top: unset;
+		}
+	}
+}
+
+.style-settings-heading[data-level="0"] + .style-settings-container .style-settings-collapse-indicator {
+	margin-left: unset;
+}
+
+:is(.setting-item.setting-item-heading.style-settings-heading, .style-settings-container .style-settings-heading) {
+	border-bottom: unset;
+}
+
+.setting-item-heading .setting-item-description {
+	padding-left: var(--size-4-4);
+}
+
+.setting-item.setting-item-heading.is-collapsed {
+	margin-bottom: unset;
+}
+
+.style-settings-container > .setting-item:last-of-type {
+	padding-bottom: unset;
+	margin-bottom: var(--size-4-2);
+}
+
+// Vertical lines
+:is(.style-settings-heading[data-level="0"] + .style-settings-container, .style-settings-container) {
+	padding-left: var(--size-4-1);
+	margin-left: var(--size-4-3);
+	border-left: 1px solid var(--window-border-color);
+}
+
+// [Plugins - Community] Style Settings Header Icons
+.setting-item[data-id="prism-theme"] {
+	display: none;
+}
+
+.setting-item.style-settings-heading[data-id="appearance"] .style-settings-collapse-indicator::after {
+	margin-left: var(--size-4-2);
+	content: "🎨";
+}
+
+.setting-item.style-settings-heading[data-id="editor"] .style-settings-collapse-indicator::after {
+	margin-left: var(--size-4-2);
+	content: "📝";
+}
+
+.setting-item.style-settings-heading[data-id="user-interface"] .style-settings-collapse-indicator::after {
+	margin-left: var(--size-4-2);
+	content: "👆";
+}
+
+.setting-item.style-settings-heading[data-id="plugins"] .style-settings-collapse-indicator::after {
+	margin-left: var(--size-4-2);
+	content: "🧩";
+}
+
+.setting-item.style-settings-heading[data-id="feature-toggles"] {
+	margin-bottom: var(--size-4-2);
+
+	.style-settings-collapse-indicator::after {
+		margin-left: var(--size-4-2);
+		content: "🪠";
+	}
+}
+
+.setting-item.style-settings-heading[data-id="theme-info"],
+.style-settings-heading[data-id="support"] {
+	margin-bottom: 0;
+	pointer-events: none;
+
+	:is(.setting-item-control, .style-settings-collapse-indicator) {
+		display: none;
+	}
+
+	.setting-item-name::before {
+		display: inline-block;
+		width: 20px;
+		height: fit-content;
+		padding-right: 8px;
+		font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color",
+			"Android Emoji", sans-serif;
+		font-weight: initial;
+		color: unset;
+	}
+
+	.setting-item-description {
+		padding-left: var(--size-4-1);
+	}
+}
+
+.setting-item.style-settings-heading[data-id="theme-info"] {
+	padding-top: var(--size-4-4);
+	border-top: 1px solid var(--window-border-color);
+
+	.setting-item-name::before {
+		content: "📖";
+	}
+}
+
+.style-settings-heading[data-id="support"] .setting-item-name::before {
+	content: "❤️";
+}
+
+.view-content .style-settings-container .setting-item:not(.setting-item-heading) {
+	// align-items: center;
+
+	.setting-item-control {
+		padding-top: unset;
+	}
+}
+
+.setting-item.style-settings-info-text[data-id="theme-info-buttons"],
+.setting-item.style-settings-info-text[data-id="support-buttons"] {
+	padding: 0 var(--size-4-2) var(--size-4-2) var(--size-4-4);
+
+	.setting-item-name,
+	.setting-item-control {
+		display: none;
+	}
+
+	.setting-item-description.style-settings-markdown {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--size-4-2);
+	}
+
+	.styleSettingsButtonEmoji {
+		margin-right: var(--size-4-1);
+		font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color",
+			"Android Emoji", sans-serif;
+	}
+}
+
+.styleSettingsButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	font-size: var(--font-ui-medium);
+	font-weight: var(--input-font-weight);
+	border: var(--accent-border-width) solid;
+	border-radius: var(--radius-s);
+
+	a {
+		width: 100%;
+		height: 100%;
+		padding: var(--size-4-1) var(--size-4-3) var(--size-4-1) var(--size-4-2);
+		text-decoration-line: unset;
+		vertical-align: baseline;
+	}
+
+	&.prism-wiki {
+		background-color: var(--color-blue-base);
+		border-color: var(--color-blue-tint);
+
+		a {
+			color: var(--color-blue-text);
+
+			&:hover {
+				color: var(--color-blue-tint);
+			}
+		}
+	}
+
+	&.prism-releases {
+		background-color: var(--color-orange-base);
+		border-color: var(--color-orange-tint);
+
+		a {
+			color: var(--color-orange-text);
+
+			&:hover {
+				color: var(--color-orange-tint);
+			}
+		}
+	}
+
+	&.prism-star {
+		background-color: var(--color-grey-base);
+		border-color: var(--color-grey-tint);
+
+		a {
+			color: var(--color-grey-text);
+
+			&:hover {
+				color: var(--color-grey-tint);
+			}
+		}
+	}
+
+	&.prism-issue {
+		background-color: var(--color-red-base);
+		border-color: var(--color-red-tint);
+
+		a {
+			color: var(--color-red-text);
+
+			&:hover {
+				color: var(--color-red-tint);
+			}
+		}
+	}
+
+	&.prism-coffee {
+		background-color: var(--color-yellow-base);
+		border-color: var(--color-yellow-tint);
+
+		a {
+			color: var(--color-yellow-text);
+
+			&:hover {
+				color: var(--color-yellow-tint);
+			}
+		}
+	}
+}

@@ -1,0 +1,182 @@
+// [UI] Workspace
+// Warning prompt to install Style Settings
+body:not(.css-settings-manager) .workspace-split.mod-left-split::before {
+	display: block;
+	width: -webkit-fill-avaliable;
+	height: fit-content;
+	padding: 10px;
+	font-weight: 600;
+	text-align: center;
+	content: "Style Settings Plugin is required for Prism to function correctly!";
+	background-color: var(--color-red-base);
+	border: var(--accent-border-width) solid var(--color-red-tint);
+	border-radius: var(--radius-m);
+}
+
+.workspace,
+.workspace-split.mod-root,
+.workspace-tabs .workspace-leaf {
+	.theme-light & {
+		background-color: var(--background-primary);
+	}
+
+	.theme-dark & {
+		background-color: var(--background-secondary-alt);
+	}
+}
+
+// Vertical and Horizontal Resize Handles
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+	left: -1px;
+}
+
+// Changes the resize handles to not overlap the tab area
+.workspace-split.mod-vertical > * >,
+.workspace-split.mod-left-split >,
+.workspace-split.mod-right-split > {
+	.workspace-leaf-resize-handle {
+		height: calc(var(--divider-vertical-height) - var(--header-height));
+
+		body.is-frameless:not(.is-hidden-frameless) &,
+		body:not(.is-frameless, .is-hidden-frameless) & {
+			height: var(--divider-vertical-height);
+		}
+	}
+}
+
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle,
+.workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle:not(:hover) {
+	border-bottom: var(--window-border);
+}
+
+.workspace-split.mod-vertical > * >,
+.workspace-split.mod-left-split > {
+	.workspace-leaf-resize-handle:not(:hover) {
+		border-right: var(--window-border);
+	}
+}
+
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle:not(:hover) {
+	border-left: var(--window-border);
+}
+
+// [UI] View Header
+.is-focused .workspace-leaf.mod-active .view-header,
+.view-header {
+	width: 100%;
+	padding: 0 var(--size-4-4) 0 var(--size-4-2);
+	background: var(--background-secondary);
+}
+
+.workspace-tabs .view-header {
+	border-bottom: var(--window-border);
+	margin: unset;
+
+	.is-phone & {
+		margin: var(--safe-area-inset-top) auto 0;
+		background: unset;
+		border-bottom: unset;
+	}
+}
+
+.view-header-title-container {
+	height: var(--header-height);
+
+	&::after {
+		display: none;
+	}
+}
+
+.is-focused .workspace-leaf.mod-active .view-header-title,
+.view-header-title {
+	color: var(--interactive-accent-text);
+
+	&:hover {
+		color: var(--text-accent-hover);
+	}
+}
+
+.view-header-title-parent .view-header-breadcrumb:hover {
+	color: var(--highlight-text-normal);
+}
+
+// [UI] Workspace Ribbon
+:is(
+		.workspace-ribbon.mod-left,
+		.workspace-split.mod-left-split,
+		.workspace-split.mod-right-split,
+		.workspace-split.mod-vertical.mod-root
+	) {
+	.sidebar-toggle-button {
+		width: fit-content;
+		height: calc(var(--header-height) - 9px);
+		padding: var(--size-2-1);
+		margin: var(--size-4-1);
+		border: 2px solid transparent;
+		border-radius: var(--radius-m);
+	}
+}
+
+.workspace-ribbon.mod-left::before {
+	border-bottom: var(--window-border);
+}
+
+.pt-color-scheme-style-minimal-dt .workspace-ribbon.mod-left.is-collapsed {
+	border-right-color: transparent;
+}
+
+.workspace-ribbon {
+	border-right: var(--window-border);
+}
+
+.workspace-drawer .workspace-leaf-content {
+	&::after {
+		display: none;
+	}
+
+	.nav-header ~ div:last-child {
+		padding-top: unset;
+	}
+}
+
+.empty-state-title,
+.empty-state-action-list {
+	margin: unset;
+}
+
+.empty-state-action {
+	padding: var(--size-4-1) var(--size-4-2);
+}
+
+.empty-state-container .empty-state-action-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-4-2);
+}
+
+// [UI] macOS Sidebar Toggle Button fix
+.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
+	padding-right: 2px;
+}
+
+// [UI] Collapsed Pinned Tabs
+.pt-collapsed-pinned-tab {
+	.workspace .mod-root .workspace-tab-header[data-type="markdown"],
+	.workspace .mod-root .workspace-tab-header[data-type="empty"] {
+		&:has(.mod-pinned) .workspace-tab-header-inner-icon {
+			display: flex;
+		}
+	}
+
+	.workspace-tab-header:has(.mod-pinned) .workspace-tab-header-inner-title {
+		display: none;
+	}
+
+	.workspace .mod-root .workspace-tab-header:has(.mod-pinned),
+	.workspace-tab-header:has(.mod-pinned) .workspace-tab-header-inner {
+		flex: unset;
+		width: fit-content;
+		min-width: unset;
+	}
+}

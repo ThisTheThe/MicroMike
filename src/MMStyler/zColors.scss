@@ -4,7 +4,8 @@ body
 	--linkBrightnessAdditive: 1
 }
 
-body:not(.classicMicroMike):not(.inherit):not(.oldAndroid):not(.dtm08):not(.factorio):not(.prismic):not(.twilight)
+body:not(.css-settings-manager),
+body:is(.accentMicroMike) 
 {
 	/* Hierarchical palette */
 	--bottom: #000000;

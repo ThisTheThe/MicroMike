@@ -1,0 +1,732 @@
+// [Variables] Root
+// Theme Code below is distributed under the MIT License. See https://github.com/damiankorcz/Obsidian-Prism/blob/main/LICENSE for more information.
+body {
+	// Custom Prism Variables
+	--blur-intensity: 8px;
+	--accent-border-width: 2px;
+	--scroll-bar-size: 12px;
+	--window-border: 1px solid var(--window-border-color);
+
+	--fade-away-opacity: 0.25;
+	--fade-away-delay: 850ms;
+
+	--nav-header-padding-bottom: 40px;
+
+	--custom-vault-banner-icon-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px'%0Awidth='40' height='40'%0AviewBox='0 0 40 40'%0Astyle=' fill:%23000000;'%3E%3Cpath fill='%23dbb065' d='M1.5 35.5L1.5 4.5 11.793 4.5 14.793 7.5 35.5 7.5 35.5 35.5z'%3E%3C/path%3E%3Cpath fill='%23967a44' d='M11.586,5l2.707,2.707L14.586,8H15h20v27H2V5H11.586 M12,4H1v32h35V7H15L12,4L12,4z'%3E%3C/path%3E%3Cg%3E%3Cpath fill='%23f5ce85' d='M1.599 35.5L5.417 14.5 16.151 14.5 19.151 12.5 39.41 12.5 35.577 35.5z'%3E%3C/path%3E%3Cpath fill='%23967a44' d='M38.82,13l-3.667,22H2.198l3.636-20H16h0.303l0.252-0.168L19.303,13H38.82 M40,12H19l-3,2H5L1,36 h35L40,12L40,12z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+
+	--mark-highlight-base: var(--color-yellow-base);
+
+	// Native Obsidian Theme Variables Overwrite
+	--font-interface-theme: "Source Sans 3";
+	--font-text-theme: "Source Sans 3";
+	--font-monospace-theme: "JetBrains Mono";
+
+	--h1-size: 2.2em;
+	--h2-size: 2em;
+	--h3-size: 1.8em;
+	--h4-size: 1.6em;
+	--h5-size: 1.4em;
+	--h6-size: 1.2em;
+
+	--h1-weight: var(--font-extrabold);
+	--h2-weight: var(--font-extrabold);
+	--h3-weight: var(--font-extrabold);
+	--h4-weight: var(--font-extrabold);
+	--h5-weight: var(--font-extrabold);
+	--h6-weight: var(--font-extrabold);
+
+	--h1-line-height: 1.3;
+	--h2-line-height: 1.3;
+	--h3-line-height: 1.35;
+	--h4-line-height: 1.4;
+
+	--tag-padding-y: 0;
+	--tag-padding-x: 0.75ch;
+	--tag-border-width: 2px;
+	--tag-size: var(--font-smallest);
+	--tag-radius: var(--radius-s);
+
+	--p-spacing: 0.5em;
+
+	--file-folding-offset: 20px;
+
+	--nav-item-padding: var(--size-2-1) var(--size-4-2) var(--size-2-1) var(--size-4-6);
+
+	--text-error: var(--color-red-text);
+	--text-accent: var(--interactive-accent-text);
+
+	--text-on-accent-inverted: var(--text-normal);
+
+	--list-indent: 2em;
+
+	/* Source mode */
+	--list-indent-source: 0.75em;
+	--indentation-guide-source-indent: 0.85em;
+	--checkbox-margin-inline-start: var(--indentation-guide-editing-indent);
+
+	/* Live Preview */
+	--list-indent-editing: 0.75em;
+	--indentation-guide-editing-indent: 0.85em;
+	--list-bullet-end-padding: 3rem;
+
+	/* Reading mode */
+	--indentation-guide-reading-indent: -0.55em;
+
+	--icon-color-focused: var(--interactive-accent-text);
+	--background-modifier-error: var(--color-red-text);
+	--background-modifier-border: var(--window-border-color);
+	--background-modifier-border-focus: var(--interactive-accent-base);
+	--background-modifier-border-hover: var(--interactive-accent-tint);
+
+	--indentation-guide-color-active: var(--interactive-accent-tint);
+	--nav-item-children-margin-left: 13px;
+
+	--icon-color-hover: var(--highlight-text-normal);
+	--nav-item-color-hover: var(--highlight-text-normal);
+
+	--checkbox-marker-color: var(--highlight-text-normal);
+	--checklist-done-color: var(--interactive-accent-tint);
+	--checkbox-border-color-hover: var(--interactive-accent-tint);
+
+	--blockquote-border-color: var(--window-border-color);
+
+	--ribbon-background-collapsed: var(--background-secondary);
+
+	--titlebar-background-focused: var(--background-secondary);
+
+	--header-height: 41px;
+	--input-height: 32px;
+	--input-radius: var(--radius-s);
+
+	--toggle-thumb-height: 20px;
+	--toggle-thumb-width: 20px;
+	--toggle-width: 42px;
+
+	--toggle-s-thumb-height: 18px;
+	--toggle-s-thumb-width: 18px;
+	--toggle-s-width: 44px;
+	--toggle-s-border-width: 1px;
+
+	--divider-color-hover: var(--interactive-accent-tint);
+
+	--file-header-font-size: var(--font-ui-medium);
+	--vault-name-font-size: var(--font-ui-medium);
+	--vault-profile-font-size: var(--font-ui-medium);
+	--status-bar-font-size: var(--font-ui-small);
+	--tab-stacked-font-size: var(--font-ui-medium);
+
+	--modal-border-color: var(--window-border-color);
+
+	--drag-ghost-text-color: var(--text-normal);
+
+	--clickable-icon-radius: var(--radius-s);
+
+	--toggle-radius: var(--size-4-1);
+	--toggle-thumb-radius: 3px;
+
+	--slider-thumb-radius: var(--size-4-1);
+	--slider-thumb-width: 10px;
+
+	--scrollbar-active-thumb-bg: var(--interactive-accent-base);
+	--scrollbar-thumb-bg: var(--background-primary-alt);
+
+	--text-on-accent: var(--highlight-text-normal);
+
+	--prompt-border-color: var(--window-border-color);
+
+	--embed-border-top: 1px solid var(--window-border-color);
+	--embed-border-bottom: 1px solid var(--window-border-color);
+	--embed-border-end: 1px solid var(--window-border-color);
+	--embed-padding: var(--size-4-2) var(--size-4-4);
+
+	--code-comment: var(--color-grey-text);
+	--code-border-width: 1px;
+
+	--graph-controls-width: 150px;
+
+	--pdf-shadow: unset;
+	--pdf-thumbnail-shadow: unset;
+
+	--metadata-gap: var(--size-2-1);
+	--pill-radius: var(--radius-s);
+
+	--collapse-icon-color-collapsed: var(--text-normal);
+
+	--embed-max-height: 800px;
+
+	--metadata-label-background-active: var(--background-secondary);
+	--metadata-input-background-active: var(--background-secondary);
+
+	--background-modifier-border-focus: var(--interactive-accent-tint);
+
+	--setting-items-radius: unset;
+	--setting-items-padding: var(--size-4-2);
+
+	--tab-radius-active: var(--radius-m);
+
+	// Style Settings Defaults
+	--status-bar-background-color-lt: #ebecef;
+	--status-bar-background-color-dt: #2b2b2b;
+
+	&:is(.theme-light, .theme-dark) {
+		// Assigning all raw HSL values to the variables that are used in the theme. This 'buffer' is here to allow for variants of colours with different alpha values.
+
+		// Custom Prism Variables
+		--color-grey-base: hsl(var(--color-grey-base-hsl));
+		--color-red-base: hsl(var(--color-red-base-hsl));
+		--color-orange-base: hsl(var(--color-orange-base-hsl));
+		--color-yellow-base: hsl(var(--color-yellow-base-hsl));
+		--color-green-base: hsl(var(--color-green-base-hsl));
+		--color-mint-base: hsl(var(--color-mint-base-hsl));
+		--color-cyan-base: hsl(var(--color-cyan-base-hsl));
+		--color-blue-base: hsl(var(--color-blue-base-hsl));
+		--color-purple-base: hsl(var(--color-purple-base-hsl));
+		--color-pink-base: hsl(var(--color-pink-base-hsl));
+
+		--color-grey-tint: hsl(var(--color-grey-tint-hsl));
+		--color-red-tint: hsl(var(--color-red-tint-hsl));
+		--color-orange-tint: hsl(var(--color-orange-tint-hsl));
+		--color-yellow-tint: hsl(var(--color-yellow-tint-hsl));
+		--color-green-tint: hsl(var(--color-green-tint-hsl));
+		--color-mint-tint: hsl(var(--color-mint-tint-hsl));
+		--color-cyan-tint: hsl(var(--color-cyan-tint-hsl));
+		--color-blue-tint: hsl(var(--color-blue-tint-hsl));
+		--color-purple-tint: hsl(var(--color-purple-tint-hsl));
+		--color-pink-tint: hsl(var(--color-pink-tint-hsl));
+
+		--color-grey-text: hsl(var(--color-grey-text-hsl));
+		--color-red-text: hsl(var(--color-red-text-hsl));
+		--color-orange-text: hsl(var(--color-orange-text-hsl));
+		--color-yellow-text: hsl(var(--color-yellow-text-hsl));
+		--color-green-text: hsl(var(--color-green-text-hsl));
+		--color-mint-text: hsl(var(--color-mint-text-hsl));
+		--color-cyan-text: hsl(var(--color-cyan-text-hsl));
+		--color-blue-text: hsl(var(--color-blue-text-hsl));
+		--color-purple-text: hsl(var(--color-purple-text-hsl));
+		--color-pink-text: hsl(var(--color-pink-text-hsl));
+
+		// Native Obsidian Theme Variables Overwrite
+		--text-normal: hsl(var(--text-normal-hsl));
+		--text-muted: hsl(var(--text-muted-hsl));
+		--text-faint: hsl(var(--text-faint-hsl));
+
+		--background-primary: hsl(var(--background-primary-hsl));
+		--background-primary-blur: hsl(var(--background-primary-hsl), 80%);
+		--background-primary-alt: hsl(var(--background-primary-alt-hsl));
+		--background-secondary: hsl(var(--background-secondary-hsl));
+		--background-secondary-blur: hsla(var(--background-secondary-blur-hsl), 80%);
+		--background-secondary-alt: hsl(var(--background-secondary-alt-hsl));
+		--background-secondary-alt-blur: hsla(var(--background-secondary-alt-hsl), 80%);
+
+		--input-shadow: unset;
+		--input-shadow-hover: unset;
+		--tab-stacked-shadow: 0;
+
+		--background-modifier-hover: hsla(var(--interactive-accent-base-hsl), 90%);
+		--text-selection: hsla(var(--interactive-accent-tint-hsl), 55%);
+
+		--text-highlight-bg: var(--interactive-accent-base);
+		--interactive-accent: var(--interactive-accent-tint);
+		--interactive-hover: var(--background-primary);
+		--text-accent-hover: var(--interactive-accent-hover);
+		--scroll-button-background-color: var(--background-primary);
+
+		--color-red: var(--color-red-text);
+		--color-orange: var(--color-orange-text);
+		--color-yellow: var(--color-yellow-text);
+		--color-green: var(--color-green-text);
+		--color-cyan: var(--color-cyan-text);
+		--color-blue: var(--color-blue-text);
+		--color-purple: var(--color-purple-text);
+		--color-pink: var(--color-pink-text);
+
+		// Style Settings Defaults
+		--color-accent-base-lt: var(--color-red-base-hsl);
+		--color-accent-tint-lt: var(--color-red-tint-hsl);
+		--color-accent-text-lt: var(--color-red-text-hsl);
+
+		--color-accent-base-dt: var(--color-red-base-hsl);
+		--color-accent-tint-dt: var(--color-red-tint-hsl);
+		--color-accent-text-dt: var(--color-red-text-hsl);
+
+		--color-accent-hsl: var(--interactive-accent-text-hsl);
+		--color-accent: var(--interactive-accent-text);
+		--color-accent-1: var(--interactive-accent-tint);
+		--color-accent-2: var(--interactive-accent-base);
+
+		// Style Settings Custom Option
+		&.pt-disable-blur {
+			--background-secondary-blur: var(--background-secondary);
+		}
+	}
+
+	&.theme-light {
+		// Custom Prism Variables
+		--window-border-color: var(--background-secondary-alt);
+
+		// Native Obsidian Theme Variables Overwrite
+		--h1-color: var(--h1-text-color-lt);
+		--h2-color: var(--h2-text-color-lt);
+		--h3-color: var(--h3-text-color-lt);
+		--h4-color: var(--h4-text-color-lt);
+		--h5-color: var(--h5-text-color-lt);
+		--h6-color: var(--h6-text-color-lt);
+
+		--text-bold-color-lt: var(--text-normal);
+		--text-italic-color-lt: var(--text-normal);
+		--text-italic-bold-color-lt: var(--text-normal);
+		--strikethrough-text-color-lt: var(--text-muted);
+		--strikethrough-line-color-lt: var(--text-muted);
+		--underline-text-color-lt: var(--text-normal);
+		--underline-line-color-lt: var(--text-normal);
+		--link-internal-color-lt: var(--interactive-accent-text-hsl);
+		--link-external-color-lt: var(--interactive-accent-text-hsl);
+
+		--bold-color: var(--text-bold-color-lt);
+		--italic-color: var(--text-italic-color-lt);
+
+		--strikethrough-text-color: var(--strikethrough-text-color-lt);
+		--strikethrough-line-color: var(--strikethrough-line-color-lt);
+		--underline-text-color: var(--underline-text-color-lt);
+		--underline-line-color: var(--underline-line-color-lt);
+
+		--link-color: hsl(var(--link-internal-color-lt));
+		--link-color-hover: hsla(var(--link-internal-color-lt), 60%);
+
+		--link-external-color: hsl(var(--link-external-color-lt));
+		--link-external-color-hover: hsla(var(--link-external-color-lt), 60%);
+
+		--link-unresolved-color: hsl(var(--link-internal-color-lt));
+		--inline-title-color: var(--inline-title-color-lt);
+
+		--code-background: var(--background-primary);
+		--blockquote-background-color: var(--background-primary-alt);
+
+		--checkbox-color: var(--background-primary-alt);
+		--checkbox-border-color: var(--background-secondary-alt);
+
+		--scrollbar-bg: var(--background-secondary);
+
+		--pdf-background: var(--background-primary);
+		--pdf-sidebar-background: var(--background-primary);
+
+		--canvas-dot-pattern: hsla(var(--background-secondary-alt-hsl), 75%);
+
+		--indentation-guide-color: hsla(var(--background-secondary-alt-hsl), 75%);
+
+		--interactive-normal: var(--background-primary);
+		--toggle-thumb-color: var(--background-primary);
+
+		--background-modifier-form-field: var(--background-primary);
+
+		--graph-line: var(--graph-line-color-lt);
+		--graph-node: var(--graph-fill-color-lt);
+		--graph-node-focused: var(--graph-fill-focused-color-lt);
+		--graph-node-tag: var(--graph-tag-color-lt);
+		--graph-node-attachment: var(--graph-attachment-color-lt);
+		--graph-node-unresolved: var(--graph-unresolved-color-lt);
+
+		--bases-table-header-background: var(--background-primary);
+		--bases-table-cell-background-disabled: var(--background-primary-alt);
+		--bases-table-cell-background-active: var(--background-primary);
+
+		--setting-items-background: var(--background-primary);
+
+		// Style Settings Defaults
+		--graph-line-color-lt: var(--background-secondary-alt);
+		--graph-fill-color-lt: var(--color-grey-tint);
+		--graph-fill-focused-color-lt: var(--interactive-accent-tint);
+		--graph-tag-color-lt: var(--color-blue-tint);
+		--graph-attachment-color-lt: var(--color-yellow-tint);
+		--graph-unresolved-color-lt: var(--color-red-tint);
+
+		--h1-text-color-lt: var(--text-normal);
+		--h2-text-color-lt: var(--text-normal);
+		--h3-text-color-lt: var(--text-normal);
+		--h4-text-color-lt: var(--text-normal);
+		--h5-text-color-lt: var(--text-normal);
+		--h6-text-color-lt: var(--text-normal);
+
+		// Style Settings Custom Options
+		&.pt-color-scheme-style-border-lt {
+			--background-secondary: var(--background-primary);
+			--background-secondary-blur: var(--background-primary-blur);
+
+			&.pt-disable-blur {
+				--background-secondary-blur: var(--background-primary);
+			}
+		}
+
+		&.pt-color-scheme-style-minimal-lt {
+			--background-secondary: var(--background-primary);
+			--background-secondary-blur: var(--background-primary-blur);
+			--window-border: 1px solid transparent;
+
+			&.pt-disable-blur {
+				--background-secondary-blur: var(--background-primary);
+			}
+		}
+
+		&.pt-highlight-text-light-lt {
+			--highlight-text-normal: var(--background-primary);
+		}
+
+		&.pt-highlight-text-dark-lt {
+			--highlight-text-normal: var(--text-normal);
+		}
+
+		&.pt-highlight-text-accent-lt {
+			--highlight-text-normal: var(--interactive-accent-text);
+		}
+
+		&.pt-highlight-text-custom-lt {
+			--highlight-text-normal: var(--highlight-text-accent-custom-lt);
+		}
+
+		&.pt-accent-color-custom-lt {
+			--interactive-accent-base-hsl: var(--color-accent-base-lt);
+			--interactive-accent-tint-hsl: var(--color-accent-tint-lt);
+			--interactive-accent-text-hsl: var(--color-accent-text-lt);
+			--interactive-accent-base: hsl(var(--color-accent-base-lt));
+			--interactive-accent-tint: hsl(var(--color-accent-tint-lt));
+			--interactive-accent-text: hsl(var(--color-accent-text-lt));
+			--interactive-accent-hover: hsl(var(--color-accent-tint-lt));
+		}
+
+		&.pt-accent-color-red-lt {
+			--interactive-accent-base-hsl: var(--color-red-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-red-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-red-text-hsl);
+			--interactive-accent-base: var(--color-red-base);
+			--interactive-accent-tint: var(--color-red-tint);
+			--interactive-accent-text: var(--color-red-text);
+			--interactive-accent-hover: var(--color-red-tint);
+		}
+
+		&.pt-accent-color-orange-lt {
+			--interactive-accent-base-hsl: var(--color-orange-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-orange-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-orange-text-hsl);
+			--interactive-accent-base: var(--color-orange-base);
+			--interactive-accent-tint: var(--color-orange-tint);
+			--interactive-accent-text: var(--color-orange-text);
+			--interactive-accent-hover: var(--color-orange-tint);
+		}
+
+		&.pt-accent-color-yellow-lt {
+			--interactive-accent-base-hsl: var(--color-yellow-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-yellow-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-yellow-text-hsl);
+			--interactive-accent-base: var(--color-yellow-base);
+			--interactive-accent-tint: var(--color-yellow-tint);
+			--interactive-accent-text: var(--color-yellow-text);
+			--interactive-accent-hover: var(--color-yellow-tint);
+		}
+
+		&.pt-accent-color-green-lt {
+			--interactive-accent-base-hsl: var(--color-green-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-green-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-green-text-hsl);
+			--interactive-accent-base: var(--color-green-base);
+			--interactive-accent-tint: var(--color-green-tint);
+			--interactive-accent-text: var(--color-green-text);
+			--interactive-accent-hover: var(--color-green-tint);
+		}
+
+		&.pt-accent-color-mint-lt {
+			--interactive-accent-base-hsl: var(--color-mint-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-mint-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-mint-text-hsl);
+			--interactive-accent-base: var(--color-mint-base);
+			--interactive-accent-tint: var(--color-mint-tint);
+			--interactive-accent-text: var(--color-mint-text);
+			--interactive-accent-hover: var(--color-mint-tint);
+		}
+
+		&.pt-accent-color-cyan-lt {
+			--interactive-accent-base-hsl: var(--color-cyan-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-cyan-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-cyan-text-hsl);
+			--interactive-accent-base: var(--color-cyan-base);
+			--interactive-accent-tint: var(--color-cyan-tint);
+			--interactive-accent-text: var(--color-cyan-text);
+			--interactive-accent-hover: var(--color-cyan-tint);
+		}
+
+		&.pt-accent-color-blue-lt {
+			--interactive-accent-base-hsl: var(--color-blue-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-blue-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-blue-text-hsl);
+			--interactive-accent-base: var(--color-blue-base);
+			--interactive-accent-tint: var(--color-blue-tint);
+			--interactive-accent-text: var(--color-blue-text);
+			--interactive-accent-hover: var(--color-blue-tint);
+		}
+
+		&.pt-accent-color-purple-lt {
+			--interactive-accent-base-hsl: var(--color-purple-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-purple-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-purple-text-hsl);
+			--interactive-accent-base: var(--color-purple-base);
+			--interactive-accent-tint: var(--color-purple-tint);
+			--interactive-accent-text: var(--color-purple-text);
+			--interactive-accent-hover: var(--color-purple-tint);
+		}
+
+		&.pt-accent-color-pink-lt {
+			--interactive-accent-base-hsl: var(--color-pink-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-pink-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-pink-text-hsl);
+			--interactive-accent-base: var(--color-pink-base);
+			--interactive-accent-tint: var(--color-pink-tint);
+			--interactive-accent-text: var(--color-pink-text);
+			--interactive-accent-hover: var(--color-pink-tint);
+		}
+
+		&.pt-accent-color-grey-lt {
+			--interactive-accent-base-hsl: var(--color-grey-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-grey-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-grey-text-hsl);
+			--interactive-accent-base: var(--color-grey-base);
+			--interactive-accent-tint: var(--color-grey-tint);
+			--interactive-accent-text: var(--color-grey-text);
+			--interactive-accent-hover: var(--color-grey-tint);
+		}
+	}
+
+	&.theme-dark {
+		// Custom Prism Variables
+		--window-border-color: var(--background-primary-alt);
+
+		// Native Obsidian Theme Variables Overwrite
+		--h1-color: var(--h1-text-color-dt);
+		--h2-color: var(--h2-text-color-dt);
+		--h3-color: var(--h3-text-color-dt);
+		--h4-color: var(--h4-text-color-dt);
+		--h5-color: var(--h5-text-color-dt);
+		--h6-color: var(--h6-text-color-dt);
+
+		--text-bold-color-dt: var(--text-normal);
+		--text-italic-color-dt: var(--text-normal);
+		--text-italic-bold-color-dt: var(--text-normal);
+		--strikethrough-text-color-dt: var(--text-muted);
+		--strikethrough-line-color-dt: var(--text-muted);
+		--underline-text-color-dt: var(--text-normal);
+		--underline-line-color-dt: var(--text-normal);
+		--link-internal-color-dt: var(--interactive-accent-text-hsl);
+		--link-external-color-dt: var(--interactive-accent-text-hsl);
+
+		--bold-color: var(--text-bold-color-dt);
+		--italic-color: var(--text-italic-color-dt);
+
+		--strikethrough-text-color: var(--strikethrough-text-color-dt);
+		--strikethrough-line-color: var(--strikethrough-line-color-dt);
+		--underline-text-color: var(--underline-text-color-dt);
+		--underline-line-color: var(--underline-line-color-dt);
+
+		--link-color: hsl(var(--link-internal-color-dt));
+		--link-color-hover: hsla(var(--link-internal-color-dt), 60%);
+
+		--link-external-color: hsl(var(--link-external-color-dt));
+		--link-external-color-hover: hsla(var(--link-external-color-dt), 60%);
+
+		--link-unresolved-color: hsl(var(--link-internal-color-dt));
+		--inline-title-color: var(--inline-title-color-dt);
+
+		--code-background: var(--background-secondary-alt);
+		--blockquote-background-color: hsl(var(--background-secondary-hsl));
+
+		--checkbox-color: var(--background-primary);
+		--checkbox-border-color: var(--background-primary-alt);
+
+		--toggle-thumb-color: var(--text-normal);
+
+		--background-modifier-form-field: var(--background-secondary-alt);
+		--modal-background: var(--background-secondary-alt);
+
+		--scrollbar-bg: var(--background-secondary);
+
+		--pdf-background: var(--background-secondary-alt);
+		--pdf-sidebar-background: var(--background-secondary-alt);
+
+		--canvas-dot-pattern: hsla(var(--background-primary-alt-hsl), 80%);
+
+		--indentation-guide-color: hsla(var(--background-primary-alt-hsl), 80%);
+
+		--interactive-normal: var(--background-secondary);
+
+		--graph-line: var(--graph-line-color-dt);
+		--graph-node: var(--graph-fill-color-dt);
+		--graph-node-focused: var(--graph-fill-focused-color-dt);
+		--graph-node-tag: var(--graph-tag-color-dt);
+		--graph-node-attachment: var(--graph-attachment-color-dt);
+		--graph-node-unresolved: var(--graph-unresolved-color-dt);
+
+		// Style Settings Defaults
+		--graph-line-color-dt: var(--background-primary-alt);
+		--graph-fill-color-dt: var(--color-grey-text);
+		--graph-fill-focused-color-dt: var(--interactive-accent-text);
+		--graph-tag-color-dt: var(--color-blue-text);
+		--graph-attachment-color-dt: var(--color-yellow-text);
+		--graph-unresolved-color-dt: var(--color-red-text);
+
+		--h1-text-color-dt: var(--text-normal);
+		--h2-text-color-dt: var(--text-normal);
+		--h3-text-color-dt: var(--text-normal);
+		--h4-text-color-dt: var(--text-normal);
+		--h5-text-color-dt: var(--text-normal);
+		--h6-text-color-dt: var(--text-normal);
+
+		--bases-table-header-background: var(--background-secondary-alt);
+		--bases-table-cell-background-disabled: var(--background-secondary);
+		--bases-table-cell-background-active: var(--background-secondary-alt);
+
+		--setting-items-background: var(--background-secondary-alt);
+
+		// Style Settings Custom Options
+		&.pt-color-scheme-style-border-dt {
+			--background-secondary: var(--background-secondary-alt);
+			--background-secondary-blur: var(--background-secondary-alt-blur);
+
+			&.pt-disable-blur {
+				--background-secondary-blur: var(--background-secondary-alt);
+			}
+		}
+
+		&.pt-color-scheme-style-minimal-dt {
+			--background-secondary: var(--background-secondary-alt);
+			--background-secondary-blur: var(--background-secondary-alt-blur);
+			--window-border: 1px solid transparent;
+
+			&.pt-disable-blur {
+				--background-secondary-blur: var(--background-secondary-alt);
+			}
+		}
+
+		&.pt-highlight-text-light-dt {
+			--highlight-text-normal: var(--text-normal);
+		}
+
+		&.pt-highlight-text-dark-dt {
+			--highlight-text-normal: var(--background-primary);
+		}
+
+		&.pt-highlight-text-accent-dt {
+			--highlight-text-normal: var(--interactive-accent-text);
+		}
+
+		&.pt-highlight-text-custom-dt {
+			--highlight-text-normal: var(--highlight-text-accent-custom-dt);
+		}
+
+		&.pt-accent-color-custom-dt {
+			--interactive-accent-base-hsl: var(--color-accent-base-dt);
+			--interactive-accent-tint-hsl: var(--color-accent-tint-dt);
+			--interactive-accent-text-hsl: var(--color-accent-text-dt);
+			--interactive-accent-base: hsl(var(--color-accent-base-dt));
+			--interactive-accent-tint: hsl(var(--color-accent-tint-dt));
+			--interactive-accent-text: hsl(var(--color-accent-text-dt));
+			--interactive-accent-hover: hsl(var(--color-accent-tint-dt));
+		}
+
+		&.pt-accent-color-red-dt {
+			--interactive-accent-base-hsl: var(--color-red-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-red-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-red-text-hsl);
+			--interactive-accent-base: var(--color-red-base);
+			--interactive-accent-tint: var(--color-red-tint);
+			--interactive-accent-text: var(--color-red-text);
+			--interactive-accent-hover: var(--color-red-tint);
+		}
+
+		&.pt-accent-color-orange-dt {
+			--interactive-accent-base-hsl: var(--color-orange-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-orange-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-orange-text-hsl);
+			--interactive-accent-base: var(--color-orange-base);
+			--interactive-accent-tint: var(--color-orange-tint);
+			--interactive-accent-text: var(--color-orange-text);
+			--interactive-accent-hover: var(--color-orange-tint);
+		}
+
+		&.pt-accent-color-yellow-dt {
+			--interactive-accent-base-hsl: var(--color-yellow-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-yellow-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-yellow-text-hsl);
+			--interactive-accent-base: var(--color-yellow-base);
+			--interactive-accent-tint: var(--color-yellow-tint);
+			--interactive-accent-text: var(--color-yellow-text);
+			--interactive-accent-hover: var(--color-yellow-tint);
+		}
+
+		&.pt-accent-color-green-dt {
+			--interactive-accent-base-hsl: var(--color-green-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-green-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-green-text-hsl);
+			--interactive-accent-base: var(--color-green-base);
+			--interactive-accent-tint: var(--color-green-tint);
+			--interactive-accent-text: var(--color-green-text);
+			--interactive-accent-hover: var(--color-green-tint);
+		}
+
+		&.pt-accent-color-mint-dt {
+			--interactive-accent-base-hsl: var(--color-mint-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-mint-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-mint-text-hsl);
+			--interactive-accent-base: var(--color-mint-base);
+			--interactive-accent-tint: var(--color-mint-tint);
+			--interactive-accent-text: var(--color-mint-text);
+			--interactive-accent-hover: var(--color-mint-tint);
+		}
+
+		&.pt-accent-color-cyan-dt {
+			--interactive-accent-base-hsl: var(--color-cyan-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-cyan-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-cyan-text-hsl);
+			--interactive-accent-base: var(--color-cyan-base);
+			--interactive-accent-tint: var(--color-cyan-tint);
+			--interactive-accent-text: var(--color-cyan-text);
+			--interactive-accent-hover: var(--color-cyan-tint);
+		}
+
+		&.pt-accent-color-blue-dt {
+			--interactive-accent-base-hsl: var(--color-blue-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-blue-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-blue-text-hsl);
+			--interactive-accent-base: var(--color-blue-base);
+			--interactive-accent-tint: var(--color-blue-tint);
+			--interactive-accent-text: var(--color-blue-text);
+			--interactive-accent-hover: var(--color-blue-tint);
+		}
+
+		&.pt-accent-color-purple-dt {
+			--interactive-accent-base-hsl: var(--color-purple-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-purple-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-purple-text-hsl);
+			--interactive-accent-base: var(--color-purple-base);
+			--interactive-accent-tint: var(--color-purple-tint);
+			--interactive-accent-text: var(--color-purple-text);
+			--interactive-accent-hover: var(--color-purple-tint);
+		}
+
+		&.pt-accent-color-pink-dt {
+			--interactive-accent-base-hsl: var(--color-pink-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-pink-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-pink-text-hsl);
+			--interactive-accent-base: var(--color-pink-base);
+			--interactive-accent-tint: var(--color-pink-tint);
+			--interactive-accent-text: var(--color-pink-text);
+			--interactive-accent-hover: var(--color-pink-tint);
+		}
+
+		&.pt-accent-color-grey-dt {
+			--interactive-accent-base-hsl: var(--color-grey-base-hsl);
+			--interactive-accent-tint-hsl: var(--color-grey-tint-hsl);
+			--interactive-accent-text-hsl: var(--color-grey-text-hsl);
+			--interactive-accent-base: var(--color-grey-base);
+			--interactive-accent-tint: var(--color-grey-tint);
+			--interactive-accent-text: var(--color-grey-text);
+			--interactive-accent-hover: var(--color-grey-tint);
+		}
+	}
+}

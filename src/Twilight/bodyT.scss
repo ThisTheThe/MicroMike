@@ -1,6 +1,7 @@
 .twilight.is-frameless.is-hidden-frameless:not(.in-progress)
 {
-    background-image: var(--art-cloudsbg);
+    background-image: var(--art-bg-moon);
+    background-size: contain;
     app-region: drag;
 }
 .twilight
@@ -16,14 +17,15 @@
     .horizontal-main-container {
         position: relative; // needed for absolute children to anchor to
         border-top: 1px solid transparent;
+        
         border-image: linear-gradient(
             to right,
-            #767A88 1px,
-            #434757 7px,
-            #434757 calc(100% - 7px),
-            #767A88 calc(100%)
+            oklch(0.5809 0.0219 273.02) 1px,
+            oklch(0.4006 0.0275 274.09) 7px,
+            oklch(0.4006 0.0275 274.09) calc(100% - 7px),
+            oklch(0.5809 0.0219 273.02) calc(100%)
         ) 1;
-        background-image: var(--backgroundCornerPiece), linear-gradient(to bottom, #102B6311, #0A1C4988);
+        background-image: var(--backgroundCornerPiece), linear-gradient(to bottom, oklch(0.3059 0.1047 262.57 / 0.0667), oklch(0.244 0.0874 264.34 / 0.5333));
         background-size: 140px auto;
         box-shadow: 0px 0px 14px 1px hsla(0, 0%, 0%, .35), 0px 0px 24px hsla(0, 88%, 6%, .45), 0 1px 0 0 black;
 
@@ -55,7 +57,7 @@
             left: 0; // anchor to left edge
             height: 100%;
             width: 1px;
-            background: linear-gradient(to bottom, #767A88, #434757 7px, #000000);
+            background: linear-gradient(to bottom, oklch(0.5809 0.0219 273.02), oklch(0.4006 0.0275 274.09) 7px, oklch(0 0 0));
         }
 
         &::after {
@@ -65,7 +67,7 @@
             right: 0; // anchor to right edge
             height: 100%;
             width: 1px;
-            background: linear-gradient(to bottom, #767A88, #434757 7px, #000000);
+            background: linear-gradient(to bottom, oklch(0.5809 0.0219 273.02), oklch(0.4006 0.0275 274.09) 7px, oklch(0 0 0));
         }
     }
 }

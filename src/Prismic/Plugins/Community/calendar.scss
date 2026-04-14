@@ -1,0 +1,63 @@
+// [Plugins - Community] Calendar
+.workspace-leaf-content[data-type="calendar"] {
+	.view-content {
+		padding: unset;
+	}
+
+	#calendar-container {
+		padding: unset;
+		border-bottom: var(--window-border);
+
+		.nav {
+			height: var(--header-height);
+			padding: var(--size-4-3);
+			margin: unset;
+			background: var(--background-secondary);
+			border-bottom: var(--window-border);
+		}
+
+		td.svelte-egt0yd {
+			background-color: var(--background-secondary);
+		}
+
+		th.svelte-pcimu8 {
+			background-color: var(--background-secondary);
+			border-bottom: var(--window-border);
+		}
+
+		div.today {
+			font-size: 1em;
+			font-weight: 600;
+			color: var(--interactive-accent-text);
+		}
+
+		.day.svelte-q3wqg9:active,
+		.active.svelte-q3wqg9,
+		.active.today.svelte-q3wqg9 {
+			background-color: var(--interactive-accent-base);
+		}
+
+		.week-num {
+			font-size: 0.7em;
+		}
+
+		.year {
+			color: var(--interactive-accent-text);
+		}
+
+		.dot.filled {
+			fill: var(--interactive-accent-text);
+		}
+
+		.hollow.task {
+			stroke: var(--interactive-accent-text);
+		}
+
+		.arrow:hover svg,
+		.reset-button:hover {
+			color: var(--highlight-text-normal);
+			background-color: var(--background-modifier-hover);
+			border-radius: var(--radius-s);
+		}
+	}
+}

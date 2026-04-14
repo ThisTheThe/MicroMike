@@ -1,0 +1,27 @@
+// [Plugins - Core] Audio
+audio::-webkit-media-controls-panel {
+	background-color: var(--background-secondary);
+	border-radius: var(--radius-s);
+}
+
+audio::-webkit-media-controls-mute-button:hover,
+audio::-webkit-media-controls-play-button:hover {
+	background-color: var(--interactive-accent-base);
+	border-radius: var(--radius-s);
+	opacity: 1;
+}
+
+audio::-webkit-media-controls-volume-slider {
+	padding-right: var(--size-4-2);
+}
+
+audio::-webkit-media-controls-current-time-display {
+	margin-left: var(--size-4-3);
+	font-family: var(--font-interface);
+	color: var(--text-normal);
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+	font-family: var(--font-interface);
+	color: var(--text-normal);
+}

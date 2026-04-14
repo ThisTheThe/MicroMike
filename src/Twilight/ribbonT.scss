@@ -5,8 +5,8 @@
         position: fixed;
         top: 0px;
         left: 0px;
-        border-right: 1px solid #424568;
-        border-image: linear-gradient(to bottom, #767A88, #434757 7px, #000000) 1;
+        border-right: 1px solid oklch(0.4033 0.0588 279.64);
+        border-image: linear-gradient(to bottom, oklch(0.5809 0.0219 273.02), oklch(0.4006 0.0275 274.09) 7px, oklch(0 0 0)) 1;
         margin-top: 0px;
         padding-top: 40px;
         height: 100%;
